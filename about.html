@@ -12,7 +12,7 @@
           content="Pixel Nest Digital — Technology, Creativity and Digital Solutions.">
 
     <meta name="theme-color"
-          content="#ffffff">
+          content="#07111F">
 
     <title>About Us | Pixel Nest Digital</title>
 
@@ -73,7 +73,6 @@
             --pnd-text: #E2E8F0;
             --pnd-muted: #94A3B8;
 
-            --pnd-black: #000000;
             --pnd-dark-text: #111827;
 
             --pnd-light-bg: #FFFFFF;
@@ -82,8 +81,6 @@
             --pnd-light-border: #E5E7EB;
 
             --pnd-border: rgba(148,163,184,.15);
-
-            --pnd-glass: rgba(255,255,255,.045);
 
         }
 
@@ -259,14 +256,14 @@
 
             gap: 28px;
 
+            position: relative;
+
         }
 
 
         /* =========================================================
            HEADER LOGO
-           
-           ONLY LOGO IMAGE
-           NO TEXT
+           IMAGE ONLY
         ========================================================== */
 
         .pnd-header-logo {
@@ -275,32 +272,49 @@
 
             align-items: center;
 
-            justify-content: center;
+            justify-content: flex-start;
 
             flex-shrink: 0;
 
-            height: 54px;
-
             width: auto;
+
+            max-width: 240px;
+
+            height: 58px;
+
+            overflow: visible;
 
         }
 
 
         .pnd-header-logo img {
 
-            height: 52px;
+            display: block;
 
             width: auto;
 
+            height: auto;
+
             max-width: 230px;
 
+            max-height: 54px;
+
             object-fit: contain;
+
+            object-position: center;
+
+            transition: transform .25s ease,
+                        opacity .25s ease;
 
         }
 
 
-        .pnd-header-logo:hover {
-            opacity: .92;
+        .pnd-header-logo:hover img {
+
+            transform: scale(1.02);
+
+            opacity: .94;
+
         }
 
 
@@ -347,6 +361,18 @@
 
         .pnd-search input::placeholder {
             color: #64748B;
+        }
+
+
+        .pnd-search input:focus {
+
+            border-color:
+                rgba(6,182,212,.40);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(6,182,212,.06);
+
         }
 
 
@@ -436,6 +462,16 @@
         }
 
 
+        .pnd-nav-cta:hover {
+
+            transform:
+                translateY(-2px);
+
+            color: #fff !important;
+
+        }
+
+
         /* =========================================================
            MOBILE MENU BUTTON
         ========================================================== */
@@ -450,7 +486,8 @@
 
             height: 42px;
 
-            border: 1px solid
+            border:
+                1px solid
                 rgba(255,255,255,.10);
 
             border-radius: 11px;
@@ -636,6 +673,8 @@
 
             font-size: 15px;
 
+            margin-bottom: 15px;
+
         }
 
 
@@ -666,6 +705,8 @@
             display: inline-flex;
 
             align-items: center;
+
+            justify-content: center;
 
             gap: 9px;
 
@@ -711,49 +752,6 @@
         }
 
 
-        .pnd-btn-outline {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            padding:
-                12px 20px;
-
-            border-radius: 11px;
-
-            border:
-                1px solid var(--pnd-border);
-
-            background:
-                rgba(255,255,255,.035);
-
-            color: #CBD5E1;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            transition: .3s;
-
-        }
-
-
-        .pnd-btn-outline:hover {
-
-            color: #fff;
-
-            border-color:
-                rgba(6,182,212,.35);
-
-            background:
-                rgba(6,182,212,.06);
-
-        }
-
-
         /* =========================================================
            HERO VISUAL
         ========================================================== */
@@ -767,6 +765,8 @@
             display: grid;
 
             place-items: center;
+
+            overflow: visible;
 
         }
 
@@ -792,98 +792,7 @@
 
             filter: blur(5px);
 
-        }
-
-
-        .pnd-about-orb {
-
-            width: 285px;
-
-            height: 285px;
-
-            border-radius: 50%;
-
-            position: relative;
-
-            z-index: 3;
-
-            display: grid;
-
-            place-items: center;
-
-            background:
-
-                radial-gradient(
-                    circle at 32% 28%,
-                    rgba(96,165,250,.65),
-                    rgba(37,99,235,.32) 35%,
-                    rgba(7,17,31,.8) 70%
-                );
-
-            border:
-                1px solid rgba(96,165,250,.45);
-
-            box-shadow:
-
-                inset 0 0 50px
-                rgba(37,99,235,.25),
-
-                0 0 35px
-                rgba(37,99,235,.35),
-
-                0 0 110px
-                rgba(6,182,212,.13);
-
-            animation:
-                pndOrb 5s ease-in-out infinite;
-
-        }
-
-
-        .pnd-about-orb-inner {
-
-            width: 185px;
-
-            height: 185px;
-
-            border-radius: 50%;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid
-                rgba(255,255,255,.16);
-
-            background:
-                rgba(255,255,255,.035);
-
-            backdrop-filter:
-                blur(10px);
-
-        }
-
-
-        .pnd-about-orb-inner strong {
-
-            font-size: 52px;
-
-            letter-spacing: -4px;
-
-            background:
-
-                linear-gradient(
-                    135deg,
-                    #60A5FA,
-                    #22D3EE,
-                    #A78BFA
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-
-            color: transparent;
+            z-index: 0;
 
         }
 
@@ -908,6 +817,10 @@
 
             animation:
                 pndOrbit 20s linear infinite;
+
+            z-index: 1;
+
+            pointer-events: none;
 
         }
 
@@ -957,6 +870,111 @@
 
 
         /* =========================================================
+           MAIN LOGO ORB
+        ========================================================== */
+
+        .pnd-about-orb {
+
+            width: 285px;
+
+            height: 285px;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            z-index: 3;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 32% 28%,
+                    rgba(96,165,250,.65),
+                    rgba(37,99,235,.32) 35%,
+                    rgba(7,17,31,.8) 70%
+                );
+
+            border:
+                1px solid rgba(96,165,250,.45);
+
+            box-shadow:
+
+                inset 0 0 50px
+                rgba(37,99,235,.25),
+
+                0 0 35px
+                rgba(37,99,235,.35),
+
+                0 0 110px
+                rgba(6,182,212,.13);
+
+            animation:
+                pndOrb 5s ease-in-out infinite;
+
+        }
+
+
+        .pnd-about-orb-inner {
+
+            width: 225px;
+
+            height: 225px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.16);
+
+            background:
+                rgba(255,255,255,.035);
+
+            backdrop-filter:
+                blur(10px);
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================================
+           HERO LOGO IMAGE
+        ========================================================== */
+
+        .pnd-hero-logo {
+
+            display: block;
+
+            width: 82%;
+
+            height: auto;
+
+            max-width: 210px;
+
+            max-height: 150px;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            position: relative;
+
+            z-index: 10;
+
+            margin: auto;
+
+        }
+
+
+        /* =========================================================
            FLOATING CARDS
         ========================================================== */
 
@@ -982,6 +1000,9 @@
             backdrop-filter:
                 blur(15px);
 
+            -webkit-backdrop-filter:
+                blur(15px);
+
             box-shadow:
                 0 18px 45px
                 rgba(0,0,0,.28);
@@ -998,11 +1019,13 @@
         }
 
 
-        .pnd-float-card i {
+        .pnd-float-icon {
 
             width: 34px;
 
             height: 34px;
+
+            min-width: 34px;
 
             display: grid;
 
@@ -1083,11 +1106,34 @@
         }
 
 
+        /* =========================================================
+           SECTION HEADER
+           ALWAYS CENTERED
+        ========================================================== */
+
         .pnd-section-header {
 
-            max-width: 720px;
+            width: 100%;
 
-            margin-bottom: 38px;
+            max-width: 850px;
+
+            margin:
+                0 auto 38px;
+
+            text-align: center !important;
+
+        }
+
+
+        .pnd-section-header .pnd-label,
+        .pnd-section-header h2,
+        .pnd-section-header p {
+
+            text-align: center !important;
+
+            margin-left: auto;
+
+            margin-right: auto;
 
         }
 
@@ -1114,6 +1160,8 @@
 
             letter-spacing: -1.5px;
 
+            line-height: 1.1;
+
             font-weight: 800;
 
             color: #F8FAFC;
@@ -1131,17 +1179,17 @@
 
             font-size: 14px;
 
+            max-width: 680px;
+
+            margin-bottom: 0;
+
         }
 
 
         /* =========================================================
-           =========================================================
            OUR STORY
-           
            WHITE BACKGROUND
-           BLACK TEXT
-           ========================================================
-           ========================================================= */
+        ========================================================== */
 
         #story {
 
@@ -1149,45 +1197,39 @@
 
             color: #000000;
 
-            margin-left: calc(
-                (100% - 100vw) / 2
-            );
+            margin-left:
+                calc((100% - 100vw) / 2);
 
-            margin-right: calc(
-                (100% - 100vw) / 2
-            );
+            margin-right:
+                calc((100% - 100vw) / 2);
 
-            padding-left: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-left:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
-            padding-right: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-right:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
         }
 
 
         #story .pnd-section-header h2 {
-
             color: #000000;
-
         }
 
 
         #story .pnd-section-header p {
-
             color: #4B5563;
-
         }
 
 
         #story .pnd-label {
-
             color: #2563EB;
-
         }
 
 
@@ -1203,6 +1245,8 @@
                 1.2fr .8fr;
 
             gap: 20px;
+
+            align-items: stretch;
 
         }
 
@@ -1292,8 +1336,21 @@
 
 
         #story .pnd-story-main strong {
-
             color: #2563EB;
+        }
+
+
+        /* =========================================================
+           STORY SIDE STACK
+        ========================================================== */
+
+        .pnd-side-stack {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 15px;
 
         }
 
@@ -1302,31 +1359,37 @@
            STORY MINI CARDS
         ========================================================== */
 
-        #story .pnd-side-stack {
-
-            display: grid;
-
-            gap: 15px;
-
-        }
-
-
         #story .pnd-mini-card {
+
+            position: relative;
+
+            min-height: 150px;
 
             padding: 22px;
 
             border-radius: 15px;
 
-            background: #FFFFFF;
+            color: #FFFFFF;
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
 
             border:
-                1px solid #E5E7EB;
+                1px solid
+                rgba(255,255,255,.10);
 
             box-shadow:
                 0 12px 35px
-                rgba(15,23,42,.05);
+                rgba(15,23,42,.12);
 
-            transition: .3s;
+            overflow: hidden;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
 
         }
 
@@ -1336,12 +1399,38 @@
             transform:
                 translateY(-5px);
 
-            border-color:
-                rgba(37,99,235,.35);
-
             box-shadow:
                 0 20px 45px
-                rgba(37,99,235,.10);
+                rgba(15,23,42,.18);
+
+        }
+
+
+        #story .pnd-mini-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,0,0,.48),
+                    rgba(0,0,0,.68)
+                );
+
+            z-index: 0;
+
+        }
+
+
+        #story .pnd-mini-card > * {
+
+            position: relative;
+
+            z-index: 1;
 
         }
 
@@ -1359,9 +1448,9 @@
             border-radius: 10px;
 
             background:
-                rgba(37,99,235,.08);
+                rgba(255,255,255,.15);
 
-            color: #2563EB;
+            color: #FFFFFF;
 
             margin-bottom: 12px;
 
@@ -1370,11 +1459,11 @@
 
         #story .pnd-mini-card h4 {
 
-            color: #000000;
+            color: #FFFFFF;
 
-            font-size: 15px;
+            font-size: 17px;
 
-            font-weight: 700;
+            font-weight: 800;
 
             margin-bottom: 6px;
 
@@ -1385,11 +1474,40 @@
 
             margin: 0;
 
-            color: #64748B;
+            color:
+                rgba(255,255,255,.85);
 
             font-size: 12px;
 
             line-height: 1.6;
+
+        }
+
+
+        /* =========================================================
+           STORY BACKGROUND IMAGES
+        ========================================================== */
+
+        .pnd-card-bg-dream {
+
+            background-image:
+                url('img/concept-business-growth-profit-development-success-seedling-are-growing-from-rich-soil_117255-1665.PNG');
+
+        }
+
+
+        .pnd-card-bg-create {
+
+            background-image:
+                url('img/b2b_portals_1600x1067px.png');
+
+        }
+
+
+        .pnd-card-bg-grow {
+
+            background-image:
+                url('img/robotic-process-automation-of-business-workflows-with-a-businessman-in-background-touching-a-button-photo.png');
 
         }
 
@@ -1697,13 +1815,9 @@
 
 
         /* =========================================================
-           =========================================================
            OUR VALUES
-           
            WHITE BACKGROUND
-           BLACK TEXT
-           ========================================================
-           ========================================================= */
+        ========================================================== */
 
         #values {
 
@@ -1711,45 +1825,39 @@
 
             color: #000000;
 
-            margin-left: calc(
-                (100% - 100vw) / 2
-            );
+            margin-left:
+                calc((100% - 100vw) / 2);
 
-            margin-right: calc(
-                (100% - 100vw) / 2
-            );
+            margin-right:
+                calc((100% - 100vw) / 2);
 
-            padding-left: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-left:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
-            padding-right: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-right:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
         }
 
 
         #values .pnd-section-header h2 {
-
             color: #000000;
-
         }
 
 
         #values .pnd-section-header p {
-
             color: #4B5563;
-
         }
 
 
         #values .pnd-label {
-
             color: #2563EB;
-
         }
 
 
@@ -1849,6 +1957,8 @@
 
         .pnd-value-card i {
 
+            display: block;
+
             color: #2563EB;
 
             font-size: 22px;
@@ -1878,6 +1988,8 @@
             font-size: 12px;
 
             line-height: 1.7;
+
+            margin: 0;
 
         }
 
@@ -1974,13 +2086,9 @@
 
 
         /* =========================================================
-           =========================================================
            CREATED UNDER
-           
            WHITE BACKGROUND
-           BLACK TEXT
-           ========================================================
-           ========================================================= */
+        ========================================================== */
 
         #created-under {
 
@@ -1988,31 +2096,29 @@
 
             color: #000000;
 
-            margin-left: calc(
-                (100% - 100vw) / 2
-            );
+            margin-left:
+                calc((100% - 100vw) / 2);
 
-            margin-right: calc(
-                (100% - 100vw) / 2
-            );
+            margin-right:
+                calc((100% - 100vw) / 2);
 
-            padding-left: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-left:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
-            padding-right: max(
-                calc((100vw - 1250px) / 2),
-                4%
-            );
+            padding-right:
+                max(
+                    calc((100vw - 1250px) / 2),
+                    4%
+                );
 
         }
 
 
         #created-under .pnd-label {
-
             color: #2563EB;
-
         }
 
 
@@ -2073,6 +2179,10 @@
         }
 
 
+        /* =========================================================
+           VENTURES LOGO
+        ========================================================== */
+
         .pnd-venture-logo {
 
             width: 135px;
@@ -2081,27 +2191,36 @@
 
             border-radius: 30px;
 
-            display: grid;
+            display: flex;
 
-            place-items: center;
+            align-items: center;
 
-            font-size: 30px;
+            justify-content: center;
 
-            font-weight: 800;
+            overflow: hidden;
 
             background:
+                #07111F;
 
-                linear-gradient(
-                    135deg,
-                    var(--pnd-blue),
-                    var(--pnd-violet)
-                );
-
-            color: #fff;
+            border:
+                1px solid #E5E7EB;
 
             box-shadow:
                 0 0 45px
-                rgba(37,99,235,.20);
+                rgba(37,99,235,.15);
+
+        }
+
+
+        .pnd-venture-logo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            padding: 12px;
 
         }
 
@@ -2265,8 +2384,6 @@
         }
 
 
-        /* Footer logo — IMAGE ONLY */
-
         .pnd-footer-logo {
 
             display: inline-flex;
@@ -2285,6 +2402,8 @@
             width: 210px;
 
             height: auto;
+
+            max-height: 65px;
 
             object-fit: contain;
 
@@ -2463,13 +2582,19 @@
 
 
         /* =========================================================
-           TABLET
+           LARGE TABLET / SMALL LAPTOP
         ========================================================== */
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1200px) {
+
+            .pnd-nav-inner {
+                width: 94%;
+                gap: 18px;
+            }
+
 
             .pnd-nav-links {
-                gap: 14px;
+                gap: 15px;
             }
 
 
@@ -2479,43 +2604,32 @@
 
 
             .pnd-about-hero {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-                gap: 30px;
-
+                gap: 35px;
             }
 
 
             .pnd-service-grid {
-
                 grid-template-columns:
                     repeat(3,1fr);
-
             }
 
 
             .pnd-values-grid {
-
                 grid-template-columns:
                     repeat(2,1fr);
-
             }
 
 
             .pnd-journey {
-
                 grid-template-columns:
                     repeat(2,1fr);
-
             }
 
         }
 
 
         /* =========================================================
-           MOBILE NAV
+           MOBILE NAV / TABLET
         ========================================================== */
 
         @media (max-width: 900px) {
@@ -2531,9 +2645,83 @@
 
 
             .pnd-mobile-toggle {
+
                 display: grid;
 
                 place-items: center;
+
+            }
+
+
+            .pnd-nav-links.pnd-mobile-open {
+
+                display: flex;
+
+                position: absolute;
+
+                top: calc(100% + 8px);
+
+                left: 0;
+
+                right: 0;
+
+                width: 100%;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 4px;
+
+                background:
+                    rgba(7,17,31,.98);
+
+                border:
+                    1px solid
+                    rgba(148,163,184,.15);
+
+                border-radius: 15px;
+
+                backdrop-filter:
+                    blur(20px);
+
+                -webkit-backdrop-filter:
+                    blur(20px);
+
+                box-shadow:
+                    0 25px 60px
+                    rgba(0,0,0,.4);
+
+            }
+
+
+            .pnd-nav-links.pnd-mobile-open a {
+
+                padding:
+                    13px 12px;
+
+                border-radius: 9px;
+
+            }
+
+
+            .pnd-nav-links.pnd-mobile-open a:hover {
+
+                background:
+                    rgba(255,255,255,.05);
+
+            }
+
+
+            .pnd-nav-links.pnd-mobile-open
+            .pnd-nav-cta {
+
+                text-align: center;
+
+                margin-top: 8px;
+
             }
 
 
@@ -2546,9 +2734,34 @@
             }
 
 
+            .pnd-about-copy {
+
+                text-align: center;
+
+            }
+
+
+            .pnd-about-copy > p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+
+            .pnd-hero-actions {
+
+                justify-content: center;
+
+            }
+
+
             .pnd-hero-visual {
 
-                min-height: 450px;
+                min-height: 500px;
+
+                margin-top: 15px;
 
             }
 
@@ -2572,6 +2785,15 @@
             .pnd-venture-logo {
 
                 margin: auto;
+
+            }
+
+
+            #created-under .pnd-venture p {
+
+                margin-left: auto;
+
+                margin-right: auto;
 
             }
 
@@ -2606,18 +2828,27 @@
             }
 
 
+            .pnd-nav-inner {
+
+                width: 92%;
+
+            }
+
+
             .pnd-header-logo {
 
-                height: 48px;
+                height: 50px;
+
+                max-width: 190px;
 
             }
 
 
             .pnd-header-logo img {
 
-                height: 43px;
+                max-width: 180px;
 
-                max-width: 190px;
+                max-height: 48px;
 
             }
 
@@ -2652,7 +2883,9 @@
 
             .pnd-hero-visual {
 
-                min-height: 420px;
+                min-height: 440px;
+
+                width: 100%;
 
             }
 
@@ -2668,16 +2901,20 @@
 
             .pnd-about-orb-inner {
 
-                width: 145px;
+                width: 175px;
 
-                height: 145px;
+                height: 175px;
 
             }
 
 
-            .pnd-about-orb-inner strong {
+            .pnd-hero-logo {
 
-                font-size: 40px;
+                width: 82%;
+
+                max-width: 155px;
+
+                max-height: 105px;
 
             }
 
@@ -2691,20 +2928,58 @@
             }
 
 
+            .pnd-hero-glow {
+
+                width: 280px;
+
+                height: 280px;
+
+            }
+
+
             .pnd-float-card {
 
                 min-width: 145px;
 
+                max-width: 165px;
+
                 padding: 10px;
+
+                gap: 8px;
+
+            }
+
+
+            .pnd-float-icon {
+
+                width: 30px;
+
+                height: 30px;
+
+                min-width: 30px;
+
+            }
+
+
+            .pnd-float-card strong {
+
+                font-size: 10px;
+
+            }
+
+
+            .pnd-float-card small {
+
+                font-size: 8px;
 
             }
 
 
             .pnd-float-one {
 
-                top: 20px;
+                top: 25px;
 
-                left: -5px;
+                left: -3px;
 
             }
 
@@ -2713,14 +2988,14 @@
 
                 top: 125px;
 
-                right: -5px;
+                right: -3px;
 
             }
 
 
             .pnd-float-three {
 
-                bottom: 25px;
+                bottom: 20px;
 
                 left: 0;
 
@@ -2735,7 +3010,41 @@
             }
 
 
-            .pnd-glass-card {
+            .pnd-section-header {
+
+                padding:
+                    0 10px;
+
+                margin-bottom:
+                    35px;
+
+            }
+
+
+            .pnd-section-header h2 {
+
+                font-size: 28px;
+
+            }
+
+
+            .pnd-section-header p {
+
+                font-size: 13px;
+
+            }
+
+
+            #story {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+
+            }
+
+
+            #story .pnd-glass-card {
 
                 padding: 22px;
 
@@ -2747,6 +3056,8 @@
                 grid-template-columns:
                     repeat(2,1fr);
 
+                gap: 10px;
+
             }
 
 
@@ -2755,6 +3066,20 @@
                 min-height: 175px;
 
                 padding: 16px;
+
+            }
+
+
+            .pnd-service-card h4 {
+
+                font-size: 13px;
+
+            }
+
+
+            .pnd-service-card p {
+
+                font-size: 10px;
 
             }
 
@@ -2781,6 +3106,22 @@
             }
 
 
+            .pnd-dream h2 {
+
+                font-size: 31px;
+
+            }
+
+
+            #created-under {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+
+            }
+
+
             #created-under .pnd-venture {
 
                 padding: 25px;
@@ -2788,9 +3129,40 @@
             }
 
 
+            .pnd-venture-logo {
+
+                width: 120px;
+
+                height: 120px;
+
+            }
+
+
+            #created-under .pnd-venture h3 {
+
+                font-size: 24px;
+
+            }
+
+
+            .pnd-cta-box {
+
+                padding:
+                    38px 20px;
+
+            }
+
+
             .pnd-footer-grid {
 
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .pnd-footer-logo img {
+
+                width: 180px;
 
             }
 
@@ -2812,6 +3184,22 @@
 
         @media (max-width: 380px) {
 
+            .pnd-header-logo {
+
+                max-width: 165px;
+
+            }
+
+
+            .pnd-header-logo img {
+
+                max-width: 160px;
+
+                max-height: 44px;
+
+            }
+
+
             .pnd-service-grid {
 
                 grid-template-columns: 1fr;
@@ -2819,24 +3207,60 @@
             }
 
 
+            .pnd-hero-visual {
+
+                min-height: 400px;
+
+            }
+
+
+            .pnd-about-orb {
+
+                width: 195px;
+
+                height: 195px;
+
+            }
+
+
+            .pnd-about-orb-inner {
+
+                width: 150px;
+
+                height: 150px;
+
+            }
+
+
+            .pnd-hero-logo {
+
+                max-width: 135px;
+
+                max-height: 90px;
+
+            }
+
+
+            .pnd-orbit {
+
+                width: 270px;
+
+                height: 270px;
+
+            }
+
+
             .pnd-float-card {
 
                 transform:
-                    scale(.85);
+                    scale(.82);
 
             }
 
 
             .pnd-float-two {
 
-                right: -18px;
-
-            }
-
-
-            .pnd-header-logo img {
-
-                max-width: 165px;
+                right: -15px;
 
             }
 
@@ -2877,92 +3301,7 @@
 
         }
 
-
-        .pnd-hero-logo {
-    width: 75%;
-    height: 75%;
-    object-fit: contain;
-    display: block;
-    margin: auto;
-    position: relative;
-    z-index: 2;
-}
-
-/* Stack container spacing */
-.pnd-side-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Base mini-card styles */
-.pnd-mini-card {
-    position: relative;
-    padding: 24px;
-    border-radius: 12px;
-    color: #ffffff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Smooth hover effect */
-.pnd-mini-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-}
-
-/* Icon styling */
-.pnd-mini-icon {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: #ffffff;
-}
-
-/* Typography adjustments inside cards */
-.pnd-mini-card h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #ffffff;
-}
-
-.pnd-mini-card p {
-    font-size: 0.95rem;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.4;
-}
-
-/* =================================================
-   INDIVIDUAL BACKGROUND IMAGES WITH OVERLAYS
-   Note: Adjust "../img/" to "img/" if CSS is not in a subfolder.
-================================================== */
-
-.pnd-card-bg-dream {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-        url('img/istockphoto-520323859-2048x2048.jpg');
-}
-
-.pnd-card-bg-create {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-        url('img/create-bg.jpg');
-}
-
-.pnd-card-bg-grow {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-        url('img/grow-bg.jpg');
-}
-
-
     </style>
-    
 
 </head>
 
@@ -2987,17 +3326,7 @@
     <div class="pnd-nav-inner">
 
 
-        <!-- =====================================================
-             HEADER LOGO ONLY
-
-             CHANGE THIS ONE PATH TO YOUR LOGO
-
-             Example:
-             images/pixel-nest-logo.png
-
-             Django:
-             {% static 'img/pixel-nest-logo.png' %}
-        ====================================================== -->
+        <!-- LOGO -->
 
         <a href="index.html"
            class="pnd-header-logo"
@@ -3010,9 +3339,7 @@
         </a>
 
 
-        <!-- =====================================================
-             SEARCH
-        ====================================================== -->
+        <!-- SEARCH -->
 
         <div class="pnd-search">
 
@@ -3034,9 +3361,7 @@
         </div>
 
 
-        <!-- =====================================================
-             DESKTOP NAVIGATION
-        ====================================================== -->
+        <!-- DESKTOP NAVIGATION -->
 
         <nav class="pnd-nav-links"
              id="pndNavLinks">
@@ -3049,10 +3374,7 @@
                 Services
             </a>
 
-            <!-- <a href="about.html">
-                About
-            </a> -->
-             <a href="contact.html">
+            <a href="contact.html">
                 Contact
             </a>
 
@@ -3063,6 +3385,7 @@
             <a href="team.html">
                 Team
             </a>
+
             <a href="start-project.html"
                class="pnd-nav-cta">
 
@@ -3073,9 +3396,7 @@
         </nav>
 
 
-        <!-- =====================================================
-             MOBILE BUTTON
-        ====================================================== -->
+        <!-- MOBILE BUTTON -->
 
         <button
             class="pnd-mobile-toggle"
@@ -3098,7 +3419,6 @@
 ============================================================== -->
 
 <main>
-
 
 <div class="pnd-container">
 
@@ -3152,9 +3472,8 @@
 
             <div class="pnd-hero-actions">
 
-
                 <a
-                    href="services.htML"
+                    href="services.html"
                     class="pnd-btn-primary">
 
                     Explore Services
@@ -3163,10 +3482,6 @@
 
                 </a>
 
-
-                
-
-
             </div>
 
 
@@ -3174,110 +3489,113 @@
 
 
 
-     <!-- =====================================================
-     HERO VISUAL — PIXEL NEST DIGITAL
-====================================================== -->
+        <!-- =====================================================
+             HERO VISUAL
+        ====================================================== -->
 
-<div class="pnd-hero-visual">
-
-    <!-- Ambient Glow -->
-    <div class="pnd-hero-glow"></div>
-
-    <!-- Orbit Ring -->
-    <div class="pnd-orbit"></div>
-
-    <!-- Main Logo Orb -->
-    <div class="pnd-about-orb">
-
-        <div class="pnd-about-orb-inner">
-
-            <img
-                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                alt="Pixel Nest Digital Logo"
-                class="pnd-hero-logo"
-                loading="eager"
-            >
-
-        </div>
-
-    </div>
+        <div class="pnd-hero-visual">
 
 
-    <!-- =================================================
-         FLOATING CARD 1 — DEVELOPMENT
-    ================================================== -->
+            <!-- Ambient Glow -->
 
-    <div class="pnd-float-card pnd-float-one">
-
-        <div class="pnd-float-icon">
-            <i class="bi bi-code-slash"></i>
-        </div>
-
-        <div class="pnd-float-content">
-
-            <strong>
-                Digital Development
-            </strong>
-
-            <small>
-                Build • Launch • Grow
-            </small>
-
-        </div>
-
-    </div>
+            <div class="pnd-hero-glow"></div>
 
 
-    <!-- =================================================
-         FLOATING CARD 2 — DESIGN
-    ================================================== -->
+            <!-- Orbit Ring -->
 
-    <div class="pnd-float-card pnd-float-two">
-
-        <div class="pnd-float-icon">
-            <i class="bi bi-palette"></i>
-        </div>
-
-        <div class="pnd-float-content">
-
-            <strong>
-                Creative Design
-            </strong>
-
-            <small>
-                Brand • Visual • Identity
-            </small>
-
-        </div>
-
-    </div>
+            <div class="pnd-orbit"></div>
 
 
-    <!-- =================================================
-         FLOATING CARD 3 — MEDIA
-    ================================================== -->
+            <!-- Main Logo Orb -->
 
-    <div class="pnd-float-card pnd-float-three">
+            <div class="pnd-about-orb">
 
-        <div class="pnd-float-icon">
-            <i class="bi bi-camera"></i>
-        </div>
+                <div class="pnd-about-orb-inner">
 
-        <div class="pnd-float-content">
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital Logo"
+                        class="pnd-hero-logo"
+                        loading="eager">
 
-            <strong>
-                Creative Media
-            </strong>
+                </div>
 
-            <small>
-                Photo • Video • Content
-            </small>
+            </div>
 
-        </div>
 
-    </div>
+            <!-- FLOATING CARD 1 -->
 
-</div>
+            <div class="pnd-float-card pnd-float-one">
+
+                <div class="pnd-float-icon">
+
+                    <i class="bi bi-code-slash"></i>
+
+                </div>
+
+                <div class="pnd-float-content">
+
+                    <strong>
+                        Digital Development
+                    </strong>
+
+                    <small>
+                        Build • Launch • Grow
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING CARD 2 -->
+
+            <div class="pnd-float-card pnd-float-two">
+
+                <div class="pnd-float-icon">
+
+                    <i class="bi bi-palette"></i>
+
+                </div>
+
+                <div class="pnd-float-content">
+
+                    <strong>
+                        Creative Design
+                    </strong>
+
+                    <small>
+                        Brand • Visual • Identity
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLOATING CARD 3 -->
+
+            <div class="pnd-float-card pnd-float-three">
+
+                <div class="pnd-float-icon">
+
+                    <i class="bi bi-camera"></i>
+
+                </div>
+
+                <div class="pnd-float-content">
+
+                    <strong>
+                        Creative Media
+                    </strong>
+
+                    <small>
+                        Photo • Video • Content
+                    </small>
+
+                </div>
+
+            </div>
 
 
         </div>
@@ -3288,9 +3606,6 @@
 
     <!-- =========================================================
          OUR STORY
-         
-         WHITE BACKGROUND
-         BLACK TEXT
     ========================================================== -->
 
     <section
@@ -3300,29 +3615,19 @@
 
         <div class="pnd-section-header">
 
-
             <div class="pnd-label">
-
                 OUR STORY
-
             </div>
 
-
             <h2>
-
                 The dream behind Pixel Nest.
-
             </h2>
 
-
             <p>
-
                 Pixel Nest Digital is more than a collection of
                 digital services. It is a vision built around people,
                 ideas, creativity and the courage to start.
-
             </p>
-
 
         </div>
 
@@ -3331,17 +3636,12 @@
         <div class="pnd-story-layout">
 
 
-            <!-- =================================================
-                 STORY MAIN
-            ================================================== -->
+            <!-- STORY MAIN -->
 
             <div class="pnd-glass-card pnd-story-main">
 
-
                 <h3>
-
-                    The Dream of Youth
-
+                    The Dream 
                 </h3>
 
 
@@ -3408,46 +3708,83 @@
 
                 </p>
 
-
             </div>
 
 
-<!-- =================================================
-     STORY SIDE CARDS
-================================================== -->
 
-<div class="pnd-side-stack">
+            <!-- STORY SIDE CARDS -->
 
-    <!-- Dream Card -->
-    <div class="pnd-mini-card pnd-card-bg-dream">
-        <div class="pnd-mini-icon">
-            <i class="bi bi-lightbulb"></i>
+            <div class="pnd-side-stack">
+
+
+                <!-- DREAM -->
+
+                <div class="pnd-mini-card pnd-card-bg-dream">
+
+                    <div class="pnd-mini-icon">
+
+                        <i class="bi bi-lightbulb"></i>
+
+                    </div>
+
+                    <h4>
+                        Dream
+                    </h4>
+
+                    <p>
+                        Every journey begins with an idea.
+                    </p>
+
+                </div>
+
+
+                <!-- CREATE -->
+
+                <div class="pnd-mini-card pnd-card-bg-create">
+
+                    <div class="pnd-mini-icon">
+
+                        <i class="bi bi-magic"></i>
+
+                    </div>
+
+                    <h4>
+                        Create
+                    </h4>
+
+                    <p>
+                        Turn the idea into something people
+                        can see and experience.
+                    </p>
+
+                </div>
+
+
+                <!-- GROW -->
+
+                <div class="pnd-mini-card pnd-card-bg-grow">
+
+                    <div class="pnd-mini-icon">
+
+                        <i class="bi bi-rocket-takeoff"></i>
+
+                    </div>
+
+                    <h4>
+                        Grow
+                    </h4>
+
+                    <p>
+                        Give the idea the digital foundation
+                        it needs to move forward.
+                    </p>
+
+                </div>
+
+
+            </div>
+
         </div>
-        <h4>Dream</h4>
-        <p>Every journey begins with an idea.</p>
-    </div>
-
-    <!-- Create Card -->
-    <div class="pnd-mini-card pnd-card-bg-create">
-        <div class="pnd-mini-icon">
-            <i class="bi bi-magic"></i>
-        </div>
-        <h4>Create</h4>
-        <p>Turn the idea into something people can see and experience.</p>
-    </div>
-
-    <!-- Grow Card -->
-    <div class="pnd-mini-card pnd-card-bg-grow">
-        <div class="pnd-mini-icon">
-            <i class="bi bi-rocket-takeoff"></i>
-        </div>
-        <h4>Grow</h4>
-        <p>Give the idea the digital foundation it needs to move forward.</p>
-    </div>
-
-</div>
-        </div>
-
 
     </section>
 
@@ -3470,9 +3807,7 @@
 
 
                 <div class="pnd-label">
-
                     THE PIXEL NEST BELIEF
-
                 </div>
 
 
@@ -3514,9 +3849,7 @@
 
             </div>
 
-
         </div>
-
 
     </section>
 
@@ -3535,24 +3868,18 @@
 
 
             <div class="pnd-label">
-
-                -   WHAT WE OFFER
-
+                WHAT WE OFFER
             </div>
 
 
             <h2>
-
-                -   Everything your idea needs.
-
+                Everything your idea needs.
             </h2>
 
 
             <p>
-
                 Technology and creativity brought together in
                 one digital destination.
-
             </p>
 
 
@@ -3815,16 +4142,12 @@
 
         </div>
 
-
     </section>
 
 
 
     <!-- =========================================================
          OUR VALUES
-         
-         WHITE BACKGROUND
-         BLACK TEXT
     ========================================================== -->
 
     <section
@@ -3836,24 +4159,18 @@
 
 
             <div class="pnd-label">
-
                 OUR VALUES
-
             </div>
 
 
             <h2>
-
                 What drives the Pixel Nest.
-
             </h2>
 
 
             <p>
-
                 The principles behind the way we approach
                 people, ideas and projects.
-
             </p>
 
 
@@ -3998,7 +4315,6 @@
 
         </div>
 
-
     </section>
 
 
@@ -4014,24 +4330,18 @@
 
 
             <div class="pnd-label">
-
-                    -   OUR APPROACH
-
+                OUR APPROACH
             </div>
 
 
             <h2>
-
-                    -   From idea to digital reality.
-
+                From idea to digital reality.
             </h2>
 
 
             <p>
-
                 A simple process that keeps the journey
                 understandable and focused.
-
             </p>
 
 
@@ -4124,16 +4434,12 @@
 
         </div>
 
-
     </section>
 
 
 
     <!-- =========================================================
          CREATED UNDER
-         
-         WHITE BACKGROUND
-         BLACK TEXT
     ========================================================== -->
 
     <section
@@ -4144,9 +4450,14 @@
         <div class="pnd-venture">
 
 
-           <div class="pnd-venture-logo"> 
-    <img src="img/JO-GEO-Ventures-Logo-White.jpg" alt="JO GEO Ventures Logo" />
-</div>
+            <div class="pnd-venture-logo">
+
+                <img
+                    src="img/JO-GEO-Ventures-Logo-White.jpg"
+                    alt="JO-GEO VENTURES Logo">
+
+            </div>
+
 
             <div>
 
@@ -4185,7 +4496,6 @@
 
         </div>
 
-
     </section>
 
 
@@ -4202,16 +4512,12 @@
 
 
             <div class="pnd-label">
-
                 READY TO BEGIN?
-
             </div>
 
 
             <h2>
-
                 Let's give your idea a digital life.
-
             </h2>
 
 
@@ -4224,24 +4530,20 @@
             </p>
 
 
-         
-<a
-    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
-    class="pnd-btn-primary"
-    target="_blank"
-    rel="noopener noreferrer">
+            <a
+                href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
+                class="pnd-btn-primary"
+                target="_blank"
+                rel="noopener noreferrer">
 
-    Start a Project
+                Start a Project
 
-    <i class="bi bi-arrow-up-right"></i>
+                <i class="bi bi-arrow-up-right"></i>
 
-</a>
-
-
+            </a>
 
 
         </div>
-
 
     </section>
 
@@ -4265,11 +4567,7 @@
         <div class="pnd-footer-grid">
 
 
-            <!-- =================================================
-                 FOOTER LOGO
-                 
-                 IMAGE ONLY
-            ================================================== -->
+            <!-- FOOTER LOGO -->
 
             <div>
 
@@ -4278,17 +4576,9 @@
                     href="index.html"
                     class="pnd-footer-logo">
 
-
-                    <!--
-                        SAME LOGO IMAGE
-
-                        CHANGE PATH IF REQUIRED
-                    -->
-
                     <img
                         src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
                         alt="Pixel Nest Digital Logo">
-
 
                 </a>
 
@@ -4309,12 +4599,9 @@
 
 
 
-            <!-- =================================================
-                 EXPLORE
-            ================================================== -->
+            <!-- EXPLORE -->
 
             <div>
-
 
                 <h4>
                     Explore
@@ -4340,17 +4627,13 @@
                     Contact
                 </a>
 
-
             </div>
 
 
 
-            <!-- =================================================
-                 SERVICES
-            ================================================== -->
+            <!-- SERVICES -->
 
             <div>
-
 
                 <h4>
                     Services
@@ -4376,17 +4659,13 @@
                     Brand Design
                 </a>
 
-
             </div>
 
 
 
-            <!-- =================================================
-                 CREATIVE
-            ================================================== -->
+            <!-- CREATIVE -->
 
             <div>
-
 
                 <h4>
                     Creative
@@ -4412,7 +4691,6 @@
                     Digital Content
                 </a>
 
-
             </div>
 
 
@@ -4420,9 +4698,7 @@
 
 
 
-        <!-- =====================================================
-             FOOTER BOTTOM
-        ====================================================== -->
+        <!-- FOOTER BOTTOM -->
 
         <div class="pnd-footer-bottom">
 
@@ -4449,7 +4725,6 @@
 
 
     </div>
-
 
 </footer>
 
@@ -4538,81 +4813,53 @@
         "click",
         function() {
 
-            mobileOpen =
-                !mobileOpen;
+            mobileOpen = !mobileOpen;
 
 
             if (mobileOpen) {
 
-                nav.style.display =
-                    "flex";
-
-                nav.style.position =
-                    "absolute";
-
-                nav.style.top =
-                    "68px";
-
-                nav.style.left =
-                    "5%";
-
-                nav.style.right =
-                    "5%";
-
-                nav.style.padding =
-                    "20px";
-
-                nav.style.flexDirection =
-                    "column";
-
-                nav.style.alignItems =
-                    "stretch";
-
-                nav.style.background =
-                    "rgba(7,17,31,.98)";
-
-                nav.style.border =
-                    "1px solid rgba(148,163,184,.15)";
-
-                nav.style.borderRadius =
-                    "15px";
-
-                nav.style.backdropFilter =
-                    "blur(20px)";
-
-                nav.style.boxShadow =
-                    "0 25px 60px rgba(0,0,0,.4)";
+                nav.classList.add(
+                    "pnd-mobile-open"
+                );
 
 
-                mobileToggle
-                    .setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
+                mobileToggle.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
 
 
-                mobileToggle
-                    .innerHTML =
+                mobileToggle.setAttribute(
+                    "aria-label",
+                    "Close menu"
+                );
+
+
+                mobileToggle.innerHTML =
                     '<i class="bi bi-x-lg"></i>';
 
             }
 
             else {
 
-                nav.removeAttribute(
-                    "style"
+                nav.classList.remove(
+                    "pnd-mobile-open"
                 );
 
 
-                mobileToggle
-                    .setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+                mobileToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
 
-                mobileToggle
-                    .innerHTML =
+                mobileToggle.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
+
+
+                mobileToggle.innerHTML =
                     '<i class="bi bi-list"></i>';
 
             }
@@ -4637,22 +4884,27 @@
                         window.innerWidth <= 900
                     ) {
 
-                        nav.removeAttribute(
-                            "style"
+                        nav.classList.remove(
+                            "pnd-mobile-open"
                         );
+
 
                         mobileOpen = false;
 
 
-                        mobileToggle
-                            .setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
+                        mobileToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
 
-                        mobileToggle
-                            .innerHTML =
+                        mobileToggle.setAttribute(
+                            "aria-label",
+                            "Open menu"
+                        );
+
+
+                        mobileToggle.innerHTML =
                             '<i class="bi bi-list"></i>';
 
                     }
@@ -4689,9 +4941,7 @@
 
 
         if (!value) {
-
             return;
-
         }
 
 
