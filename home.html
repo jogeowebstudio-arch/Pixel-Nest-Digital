@@ -7199,7 +7199,929 @@
   }
 
 }
+/* =========================================================
+   PIXEL NEST DIGITAL HEADER LOGO
+   ========================================================= */
 
+.pnd-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-shrink: 0;
+    text-decoration: none;
+
+    width: auto;
+    max-width: 240px;
+
+    overflow: visible;
+}
+
+.pnd-logo-img {
+    display: block;
+
+    width: auto;
+    height: 62px;
+
+    max-width: 230px;
+    max-height: 62px;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.25s ease;
+}
+
+.pnd-logo:hover .pnd-logo-img {
+    transform: scale(1.02);
+}
+
+
+/* =========================================================
+   REMOVE OLD TEXT LOGO
+   ========================================================= */
+
+.pnd-logo-name {
+    display: none !important;
+}
+
+
+/* =========================================================
+   SERVICES CHEVRON
+   ========================================================= */
+
+.pnd-chevron {
+    font-size: 9px;
+    margin-left: 4px;
+    transition: transform 0.25s ease;
+}
+
+.pnd-dropdown:hover .pnd-chevron {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    .pnd-logo {
+        max-width: 210px;
+    }
+
+    .pnd-logo-img {
+        height: 56px;
+        max-width: 210px;
+        max-height: 56px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .pnd-logo {
+        max-width: 180px;
+    }
+
+    .pnd-logo-img {
+        width: auto;
+        height: auto;
+
+        max-width: 180px;
+        max-height: 52px;
+
+        object-fit: contain;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .pnd-logo {
+        max-width: 160px;
+    }
+
+    .pnd-logo-img {
+        max-width: 160px;
+        max-height: 48px;
+    }
+
+}
+
+/* =========================================================
+   HERO VISUAL — PIXEL NEST DIGITAL
+   ========================================================= */
+
+.pnd-hero-visual {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+    height: 580px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+   ========================================================= */
+
+.pnd-hero-glow {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 380px;
+    height: 380px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.20) 0%,
+            rgba(6, 182, 212, 0.12) 35%,
+            rgba(124, 58, 237, 0.07) 55%,
+            transparent 75%
+        );
+
+    filter: blur(25px);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation: pndGlowPulse 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   OUTER ORBIT
+   ========================================================= */
+
+.pnd-orbit {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 470px;
+    height: 470px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(37, 99, 235, 0.35);
+
+    box-shadow:
+        0 0 20px rgba(37, 99, 235, 0.12),
+        inset 0 0 20px rgba(6, 182, 212, 0.06);
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: pndOrbitRotate 20s linear infinite;
+}
+
+
+/* Orbit decorative dot */
+
+.pnd-orbit::before {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #06B6D4;
+
+    box-shadow:
+        0 0 10px rgba(6, 182, 212, 0.9),
+        0 0 25px rgba(6, 182, 212, 0.5);
+}
+
+
+/* Second orbit */
+
+.pnd-orbit::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 360px;
+    height: 180px;
+
+    transform: translate(-50%, -50%) rotate(-25deg);
+
+    border: 1px solid rgba(124, 58, 237, 0.22);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN LOGO ORB
+   ========================================================= */
+
+.pnd-about-orb {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 290px;
+    height: 290px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.98) 0%,
+            rgba(248,250,252,0.96) 45%,
+            rgba(241,245,249,0.90) 70%,
+            rgba(226,232,240,0.70) 100%
+        );
+
+    border: 1px solid rgba(255,255,255,0.85);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.22),
+        0 0 35px rgba(37,99,235,0.20),
+        inset 0 0 30px rgba(255,255,255,0.85);
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   INNER ORB
+   ========================================================= */
+
+.pnd-about-orb-inner {
+    position: relative;
+
+    width: 245px;
+    height: 245px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid rgba(37,99,235,0.10);
+
+    box-shadow:
+        inset 0 0 25px rgba(37,99,235,0.08),
+        inset 0 0 45px rgba(6,182,212,0.05);
+
+    overflow: visible;
+
+    z-index: 11;
+}
+
+
+/* =========================================================
+   FULL PIXEL NEST DIGITAL LOGO
+   ========================================================= */
+
+.pnd-hero-logo {
+    position: relative;
+
+    display: block;
+
+    width: 205px;
+    height: auto;
+
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    z-index: 20;
+
+    opacity: 1;
+    visibility: visible;
+
+    filter:
+        drop-shadow(0 5px 10px rgba(0,0,0,0.12))
+        drop-shadow(0 0 18px rgba(37,99,235,0.20));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.pnd-about-orb:hover .pnd-hero-logo {
+    transform: scale(1.05);
+
+    filter:
+        drop-shadow(0 6px 12px rgba(0,0,0,0.14))
+        drop-shadow(0 0 25px rgba(37,99,235,0.30));
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+   ========================================================= */
+
+.pnd-float-card {
+    position: absolute;
+
+    min-width: 220px;
+    max-width: 250px;
+
+    padding: 15px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    border: 1px solid rgba(226,232,240,0.90);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.14),
+        0 0 20px rgba(37,99,235,0.07);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    z-index: 30;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Card hover */
+
+.pnd-float-card:hover {
+    box-shadow:
+        0 20px 45px rgba(15,23,42,0.18),
+        0 0 25px rgba(37,99,235,0.12);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   FLOAT ICON
+   ========================================================= */
+
+.pnd-float-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.12),
+            rgba(6,182,212,0.10)
+        );
+
+    border: 1px solid rgba(37,99,235,0.12);
+
+    color: #2563EB;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   FLOAT CONTENT
+   ========================================================= */
+
+.pnd-float-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.pnd-float-content strong {
+    display: block;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    color: #0F172A;
+}
+
+
+.pnd-float-content small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    color: #64748B;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FLOAT CARD 1 — TOP LEFT
+   ========================================================= */
+
+.pnd-float-one {
+    top: 70px;
+    left: 5px;
+
+    animation:
+        pndFloatOne 4.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOAT CARD 2 — RIGHT
+   ========================================================= */
+
+.pnd-float-two {
+    top: 245px;
+    right: -5px;
+
+    animation:
+        pndFloatTwo 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOAT CARD 3 — BOTTOM LEFT
+   ========================================================= */
+
+.pnd-float-three {
+    bottom: 65px;
+    left: 25px;
+
+    animation:
+        pndFloatThree 5.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes pndOrbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes pndGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.65;
+        transform:
+            translate(-50%, -50%)
+            scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+@keyframes pndFloatOne {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+@keyframes pndFloatTwo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(9px);
+    }
+
+}
+
+
+@keyframes pndFloatThree {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =========================================================
+   LARGE LAPTOP / DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .pnd-hero-visual {
+        max-width: 680px;
+        height: 600px;
+    }
+
+    .pnd-orbit {
+        width: 500px;
+        height: 500px;
+    }
+
+    .pnd-about-orb {
+        width: 310px;
+        height: 310px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 260px;
+        height: 260px;
+    }
+
+    .pnd-hero-logo {
+        width: 220px;
+    }
+
+    .pnd-float-one {
+        left: 0;
+    }
+
+    .pnd-float-two {
+        right: -10px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .pnd-hero-visual {
+        max-width: 560px;
+        height: 500px;
+        margin-top: 30px;
+    }
+
+    .pnd-hero-glow {
+        width: 330px;
+        height: 330px;
+    }
+
+    .pnd-orbit {
+        width: 410px;
+        height: 410px;
+    }
+
+    .pnd-orbit::after {
+        width: 315px;
+        height: 155px;
+    }
+
+    .pnd-about-orb {
+        width: 260px;
+        height: 260px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 220px;
+        height: 220px;
+    }
+
+    .pnd-hero-logo {
+        width: 185px;
+    }
+
+    .pnd-float-card {
+        min-width: 195px;
+        max-width: 215px;
+
+        padding: 12px 14px;
+
+        gap: 10px;
+    }
+
+    .pnd-float-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 13px;
+    }
+
+    .pnd-float-content small {
+        font-size: 10px;
+    }
+
+    .pnd-float-one {
+        top: 55px;
+        left: 0;
+    }
+
+    .pnd-float-two {
+        top: 215px;
+        right: -5px;
+    }
+
+    .pnd-float-three {
+        bottom: 45px;
+        left: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .pnd-hero-visual {
+        width: 100%;
+
+        max-width: 440px;
+
+        height: 430px;
+
+        margin-top: 25px;
+
+        overflow: visible;
+    }
+
+    .pnd-hero-glow {
+        width: 270px;
+        height: 270px;
+
+        filter: blur(20px);
+    }
+
+    .pnd-orbit {
+        width: 320px;
+        height: 320px;
+    }
+
+    .pnd-orbit::before {
+        width: 8px;
+        height: 8px;
+    }
+
+    .pnd-orbit::after {
+        width: 245px;
+        height: 120px;
+    }
+
+    .pnd-about-orb {
+        width: 215px;
+        height: 215px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 180px;
+        height: 180px;
+    }
+
+    .pnd-hero-logo {
+        width: 150px;
+    }
+
+    .pnd-float-card {
+        min-width: 165px;
+        max-width: 180px;
+
+        padding: 10px 11px;
+
+        gap: 8px;
+
+        border-radius: 11px;
+    }
+
+    .pnd-float-icon {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 9px;
+
+        font-size: 16px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 11px;
+    }
+
+    .pnd-float-content small {
+        font-size: 9px;
+
+        white-space: normal;
+    }
+
+    .pnd-float-one {
+        top: 35px;
+        left: -5px;
+    }
+
+    .pnd-float-two {
+        top: 185px;
+        right: -5px;
+    }
+
+    .pnd-float-three {
+        bottom: 35px;
+        left: 0;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .pnd-hero-visual {
+        height: 380px;
+
+        max-width: 360px;
+    }
+
+    .pnd-hero-glow {
+        width: 230px;
+        height: 230px;
+    }
+
+    .pnd-orbit {
+        width: 275px;
+        height: 275px;
+    }
+
+    .pnd-orbit::after {
+        width: 210px;
+        height: 100px;
+    }
+
+    .pnd-about-orb {
+        width: 185px;
+        height: 185px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 155px;
+        height: 155px;
+    }
+
+    .pnd-hero-logo {
+        width: 130px;
+    }
+
+    .pnd-float-card {
+        min-width: 145px;
+        max-width: 155px;
+
+        padding: 8px 9px;
+
+        gap: 7px;
+    }
+
+    .pnd-float-icon {
+        width: 30px;
+        height: 30px;
+
+        font-size: 14px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 10px;
+    }
+
+    .pnd-float-content small {
+        font-size: 8px;
+    }
+
+    .pnd-float-one {
+        top: 20px;
+        left: -8px;
+    }
+
+    .pnd-float-two {
+        top: 165px;
+        right: -8px;
+    }
+
+    .pnd-float-three {
+        bottom: 20px;
+        left: -5px;
+    }
+
+}
 </style>
 
 
@@ -7213,30 +8135,29 @@
 <!-- ============================================================
      HEADER / NAVBAR
 ============================================================ -->
-
 <header class="pnd-header" id="pndHeader">
 
     <div class="container-fluid px-3 px-lg-4">
 
         <div class="pnd-header-inner">
 
+            <!-- =====================================================
+                 LOGO
+            ====================================================== -->
+            <a href="#home" class="pnd-logo" aria-label="Pixel Nest Digital Home">
 
-            <!-- LOGO -->
-            <a href="#home" class="pnd-logo">
-
-                <div class="pnd-logo-icon">
-                    <span>PN</span>
-                </div>
-
-                <div class="pnd-logo-name">
-                    <strong>Pixel Nest</strong>
-                    <small>DIGITAL</small>
-                </div>
+                <img
+                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                    alt="Pixel Nest Digital"
+                    class="pnd-logo-img"
+                >
 
             </a>
 
 
-            <!-- SEARCH -->
+            <!-- =====================================================
+                 SEARCH
+            ====================================================== -->
             <div class="pnd-search">
 
                 <div class="pnd-search-icon">
@@ -7247,27 +8168,40 @@
                     type="search"
                     id="desktopSearch"
                     placeholder="Search services, solutions, projects..."
+                    aria-label="Search"
                 >
 
-                <button onclick="performSearch()">
+                <button
+                    type="button"
+                    onclick="performSearch()"
+                >
                     Search
                 </button>
 
             </div>
 
 
-            <!-- DESKTOP NAV -->
-            <nav class="pnd-nav">
+            <!-- =====================================================
+                 DESKTOP NAVIGATION
+            ====================================================== -->
+            <nav class="pnd-nav" aria-label="Main navigation">
 
+               <!-- ABOUT -->
+                <a href="about.html" class="pnd-nav-link">
+                    About
+                </a>
 
-                <!-- SERVICES -->
+                <!-- SERVICES DROPDOWN -->
                 <div class="pnd-dropdown">
 
-                    <a href="#services" class="pnd-nav-link">
+                    <a
+                        href="services.html"
+                        class="pnd-nav-link"
+                    >
                         Services
-                        <i class="bi bi-chevron-down"
-                           style="font-size:9px;"></i>
+                        <i class="bi bi-chevron-down pnd-chevron"></i>
                     </a>
+
 
                     <div class="pnd-dropdown-menu">
 
@@ -7283,12 +8217,12 @@
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-cpu"></i>
-                            <span>AI & Machine Learning</span>
+                            <span>AI &amp; Machine Learning</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-robot"></i>
-                            <span>Robotics & Automation</span>
+                            <span>Robotics &amp; Automation</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
@@ -7303,12 +8237,12 @@
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-cloud"></i>
-                            <span>Hosting & Maintenance</span>
+                            <span>Hosting &amp; Maintenance</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-palette"></i>
-                            <span>Logo & Brand Design</span>
+                            <span>Logo &amp; Brand Design</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
@@ -7326,23 +8260,29 @@
                 </div>
 
 
-                <a href="#portfolio" class="pnd-nav-link">
+                <!-- PORTFOLIO -->
+                <a href="Portfolio.html" class="pnd-nav-link">
                     Portfolio
                 </a>
 
-                <a href="#about" class="pnd-nav-link">
-                    About
+
+                <!-- Team -->
+                <a href="team.html" class="pnd-nav-link">
+                    Team
                 </a>
 
-                <a href="#contact" class="pnd-nav-link">
+
+
+                <!-- CONTACT -->
+                <a href="contact.html" class="pnd-nav-link">
                     Contact
                 </a>
 
-                <a href="#login" class="pnd-login">
-                    Login
-                </a>
 
-                <a href="#contact" class="pnd-start">
+              
+
+                <!-- GET STARTED -->
+                <a href="start-project.html" class="pnd-start">
                     Get Started
                     <i class="bi bi-arrow-up-right"></i>
                 </a>
@@ -7350,11 +8290,16 @@
             </nav>
 
 
-            <!-- MOBILE BUTTON -->
+            <!-- =====================================================
+                 MOBILE MENU BUTTON
+            ====================================================== -->
             <button
+                type="button"
                 class="pnd-menu-btn"
                 id="pndMenuBtn"
-                aria-label="Open menu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="pndMobileMenu"
             >
                 <i class="bi bi-list"></i>
             </button>
@@ -7364,8 +8309,6 @@
     </div>
 
 </header>
-
-
 
 <!-- ============================================================
      MOBILE OVERLAY
@@ -7392,7 +8335,7 @@
         <a href="#home" class="pnd-logo">
 
             <div class="pnd-logo-icon">
-                <span>PN</span>
+                <span>PND</span>
             </div>
 
             <div class="pnd-logo-name">
@@ -7426,9 +8369,9 @@
     </div>
 
 
-    <a href="#home" class="pnd-mobile-link">
+    <a href="about.html" class="pnd-mobile-link">
         <i class="bi bi-house"></i>
-        Home
+        About
     </a>
 
 
@@ -7468,31 +8411,32 @@
     </div>
 
 
-    <a href="#portfolio" class="pnd-mobile-link">
+    <a href="Portfolio.html" class="pnd-mobile-link">
         <i class="bi bi-briefcase"></i>
         Portfolio
     </a>
 
-    <a href="#about" class="pnd-mobile-link">
+    <a href="about.html" class="pnd-mobile-link">
         <i class="bi bi-info-circle"></i>
         About
     </a>
 
-    <a href="#contact" class="pnd-mobile-link">
+    <a href="contact.html" class="pnd-mobile-link">
         <i class="bi bi-envelope"></i>
-        Contact
-    </a>
+            Contact
+        </a>
+        <a href="team.html" class="pnd-mobile-link">
+        <i class="bi bi-envelope"></i>
+            Team
+        </a>
+
 
 
     <div class="pnd-mobile-actions">
 
-        <a href="#login"
-           class="pnd-btn-secondary justify-content-center">
-            <i class="bi bi-person"></i>
-            Login
-        </a>
+        
 
-        <a href="#contact"
+        <a href="start-project.html"
            class="pnd-btn-primary justify-content-center">
             Start a Project
             <i class="bi bi-arrow-up-right"></i>
@@ -7608,68 +8552,110 @@
 
 
 
-            <!-- HERO VISUAL -->
-            <div class="pnd-visual">
+               <!-- =====================================================
+     HERO VISUAL — PIXEL NEST DIGITAL
+====================================================== -->
+
+<div class="pnd-hero-visual">
+
+    <!-- Ambient Glow -->
+    <div class="pnd-hero-glow"></div>
+
+    <!-- Orbit Ring -->
+    <div class="pnd-orbit"></div>
+
+    <!-- Main Logo Orb -->
+    <div class="pnd-about-orb">
+
+        <div class="pnd-about-orb-inner">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-hero-logo"
+                loading="eager"
+            >
+
+        </div>
+
+    </div>
 
 
-                <div class="pnd-orbit"></div>
+    <!-- =================================================
+         FLOATING CARD 1 — DEVELOPMENT
+    ================================================== -->
+
+    <div class="pnd-float-card pnd-float-one">
+
+        <div class="pnd-float-icon">
+            <i class="bi bi-code-slash"></i>
+        </div>
+
+        <div class="pnd-float-content">
+
+            <strong>
+                Digital Development
+            </strong>
+
+            <small>
+                Build • Launch • Grow
+            </small>
+
+        </div>
+
+    </div>
 
 
-                <!-- AI CORE -->
-                <div class="pnd-ai-core">
+    <!-- =================================================
+         FLOATING CARD 2 — DESIGN
+    ================================================== -->
 
-                    <div class="pnd-ai-ring"></div>
-                    <div class="pnd-ai-ring"></div>
+    <div class="pnd-float-card pnd-float-two">
 
-                    <div class="pnd-ai-center">
-                        <i class="bi bi-cpu"></i>
-                    </div>
+        <div class="pnd-float-icon">
+            <i class="bi bi-palette"></i>
+        </div>
 
-                </div>
+        <div class="pnd-float-content">
 
+            <strong>
+                Creative Design
+            </strong>
 
-                <!-- FLOAT CARD 1 -->
-                <div class="pnd-float-card pnd-card-1">
+            <small>
+                Brand • Visual • Identity
+            </small>
 
-                    <i class="bi bi-brain"></i>
+        </div>
 
-                    <span>
-                        AI & ML
-                        <br>
-                        Intelligent Systems
-                    </span>
-
-                </div>
+    </div>
 
 
-                <!-- FLOAT CARD 2 -->
-                <div class="pnd-float-card pnd-card-2">
+    <!-- =================================================
+         FLOATING CARD 3 — MEDIA
+    ================================================== -->
 
-                    <i class="bi bi-robot"></i>
+    <div class="pnd-float-card pnd-float-three">
 
-                    <span>
-                        Robotics
-                        <br>
-                        Automation
-                    </span>
+        <div class="pnd-float-icon">
+            <i class="bi bi-camera"></i>
+        </div>
 
-                </div>
+        <div class="pnd-float-content">
 
+            <strong>
+                Creative Media
+            </strong>
 
-                <!-- FLOAT CARD 3 -->
-                <div class="pnd-float-card pnd-card-3">
+            <small>
+                Photo • Video • Content
+            </small>
 
-                    <i class="bi bi-code-square"></i>
+        </div>
 
-                    <span>
-                        Modern Web
-                        <br>
-                        Digital Platforms
-                    </span>
+    </div>
 
-                </div>
-
-            </div>
+</div>
 
         </div>
 
@@ -7727,7 +8713,7 @@
                 <div class="pnd-about-brand">
 
                     <div class="pnd-about-brand-icon">
-                        PN
+                        PND
                     </div>
 
                     <div>
@@ -12744,7 +13730,7 @@ document.addEventListener("DOMContentLoaded", function(){
   <div class="pnd-subfooter-brand">
 
     <div class="pnd-mini-logo">
-      PN
+      PND
     </div>
 
     <div>
