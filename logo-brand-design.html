@@ -1,0 +1,3312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logo & Brand Design | Pixel Nest Digital</title>
+
+    <meta name="description"
+          content="Pixel Nest Digital creates logos, brand identities, visual systems, social media branding and creative brand assets for modern businesses.">
+
+    <!-- =========================================================
+         BOOTSTRAP
+    ========================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================== */
+
+        :root{
+
+            --pnd-space:#07111F;
+            --pnd-space-2:#0B172A;
+            --pnd-space-3:#111C35;
+
+            --pnd-blue:#2563EB;
+            --pnd-blue-dark:#1D4ED8;
+
+            --pnd-cyan:#06B6D4;
+
+            --pnd-violet:#7C3AED;
+
+            --pnd-white:#F8FAFC;
+            --pnd-text:#E2E8F0;
+            --pnd-muted:#94A3B8;
+
+            --pnd-border:rgba(148,163,184,.16);
+            --pnd-glass:rgba(255,255,255,.055);
+
+            --radius-xl:30px;
+            --radius-lg:22px;
+            --radius-md:16px;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+            scroll-padding-top:90px;
+        }
+
+        body{
+
+            font-family:"DM Sans",sans-serif;
+
+            background:var(--pnd-space);
+
+            color:var(--pnd-text);
+
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        ::selection{
+            background:var(--pnd-cyan);
+            color:#04111d;
+        }
+
+
+        /* =========================================================
+           GLOBAL LED
+        ========================================================== */
+
+        .pnd-led{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:3px;
+
+            z-index:9999;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet),
+                    var(--pnd-blue)
+                );
+
+            background-size:300% 100%;
+
+            animation:pndLed 5s linear infinite;
+
+            box-shadow:
+                0 0 10px rgba(37,99,235,.8),
+                0 0 25px rgba(6,182,212,.3);
+        }
+
+        @keyframes pndLed{
+
+            0%{
+                background-position:0 50%;
+            }
+
+            100%{
+                background-position:300% 50%;
+            }
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================== */
+
+        .pnd-navbar{
+
+            position:sticky;
+
+            top:0;
+
+            z-index:1000;
+
+            background:
+                rgba(7,17,31,.78);
+
+            backdrop-filter:blur(18px);
+
+            -webkit-backdrop-filter:blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+        .pnd-nav-inner{
+            min-height:76px;
+        }
+
+        .pnd-brand{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:12px;
+
+            color:white;
+        }
+
+        .pnd-brand:hover{
+            color:white;
+        }
+
+        .pnd-brand-mark{
+
+            width:43px;
+            height:43px;
+
+            border-radius:13px;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            font-size:17px;
+
+            font-weight:800;
+
+            color:white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 0 20px rgba(37,99,235,.35);
+        }
+
+        .pnd-brand-text{
+            line-height:1.05;
+        }
+
+        .pnd-brand-text strong{
+
+            display:block;
+
+            font-size:16px;
+
+            letter-spacing:-.4px;
+        }
+
+        .pnd-brand-text span{
+
+            display:block;
+
+            margin-top:4px;
+
+            font-size:9px;
+
+            letter-spacing:2px;
+
+            color:var(--pnd-muted);
+        }
+
+        .pnd-nav-links{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:7px;
+        }
+
+        .pnd-nav-links a{
+
+            color:#B9C5D5;
+
+            padding:10px 13px;
+
+            border-radius:10px;
+
+            font-size:14px;
+
+            font-weight:600;
+
+            transition:.3s ease;
+        }
+
+        .pnd-nav-links a:hover,
+        .pnd-nav-links a.active{
+
+            color:white;
+
+            background:
+                rgba(255,255,255,.06);
+        }
+
+        .pnd-nav-cta{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            gap:8px;
+
+            color:white !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                ) !important;
+
+            box-shadow:
+                0 8px 25px rgba(37,99,235,.22);
+        }
+
+        .pnd-menu{
+
+            width:44px;
+            height:44px;
+
+            border-radius:12px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            background:
+                rgba(255,255,255,.05);
+
+            color:white;
+
+            font-size:22px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .pnd-hero{
+
+            position:relative;
+
+            min-height:760px;
+
+            display:flex;
+
+            align-items:center;
+
+            overflow:hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 40%,
+                    rgba(37,99,235,.14),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 15% 75%,
+                    rgba(124,58,237,.11),
+                    transparent 28%
+                );
+        }
+
+        .pnd-grid{
+
+            position:absolute;
+
+            inset:0;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(148,163,184,.035) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size:55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+        .pnd-hero-glow{
+
+            position:absolute;
+
+            width:470px;
+            height:470px;
+
+            right:1%;
+            top:10%;
+
+            border-radius:50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124,58,237,.15),
+                    transparent 68%
+                );
+
+            filter:blur(12px);
+
+            animation:
+                pndGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes pndGlow{
+
+            0%,100%{
+                transform:scale(1);
+
+                opacity:.65;
+            }
+
+            50%{
+                transform:scale(1.15);
+
+                opacity:1;
+            }
+        }
+
+        .pnd-hero-content{
+
+            position:relative;
+
+            z-index:2;
+        }
+
+        .pnd-eyebrow{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            gap:9px;
+
+            color:#67E8F9;
+
+            font-size:11px;
+
+            font-weight:800;
+
+            letter-spacing:2px;
+
+            margin-bottom:20px;
+        }
+
+        .pnd-eyebrow::before{
+
+            content:"";
+
+            width:28px;
+
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            box-shadow:
+                0 0 10px var(--pnd-cyan);
+        }
+
+        .pnd-hero h1{
+
+            max-width:750px;
+
+            font-size:
+                clamp(44px,6vw,78px);
+
+            line-height:.98;
+
+            letter-spacing:-3px;
+
+            color:white;
+
+            font-weight:800;
+        }
+
+        .pnd-gradient{
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip:text;
+
+            background-clip:text;
+
+            color:transparent;
+        }
+
+        .pnd-hero-description{
+
+            max-width:650px;
+
+            margin-top:25px;
+
+            color:var(--pnd-muted);
+
+            font-size:17px;
+
+            line-height:1.8;
+        }
+
+        .pnd-actions{
+
+            display:flex;
+
+            flex-wrap:wrap;
+
+            gap:12px;
+
+            margin-top:34px;
+        }
+
+        .pnd-btn{
+
+            min-height:50px;
+
+            padding:0 21px;
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            gap:10px;
+
+            border-radius:13px;
+
+            font-size:14px;
+
+            font-weight:700;
+
+            transition:.3s ease;
+        }
+
+        .pnd-btn-primary{
+
+            color:white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 12px 35px rgba(37,99,235,.25);
+        }
+
+        .pnd-btn-primary:hover{
+
+            color:white;
+
+            transform:translateY(-3px);
+
+            box-shadow:
+                0 16px 40px rgba(37,99,235,.4);
+        }
+
+        .pnd-btn-outline{
+
+            color:#DCE7F5;
+
+            border:
+                1px solid var(--pnd-border);
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+        .pnd-btn-outline:hover{
+
+            color:white;
+
+            border-color:
+                rgba(6,182,212,.5);
+
+            background:
+                rgba(6,182,212,.06);
+
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================================================
+           BRAND LAB VISUAL
+        ========================================================== */
+
+        .pnd-brand-visual{
+
+            position:relative;
+
+            min-height:530px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+        }
+
+        .pnd-brand-orbit{
+
+            position:absolute;
+
+            width:450px;
+            height:450px;
+
+            border-radius:50%;
+
+            border:
+                1px solid rgba(6,182,212,.14);
+
+            animation:
+                pndOrbit 22s linear infinite;
+        }
+
+        .pnd-brand-orbit::before{
+
+            content:"";
+
+            position:absolute;
+
+            inset:35px;
+
+            border-radius:50%;
+
+            border:
+                1px dashed rgba(124,58,237,.28);
+        }
+
+        .pnd-brand-orbit::after{
+
+            content:"";
+
+            position:absolute;
+
+            inset:88px;
+
+            border-radius:50%;
+
+            border:
+                1px solid rgba(37,99,235,.16);
+        }
+
+        @keyframes pndOrbit{
+
+            to{
+                transform:rotate(360deg);
+            }
+        }
+
+
+        /* =========================================================
+           LOGO CARD
+        ========================================================== */
+
+        .pnd-logo-card{
+
+            position:relative;
+
+            z-index:5;
+
+            width:min(405px,91vw);
+
+            padding:22px;
+
+            border:
+                1px solid rgba(148,163,184,.18);
+
+            border-radius:26px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(17,28,53,.96),
+                    rgba(7,17,31,.97)
+                );
+
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.38),
+                0 0 45px rgba(124,58,237,.09);
+
+            backdrop-filter:blur(18px);
+
+            animation:
+                pndLogoFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes pndLogoFloat{
+
+            0%,100%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(-11px);
+            }
+        }
+
+        .pnd-logo-top{
+
+            display:flex;
+
+            align-items:center;
+
+            padding-bottom:17px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+        }
+
+        .pnd-logo-dots{
+
+            display:flex;
+
+            gap:7px;
+        }
+
+        .pnd-logo-dots span{
+
+            width:8px;
+            height:8px;
+
+            border-radius:50%;
+
+            background:#475569;
+        }
+
+        .pnd-logo-label{
+
+            margin-left:auto;
+
+            color:#64748B;
+
+            font-size:9px;
+
+            letter-spacing:1.5px;
+        }
+
+
+        /* LOGO SYMBOL */
+
+        .pnd-logo-stage{
+
+            min-height:240px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            position:relative;
+        }
+
+        .pnd-logo-symbol{
+
+            position:relative;
+
+            width:135px;
+            height:135px;
+
+            border-radius:38px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            font-size:42px;
+
+            font-weight:800;
+
+            color:white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+
+                0 0 0 1px rgba(255,255,255,.1),
+
+                0 0 35px rgba(37,99,235,.35),
+
+                0 0 70px rgba(124,58,237,.15);
+
+            animation:
+                pndLogoPulse 4s ease-in-out infinite;
+        }
+
+        .pnd-logo-symbol::before{
+
+            content:"";
+
+            position:absolute;
+
+            inset:-17px;
+
+            border-radius:48px;
+
+            border:
+                1px solid rgba(6,182,212,.28);
+
+            animation:
+                pndLogoRing 4s ease-in-out infinite;
+        }
+
+        .pnd-logo-symbol::after{
+
+            content:"";
+
+            position:absolute;
+
+            inset:-32px;
+
+            border-radius:58px;
+
+            border:
+                1px dashed rgba(124,58,237,.22);
+
+            animation:
+                pndLogoRing 6s linear infinite reverse;
+        }
+
+        @keyframes pndLogoPulse{
+
+            0%,100%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.045);
+            }
+        }
+
+        @keyframes pndLogoRing{
+
+            0%,100%{
+                opacity:.45;
+            }
+
+            50%{
+                opacity:1;
+            }
+        }
+
+        .pnd-logo-orbit-dot{
+
+            position:absolute;
+
+            width:10px;
+            height:10px;
+
+            border-radius:50%;
+
+            background:#22D3EE;
+
+            box-shadow:
+                0 0 15px #22D3EE;
+
+            animation:
+                pndDotOrbit 6s linear infinite;
+        }
+
+        @keyframes pndDotOrbit{
+
+            0%{
+                transform:
+                    rotate(0deg)
+                    translateX(112px)
+                    rotate(0deg);
+            }
+
+            100%{
+                transform:
+                    rotate(360deg)
+                    translateX(112px)
+                    rotate(-360deg);
+            }
+        }
+
+
+        .pnd-logo-name{
+
+            text-align:center;
+
+            color:white;
+
+            font-size:17px;
+
+            font-weight:800;
+
+            letter-spacing:1px;
+        }
+
+        .pnd-logo-tag{
+
+            text-align:center;
+
+            color:#64748B;
+
+            font-size:9px;
+
+            letter-spacing:2px;
+
+            margin-top:5px;
+        }
+
+        .pnd-brand-bars{
+
+            display:flex;
+
+            gap:6px;
+
+            margin-top:18px;
+        }
+
+        .pnd-brand-bars span{
+
+            flex:1;
+
+            height:6px;
+
+            border-radius:10px;
+        }
+
+        .pnd-brand-bars span:nth-child(1){
+            background:#2563EB;
+        }
+
+        .pnd-brand-bars span:nth-child(2){
+            background:#06B6D4;
+        }
+
+        .pnd-brand-bars span:nth-child(3){
+            background:#7C3AED;
+        }
+
+        .pnd-brand-bars span:nth-child(4){
+            background:#F8FAFC;
+        }
+
+
+        /* =========================================================
+           COMMON SECTION
+        ========================================================== */
+
+        .pnd-section{
+
+            position:relative;
+
+            padding:110px 0;
+        }
+
+        .pnd-section-alt{
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #081321,
+                    #07111F
+                );
+        }
+
+        .pnd-section-head{
+
+            max-width:730px;
+
+            margin-bottom:55px;
+        }
+
+        .pnd-section-label{
+
+            color:#67E8F9;
+
+            font-size:11px;
+
+            font-weight:800;
+
+            letter-spacing:2px;
+
+            margin-bottom:13px;
+        }
+
+        .pnd-section h2{
+
+            color:white;
+
+            font-size:
+                clamp(34px,5vw,54px);
+
+            line-height:1.05;
+
+            letter-spacing:-2px;
+
+            font-weight:800;
+        }
+
+        .pnd-section-head p{
+
+            margin-top:18px;
+
+            color:var(--pnd-muted);
+
+            line-height:1.8;
+        }
+
+
+        /* =========================================================
+           BRAND SERVICES
+        ========================================================== */
+
+        .pnd-service{
+
+            position:relative;
+
+            height:100%;
+
+            padding:27px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            border-radius:21px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            overflow:hidden;
+
+            transition:.35s ease;
+        }
+
+        .pnd-service::before{
+
+            content:"";
+
+            position:absolute;
+
+            left:0;
+            top:0;
+
+            width:100%;
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            transform:scaleX(0);
+
+            transform-origin:left;
+
+            transition:.4s ease;
+        }
+
+        .pnd-service:hover{
+
+            transform:translateY(-8px);
+
+            border-color:
+                rgba(6,182,212,.3);
+
+            background:
+                rgba(255,255,255,.055);
+
+            box-shadow:
+                0 25px 55px rgba(0,0,0,.22);
+        }
+
+        .pnd-service:hover::before{
+            transform:scaleX(1);
+        }
+
+        .pnd-service-icon{
+
+            width:56px;
+            height:56px;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            border-radius:16px;
+
+            color:#67E8F9;
+
+            font-size:24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.12),
+                    rgba(6,182,212,.08)
+                );
+
+            border:
+                1px solid rgba(6,182,212,.16);
+
+            margin-bottom:21px;
+        }
+
+        .pnd-service h3{
+
+            color:white;
+
+            font-size:19px;
+
+            margin-bottom:10px;
+        }
+
+        .pnd-service p{
+
+            color:var(--pnd-muted);
+
+            font-size:13px;
+
+            line-height:1.7;
+
+            margin:0;
+        }
+
+
+        /* =========================================================
+           BRAND PROCESS
+        ========================================================== */
+
+        .pnd-process{
+
+            position:relative;
+        }
+
+        .pnd-process-line{
+
+            position:absolute;
+
+            top:39px;
+
+            left:9%;
+            right:9%;
+
+            height:1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(6,182,212,.45),
+                    rgba(124,58,237,.45),
+                    transparent
+                );
+        }
+
+        .pnd-process-step{
+
+            position:relative;
+
+            z-index:2;
+
+            text-align:center;
+        }
+
+        .pnd-process-number{
+
+            width:78px;
+            height:78px;
+
+            margin:0 auto 22px;
+
+            border-radius:50%;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            color:white;
+
+            font-weight:800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            border:
+                6px solid var(--pnd-space-2);
+
+            box-shadow:
+                0 0 30px rgba(37,99,235,.22);
+        }
+
+        .pnd-process-step h3{
+
+            color:white;
+
+            font-size:17px;
+
+            margin-bottom:9px;
+        }
+
+        .pnd-process-step p{
+
+            color:var(--pnd-muted);
+
+            font-size:12px;
+
+            line-height:1.6;
+        }
+
+
+        /* =========================================================
+           BRAND SYSTEM
+        ========================================================== */
+
+        .pnd-brand-system{
+
+            padding:25px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            border-radius:25px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            box-shadow:
+                0 30px 75px rgba(0,0,0,.22);
+        }
+
+        .pnd-system-head{
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            padding-bottom:20px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+        .pnd-system-title strong{
+
+            display:block;
+
+            color:white;
+
+            font-size:17px;
+        }
+
+        .pnd-system-title span{
+
+            display:block;
+
+            color:#64748B;
+
+            font-size:9px;
+
+            margin-top:5px;
+
+            letter-spacing:1px;
+        }
+
+        .pnd-system-live{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:7px;
+
+            color:#86EFAC;
+
+            font-size:9px;
+
+            font-weight:800;
+        }
+
+        .pnd-system-live i{
+
+            width:7px;
+            height:7px;
+
+            border-radius:50%;
+
+            background:#22C55E;
+
+            box-shadow:
+                0 0 10px #22C55E;
+
+            animation:pndStatus 1.3s infinite;
+        }
+
+        @keyframes pndStatus{
+
+            50%{
+                opacity:.3;
+            }
+        }
+
+
+        /* COLOR PALETTE */
+
+        .pnd-palette{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:10px;
+
+            margin-top:20px;
+        }
+
+        .pnd-color{
+
+            height:105px;
+
+            border-radius:15px;
+
+            position:relative;
+
+            overflow:hidden;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        .pnd-color span{
+
+            position:absolute;
+
+            bottom:0;
+            left:0;
+            right:0;
+
+            padding:9px;
+
+            color:white;
+
+            font-size:9px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.7)
+                );
+        }
+
+        .pnd-color-1{
+            background:#2563EB;
+        }
+
+        .pnd-color-2{
+            background:#06B6D4;
+        }
+
+        .pnd-color-3{
+            background:#7C3AED;
+        }
+
+        .pnd-color-4{
+            background:#F8FAFC;
+        }
+
+
+        /* TYPOGRAPHY */
+
+        .pnd-type-card{
+
+            margin-top:15px;
+
+            padding:20px;
+
+            border-radius:17px;
+
+            background:
+                rgba(0,0,0,.12);
+
+            border:
+                1px solid rgba(255,255,255,.055);
+        }
+
+        .pnd-type-small{
+
+            color:#67E8F9;
+
+            font-size:9px;
+
+            letter-spacing:2px;
+        }
+
+        .pnd-type-big{
+
+            color:white;
+
+            font-size:32px;
+
+            font-weight:800;
+
+            letter-spacing:-1px;
+
+            margin-top:8px;
+        }
+
+        .pnd-type-sub{
+
+            color:#64748B;
+
+            font-size:10px;
+
+            margin-top:3px;
+        }
+
+
+        /* =========================================================
+           BRAND BENEFITS
+        ========================================================== */
+
+        .pnd-benefits{
+
+            display:grid;
+
+            gap:14px;
+        }
+
+        .pnd-benefit{
+
+            display:flex;
+
+            align-items:flex-start;
+
+            gap:14px;
+
+            padding:17px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            border-radius:16px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition:.3s ease;
+        }
+
+        .pnd-benefit:hover{
+
+            transform:translateX(5px);
+
+            border-color:
+                rgba(6,182,212,.25);
+        }
+
+        .pnd-benefit-icon{
+
+            flex:0 0 40px;
+
+            width:40px;
+            height:40px;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            border-radius:12px;
+
+            color:#67E8F9;
+
+            background:
+                rgba(6,182,212,.08);
+        }
+
+        .pnd-benefit h4{
+
+            color:white;
+
+            font-size:14px;
+
+            margin-bottom:5px;
+        }
+
+        .pnd-benefit p{
+
+            margin:0;
+
+            color:#7F8EA3;
+
+            font-size:11px;
+
+            line-height:1.6;
+        }
+
+
+        /* =========================================================
+           BRAND DELIVERABLES
+        ========================================================== */
+
+        .pnd-deliverable{
+
+            min-height:235px;
+
+            padding:27px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            border-radius:22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.018)
+                );
+
+            position:relative;
+
+            overflow:hidden;
+
+            transition:.35s ease;
+        }
+
+        .pnd-deliverable:hover{
+
+            transform:translateY(-8px);
+
+            border-color:
+                rgba(37,99,235,.35);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.25);
+        }
+
+        .pnd-deliverable-number{
+
+            position:absolute;
+
+            right:18px;
+            top:12px;
+
+            color:
+                rgba(255,255,255,.05);
+
+            font-size:55px;
+
+            font-weight:800;
+        }
+
+        .pnd-deliverable-icon{
+
+            color:#67E8F9;
+
+            font-size:27px;
+
+            margin-bottom:25px;
+        }
+
+        .pnd-deliverable h3{
+
+            color:white;
+
+            font-size:19px;
+
+            margin-bottom:10px;
+        }
+
+        .pnd-deliverable p{
+
+            color:var(--pnd-muted);
+
+            font-size:13px;
+
+            line-height:1.7;
+
+            margin:0;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .pnd-cta{
+
+            position:relative;
+
+            overflow:hidden;
+
+            padding:70px 40px;
+
+            border-radius:30px;
+
+            border:
+                1px solid rgba(37,99,235,.25);
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(124,58,237,.18),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(6,182,212,.13),
+                    transparent 35%
+                ),
+
+                #0B172A;
+
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.25);
+        }
+
+        .pnd-cta::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            background-size:200% 100%;
+
+            animation:pndLed 4s linear infinite;
+        }
+
+        .pnd-cta h2{
+
+            color:white;
+
+            font-size:
+                clamp(30px,4vw,48px);
+
+            font-weight:800;
+
+            letter-spacing:-1.5px;
+        }
+
+        .pnd-cta p{
+
+            max-width:650px;
+
+            margin:15px auto 28px;
+
+            color:var(--pnd-muted);
+
+            line-height:1.7;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        .pnd-footer{
+
+            padding:60px 0 30px;
+
+            border-top:
+                1px solid rgba(255,255,255,.06);
+
+            background:#050D18;
+        }
+
+        .pnd-footer-brand{
+
+            color:white;
+
+            font-size:18px;
+
+            font-weight:800;
+        }
+
+        .pnd-footer p{
+
+            max-width:350px;
+
+            margin-top:12px;
+
+            color:#64748B;
+
+            font-size:12px;
+
+            line-height:1.7;
+        }
+
+        .pnd-footer-links{
+
+            display:flex;
+
+            flex-wrap:wrap;
+
+            justify-content:flex-end;
+
+            gap:10px 22px;
+        }
+
+        .pnd-footer-links a{
+
+            color:#7F8EA3;
+
+            font-size:12px;
+
+            transition:.25s ease;
+        }
+
+        .pnd-footer-links a:hover{
+
+            color:#67E8F9;
+        }
+
+        .pnd-footer-bottom{
+
+            margin-top:40px;
+
+            padding-top:20px;
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+
+            color:#475569;
+
+            font-size:10px;
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================== */
+
+        .pnd-reveal{
+
+            opacity:0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .pnd-reveal.show{
+
+            opacity:1;
+
+            transform:none;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media(max-width:991.98px){
+
+            .pnd-nav-links{
+
+                position:absolute;
+
+                top:76px;
+
+                left:12px;
+                right:12px;
+
+                display:none;
+
+                flex-direction:column;
+
+                align-items:stretch;
+
+                padding:12px;
+
+                border:
+                    1px solid var(--pnd-border);
+
+                border-radius:17px;
+
+                background:
+                    rgba(7,17,31,.97);
+
+                box-shadow:
+                    0 25px 60px rgba(0,0,0,.35);
+            }
+
+            .pnd-nav-links.show{
+                display:flex;
+            }
+
+            .pnd-nav-links a{
+                padding:13px;
+            }
+
+            .pnd-nav-cta{
+                justify-content:center;
+            }
+
+            .pnd-hero{
+
+                min-height:auto;
+
+                padding:90px 0 80px;
+            }
+
+            .pnd-brand-visual{
+
+                min-height:460px;
+
+                margin-top:20px;
+            }
+
+            .pnd-process-line{
+                display:none;
+            }
+        }
+
+
+        @media(max-width:767.98px){
+
+            .pnd-hero h1{
+                letter-spacing:-2px;
+            }
+
+            .pnd-hero-description{
+                font-size:15px;
+            }
+
+            .pnd-section{
+                padding:80px 0;
+            }
+
+            .pnd-brand-orbit{
+
+                width:320px;
+                height:320px;
+            }
+
+            .pnd-brand-visual{
+                min-height:390px;
+            }
+
+            .pnd-logo-card{
+                width:94%;
+            }
+
+            .pnd-cta{
+
+                padding:50px 22px;
+
+                border-radius:22px;
+            }
+
+            .pnd-footer-links{
+
+                justify-content:flex-start;
+
+                margin-top:25px;
+            }
+        }
+
+
+        @media(max-width:480px){
+
+            .pnd-brand-mark{
+
+                width:39px;
+                height:39px;
+            }
+
+            .pnd-brand-text strong{
+                font-size:14px;
+            }
+
+            .pnd-brand-text span{
+                font-size:8px;
+            }
+
+            .pnd-actions{
+                flex-direction:column;
+            }
+
+            .pnd-btn{
+                width:100%;
+            }
+
+            .pnd-brand-orbit{
+
+                width:275px;
+                height:275px;
+            }
+
+            .pnd-brand-visual{
+                min-height:350px;
+            }
+
+            .pnd-logo-card{
+                padding:17px;
+            }
+
+            .pnd-logo-stage{
+                min-height:215px;
+            }
+
+            .pnd-logo-symbol{
+
+                width:110px;
+                height:110px;
+
+                font-size:34px;
+            }
+
+            .pnd-palette{
+                gap:6px;
+            }
+
+            .pnd-color{
+                height:85px;
+            }
+
+            .pnd-type-big{
+                font-size:27px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================== */
+
+        @media(prefers-reduced-motion:reduce){
+
+            *,
+            *::before,
+            *::after{
+
+                animation-duration:.01ms !important;
+
+                animation-iteration-count:1 !important;
+
+                transition-duration:.01ms !important;
+
+                scroll-behavior:auto !important;
+            }
+
+            .pnd-reveal{
+
+                opacity:1;
+
+                transform:none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     GLOBAL LED
+========================================================= -->
+
+<div class="pnd-led"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="pnd-navbar">
+
+    <div class="container">
+
+        <div class="pnd-nav-inner d-flex align-items-center justify-content-between">
+
+
+            <a href="index.html" class="pnd-brand">
+
+                <div class="pnd-brand-mark">
+                    PN
+                </div>
+
+                <div class="pnd-brand-text">
+
+                    <strong>
+                        Pixel Nest
+                    </strong>
+
+                    <span>
+                        DIGITAL
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <button
+                class="pnd-menu d-lg-none"
+                id="pndMenuBtn"
+                aria-label="Open navigation">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="pnd-nav-links" id="pndNav">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html" class="active">
+                    Services
+                </a>
+
+                <a href="portfolio.html">
+                    Portfolio
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="pnd-nav-cta">
+
+                    Start a Project
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="pnd-hero">
+
+    <div class="pnd-grid"></div>
+
+    <div class="pnd-hero-glow"></div>
+
+
+    <div class="container position-relative">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-7">
+
+                <div class="pnd-hero-content pnd-reveal">
+
+
+                    <div class="pnd-eyebrow">
+
+                        LOGO & BRAND DESIGN
+
+                    </div>
+
+
+                    <h1>
+
+                        Give your brand
+                        <span class="pnd-gradient">
+                            an identity.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="pnd-hero-description">
+
+                        From a memorable logo to a complete visual identity,
+                        Pixel Nest Digital helps turn your business idea into
+                        a brand people can recognize, remember and connect with.
+
+                    </p>
+
+
+                    <div class="pnd-actions">
+
+                        <a
+                            href="contact.html"
+                            class="pnd-btn pnd-btn-primary">
+
+                            Create My Brand
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#services"
+                            class="pnd-btn pnd-btn-outline">
+
+                            Explore Branding
+
+                            <i class="bi bi-arrow-down"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BRAND VISUAL
+            ================================================== -->
+
+            <div class="col-lg-5">
+
+                <div class="pnd-brand-visual pnd-reveal">
+
+                    <div class="pnd-brand-orbit"></div>
+
+
+                    <div class="pnd-logo-card">
+
+
+                        <div class="pnd-logo-top">
+
+                            <div class="pnd-logo-dots">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <div class="pnd-logo-label">
+
+                                BRAND / IDENTITY
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pnd-logo-stage">
+
+                            <div class="pnd-logo-orbit-dot"></div>
+
+                            <div class="pnd-logo-symbol">
+
+                                PN
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pnd-logo-name">
+
+                            PIXEL NEST
+
+                        </div>
+
+
+                        <div class="pnd-logo-tag">
+
+                            DIGITAL CREATIVE SYSTEM
+
+                        </div>
+
+
+                        <div class="pnd-brand-bars">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BRAND SERVICES
+========================================================= -->
+
+<section
+    class="pnd-section pnd-section-alt"
+    id="services">
+
+
+    <div class="container">
+
+
+        <div class="pnd-section-head pnd-reveal">
+
+            <div class="pnd-section-label">
+                WHAT WE CREATE
+            </div>
+
+            <h2>
+                More than a logo.
+                A complete visual identity.
+            </h2>
+
+            <p>
+                Your brand should look consistent wherever people discover
+                it — from your website and social media to printed material
+                and promotional content.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- 01 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-vector-pen"></i>
+
+                    </div>
+
+                    <h3>
+                        Logo Design
+                    </h3>
+
+                    <p>
+                        Distinctive logo concepts designed to represent
+                        your business and work across different platforms
+                        and sizes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-palette2"></i>
+
+                    </div>
+
+                    <h3>
+                        Brand Identity
+                    </h3>
+
+                    <p>
+                        Build a recognizable visual language using colors,
+                        typography, graphic elements and brand direction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-grid-1x2"></i>
+
+                    </div>
+
+                    <h3>
+                        Brand Guidelines
+                    </h3>
+
+                    <p>
+                        Clear guidelines that help maintain consistency
+                        when your brand appears across different media.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-instagram"></i>
+
+                    </div>
+
+                    <h3>
+                        Social Branding
+                    </h3>
+
+                    <p>
+                        Social media visuals and profile assets that help
+                        your digital presence look consistent and professional.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-bag"></i>
+
+                    </div>
+
+                    <h3>
+                        Marketing Assets
+                    </h3>
+
+                    <p>
+                        Creative brand assets for posters, advertisements,
+                        promotions, campaigns and business communication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 06 -->
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-service">
+
+                    <div class="pnd-service-icon">
+
+                        <i class="bi bi-boxes"></i>
+
+                    </div>
+
+                    <h3>
+                        Brand Applications
+                    </h3>
+
+                    <p>
+                        Extend your identity across websites, packaging,
+                        stationery, presentations and other brand touchpoints.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BRAND PROCESS
+========================================================= -->
+
+<section class="pnd-section">
+
+
+    <div class="container">
+
+
+        <div class="pnd-section-head text-center mx-auto pnd-reveal">
+
+            <div class="pnd-section-label">
+                OUR CREATIVE PROCESS
+            </div>
+
+            <h2>
+                From idea to recognizable identity.
+            </h2>
+
+            <p>
+                We move from understanding your business to creating a
+                visual system that can grow with your brand.
+            </p>
+
+        </div>
+
+
+        <div class="pnd-process">
+
+            <div class="pnd-process-line"></div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-process-step">
+
+                        <div class="pnd-process-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Discover
+                        </h3>
+
+                        <p>
+                            Understand your business, audience, personality
+                            and direction.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-process-step">
+
+                        <div class="pnd-process-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Concept
+                        </h3>
+
+                        <p>
+                            Explore visual ideas, creative directions and
+                            identity possibilities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-process-step">
+
+                        <div class="pnd-process-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Design
+                        </h3>
+
+                        <p>
+                            Refine the selected direction into a practical
+                            visual identity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-process-step">
+
+                        <div class="pnd-process-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Deliver
+                        </h3>
+
+                        <p>
+                            Prepare the brand assets you need for digital
+                            and physical applications.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BRAND SYSTEM
+========================================================= -->
+
+<section class="pnd-section pnd-section-alt">
+
+
+    <div class="container">
+
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- BRAND SYSTEM VISUAL -->
+
+            <div class="col-lg-6 pnd-reveal">
+
+
+                <div class="pnd-brand-system">
+
+
+                    <div class="pnd-system-head">
+
+                        <div class="pnd-system-title">
+
+                            <strong>
+                                Brand Identity System
+                            </strong>
+
+                            <span>
+                                LOGO / COLOR / TYPOGRAPHY
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-system-live">
+
+                            <i></i>
+
+                            READY
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PALETTE -->
+
+                    <div class="pnd-palette">
+
+                        <div class="pnd-color pnd-color-1">
+
+                            <span>
+                                BLUE / #2563EB
+                            </span>
+
+                        </div>
+
+                        <div class="pnd-color pnd-color-2">
+
+                            <span>
+                                CYAN / #06B6D4
+                            </span>
+
+                        </div>
+
+                        <div class="pnd-color pnd-color-3">
+
+                            <span>
+                                VIOLET / #7C3AED
+                            </span>
+
+                        </div>
+
+                        <div class="pnd-color pnd-color-4">
+
+                            <span style="color:#0B172A;">
+                                WHITE / #F8FAFC
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TYPOGRAPHY -->
+
+                    <div class="pnd-type-card">
+
+                        <div class="pnd-type-small">
+                            PRIMARY TYPEFACE
+                        </div>
+
+                        <div class="pnd-type-big">
+                            Pixel Nest
+                        </div>
+
+                        <div class="pnd-type-sub">
+                            Clean · Modern · Digital
+                        </div>
+
+                    </div>
+
+
+                    <!-- BRAND LINE -->
+
+                    <div
+                        class="pnd-brand-bars"
+                        style="margin-top:15px;">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-6">
+
+
+                <div class="pnd-section-head pnd-reveal">
+
+                    <div class="pnd-section-label">
+                        BUILD A SYSTEM
+                    </div>
+
+                    <h2>
+                        Make every brand touchpoint feel connected.
+                    </h2>
+
+                    <p>
+                        A strong identity is not only about having a good
+                        logo. It is about creating a visual language that
+                        remains recognizable across every place your brand
+                        appears.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-benefits">
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+
+                            <i class="bi bi-fingerprint"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Recognition
+                            </h4>
+
+                            <p>
+                                Create visual elements that help people
+                                identify your business consistently.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+
+                            <i class="bi bi-sliders"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Consistency
+                            </h4>
+
+                            <p>
+                                Establish clear rules for using your logo,
+                                colors, typography and other assets.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+
+                            <i class="bi bi-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Digital Ready
+                            </h4>
+
+                            <p>
+                                Prepare identity assets for websites,
+                                social platforms and digital campaigns.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+
+                            <i class="bi bi-arrows-angle-expand"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Built To Grow
+                            </h4>
+
+                            <p>
+                                Create an identity that can expand as your
+                                business develops new products and services.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DELIVERABLES
+========================================================= -->
+
+<section class="pnd-section">
+
+
+    <div class="container">
+
+
+        <div class="pnd-section-head pnd-reveal">
+
+            <div class="pnd-section-label">
+                BRAND DELIVERABLES
+            </div>
+
+            <h2>
+                Everything your visual identity needs.
+            </h2>
+
+            <p>
+                Depending on your project, we can create a complete collection
+                of brand assets rather than stopping at a single logo.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- 01 -->
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-deliverable">
+
+                    <span class="pnd-deliverable-number">
+                        01
+                    </span>
+
+                    <div class="pnd-deliverable-icon">
+
+                        <i class="bi bi-vector-pen"></i>
+
+                    </div>
+
+                    <h3>
+                        Logo Package
+                    </h3>
+
+                    <p>
+                        Primary logo, alternate versions, symbols and
+                        practical variations for different uses.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-deliverable">
+
+                    <span class="pnd-deliverable-number">
+                        02
+                    </span>
+
+                    <div class="pnd-deliverable-icon">
+
+                        <i class="bi bi-palette"></i>
+
+                    </div>
+
+                    <h3>
+                        Color System
+                    </h3>
+
+                    <p>
+                        Primary and supporting colors selected to establish
+                        a recognizable visual language.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-deliverable">
+
+                    <span class="pnd-deliverable-number">
+                        03
+                    </span>
+
+                    <div class="pnd-deliverable-icon">
+
+                        <i class="bi bi-type"></i>
+
+                    </div>
+
+                    <h3>
+                        Typography
+                    </h3>
+
+                    <p>
+                        Font combinations and typography direction for
+                        headlines, content and brand communication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-deliverable">
+
+                    <span class="pnd-deliverable-number">
+                        04
+                    </span>
+
+                    <div class="pnd-deliverable-icon">
+
+                        <i class="bi bi-file-earmark-richtext"></i>
+
+                    </div>
+
+                    <h3>
+                        Brand Guide
+                    </h3>
+
+                    <p>
+                        A practical reference for using your identity
+                        consistently across future brand materials.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="pnd-section">
+
+
+    <div class="container">
+
+
+        <div class="pnd-cta text-center pnd-reveal">
+
+
+            <div class="pnd-section-label">
+                READY TO BUILD YOUR IDENTITY?
+            </div>
+
+
+            <h2>
+                Your business deserves a brand people remember.
+            </h2>
+
+
+            <p>
+                Tell us about your business, your idea or the identity
+                you want to create. Let's turn it into something visual.
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="pnd-btn pnd-btn-primary">
+
+                Start My Brand
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="pnd-footer">
+
+
+    <div class="container">
+
+
+        <div class="row align-items-start">
+
+
+            <div class="col-lg-6">
+
+                <div class="pnd-footer-brand">
+                    PIXEL NEST DIGITAL
+                </div>
+
+
+                <p>
+                    Websites, web applications, e-commerce, software,
+                    databases and creative digital solutions built around
+                    ideas that deserve to grow.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="pnd-footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="services.html">
+                        Services
+                    </a>
+
+                    <a href="portfolio.html">
+                        Portfolio
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pnd-footer-bottom d-flex flex-wrap justify-content-between gap-3">
+
+            <span>
+
+                ©
+                <span id="pndYear"></span>
+
+                Pixel Nest Digital.
+
+                All rights reserved.
+
+            </span>
+
+
+            <span>
+
+                A JO-GEO VENTURES Initiative
+
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================== */
+
+    const menuBtn =
+        document.getElementById("pndMenuBtn");
+
+    const nav =
+        document.getElementById("pndNav");
+
+
+    if(menuBtn && nav){
+
+        menuBtn.addEventListener(
+            "click",
+            function(){
+
+                nav.classList.toggle("show");
+
+
+                const icon =
+                    menuBtn.querySelector("i");
+
+
+                if(nav.classList.contains("show")){
+
+                    icon.className =
+                        "bi bi-x-lg";
+
+                }else{
+
+                    icon.className =
+                        "bi bi-list";
+
+                }
+
+            }
+        );
+
+
+        nav.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    nav.classList.remove("show");
+
+                    const icon =
+                        menuBtn.querySelector("i");
+
+                    icon.className =
+                        "bi bi-list";
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================== */
+
+    const revealElements =
+        document.querySelectorAll(".pnd-reveal");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:.12
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================== */
+
+    document.getElementById("pndYear").textContent =
+        new Date().getFullYear();
+
+
+    /* =========================================================
+       INTERNAL SMOOTH SCROLL
+    ========================================================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function(event){
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+
+                    if(target){
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+
+                            behavior:"smooth",
+
+                            block:"start"
+
+                        });
+
+                    }
+
+                }
+            );
+
+        });
+
+</script>
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,3599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Pixel Nest Digital — Professional Video Editing services for reels, YouTube videos, business videos, brand content and more.">
+
+    <title>Video Editing | Pixel Nest Digital</title>
+
+
+    <!-- =========================================================
+         BOOTSTRAP
+    ========================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
+        :root{
+
+            --pnd-space:#07111F;
+            --pnd-space-2:#0B172A;
+            --pnd-space-3:#111C35;
+
+            --pnd-blue:#2563EB;
+            --pnd-blue-dark:#1D4ED8;
+            --pnd-cyan:#06B6D4;
+            --pnd-violet:#7C3AED;
+
+            --pnd-white:#F8FAFC;
+            --pnd-text:#E2E8F0;
+            --pnd-muted:#94A3B8;
+
+            --pnd-border:rgba(148,163,184,.16);
+            --pnd-glass:rgba(255,255,255,.055);
+
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            font-family:"DM Sans",sans-serif;
+
+            background:var(--pnd-space);
+
+            color:var(--pnd-text);
+
+            overflow-x:hidden;
+
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+
+        /* =====================================================
+           LED STRIP
+        ====================================================== */
+
+        .pnd-led{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:3px;
+
+            z-index:9999;
+
+            background:
+            linear-gradient(
+                90deg,
+                var(--pnd-blue),
+                var(--pnd-cyan),
+                var(--pnd-violet),
+                var(--pnd-blue)
+            );
+
+            background-size:300% 100%;
+
+            animation:pndLedMove 5s linear infinite;
+
+            box-shadow:
+                0 0 10px rgba(37,99,235,.8),
+                0 0 22px rgba(6,182,212,.45);
+
+        }
+
+        @keyframes pndLedMove{
+
+            0%{
+                background-position:0% 50%;
+            }
+
+            100%{
+                background-position:300% 50%;
+            }
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .pnd-navbar{
+
+            position:sticky;
+
+            top:0;
+
+            z-index:999;
+
+            min-height:82px;
+
+            background:#fff;
+
+            border-bottom:1px solid #E2E8F0;
+
+            box-shadow:
+                0 5px 25px rgba(15,23,42,.08);
+
+        }
+
+        .pnd-navbar .container-xl{
+
+            min-height:82px;
+
+            display:flex;
+
+            align-items:center;
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .pnd-brand{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            text-decoration:none;
+
+            height:100%;
+
+            flex-shrink:0;
+
+        }
+
+        .pnd-brand-logo-wrap{
+
+            width:78px;
+
+            height:68px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            flex-shrink:0;
+
+            overflow:visible;
+
+        }
+
+        .pnd-brand-logo{
+
+            width:100%;
+
+            height:100%;
+
+            object-fit:contain;
+
+            display:block;
+
+            transform:scale(1.08);
+
+            transform-origin:center;
+
+        }
+
+
+        /* =====================================================
+           NAV LINKS
+        ====================================================== */
+
+        .pnd-nav{
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:flex-end;
+
+            gap:4px;
+
+            width:100%;
+
+        }
+
+        .pnd-nav a{
+
+            color:#D4AF37;
+
+            font-size:.92rem;
+
+            font-weight:600;
+
+            padding:10px 13px;
+
+            border-radius:9px;
+
+            transition:
+                color .25s ease,
+                background .25s ease,
+                transform .25s ease;
+
+            white-space:nowrap;
+
+        }
+
+        .pnd-nav a:hover{
+
+            color:#fff;
+
+            background:var(--pnd-space);
+
+            transform:translateY(-1px);
+
+        }
+
+        .pnd-nav a.active{
+
+            color:#fff;
+
+            background:var(--pnd-space);
+
+        }
+
+
+        /* =====================================================
+           NAV CTA
+        ====================================================== */
+
+        .pnd-nav .pnd-nav-cta{
+
+            color:#fff;
+
+            background:
+            linear-gradient(
+                135deg,
+                var(--pnd-blue),
+                var(--pnd-violet)
+            );
+
+            padding:11px 16px;
+
+            margin-left:6px;
+
+            box-shadow:
+                0 8px 22px rgba(37,99,235,.22);
+
+        }
+
+        .pnd-nav .pnd-nav-cta:hover{
+
+            color:#fff;
+
+            background:
+            linear-gradient(
+                135deg,
+                var(--pnd-blue-dark),
+                #6D28D9
+            );
+
+            transform:translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE TOGGLE
+        ====================================================== */
+
+        .pnd-menu-toggle{
+
+            width:42px;
+
+            height:42px;
+
+            border-radius:11px;
+
+            border:1px solid #CBD5E1;
+
+            background:rgba(248,250,252,.95);
+
+            display:none;
+
+            align-items:center;
+
+            justify-content:center;
+
+            color:#000;
+
+            font-size:1.35rem;
+
+            box-shadow:
+                0 5px 15px rgba(15,23,42,.08);
+
+        }
+
+        .pnd-menu-toggle i{
+
+            color:#000;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .pnd-hero{
+
+            position:relative;
+
+            min-height:calc(100vh - 82px);
+
+            display:flex;
+
+            align-items:center;
+
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(37,99,235,.18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 15% 80%,
+                    rgba(124,58,237,.13),
+                    transparent 30%
+                ),
+                var(--pnd-space);
+
+        }
+
+        .pnd-hero-grid{
+
+            position:absolute;
+
+            inset:0;
+
+            opacity:.17;
+
+            background-image:
+                linear-gradient(
+                    rgba(148,163,184,.12) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.12) 1px,
+                    transparent 1px
+                );
+
+            background-size:55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent
+                );
+
+        }
+
+        .pnd-hero-glow{
+
+            position:absolute;
+
+            width:430px;
+
+            height:430px;
+
+            right:-130px;
+
+            top:50%;
+
+            transform:translateY(-50%);
+
+            border-radius:50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(6,182,212,.16),
+                    transparent 68%
+                );
+
+            filter:blur(15px);
+
+            pointer-events:none;
+
+        }
+
+        .pnd-hero-content{
+
+            position:relative;
+
+            z-index:2;
+
+        }
+
+        .pnd-eyebrow{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            gap:9px;
+
+            font-size:.75rem;
+
+            font-weight:800;
+
+            letter-spacing:.18em;
+
+            color:#67E8F9;
+
+            margin-bottom:18px;
+
+        }
+
+        .pnd-eyebrow::before{
+
+            content:"";
+
+            width:28px;
+
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+        }
+
+        .pnd-hero h1{
+
+            max-width:850px;
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    6.8rem
+                );
+
+            line-height:.95;
+
+            letter-spacing:-.065em;
+
+            font-weight:800;
+
+            color:#fff;
+
+            margin-bottom:28px;
+
+        }
+
+        .pnd-gradient{
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip:text;
+
+            background-clip:text;
+
+            -webkit-text-fill-color:transparent;
+
+        }
+
+        .pnd-hero-description{
+
+            max-width:690px;
+
+            font-size:1.08rem;
+
+            line-height:1.8;
+
+            color:#AAB8CA;
+
+            margin-bottom:30px;
+
+        }
+
+
+        /* =====================================================
+           HERO BUTTONS
+        ====================================================== */
+
+        .pnd-btn{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            gap:9px;
+
+            padding:13px 20px;
+
+            border-radius:11px;
+
+            font-weight:700;
+
+            font-size:.92rem;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+
+        }
+
+        .pnd-btn-primary{
+
+            color:#fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 12px 28px rgba(37,99,235,.25);
+
+        }
+
+        .pnd-btn-primary:hover{
+
+            color:#fff;
+
+            transform:translateY(-3px);
+
+            box-shadow:
+                0 17px 34px rgba(37,99,235,.35);
+
+        }
+
+        .pnd-btn-outline{
+
+            color:#E2E8F0;
+
+            border:1px solid rgba(148,163,184,.28);
+
+            background:rgba(255,255,255,.035);
+
+        }
+
+        .pnd-btn-outline:hover{
+
+            color:#fff;
+
+            border-color:rgba(6,182,212,.5);
+
+            background:rgba(6,182,212,.08);
+
+            transform:translateY(-3px);
+
+        }
+
+
+        /* =====================================================
+           HERO STATS
+        ====================================================== */
+
+        .pnd-stats{
+
+            display:flex;
+
+            gap:38px;
+
+            margin-top:48px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .pnd-stat strong{
+
+            display:block;
+
+            color:#fff;
+
+            font-size:1rem;
+
+            margin-bottom:3px;
+
+        }
+
+        .pnd-stat span{
+
+            color:#64748B;
+
+            font-size:.75rem;
+
+            letter-spacing:.12em;
+
+            text-transform:uppercase;
+
+        }
+
+
+        /* =====================================================
+           EDITING CONSOLE
+        ====================================================== */
+
+        .pnd-console{
+
+            position:relative;
+
+            min-height:455px;
+
+            border-radius:24px;
+
+            padding:20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(17,28,53,.94),
+                    rgba(7,17,31,.98)
+                );
+
+            border:1px solid rgba(148,163,184,.2);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.35),
+                inset 0 1px 0 rgba(255,255,255,.04);
+
+            overflow:hidden;
+
+        }
+
+        .pnd-console::before{
+
+            content:"";
+
+            position:absolute;
+
+            width:230px;
+
+            height:230px;
+
+            right:-80px;
+
+            top:-80px;
+
+            border-radius:50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.24),
+                    transparent 70%
+                );
+
+        }
+
+        .pnd-console-top{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            position:relative;
+
+            z-index:2;
+
+            padding-bottom:15px;
+
+            border-bottom:1px solid rgba(148,163,184,.12);
+
+        }
+
+        .pnd-console-brand{
+
+            font-size:.72rem;
+
+            font-weight:800;
+
+            letter-spacing:.14em;
+
+            color:#CBD5E1;
+
+        }
+
+        .pnd-time{
+
+            font-size:.72rem;
+
+            color:#67E8F9;
+
+            font-weight:700;
+
+        }
+
+        .pnd-preview{
+
+            height:245px;
+
+            margin-top:17px;
+
+            border-radius:15px;
+
+            position:relative;
+
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(6,182,212,.3),
+                    transparent 24%
+                ),
+                linear-gradient(
+                    135deg,
+                    #101C35,
+                    #050A13
+                );
+
+            border:1px solid rgba(148,163,184,.13);
+
+        }
+
+        .pnd-preview::before{
+
+            content:"";
+
+            position:absolute;
+
+            inset:0;
+
+            background:
+                linear-gradient(
+                    125deg,
+                    transparent 35%,
+                    rgba(37,99,235,.16) 36%,
+                    transparent 54%
+                );
+
+        }
+
+        .pnd-preview-center{
+
+            position:absolute;
+
+            top:50%;
+
+            left:50%;
+
+            transform:translate(-50%,-50%);
+
+            width:90px;
+
+            height:90px;
+
+            border-radius:50%;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            background:
+                rgba(255,255,255,.055);
+
+            border:1px solid rgba(255,255,255,.16);
+
+            box-shadow:
+                0 0 35px rgba(6,182,212,.18);
+
+        }
+
+        .pnd-preview-center i{
+
+            color:#67E8F9;
+
+            font-size:2rem;
+
+        }
+
+        .pnd-preview-label{
+
+            position:absolute;
+
+            left:17px;
+
+            bottom:15px;
+
+            font-size:.72rem;
+
+            color:#CBD5E1;
+
+        }
+
+        .pnd-timeline{
+
+            margin-top:17px;
+
+        }
+
+        .pnd-track{
+
+            height:10px;
+
+            border-radius:20px;
+
+            background:#17243B;
+
+            overflow:hidden;
+
+            margin-bottom:8px;
+
+        }
+
+        .pnd-track span{
+
+            display:block;
+
+            height:100%;
+
+            border-radius:20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+        }
+
+        .pnd-track:nth-child(1) span{
+            width:74%;
+        }
+
+        .pnd-track:nth-child(2) span{
+            width:48%;
+        }
+
+        .pnd-track:nth-child(3) span{
+            width:88%;
+        }
+
+        .pnd-timeline-labels{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            color:#64748B;
+
+            font-size:.65rem;
+
+            margin-top:9px;
+
+        }
+
+
+        /* =====================================================
+           COMMON SECTION
+        ====================================================== */
+
+        .pnd-section{
+
+            padding:105px 0;
+
+            background:var(--pnd-space);
+
+            position:relative;
+
+        }
+
+        .pnd-section:not(.pnd-section-alt){
+
+            color:var(--pnd-text);
+
+        }
+
+
+        /* =====================================================
+           WHITE ALTERNATING SECTIONS
+        ====================================================== */
+
+        .pnd-section.pnd-section-alt{
+
+            background:#fff;
+
+            border-top:1px solid #E2E8F0;
+
+            border-bottom:1px solid #E2E8F0;
+
+            color:#0F172A;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-label{
+
+            color:#2563EB;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-title{
+
+            color:#0F172A;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-description{
+
+            color:#475569;
+
+        }
+
+
+        /* =====================================================
+           SECTION HEAD
+        ====================================================== */
+
+        .pnd-label{
+
+            display:block;
+
+            color:#67E8F9;
+
+            font-size:.72rem;
+
+            font-weight:800;
+
+            letter-spacing:.17em;
+
+            text-transform:uppercase;
+
+            margin-bottom:14px;
+
+        }
+
+        .pnd-title{
+
+            font-size:
+                clamp(
+                    2.2rem,
+                    4vw,
+                    4rem
+                );
+
+            line-height:1.02;
+
+            letter-spacing:-.045em;
+
+            font-weight:800;
+
+            margin-bottom:18px;
+
+            color:#fff;
+
+        }
+
+        .pnd-description{
+
+            max-width:720px;
+
+            color:#94A3B8;
+
+            line-height:1.8;
+
+            margin-bottom:48px;
+
+        }
+
+
+        /* =====================================================
+           FEATURE CARDS — DARK DEFAULT
+        ====================================================== */
+
+        .pnd-feature{
+
+            height:100%;
+
+            position:relative;
+
+            padding:30px;
+
+            border-radius:19px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.025)
+                );
+
+            border:1px solid var(--pnd-border);
+
+            overflow:hidden;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+        .pnd-feature::before{
+
+            content:"";
+
+            position:absolute;
+
+            top:0;
+
+            left:0;
+
+            right:0;
+
+            height:3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            transform:scaleX(.25);
+
+            transform-origin:left;
+
+            transition:transform .3s ease;
+
+        }
+
+        .pnd-feature:hover{
+
+            transform:translateY(-8px);
+
+            border-color:rgba(6,182,212,.3);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.2);
+
+        }
+
+        .pnd-feature:hover::before{
+
+            transform:scaleX(1);
+
+        }
+
+        .pnd-feature-icon{
+
+            width:50px;
+
+            height:50px;
+
+            border-radius:14px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            color:#67E8F9;
+
+            background:rgba(6,182,212,.08);
+
+            border:1px solid rgba(6,182,212,.18);
+
+            font-size:1.25rem;
+
+            margin-bottom:24px;
+
+        }
+
+        .pnd-feature-number{
+
+            position:absolute;
+
+            top:27px;
+
+            right:28px;
+
+            font-size:.72rem;
+
+            color:#64748B;
+
+            font-weight:800;
+
+            letter-spacing:.1em;
+
+        }
+
+        .pnd-feature h3{
+
+            color:#fff;
+
+            font-size:1.22rem;
+
+            margin-bottom:12px;
+
+            font-weight:700;
+
+        }
+
+        .pnd-feature p{
+
+            color:#94A3B8;
+
+            line-height:1.7;
+
+            font-size:.92rem;
+
+            margin-bottom:0;
+
+        }
+
+
+        /* =====================================================
+           FEATURE CARDS — WHITE SECTION
+        ====================================================== */
+
+        .pnd-section.pnd-section-alt .pnd-feature{
+
+            background:#F8FAFC;
+
+            border-color:#E2E8F0;
+
+            box-shadow:
+                0 10px 30px rgba(15,23,42,.06);
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-feature:hover{
+
+            border-color:rgba(37,99,235,.28);
+
+            box-shadow:
+                0 18px 45px rgba(15,23,42,.1);
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-feature h3{
+
+            color:#0F172A;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-feature p{
+
+            color:#475569;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-feature-number{
+
+            color:#64748B;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-feature-icon{
+
+            color:#2563EB;
+
+            background:rgba(37,99,235,.08);
+
+            border-color:rgba(37,99,235,.18);
+
+        }
+
+
+        /* =====================================================
+           FORMAT CARDS
+        ====================================================== */
+
+        .pnd-format{
+
+            height:100%;
+
+            min-height:230px;
+
+            padding:28px;
+
+            border-radius:20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #111C35,
+                    #091321
+                );
+
+            border:1px solid rgba(148,163,184,.15);
+
+            position:relative;
+
+            overflow:hidden;
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease;
+
+        }
+
+        .pnd-format::after{
+
+            content:"";
+
+            position:absolute;
+
+            width:140px;
+
+            height:140px;
+
+            border-radius:50%;
+
+            right:-60px;
+
+            bottom:-70px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.2),
+                    transparent 70%
+                );
+
+        }
+
+        .pnd-format:hover{
+
+            transform:translateY(-7px);
+
+            border-color:
+                rgba(6,182,212,.3);
+
+        }
+
+        .pnd-format i{
+
+            color:#67E8F9;
+
+            font-size:1.7rem;
+
+            margin-bottom:25px;
+
+            display:block;
+
+        }
+
+        .pnd-format h3{
+
+            color:#fff;
+
+            font-size:1.18rem;
+
+            margin-bottom:10px;
+
+        }
+
+        .pnd-format p{
+
+            color:#94A3B8;
+
+            font-size:.9rem;
+
+            line-height:1.7;
+
+            margin-bottom:0;
+
+        }
+
+
+        /* =====================================================
+           PROCESS
+        ====================================================== */
+
+        .pnd-process{
+
+            position:relative;
+
+        }
+
+        .pnd-process-line{
+
+            position:absolute;
+
+            top:37px;
+
+            left:12%;
+
+            right:12%;
+
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            opacity:.45;
+
+        }
+
+        .pnd-step{
+
+            position:relative;
+
+            z-index:2;
+
+            text-align:center;
+
+        }
+
+        .pnd-step-icon{
+
+            width:74px;
+
+            height:74px;
+
+            margin:0 auto 22px;
+
+            border-radius:50%;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            color:#67E8F9;
+
+            background:#101D34;
+
+            border:1px solid rgba(6,182,212,.28);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.18);
+
+            font-size:1.35rem;
+
+        }
+
+        .pnd-step h3{
+
+            color:#fff;
+
+            font-size:1.12rem;
+
+            margin-bottom:9px;
+
+        }
+
+        .pnd-step p{
+
+            color:#94A3B8;
+
+            font-size:.88rem;
+
+            line-height:1.65;
+
+            max-width:220px;
+
+            margin:auto;
+
+        }
+
+
+        /* =====================================================
+           PROCESS — WHITE SECTION
+        ====================================================== */
+
+        .pnd-section.pnd-section-alt .pnd-process-line{
+
+            opacity:.7;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-step-icon{
+
+            background:#fff;
+
+            color:#2563EB;
+
+            border-color:rgba(37,99,235,.25);
+
+            box-shadow:
+                0 8px 25px rgba(15,23,42,.08);
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-step h3{
+
+            color:#0F172A;
+
+        }
+
+        .pnd-section.pnd-section-alt .pnd-step p{
+
+            color:#475569;
+
+        }
+
+
+        /* =====================================================
+           POST PRODUCTION PANEL
+        ====================================================== */
+
+        .pnd-post-panel{
+
+            padding:48px;
+
+            border-radius:25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101C35,
+                    #07111F
+                );
+
+            border:1px solid rgba(148,163,184,.15);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.2);
+
+        }
+
+        .pnd-post-panel h3{
+
+            color:#fff;
+
+            font-size:
+                clamp(
+                    1.8rem,
+                    3vw,
+                    2.7rem
+                );
+
+            margin-bottom:20px;
+
+            letter-spacing:-.035em;
+
+        }
+
+        .pnd-post-panel p{
+
+            color:#94A3B8;
+
+            line-height:1.8;
+
+            margin-bottom:15px;
+
+        }
+
+        .pnd-tools{
+
+            display:flex;
+
+            gap:10px;
+
+            flex-wrap:wrap;
+
+            margin-top:30px;
+
+        }
+
+        .pnd-tool{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            gap:8px;
+
+            padding:9px 13px;
+
+            border-radius:9px;
+
+            background:rgba(255,255,255,.045);
+
+            border:1px solid rgba(148,163,184,.12);
+
+            color:#CBD5E1;
+
+            font-size:.78rem;
+
+        }
+
+        .pnd-tool i{
+
+            color:#67E8F9;
+
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .pnd-cta{
+
+            position:relative;
+
+            padding:105px 0;
+
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 50%,
+                    rgba(37,99,235,.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 50%,
+                    rgba(124,58,237,.15),
+                    transparent 35%
+                ),
+                var(--pnd-space-2);
+
+            border-top:1px solid rgba(148,163,184,.1);
+
+        }
+
+        .pnd-cta-content{
+
+            position:relative;
+
+            z-index:2;
+
+            text-align:center;
+
+        }
+
+        .pnd-cta .pnd-label{
+
+            color:#67E8F9;
+
+        }
+
+        .pnd-cta h2{
+
+            max-width:900px;
+
+            margin:0 auto 20px;
+
+            font-size:
+                clamp(
+                    2.5rem,
+                    5vw,
+                    5rem
+                );
+
+            line-height:1;
+
+            letter-spacing:-.055em;
+
+            color:#fff;
+
+            font-weight:800;
+
+        }
+
+        .pnd-cta p{
+
+            max-width:680px;
+
+            margin:0 auto 30px;
+
+            color:#94A3B8;
+
+            line-height:1.8;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .pnd-footer{
+
+            background:#050C16;
+
+            border-top:1px solid rgba(148,163,184,.1);
+
+            padding:65px 0 25px;
+
+        }
+
+        .pnd-footer-brand{
+
+            color:#fff;
+
+            font-size:1.4rem;
+
+            font-weight:800;
+
+            margin-bottom:14px;
+
+        }
+
+        .pnd-footer-description{
+
+            max-width:420px;
+
+            color:#64748B;
+
+            font-size:.9rem;
+
+            line-height:1.8;
+
+        }
+
+        .pnd-footer h4{
+
+            color:#fff;
+
+            font-size:.92rem;
+
+            margin-bottom:20px;
+
+        }
+
+        .pnd-footer-links{
+
+            list-style:none;
+
+            padding:0;
+
+            margin:0;
+
+        }
+
+        .pnd-footer-links li{
+
+            margin-bottom:11px;
+
+        }
+
+        .pnd-footer-links a{
+
+            color:#64748B;
+
+            font-size:.86rem;
+
+            transition:color .2s ease;
+
+        }
+
+        .pnd-footer-links a:hover{
+
+            color:#67E8F9;
+
+        }
+
+        .pnd-footer-bottom{
+
+            margin-top:50px;
+
+            padding-top:22px;
+
+            border-top:1px solid rgba(148,163,184,.09);
+
+            display:flex;
+
+            justify-content:space-between;
+
+            gap:20px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .pnd-footer-bottom p{
+
+            margin:0;
+
+            color:#475569;
+
+            font-size:.78rem;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+        ====================================================== */
+
+        @media(max-width:991px){
+
+            .pnd-navbar{
+
+                min-height:64px;
+
+            }
+
+            .pnd-navbar .container-xl{
+
+                min-height:64px;
+
+            }
+
+            .pnd-brand-logo-wrap{
+
+                width:70px;
+
+                height:62px;
+
+            }
+
+            .pnd-brand-logo{
+
+                transform:scale(1.06);
+
+            }
+
+            .pnd-menu-toggle{
+
+                display:flex;
+
+            }
+
+            .pnd-nav{
+
+                position:absolute;
+
+                top:calc(100% + 9px);
+
+                left:12px;
+
+                right:12px;
+
+                width:auto;
+
+                display:none;
+
+                flex-direction:column;
+
+                align-items:stretch;
+
+                justify-content:flex-start;
+
+                gap:3px;
+
+                padding:13px;
+
+                border-radius:16px;
+
+                background:rgba(7,17,31,.98);
+
+                border:1px solid rgba(148,163,184,.18);
+
+                box-shadow:
+                    0 20px 45px rgba(0,0,0,.25);
+
+            }
+
+            .pnd-nav.show{
+
+                display:flex;
+
+            }
+
+            .pnd-nav a{
+
+                width:100%;
+
+                color:#D4AF37;
+
+                padding:12px 14px;
+
+                border-radius:10px;
+
+            }
+
+            .pnd-nav a:hover,
+            .pnd-nav a.active{
+
+                color:#fff;
+
+                background:rgba(255,255,255,.07);
+
+            }
+
+            .pnd-nav .pnd-nav-cta{
+
+                margin:5px 0 0;
+
+                text-align:center;
+
+            }
+
+            .pnd-hero{
+
+                min-height:auto;
+
+                padding:95px 0;
+
+            }
+
+            .pnd-hero h1{
+
+                font-size:
+                    clamp(
+                        3rem,
+                        8vw,
+                        5rem
+                    );
+
+            }
+
+            .pnd-console{
+
+                margin-top:50px;
+
+            }
+
+            .pnd-section{
+
+                padding:85px 0;
+
+            }
+
+            .pnd-process-line{
+
+                left:8%;
+
+                right:8%;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — MOBILE
+        ====================================================== */
+
+        @media(max-width:767px){
+
+            .pnd-navbar{
+
+                min-height:60px;
+
+            }
+
+            .pnd-navbar .container-xl{
+
+                min-height:60px;
+
+            }
+
+            .pnd-brand-logo-wrap{
+
+                width:64px;
+
+                height:58px;
+
+            }
+
+            .pnd-brand-logo{
+
+                transform:scale(1.04);
+
+            }
+
+            .pnd-menu-toggle{
+
+                width:39px;
+
+                height:39px;
+
+                border-radius:10px;
+
+                font-size:1.2rem;
+
+            }
+
+            .pnd-hero{
+
+                padding:75px 0 70px;
+
+            }
+
+            .pnd-eyebrow{
+
+                font-size:.66rem;
+
+                letter-spacing:.13em;
+
+            }
+
+            .pnd-hero h1{
+
+                font-size:
+                    clamp(
+                        2.7rem,
+                        14vw,
+                        4.4rem
+                    );
+
+                line-height:.98;
+
+                letter-spacing:-.06em;
+
+                margin-bottom:22px;
+
+            }
+
+            .pnd-hero-description{
+
+                font-size:.96rem;
+
+                line-height:1.75;
+
+            }
+
+            .pnd-btn{
+
+                width:100%;
+
+            }
+
+            .pnd-stats{
+
+                gap:22px;
+
+                margin-top:35px;
+
+            }
+
+            .pnd-console{
+
+                min-height:auto;
+
+                padding:14px;
+
+                border-radius:19px;
+
+                margin-top:42px;
+
+            }
+
+            .pnd-preview{
+
+                height:205px;
+
+            }
+
+            .pnd-preview-center{
+
+                width:70px;
+
+                height:70px;
+
+            }
+
+            .pnd-section{
+
+                padding:70px 0;
+
+            }
+
+            .pnd-title{
+
+                font-size:
+                    clamp(
+                        2.1rem,
+                        10vw,
+                        3.1rem
+                    );
+
+            }
+
+            .pnd-description{
+
+                margin-bottom:32px;
+
+            }
+
+            .pnd-feature{
+
+                padding:25px;
+
+            }
+
+            .pnd-format{
+
+                min-height:210px;
+
+            }
+
+            .pnd-process-line{
+
+                display:none;
+
+            }
+
+            .pnd-step{
+
+                margin-bottom:38px;
+
+            }
+
+            .pnd-step:last-child{
+
+                margin-bottom:0;
+
+            }
+
+            .pnd-post-panel{
+
+                padding:28px 22px;
+
+                border-radius:20px;
+
+            }
+
+            .pnd-cta{
+
+                padding:75px 0;
+
+            }
+
+            .pnd-cta h2{
+
+                font-size:
+                    clamp(
+                        2.4rem,
+                        12vw,
+                        3.5rem
+                    );
+
+            }
+
+            .pnd-footer{
+
+                padding-top:50px;
+
+            }
+
+            .pnd-footer-bottom{
+
+                margin-top:35px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — SMALL MOBILE
+        ====================================================== */
+
+        @media(max-width:420px){
+
+            .pnd-brand-logo-wrap{
+
+                width:60px;
+
+                height:54px;
+
+            }
+
+            .pnd-brand-logo{
+
+                transform:scale(1.04);
+
+            }
+
+            .pnd-hero{
+
+                padding-top:65px;
+
+            }
+
+            .pnd-hero h1{
+
+                font-size:
+                    clamp(
+                        2.45rem,
+                        13vw,
+                        3.3rem
+                    );
+
+            }
+
+            .pnd-stats{
+
+                gap:18px;
+
+            }
+
+            .pnd-stat strong{
+
+                font-size:.9rem;
+
+            }
+
+            .pnd-stat span{
+
+                font-size:.63rem;
+
+            }
+
+            .pnd-console{
+
+                padding:11px;
+
+            }
+
+            .pnd-preview{
+
+                height:180px;
+
+            }
+
+            .pnd-preview-center{
+
+                width:60px;
+
+                height:60px;
+
+            }
+
+            .pnd-feature{
+
+                padding:22px;
+
+            }
+
+            .pnd-post-panel{
+
+                padding:24px 18px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY / REDUCED MOTION
+        ====================================================== */
+
+        @media(prefers-reduced-motion:reduce){
+
+            html{
+
+                scroll-behavior:auto;
+
+            }
+
+            .pnd-led{
+
+                animation:none;
+
+            }
+
+            *{
+
+                transition:none !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LED STRIP
+    ====================================================== -->
+
+    <div class="pnd-led"></div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="pnd-navbar">
+
+        <div class="container-xl px-3 px-lg-4">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="pnd-brand"
+                aria-label="Pixel Nest Digital Home">
+
+                <span class="pnd-brand-logo-wrap">
+
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital Logo"
+                        class="pnd-brand-logo">
+
+                </span>
+
+            </a>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button
+                class="pnd-menu-toggle ms-auto"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                id="pndMenuToggle">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <!-- NAVIGATION -->
+
+            <div class="pnd-nav" id="pndNav">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="portfolio.html">
+                    Portfolio
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="team.html">
+                    Team
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a
+                    href="start-project.html"
+                    class="pnd-nav-cta">
+
+                    Start a Project
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="pnd-hero">
+
+        <div class="pnd-hero-grid"></div>
+
+        <div class="pnd-hero-glow"></div>
+
+
+        <div class="container-xl position-relative">
+
+            <div class="row align-items-center g-5">
+
+
+                <!-- HERO CONTENT -->
+
+                <div class="col-lg-7">
+
+                    <div class="pnd-hero-content">
+
+                        <span class="pnd-eyebrow">
+                            POST-PRODUCTION STUDIO
+                        </span>
+
+
+                        <h1>
+
+                            Raw footage becomes
+                            <span class="pnd-gradient">
+                                a story.
+                            </span>
+
+                        </h1>
+
+
+                        <p class="pnd-hero-description">
+
+                            Professional video editing that transforms
+                            your footage into polished, engaging content.
+                            From social media reels to brand films,
+                            promotional videos and business content.
+
+                        </p>
+
+
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+
+                            <a
+                                href="start-project.html"
+                                class="pnd-btn pnd-btn-primary">
+
+                                Start an Editing Project
+
+                                <i class="bi bi-arrow-up-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="#editing-services"
+                                class="pnd-btn pnd-btn-outline">
+
+                                Explore Editing
+
+                                <i class="bi bi-arrow-down"></i>
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- STATS -->
+
+                        <div class="pnd-stats">
+
+                            <div class="pnd-stat">
+
+                                <strong>
+                                    01 Cut
+                                </strong>
+
+                                <span>
+                                    Structure
+                                </span>
+
+                            </div>
+
+
+                            <div class="pnd-stat">
+
+                                <strong>
+                                    02 Refine
+                                </strong>
+
+                                <span>
+                                    Enhance
+                                </span>
+
+                            </div>
+
+
+                            <div class="pnd-stat">
+
+                                <strong>
+                                    03 Deliver
+                                </strong>
+
+                                <span>
+                                    Publish
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EDITING CONSOLE -->
+
+                <div class="col-lg-5">
+
+                    <div class="pnd-console">
+
+
+                        <div class="pnd-console-top">
+
+                            <span class="pnd-console-brand">
+                                PIXEL NEST / EDIT SUITE
+                            </span>
+
+                            <span class="pnd-time">
+                                00:01:24
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-preview">
+
+                            <div class="pnd-preview-center">
+
+                                <i class="bi bi-play-fill"></i>
+
+                            </div>
+
+                            <span class="pnd-preview-label">
+                                PREVIEW
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-timeline">
+
+                            <div class="pnd-track">
+                                <span></span>
+                            </div>
+
+                            <div class="pnd-track">
+                                <span></span>
+                            </div>
+
+                            <div class="pnd-track">
+                                <span></span>
+                            </div>
+
+
+                            <div class="pnd-timeline-labels">
+
+                                <span>
+                                    00:00
+                                </span>
+
+                                <span>
+                                    Your story, frame by frame.
+                                </span>
+
+                                <span>
+                                    01:24
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SECTION 1 — WHITE
+         EDITING SERVICES
+    ====================================================== -->
+
+    <section
+        class="pnd-section pnd-section-alt"
+        id="editing-services">
+
+        <div class="container-xl">
+
+
+            <span class="pnd-label">
+                WHAT WE DO
+            </span>
+
+
+            <h2 class="pnd-title">
+                Everything between footage and final.
+            </h2>
+
+
+            <p class="pnd-description">
+
+                We take your raw footage and shape it into clear,
+                professional and platform-ready visual content.
+
+            </p>
+
+
+            <div class="row g-4">
+
+
+                <!-- CARD 01 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            01
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-scissors"></i>
+
+                        </div>
+
+                        <h3>
+                            Professional Cutting
+                        </h3>
+
+                        <p>
+                            Clean cuts, pacing and sequencing that
+                            keep the story focused and engaging.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD 02 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            02
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-music-note-beamed"></i>
+
+                        </div>
+
+                        <h3>
+                            Music &amp; Sound
+                        </h3>
+
+                        <p>
+                            Balanced audio, music and sound design
+                            that give every video the right atmosphere.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD 03 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            03
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-brightness-high"></i>
+
+                        </div>
+
+                        <h3>
+                            Colour Correction
+                        </h3>
+
+                        <p>
+                            Consistent colour and polished visuals
+                            that make footage feel professional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD 04 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            04
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-stars"></i>
+
+                        </div>
+
+                        <h3>
+                            Motion Graphics
+                        </h3>
+
+                        <p>
+                            Animated graphics and visual elements
+                            that add energy and clarity to your content.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD 05 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            05
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-type"></i>
+
+                        </div>
+
+                        <h3>
+                            Titles &amp; Captions
+                        </h3>
+
+                        <p>
+                            Clear titles, captions and typography
+                            designed for modern digital platforms.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARD 06 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="pnd-feature">
+
+                        <span class="pnd-feature-number">
+                            06
+                        </span>
+
+                        <div class="pnd-feature-icon">
+
+                            <i class="bi bi-box-arrow-up-right"></i>
+
+                        </div>
+
+                        <h3>
+                            Final Export
+                        </h3>
+
+                        <p>
+                            Properly formatted final videos ready
+                            for websites, social media and campaigns.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SECTION 2 — DARK
+         CONTENT FORMATS
+    ====================================================== -->
+
+    <section class="pnd-section">
+
+        <div class="container-xl">
+
+
+            <span class="pnd-label">
+                EDITING FOR EVERY PLATFORM
+            </span>
+
+
+            <h2 class="pnd-title">
+                One edit. Multiple possibilities.
+            </h2>
+
+
+            <p class="pnd-description">
+
+                Content should work wherever your audience watches.
+                We shape edits around the platform, format and purpose.
+
+            </p>
+
+
+            <div class="row g-4">
+
+
+                <!-- FORMAT 01 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="pnd-format">
+
+                        <i class="bi bi-phone"></i>
+
+                        <h3>
+                            Reels &amp; Shorts
+                        </h3>
+
+                        <p>
+                            Fast, engaging vertical videos designed
+                            for social media audiences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMAT 02 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="pnd-format">
+
+                        <i class="bi bi-youtube"></i>
+
+                        <h3>
+                            YouTube Videos
+                        </h3>
+
+                        <p>
+                            Structured long-form edits with pacing,
+                            titles, sound and visual polish.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMAT 03 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="pnd-format">
+
+                        <i class="bi bi-building"></i>
+
+                        <h3>
+                            Business Videos
+                        </h3>
+
+                        <p>
+                            Professional videos for businesses,
+                            presentations and digital communication.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMAT 04 -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="pnd-format">
+
+                        <i class="bi bi-camera-reels"></i>
+
+                        <h3>
+                            Brand Content
+                        </h3>
+
+                        <p>
+                            Creative edits that communicate your
+                            brand identity and message.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SECTION 3 — WHITE
+         WORKFLOW
+    ====================================================== -->
+
+    <section class="pnd-section pnd-section-alt">
+
+        <div class="container-xl">
+
+
+            <span class="pnd-label">
+                OUR EDITING WORKFLOW
+            </span>
+
+
+            <h2 class="pnd-title">
+                From raw files to final frame.
+            </h2>
+
+
+            <p class="pnd-description">
+
+                A clear post-production workflow helps turn large
+                amounts of footage into a focused and engaging
+                final video.
+
+            </p>
+
+
+            <div class="pnd-process">
+
+
+                <div class="pnd-process-line"></div>
+
+
+                <div class="row g-4">
+
+
+                    <!-- STEP 01 -->
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="pnd-step">
+
+                            <div class="pnd-step-icon">
+
+                                <i class="bi bi-folder2-open"></i>
+
+                            </div>
+
+                            <h3>
+                                Organise
+                            </h3>
+
+                            <p>
+                                Sort footage, audio, graphics and
+                                project assets before editing begins.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 02 -->
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="pnd-step">
+
+                            <div class="pnd-step-icon">
+
+                                <i class="bi bi-scissors"></i>
+
+                            </div>
+
+                            <h3>
+                                Edit
+                            </h3>
+
+                            <p>
+                                Build the story with purposeful cuts,
+                                pacing and sequence structure.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 03 -->
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="pnd-step">
+
+                            <div class="pnd-step-icon">
+
+                                <i class="bi bi-sliders"></i>
+
+                            </div>
+
+                            <h3>
+                                Refine
+                            </h3>
+
+                            <p>
+                                Polish sound, colour, typography,
+                                transitions and visual details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 04 -->
+
+                    <div class="col-12 col-md-6 col-lg-3">
+
+                        <div class="pnd-step">
+
+                            <div class="pnd-step-icon">
+
+                                <i class="bi bi-cloud-arrow-up"></i>
+
+                            </div>
+
+                            <h3>
+                                Deliver
+                            </h3>
+
+                            <p>
+                                Export the final content in the
+                                required format and resolution.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SECTION 4 — DARK
+         POST PRODUCTION
+    ====================================================== -->
+
+    <section class="pnd-section">
+
+        <div class="container-xl">
+
+
+            <span class="pnd-label">
+                POST-PRODUCTION
+            </span>
+
+
+            <div class="pnd-post-panel">
+
+                <div class="row align-items-center g-5">
+
+
+                    <div class="col-lg-7">
+
+                        <h3>
+                            Small details. Big difference.
+                        </h3>
+
+
+                        <p>
+
+                            Great editing is more than putting clips
+                            together. The right cut controls attention,
+                            while sound, colour, typography and motion
+                            help create a consistent visual experience.
+
+                        </p>
+
+
+                        <p>
+
+                            Whether you need a short social video,
+                            business presentation, promotional content
+                            or a complete brand film, every detail is
+                            refined for its intended audience and platform.
+
+                        </p>
+
+
+                        <div class="pnd-tools">
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-scissors"></i>
+                                Clean Cuts
+                            </span>
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-volume-up"></i>
+                                Audio Mix
+                            </span>
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-circle-half"></i>
+                                Colour
+                            </span>
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-fonts"></i>
+                                Typography
+                            </span>
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-stars"></i>
+                                Motion Graphics
+                            </span>
+
+                            <span class="pnd-tool">
+                                <i class="bi bi-phone"></i>
+                                Social Formats
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-5">
+
+                        <div class="pnd-console">
+
+                            <div class="pnd-console-top">
+
+                                <span class="pnd-console-brand">
+                                    FINAL TIMELINE
+                                </span>
+
+                                <span class="pnd-time">
+                                    READY
+                                </span>
+
+                            </div>
+
+
+                            <div class="pnd-preview">
+
+                                <div class="pnd-preview-center">
+
+                                    <i class="bi bi-play-fill"></i>
+
+                                </div>
+
+                                <span class="pnd-preview-label">
+                                    FINAL CUT
+                                </span>
+
+                            </div>
+
+
+                            <div class="pnd-timeline">
+
+                                <div class="pnd-track">
+                                    <span></span>
+                                </div>
+
+                                <div class="pnd-track">
+                                    <span></span>
+                                </div>
+
+                                <div class="pnd-track">
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA — DARK
+    ====================================================== -->
+
+    <section class="pnd-cta">
+
+        <div class="container-xl">
+
+            <div class="pnd-cta-content">
+
+
+                <span class="pnd-label">
+                    HAVE FOOTAGE?
+                </span>
+
+
+                <h2>
+                    Let's turn it into something
+                    <span class="pnd-gradient">
+                        worth watching.
+                    </span>
+                </h2>
+
+
+                <p>
+
+                    Send us your idea, footage or project requirements
+                    and let's create an edit that fits your brand
+                    and audience.
+
+                </p>
+
+
+                <a
+    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20Video%20Editing%20Project.%20Please%20share%20the%20details."
+    class="pnd-btn pnd-btn-primary"
+    target="_blank"
+    rel="noopener">
+
+    Start a Video Editing Project
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="pnd-footer">
+
+        <div class="container-xl">
+
+
+            <div class="row g-5">
+
+
+                <!-- BRAND -->
+
+                <div class="col-lg-5">
+
+                    <div class="pnd-footer-brand">
+                        Pixel Nest Digital
+                    </div>
+
+                    <p class="pnd-footer-description">
+
+                        Digital solutions and creative services for
+                        businesses, brands and ideas ready to grow.
+
+                    </p>
+
+                </div>
+
+
+                <!-- EXPLORE -->
+
+                <div class="col-6 col-md-3 col-lg-2">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <ul class="pnd-footer-links">
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="portfolio.html">
+                                Portfolio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="team.html">
+                                Team
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICES -->
+
+                <div class="col-6 col-md-3 col-lg-2">
+
+                    <h4>
+                        Services
+                    </h4>
+
+                    <ul class="pnd-footer-links">
+
+                        <li>
+                            <a href="website-development.html">
+                                Website Development
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="web-applications.html">
+                                Web Applications
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="e-commerce.html">
+                                E-Commerce
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="photography.html">
+                                Photography
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="videography.html">
+                                Videography
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CREATIVE -->
+
+                <div class="col-md-6 col-lg-3">
+
+                    <h4>
+                        Creative
+                    </h4>
+
+                    <ul class="pnd-footer-links">
+
+                        <li>
+                            <a href="video-editing.html">
+                                Video Editing
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="digital-content.html">
+                                Digital Content
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="logo-brand-design.html">
+                                Logo &amp; Brand Design
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="start-project.html">
+                                Start a Project
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="pnd-footer-bottom">
+
+                <p>
+                    © 2026 Pixel Nest Digital. All rights reserved.
+                </p>
+
+                <p>
+                    A JO-GEO VENTURES Initiative.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         BOOTSTRAP JS
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         NAVBAR SCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const pndMenuToggle =
+            document.getElementById("pndMenuToggle");
+
+        const pndNav =
+            document.getElementById("pndNav");
+
+
+        pndMenuToggle.addEventListener(
+            "click",
+            function(){
+
+                pndNav.classList.toggle("show");
+
+                const expanded =
+                    pndNav.classList.contains("show");
+
+                pndMenuToggle.setAttribute(
+                    "aria-expanded",
+                    expanded
+                );
+
+                pndMenuToggle.innerHTML =
+                    expanded
+                    ? '<i class="bi bi-x-lg"></i>'
+                    : '<i class="bi bi-list"></i>';
+
+            }
+        );
+
+
+        /* CLOSE AFTER CLICKING LINK */
+
+        pndNav.querySelectorAll("a").forEach(
+            function(link){
+
+                link.addEventListener(
+                    "click",
+                    function(){
+
+                        if(window.innerWidth <= 991){
+
+                            pndNav.classList.remove("show");
+
+                            pndMenuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            pndMenuToggle.innerHTML =
+                                '<i class="bi bi-list"></i>';
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* CLOSE WHEN CLICKING OUTSIDE */
+
+        document.addEventListener(
+            "click",
+            function(event){
+
+                if(window.innerWidth <= 991){
+
+                    const clickedInsideNav =
+                        pndNav.contains(event.target);
+
+                    const clickedToggle =
+                        pndMenuToggle.contains(event.target);
+
+                    if(
+                        !clickedInsideNav &&
+                        !clickedToggle &&
+                        pndNav.classList.contains("show")
+                    ){
+
+                        pndNav.classList.remove("show");
+
+                        pndMenuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        pndMenuToggle.innerHTML =
+                            '<i class="bi bi-list"></i>';
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        /* RESET MENU ON DESKTOP */
+
+        window.addEventListener(
+            "resize",
+            function(){
+
+                if(window.innerWidth > 991){
+
+                    pndNav.classList.remove("show");
+
+                    pndMenuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    pndMenuToggle.innerHTML =
+                        '<i class="bi bi-list"></i>';
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

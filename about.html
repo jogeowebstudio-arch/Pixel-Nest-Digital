@@ -1,0 +1,4889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Pixel Nest Digital — Technology, Creativity and Digital Solutions.">
+
+    <meta name="theme-color"
+          content="#ffffff">
+
+    <title>About Us | Pixel Nest Digital</title>
+
+
+    <!-- =========================================================
+         BOOTSTRAP
+    ========================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================================================
+         MAIN CSS
+    ========================================================== -->
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================== */
+
+        :root {
+
+            --pnd-space: #07111F;
+            --pnd-space-2: #0B172A;
+            --pnd-space-3: #111C35;
+
+            --pnd-blue: #2563EB;
+            --pnd-blue-dark: #1D4ED8;
+
+            --pnd-cyan: #06B6D4;
+            --pnd-violet: #7C3AED;
+
+            --pnd-green: #22C55E;
+
+            --pnd-white: #F8FAFC;
+
+            --pnd-text: #E2E8F0;
+            --pnd-muted: #94A3B8;
+
+            --pnd-black: #000000;
+            --pnd-dark-text: #111827;
+
+            --pnd-light-bg: #FFFFFF;
+            --pnd-light-card: #FFFFFF;
+            --pnd-light-muted: #64748B;
+            --pnd-light-border: #E5E7EB;
+
+            --pnd-border: rgba(148,163,184,.15);
+
+            --pnd-glass: rgba(255,255,255,.045);
+
+        }
+
+
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "DM Sans", sans-serif;
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(37,99,235,.10),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(124,58,237,.08),
+                    transparent 28%
+                ),
+
+                var(--pnd-space);
+
+            color: var(--pnd-text);
+
+            overflow-x: hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .30;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            z-index: -2;
+
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           TOP LED
+        ========================================================== */
+
+        .pnd-top-led {
+
+            height: 2px;
+
+            width: 100%;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet),
+                    var(--pnd-blue),
+                    transparent
+                );
+
+            background-size: 250% 100%;
+
+            animation: pndLed 5s linear infinite;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            z-index: 99999;
+
+            box-shadow:
+                0 0 15px rgba(37,99,235,.8);
+
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================== */
+
+        .pnd-navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 9999;
+
+            height: 74px;
+
+            background:
+                rgba(7,17,31,.88);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid var(--pnd-border);
+
+        }
+
+
+        .pnd-nav-inner {
+
+            width: min(1400px, 92%);
+
+            height: 100%;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        /* =========================================================
+           HEADER LOGO
+           
+           ONLY LOGO IMAGE
+           NO TEXT
+        ========================================================== */
+
+        .pnd-header-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            height: 54px;
+
+            width: auto;
+
+        }
+
+
+        .pnd-header-logo img {
+
+            height: 52px;
+
+            width: auto;
+
+            max-width: 230px;
+
+            object-fit: contain;
+
+        }
+
+
+        .pnd-header-logo:hover {
+            opacity: .92;
+        }
+
+
+        /* =========================================================
+           SEARCH
+        ========================================================== */
+
+        .pnd-search {
+
+            flex: 1;
+
+            max-width: 570px;
+
+            position: relative;
+
+        }
+
+
+        .pnd-search input {
+
+            width: 100%;
+
+            height: 42px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            outline: none;
+
+            background:
+                rgba(255,255,255,.045);
+
+            color: #fff;
+
+            padding:
+                0 45px 0 16px;
+
+            font-size: 13px;
+
+        }
+
+
+        .pnd-search input::placeholder {
+            color: #64748B;
+        }
+
+
+        .pnd-search button {
+
+            position: absolute;
+
+            right: 4px;
+
+            top: 4px;
+
+            width: 34px;
+
+            height: 34px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background:
+                rgba(37,99,235,.15);
+
+            color: #67E8F9;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================== */
+
+        .pnd-nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+            margin-left: auto;
+
+        }
+
+
+        .pnd-nav-links a {
+
+            color: #CBD5E1;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .25s ease;
+
+            white-space: nowrap;
+
+        }
+
+
+        .pnd-nav-links a:hover {
+            color: #67E8F9;
+        }
+
+
+        .pnd-nav-cta {
+
+            padding:
+                10px 17px;
+
+            border-radius: 10px;
+
+            color: #fff !important;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 8px 25px rgba(37,99,235,.20);
+
+        }
+
+
+        /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================== */
+
+        .pnd-mobile-toggle {
+
+            display: none;
+
+            margin-left: auto;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: 1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: #fff;
+
+            font-size: 23px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================================
+           PAGE CONTAINER
+        ========================================================== */
+
+        .pnd-container {
+
+            width: min(1250px, 92%);
+
+            margin: auto;
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .pnd-about-hero {
+
+            position: relative;
+
+            min-height: 610px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr .95fr;
+
+            align-items: center;
+
+            gap: 60px;
+
+            padding:
+                75px 0 60px;
+
+        }
+
+
+        .pnd-about-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+
+            height: 450px;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.18),
+                    transparent 68%
+                );
+
+            top: -100px;
+
+            left: -170px;
+
+            pointer-events: none;
+
+        }
+
+
+        .pnd-about-copy {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .pnd-eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                8px 12px;
+
+            border-radius: 30px;
+
+            border:
+                1px solid rgba(6,182,212,.18);
+
+            background:
+                rgba(6,182,212,.055);
+
+            color: #67E8F9;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .pnd-eyebrow::before {
+
+            content: "";
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22C55E;
+
+            box-shadow:
+                0 0 12px #22C55E;
+
+        }
+
+
+        .pnd-about-copy h1 {
+
+            font-size:
+                clamp(42px,5vw,70px);
+
+            line-height: 1.02;
+
+            letter-spacing: -2.5px;
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .pnd-about-copy h1 span {
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        .pnd-about-copy > p {
+
+            max-width: 650px;
+
+            color: var(--pnd-muted);
+
+            line-height: 1.85;
+
+            font-size: 15px;
+
+        }
+
+
+        .pnd-about-copy > p strong {
+            color: #67E8F9;
+        }
+
+
+        /* =========================================================
+           HERO BUTTONS
+        ========================================================== */
+
+        .pnd-hero-actions {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .pnd-btn-primary {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                13px 20px;
+
+            border-radius: 11px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+
+            box-shadow:
+                0 10px 35px
+                rgba(37,99,235,.25);
+
+        }
+
+
+        .pnd-btn-primary:hover {
+
+            color: #fff;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(37,99,235,.35);
+
+        }
+
+
+        .pnd-btn-outline {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                12px 20px;
+
+            border-radius: 11px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #CBD5E1;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .3s;
+
+        }
+
+
+        .pnd-btn-outline:hover {
+
+            color: #fff;
+
+            border-color:
+                rgba(6,182,212,.35);
+
+            background:
+                rgba(6,182,212,.06);
+
+        }
+
+
+        /* =========================================================
+           HERO VISUAL
+        ========================================================== */
+
+        .pnd-hero-visual {
+
+            min-height: 510px;
+
+            position: relative;
+
+            display: grid;
+
+            place-items: center;
+
+        }
+
+
+        .pnd-hero-glow {
+
+            position: absolute;
+
+            width: 360px;
+
+            height: 360px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.22),
+                    rgba(124,58,237,.08),
+                    transparent 70%
+                );
+
+            filter: blur(5px);
+
+        }
+
+
+        .pnd-about-orb {
+
+            width: 285px;
+
+            height: 285px;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            z-index: 3;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+
+                radial-gradient(
+                    circle at 32% 28%,
+                    rgba(96,165,250,.65),
+                    rgba(37,99,235,.32) 35%,
+                    rgba(7,17,31,.8) 70%
+                );
+
+            border:
+                1px solid rgba(96,165,250,.45);
+
+            box-shadow:
+
+                inset 0 0 50px
+                rgba(37,99,235,.25),
+
+                0 0 35px
+                rgba(37,99,235,.35),
+
+                0 0 110px
+                rgba(6,182,212,.13);
+
+            animation:
+                pndOrb 5s ease-in-out infinite;
+
+        }
+
+
+        .pnd-about-orb-inner {
+
+            width: 185px;
+
+            height: 185px;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.16);
+
+            background:
+                rgba(255,255,255,.035);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .pnd-about-orb-inner strong {
+
+            font-size: 52px;
+
+            letter-spacing: -4px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+
+        /* =========================================================
+           ORBIT
+        ========================================================== */
+
+        .pnd-orbit {
+
+            position: absolute;
+
+            width: 410px;
+
+            height: 410px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(96,165,250,.14);
+
+            animation:
+                pndOrbit 20s linear infinite;
+
+        }
+
+
+        .pnd-orbit::before,
+        .pnd-orbit::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+        }
+
+
+        .pnd-orbit::before {
+
+            top: 30px;
+
+            left: 70px;
+
+            background: #22D3EE;
+
+            box-shadow:
+                0 0 15px #22D3EE;
+
+        }
+
+
+        .pnd-orbit::after {
+
+            bottom: 50px;
+
+            right: 40px;
+
+            background: #8B5CF6;
+
+            box-shadow:
+                0 0 15px #8B5CF6;
+
+        }
+
+
+        /* =========================================================
+           FLOATING CARDS
+        ========================================================== */
+
+        .pnd-float-card {
+
+            position: absolute;
+
+            z-index: 5;
+
+            min-width: 170px;
+
+            padding:
+                13px 15px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(11,23,42,.78);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(0,0,0,.28);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            animation:
+                pndFloat 4.5s ease-in-out infinite;
+
+        }
+
+
+        .pnd-float-card i {
+
+            width: 34px;
+
+            height: 34px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 9px;
+
+            background:
+                rgba(37,99,235,.14);
+
+            color: #60A5FA;
+
+        }
+
+
+        .pnd-float-card strong {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #F8FAFC;
+
+        }
+
+
+        .pnd-float-card small {
+
+            color: #64748B;
+
+            font-size: 9px;
+
+        }
+
+
+        .pnd-float-one {
+
+            top: 55px;
+
+            left: 0;
+
+        }
+
+
+        .pnd-float-two {
+
+            right: -10px;
+
+            top: 170px;
+
+            animation-delay: 1.2s;
+
+        }
+
+
+        .pnd-float-three {
+
+            bottom: 65px;
+
+            left: 30px;
+
+            animation-delay: 2.2s;
+
+        }
+
+
+        /* =========================================================
+           GENERAL SECTION
+        ========================================================== */
+
+        .pnd-section {
+
+            position: relative;
+
+            padding:
+                85px 0;
+
+        }
+
+
+        .pnd-section-header {
+
+            max-width: 720px;
+
+            margin-bottom: 38px;
+
+        }
+
+
+        .pnd-label {
+
+            color: #67E8F9;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .pnd-section-header h2 {
+
+            font-size:
+                clamp(30px,4vw,48px);
+
+            letter-spacing: -1.5px;
+
+            font-weight: 800;
+
+            color: #F8FAFC;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .pnd-section-header p {
+
+            color: var(--pnd-muted);
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================================
+           =========================================================
+           OUR STORY
+           
+           WHITE BACKGROUND
+           BLACK TEXT
+           ========================================================
+           ========================================================= */
+
+        #story {
+
+            background: #FFFFFF;
+
+            color: #000000;
+
+            margin-left: calc(
+                (100% - 100vw) / 2
+            );
+
+            margin-right: calc(
+                (100% - 100vw) / 2
+            );
+
+            padding-left: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+            padding-right: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+        }
+
+
+        #story .pnd-section-header h2 {
+
+            color: #000000;
+
+        }
+
+
+        #story .pnd-section-header p {
+
+            color: #4B5563;
+
+        }
+
+
+        #story .pnd-label {
+
+            color: #2563EB;
+
+        }
+
+
+        /* =========================================================
+           STORY LAYOUT
+        ========================================================== */
+
+        .pnd-story-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1.2fr .8fr;
+
+            gap: 20px;
+
+        }
+
+
+        /* =========================================================
+           STORY MAIN CARD
+        ========================================================== */
+
+        #story .pnd-glass-card {
+
+            position: relative;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid #E5E7EB;
+
+            background:
+                #FFFFFF;
+
+            box-shadow:
+                0 20px 60px
+                rgba(15,23,42,.06);
+
+            overflow: hidden;
+
+        }
+
+
+        #story .pnd-glass-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            background-size: 200% 100%;
+
+            animation:
+                pndLed 5s linear infinite;
+
+        }
+
+
+        #story .pnd-story-main h3 {
+
+            color: #000000;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        #story .pnd-story-main p {
+
+            color: #4B5563;
+
+            font-size: 14px;
+
+            line-height: 1.85;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        #story .pnd-story-main strong {
+
+            color: #2563EB;
+
+        }
+
+
+        /* =========================================================
+           STORY MINI CARDS
+        ========================================================== */
+
+        #story .pnd-side-stack {
+
+            display: grid;
+
+            gap: 15px;
+
+        }
+
+
+        #story .pnd-mini-card {
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid #E5E7EB;
+
+            box-shadow:
+                0 12px 35px
+                rgba(15,23,42,.05);
+
+            transition: .3s;
+
+        }
+
+
+        #story .pnd-mini-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(37,99,235,.35);
+
+            box-shadow:
+                0 20px 45px
+                rgba(37,99,235,.10);
+
+        }
+
+
+        #story .pnd-mini-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(37,99,235,.08);
+
+            color: #2563EB;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        #story .pnd-mini-card h4 {
+
+            color: #000000;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        #story .pnd-mini-card p {
+
+            margin: 0;
+
+            color: #64748B;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================================
+           DREAM SECTION
+        ========================================================== */
+
+        .pnd-dream {
+
+            padding: 55px;
+
+            border-radius: 22px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(37,99,235,.24),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 70%,
+                    rgba(124,58,237,.22),
+                    transparent 30%
+                ),
+
+                #0B172A;
+
+            border:
+                1px solid
+                rgba(96,165,250,.14);
+
+        }
+
+
+        .pnd-dream-grid {
+
+            position: absolute;
+
+            inset: 0;
+
+            opacity: .22;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+        }
+
+
+        .pnd-dream-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+        }
+
+
+        .pnd-dream-content .pnd-label {
+            color: #67E8F9;
+        }
+
+
+        .pnd-dream h2 {
+
+            font-size:
+                clamp(32px,4vw,52px);
+
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .pnd-dream h2 span {
+            color: #60A5FA;
+        }
+
+
+        .pnd-dream p {
+
+            color: #94A3B8;
+
+            line-height: 1.85;
+
+            max-width: 720px;
+
+            font-size: 14px;
+
+        }
+
+
+        .pnd-dream-signature {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .pnd-dream-line {
+
+            width: 45px;
+
+            height: 2px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+        }
+
+
+        .pnd-dream-signature span {
+
+            color: #CBD5E1;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================== */
+
+        .pnd-service-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5,1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .pnd-service-card {
+
+            min-height: 190px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid var(--pnd-border);
+
+            background:
+                rgba(255,255,255,.035);
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                background .35s ease;
+
+        }
+
+
+        .pnd-service-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+
+            height: 80px;
+
+            border-radius: 50%;
+
+            right: -35px;
+
+            bottom: -35px;
+
+            background:
+                rgba(37,99,235,.12);
+
+        }
+
+
+        .pnd-service-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(37,99,235,.38);
+
+            background:
+                rgba(37,99,235,.055);
+
+        }
+
+
+        .pnd-service-number {
+
+            color: #475569;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .pnd-service-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.16),
+                    rgba(6,182,212,.08)
+                );
+
+            color: #60A5FA;
+
+            font-size: 19px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .pnd-service-card h4 {
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            color: #F8FAFC;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .pnd-service-card p {
+
+            color: #64748B;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            margin: 0;
+
+        }
+
+
+        /* =========================================================
+           =========================================================
+           OUR VALUES
+           
+           WHITE BACKGROUND
+           BLACK TEXT
+           ========================================================
+           ========================================================= */
+
+        #values {
+
+            background: #FFFFFF;
+
+            color: #000000;
+
+            margin-left: calc(
+                (100% - 100vw) / 2
+            );
+
+            margin-right: calc(
+                (100% - 100vw) / 2
+            );
+
+            padding-left: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+            padding-right: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+        }
+
+
+        #values .pnd-section-header h2 {
+
+            color: #000000;
+
+        }
+
+
+        #values .pnd-section-header p {
+
+            color: #4B5563;
+
+        }
+
+
+        #values .pnd-label {
+
+            color: #2563EB;
+
+        }
+
+
+        /* =========================================================
+           VALUES GRID
+        ========================================================== */
+
+        .pnd-values-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .pnd-value-card {
+
+            position: relative;
+
+            min-height: 210px;
+
+            padding: 25px;
+
+            border-radius: 17px;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid #E5E7EB;
+
+            overflow: hidden;
+
+            transition: .35s;
+
+            box-shadow:
+                0 12px 35px
+                rgba(15,23,42,.04);
+
+        }
+
+
+        .pnd-value-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(37,99,235,.30);
+
+            box-shadow:
+                0 22px 55px
+                rgba(15,23,42,.08);
+
+        }
+
+
+        .pnd-value-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+        }
+
+
+        .pnd-value-number {
+
+            color: #CBD5E1;
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+        }
+
+
+        .pnd-value-card i {
+
+            color: #2563EB;
+
+            font-size: 22px;
+
+            margin: 12px 0;
+
+        }
+
+
+        .pnd-value-card h4 {
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            color: #000000;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .pnd-value-card p {
+
+            color: #64748B;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================================
+           JOURNEY
+        ========================================================== */
+
+        .pnd-journey {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .pnd-journey-card {
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.05),
+                    rgba(255,255,255,.02)
+                );
+
+            border:
+                1px solid var(--pnd-border);
+
+            position: relative;
+
+            transition: .3s;
+
+        }
+
+
+        .pnd-journey-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(37,99,235,.35);
+
+        }
+
+
+        .pnd-journey-number {
+
+            color: #2563EB;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .pnd-journey-card h4 {
+
+            color: #F8FAFC;
+
+            font-size: 17px;
+
+            margin:
+                14px 0 7px;
+
+            font-weight: 800;
+
+        }
+
+
+        .pnd-journey-card p {
+
+            color: #64748B;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+
+            margin: 0;
+
+        }
+
+
+        /* =========================================================
+           =========================================================
+           CREATED UNDER
+           
+           WHITE BACKGROUND
+           BLACK TEXT
+           ========================================================
+           ========================================================= */
+
+        #created-under {
+
+            background: #FFFFFF;
+
+            color: #000000;
+
+            margin-left: calc(
+                (100% - 100vw) / 2
+            );
+
+            margin-right: calc(
+                (100% - 100vw) / 2
+            );
+
+            padding-left: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+            padding-right: max(
+                calc((100vw - 1250px) / 2),
+                4%
+            );
+
+        }
+
+
+        #created-under .pnd-label {
+
+            color: #2563EB;
+
+        }
+
+
+        #created-under .pnd-venture {
+
+            display: grid;
+
+            grid-template-columns:
+                160px 1fr;
+
+            gap: 28px;
+
+            align-items: center;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid #E5E7EB;
+
+            background: #FFFFFF;
+
+            box-shadow:
+                0 20px 60px
+                rgba(15,23,42,.06);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        #created-under .pnd-venture::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+        }
+
+
+        .pnd-venture-logo {
+
+            width: 135px;
+
+            height: 135px;
+
+            border-radius: 30px;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 30px;
+
+            font-weight: 800;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            color: #fff;
+
+            box-shadow:
+                0 0 45px
+                rgba(37,99,235,.20);
+
+        }
+
+
+        #created-under .pnd-venture small {
+
+            color: #2563EB;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+
+        }
+
+
+        #created-under .pnd-venture h3 {
+
+            color: #000000;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin:
+                8px 0 10px;
+
+        }
+
+
+        #created-under .pnd-venture p {
+
+            color: #4B5563;
+
+            max-width: 700px;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin: 0;
+
+        }
+
+
+        #created-under .pnd-venture p strong {
+
+            color: #2563EB !important;
+
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .pnd-final-cta {
+
+            padding:
+                70px 0 90px;
+
+        }
+
+
+        .pnd-cta-box {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                50px;
+
+            border-radius: 22px;
+
+            border:
+                1px solid
+                rgba(37,99,235,.20);
+
+            background:
+
+                radial-gradient(
+                    circle at 15% 50%,
+                    rgba(37,99,235,.18),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 85% 40%,
+                    rgba(124,58,237,.15),
+                    transparent 30%
+                ),
+
+                rgba(255,255,255,.035);
+
+            text-align: center;
+
+        }
+
+
+        .pnd-cta-box h2 {
+
+            color: #F8FAFC;
+
+            font-size:
+                clamp(30px,4vw,46px);
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .pnd-cta-box p {
+
+            color: #94A3B8;
+
+            max-width: 620px;
+
+            margin:
+                0 auto 25px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        .pnd-footer {
+
+            background:
+                #050D18;
+
+            border-top:
+                1px solid var(--pnd-border);
+
+            padding:
+                50px 0 25px;
+
+        }
+
+
+        .pnd-footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr 1fr;
+
+            gap: 35px;
+
+        }
+
+
+        /* Footer logo — IMAGE ONLY */
+
+        .pnd-footer-logo {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .pnd-footer-logo img {
+
+            width: 210px;
+
+            height: auto;
+
+            object-fit: contain;
+
+        }
+
+
+        .pnd-footer h4 {
+
+            color: #F8FAFC;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .pnd-footer p,
+        .pnd-footer a {
+
+            color: #64748B;
+
+            font-size: 11px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .pnd-footer a {
+
+            display: block;
+
+            transition: .25s;
+
+        }
+
+
+        .pnd-footer a:hover {
+
+            color: #67E8F9;
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .pnd-footer-bottom {
+
+            margin-top: 35px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid var(--pnd-border);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            color: #475569;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================== */
+
+        .pnd-reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(30px);
+
+            transition:
+
+                opacity .8s ease,
+
+                transform .8s ease;
+
+        }
+
+
+        .pnd-reveal.show {
+
+            opacity: 1;
+
+            transform: none;
+
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================== */
+
+        @keyframes pndLed {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+
+        }
+
+
+        @keyframes pndOrb {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px)
+                    scale(1.025);
+
+            }
+
+        }
+
+
+        @keyframes pndOrbit {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        @keyframes pndFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-9px);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================== */
+
+        @media (max-width: 1100px) {
+
+            .pnd-nav-links {
+                gap: 14px;
+            }
+
+
+            .pnd-search {
+                max-width: 330px;
+            }
+
+
+            .pnd-about-hero {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .pnd-service-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+            }
+
+
+            .pnd-values-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .pnd-journey {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================== */
+
+        @media (max-width: 900px) {
+
+            .pnd-search {
+                display: none;
+            }
+
+
+            .pnd-nav-links {
+                display: none;
+            }
+
+
+            .pnd-mobile-toggle {
+                display: grid;
+
+                place-items: center;
+            }
+
+
+            .pnd-about-hero {
+
+                grid-template-columns: 1fr;
+
+                padding-top: 55px;
+
+            }
+
+
+            .pnd-hero-visual {
+
+                min-height: 450px;
+
+            }
+
+
+            .pnd-story-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            #created-under .pnd-venture {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+            }
+
+
+            .pnd-venture-logo {
+
+                margin: auto;
+
+            }
+
+
+            .pnd-footer-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================== */
+
+        @media (max-width: 600px) {
+
+            .pnd-container {
+
+                width: 90%;
+
+            }
+
+
+            .pnd-navbar {
+
+                height: 68px;
+
+            }
+
+
+            .pnd-header-logo {
+
+                height: 48px;
+
+            }
+
+
+            .pnd-header-logo img {
+
+                height: 43px;
+
+                max-width: 190px;
+
+            }
+
+
+            .pnd-about-hero {
+
+                min-height: auto;
+
+                padding:
+                    60px 0 25px;
+
+            }
+
+
+            .pnd-about-copy h1 {
+
+                font-size:
+                    clamp(38px,12vw,52px);
+
+                letter-spacing:
+                    -1.8px;
+
+            }
+
+
+            .pnd-about-copy > p {
+
+                font-size: 13px;
+
+            }
+
+
+            .pnd-hero-visual {
+
+                min-height: 420px;
+
+            }
+
+
+            .pnd-about-orb {
+
+                width: 220px;
+
+                height: 220px;
+
+            }
+
+
+            .pnd-about-orb-inner {
+
+                width: 145px;
+
+                height: 145px;
+
+            }
+
+
+            .pnd-about-orb-inner strong {
+
+                font-size: 40px;
+
+            }
+
+
+            .pnd-orbit {
+
+                width: 300px;
+
+                height: 300px;
+
+            }
+
+
+            .pnd-float-card {
+
+                min-width: 145px;
+
+                padding: 10px;
+
+            }
+
+
+            .pnd-float-one {
+
+                top: 20px;
+
+                left: -5px;
+
+            }
+
+
+            .pnd-float-two {
+
+                top: 125px;
+
+                right: -5px;
+
+            }
+
+
+            .pnd-float-three {
+
+                bottom: 25px;
+
+                left: 0;
+
+            }
+
+
+            .pnd-section {
+
+                padding:
+                    60px 0;
+
+            }
+
+
+            .pnd-glass-card {
+
+                padding: 22px;
+
+            }
+
+
+            .pnd-service-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .pnd-service-card {
+
+                min-height: 175px;
+
+                padding: 16px;
+
+            }
+
+
+            .pnd-values-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .pnd-journey {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .pnd-dream {
+
+                padding:
+                    32px 23px;
+
+            }
+
+
+            #created-under .pnd-venture {
+
+                padding: 25px;
+
+            }
+
+
+            .pnd-footer-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .pnd-footer-bottom {
+
+                display: block;
+
+                line-height: 1.8;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================== */
+
+        @media (max-width: 380px) {
+
+            .pnd-service-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .pnd-float-card {
+
+                transform:
+                    scale(.85);
+
+            }
+
+
+            .pnd-float-two {
+
+                right: -18px;
+
+            }
+
+
+            .pnd-header-logo img {
+
+                max-width: 165px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation: none !important;
+
+                transition: none !important;
+
+            }
+
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+
+            .pnd-reveal {
+
+                opacity: 1;
+
+                transform: none;
+
+            }
+
+        }
+
+
+        .pnd-hero-logo {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Stack container spacing */
+.pnd-side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Base mini-card styles */
+.pnd-mini-card {
+    position: relative;
+    padding: 24px;
+    border-radius: 12px;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Smooth hover effect */
+.pnd-mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon styling */
+.pnd-mini-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+/* Typography adjustments inside cards */
+.pnd-mini-card h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.pnd-mini-card p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+}
+
+/* =================================================
+   INDIVIDUAL BACKGROUND IMAGES WITH OVERLAYS
+   Note: Adjust "../img/" to "img/" if CSS is not in a subfolder.
+================================================== */
+
+.pnd-card-bg-dream {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+        url('img/istockphoto-520323859-2048x2048.jpg');
+}
+
+.pnd-card-bg-create {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+        url('img/create-bg.jpg');
+}
+
+.pnd-card-bg-grow {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+        url('img/grow-bg.jpg');
+}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =============================================================
+     TOP LED
+============================================================== -->
+
+<div class="pnd-top-led"></div>
+
+
+
+<!-- =============================================================
+     NAVBAR
+============================================================== -->
+
+<header class="pnd-navbar">
+
+    <div class="pnd-nav-inner">
+
+
+        <!-- =====================================================
+             HEADER LOGO ONLY
+
+             CHANGE THIS ONE PATH TO YOUR LOGO
+
+             Example:
+             images/pixel-nest-logo.png
+
+             Django:
+             {% static 'img/pixel-nest-logo.png' %}
+        ====================================================== -->
+
+        <a href="index.html"
+           class="pnd-header-logo"
+           aria-label="Pixel Nest Digital Home">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo">
+
+        </a>
+
+
+        <!-- =====================================================
+             SEARCH
+        ====================================================== -->
+
+        <div class="pnd-search">
+
+            <input
+                type="search"
+                id="pndSearch"
+                placeholder="Search services, solutions & ideas..."
+                aria-label="Search services">
+
+            <button
+                type="button"
+                id="pndSearchButton"
+                aria-label="Search">
+
+                <i class="bi bi-search"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             DESKTOP NAVIGATION
+        ====================================================== -->
+
+        <nav class="pnd-nav-links"
+             id="pndNavLinks">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <!-- <a href="about.html">
+                About
+            </a> -->
+             <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="Portfolio.html">
+                Portfolio
+            </a>
+
+            <a href="team.html">
+                Team
+            </a>
+            <a href="start-project.html"
+               class="pnd-nav-cta">
+
+                Start a Project
+
+            </a>
+
+        </nav>
+
+
+        <!-- =====================================================
+             MOBILE BUTTON
+        ====================================================== -->
+
+        <button
+            class="pnd-mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+            aria-expanded="false">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =============================================================
+     MAIN
+============================================================== -->
+
+<main>
+
+
+<div class="pnd-container">
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="pnd-about-hero pnd-reveal">
+
+
+        <div class="pnd-about-copy">
+
+
+            <div class="pnd-eyebrow">
+
+                ABOUT PIXEL NEST DIGITAL
+
+            </div>
+
+
+            <h1>
+
+                A place where
+
+                <span>
+                    ideas come alive.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Pixel Nest Digital is a digital solutions initiative
+                created under <strong>JO-GEO VENTURES</strong> with a
+                simple belief — every good idea deserves an opportunity
+                to grow.
+
+            </p>
+
+
+            <p>
+
+                We bring technology, design and creative media together
+                to help businesses, creators and young dreamers turn
+                their ideas into something real.
+
+            </p>
+
+
+            <div class="pnd-hero-actions">
+
+
+                <a
+                    href="services.htML"
+                    class="pnd-btn-primary">
+
+                    Explore Services
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+                
+
+
+            </div>
+
+
+        </div>
+
+
+
+     <!-- =====================================================
+     HERO VISUAL — PIXEL NEST DIGITAL
+====================================================== -->
+
+<div class="pnd-hero-visual">
+
+    <!-- Ambient Glow -->
+    <div class="pnd-hero-glow"></div>
+
+    <!-- Orbit Ring -->
+    <div class="pnd-orbit"></div>
+
+    <!-- Main Logo Orb -->
+    <div class="pnd-about-orb">
+
+        <div class="pnd-about-orb-inner">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-hero-logo"
+                loading="eager"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FLOATING CARD 1 — DEVELOPMENT
+    ================================================== -->
+
+    <div class="pnd-float-card pnd-float-one">
+
+        <div class="pnd-float-icon">
+            <i class="bi bi-code-slash"></i>
+        </div>
+
+        <div class="pnd-float-content">
+
+            <strong>
+                Digital Development
+            </strong>
+
+            <small>
+                Build • Launch • Grow
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FLOATING CARD 2 — DESIGN
+    ================================================== -->
+
+    <div class="pnd-float-card pnd-float-two">
+
+        <div class="pnd-float-icon">
+            <i class="bi bi-palette"></i>
+        </div>
+
+        <div class="pnd-float-content">
+
+            <strong>
+                Creative Design
+            </strong>
+
+            <small>
+                Brand • Visual • Identity
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FLOATING CARD 3 — MEDIA
+    ================================================== -->
+
+    <div class="pnd-float-card pnd-float-three">
+
+        <div class="pnd-float-icon">
+            <i class="bi bi-camera"></i>
+        </div>
+
+        <div class="pnd-float-content">
+
+            <strong>
+                Creative Media
+            </strong>
+
+            <small>
+                Photo • Video • Content
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         OUR STORY
+         
+         WHITE BACKGROUND
+         BLACK TEXT
+    ========================================================== -->
+
+    <section
+        class="pnd-section pnd-reveal"
+        id="story">
+
+
+        <div class="pnd-section-header">
+
+
+            <div class="pnd-label">
+
+                OUR STORY
+
+            </div>
+
+
+            <h2>
+
+                The dream behind Pixel Nest.
+
+            </h2>
+
+
+            <p>
+
+                Pixel Nest Digital is more than a collection of
+                digital services. It is a vision built around people,
+                ideas, creativity and the courage to start.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="pnd-story-layout">
+
+
+            <!-- =================================================
+                 STORY MAIN
+            ================================================== -->
+
+            <div class="pnd-glass-card pnd-story-main">
+
+
+                <h3>
+
+                    The Dream of Youth
+
+                </h3>
+
+
+                <p>
+
+                    Pixel Nest Digital was created under
+                    <strong>JO-GEO VENTURES</strong> with a vision
+                    inspired by the dreams and ambitions of young
+                    people.
+
+                </p>
+
+
+                <p>
+
+                    There are people with business ideas, creative
+                    concepts, small ventures, personal brands and
+                    big dreams that are waiting for their first
+                    real step.
+
+                </p>
+
+
+                <p>
+
+                    We want Pixel Nest Digital to become a place
+                    where those ideas can begin — where someone
+                    can arrive with nothing more than an idea and
+                    start building something meaningful.
+
+                </p>
+
+
+                <p>
+
+                    A website can become the first step.
+
+                    <br>
+
+                    A brand can become an identity.
+
+                    <br>
+
+                    A photograph can tell a story.
+
+                    <br>
+
+                    A video can create emotion.
+
+                    <br>
+
+                    A digital product can open a new opportunity.
+
+                </p>
+
+
+                <p>
+
+                    That is the heart of Pixel Nest Digital:
+
+                    <strong>
+                        giving ideas a digital life.
+                    </strong>
+
+                </p>
+
+
+            </div>
+
+
+<!-- =================================================
+     STORY SIDE CARDS
+================================================== -->
+
+<div class="pnd-side-stack">
+
+    <!-- Dream Card -->
+    <div class="pnd-mini-card pnd-card-bg-dream">
+        <div class="pnd-mini-icon">
+            <i class="bi bi-lightbulb"></i>
+        </div>
+        <h4>Dream</h4>
+        <p>Every journey begins with an idea.</p>
+    </div>
+
+    <!-- Create Card -->
+    <div class="pnd-mini-card pnd-card-bg-create">
+        <div class="pnd-mini-icon">
+            <i class="bi bi-magic"></i>
+        </div>
+        <h4>Create</h4>
+        <p>Turn the idea into something people can see and experience.</p>
+    </div>
+
+    <!-- Grow Card -->
+    <div class="pnd-mini-card pnd-card-bg-grow">
+        <div class="pnd-mini-icon">
+            <i class="bi bi-rocket-takeoff"></i>
+        </div>
+        <h4>Grow</h4>
+        <p>Give the idea the digital foundation it needs to move forward.</p>
+    </div>
+
+</div>
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         DREAM STATEMENT
+    ========================================================== -->
+
+    <section class="pnd-section pnd-reveal">
+
+
+        <div class="pnd-dream">
+
+
+            <div class="pnd-dream-grid"></div>
+
+
+            <div class="pnd-dream-content">
+
+
+                <div class="pnd-label">
+
+                    THE PIXEL NEST BELIEF
+
+                </div>
+
+
+                <h2>
+
+                    Your idea may be small today.
+
+                    <br>
+
+                    <span>
+                        That doesn't mean its future has to be.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    We believe great digital journeys can start
+                    with a simple conversation. Whether you are
+                    building a business, launching a brand,
+                    creating a portfolio or exploring a new idea,
+                    Pixel Nest Digital is designed to give that
+                    idea a place to begin.
+
+                </p>
+
+
+                <div class="pnd-dream-signature">
+
+                    <div class="pnd-dream-line"></div>
+
+                    <span>
+                        GIVE DREAMS A DIGITAL LIFE
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         WHAT WE OFFER
+    ========================================================== -->
+
+    <section
+        class="pnd-section pnd-reveal"
+        id="services">
+
+
+        <div class="pnd-section-header">
+
+
+            <div class="pnd-label">
+
+                WHAT WE OFFER
+
+            </div>
+
+
+            <h2>
+
+                Everything your idea needs.
+
+            </h2>
+
+
+            <p>
+
+                Technology and creativity brought together in
+                one digital destination.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="pnd-service-grid">
+
+
+            <!-- 01 -->
+
+            <div class="pnd-service-card"
+                 id="website-development">
+
+                <div class="pnd-service-number">
+                    01 / DEVELOPMENT
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-window"></i>
+                </div>
+
+                <h4>
+                    Website Development
+                </h4>
+
+                <p>
+                    Modern responsive websites for businesses,
+                    brands and ideas.
+                </p>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="pnd-service-card"
+                 id="web-applications">
+
+                <div class="pnd-service-number">
+                    02 / DEVELOPMENT
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-grid-1x2"></i>
+                </div>
+
+                <h4>
+                    Web Applications
+                </h4>
+
+                <p>
+                    Practical web applications built around
+                    real requirements.
+                </p>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="pnd-service-card"
+                 id="ecommerce">
+
+                <div class="pnd-service-number">
+                    03 / BUSINESS
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-cart3"></i>
+                </div>
+
+                <h4>
+                    E-Commerce
+                </h4>
+
+                <p>
+                    Online stores designed to connect products
+                    with customers.
+                </p>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="pnd-service-card"
+                 id="software-database">
+
+                <div class="pnd-service-number">
+                    04 / SOFTWARE
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-database"></i>
+                </div>
+
+                <h4>
+                    Software & Database
+                </h4>
+
+                <p>
+                    Business software and database-focused
+                    digital projects.
+                </p>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="pnd-service-card"
+                 id="hosting">
+
+                <div class="pnd-service-number">
+                    05 / INFRASTRUCTURE
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-cloud-arrow-up"></i>
+                </div>
+
+                <h4>
+                    Hosting & Maintenance
+                </h4>
+
+                <p>
+                    Hosting, maintenance and ongoing digital
+                    support.
+                </p>
+
+            </div>
+
+
+            <!-- 06 -->
+
+            <div class="pnd-service-card"
+                 id="branding">
+
+                <div class="pnd-service-number">
+                    06 / BRAND
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-vector-pen"></i>
+                </div>
+
+                <h4>
+                    Logo & Brand Design
+                </h4>
+
+                <p>
+                    Visual identities that give businesses a
+                    recognisable presence.
+                </p>
+
+            </div>
+
+
+            <!-- 07 -->
+
+            <div class="pnd-service-card"
+                 id="photography">
+
+                <div class="pnd-service-number">
+                    07 / MEDIA
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-camera"></i>
+                </div>
+
+                <h4>
+                    Photography
+                </h4>
+
+                <p>
+                    Visual storytelling for products, brands
+                    and events.
+                </p>
+
+            </div>
+
+
+            <!-- 08 -->
+
+            <div class="pnd-service-card"
+                 id="videography">
+
+                <div class="pnd-service-number">
+                    08 / MEDIA
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-camera-reels"></i>
+                </div>
+
+                <h4>
+                    Videography
+                </h4>
+
+                <p>
+                    Creative video production for brands and
+                    digital campaigns.
+                </p>
+
+            </div>
+
+
+            <!-- 09 -->
+
+            <div class="pnd-service-card"
+                 id="video-editing">
+
+                <div class="pnd-service-number">
+                    09 / MEDIA
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-film"></i>
+                </div>
+
+                <h4>
+                    Video Editing
+                </h4>
+
+                <p>
+                    Editing and post-production for modern
+                    digital content.
+                </p>
+
+            </div>
+
+
+            <!-- 10 -->
+
+            <div class="pnd-service-card"
+                 id="digital-content">
+
+                <div class="pnd-service-number">
+                    10 / CONTENT
+                </div>
+
+                <div class="pnd-service-icon">
+                    <i class="bi bi-phone"></i>
+                </div>
+
+                <h4>
+                    Digital Content
+                </h4>
+
+                <p>
+                    Creative content for modern digital
+                    communication.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         OUR VALUES
+         
+         WHITE BACKGROUND
+         BLACK TEXT
+    ========================================================== -->
+
+    <section
+        class="pnd-section pnd-reveal"
+        id="values">
+
+
+        <div class="pnd-section-header">
+
+
+            <div class="pnd-label">
+
+                OUR VALUES
+
+            </div>
+
+
+            <h2>
+
+                What drives the Pixel Nest.
+
+            </h2>
+
+
+            <p>
+
+                The principles behind the way we approach
+                people, ideas and projects.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="pnd-values-grid">
+
+
+            <!-- VALUE 01 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    01
+                </div>
+
+                <i class="bi bi-lightbulb"></i>
+
+                <h4>
+                    Dream
+                </h4>
+
+                <p>
+                    Every meaningful idea deserves a chance
+                    to become something real.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 02 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    02
+                </div>
+
+                <i class="bi bi-stars"></i>
+
+                <h4>
+                    Creativity
+                </h4>
+
+                <p>
+                    We believe creative thinking can change
+                    how people experience an idea.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 03 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    03
+                </div>
+
+                <i class="bi bi-shield-check"></i>
+
+                <h4>
+                    Integrity
+                </h4>
+
+                <p>
+                    Clear communication and honest relationships
+                    matter at every stage.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 04 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    04
+                </div>
+
+                <i class="bi bi-gem"></i>
+
+                <h4>
+                    Quality
+                </h4>
+
+                <p>
+                    We aim to create work that is thoughtful,
+                    useful and carefully crafted.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 05 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    05
+                </div>
+
+                <i class="bi bi-people"></i>
+
+                <h4>
+                    Collaboration
+                </h4>
+
+                <p>
+                    Different skills and perspectives can make
+                    an idea stronger.
+                </p>
+
+            </div>
+
+
+            <!-- VALUE 06 -->
+
+            <div class="pnd-value-card">
+
+                <div class="pnd-value-number">
+                    06
+                </div>
+
+                <i class="bi bi-graph-up-arrow"></i>
+
+                <h4>
+                    Growth
+                </h4>
+
+                <p>
+                    The goal is not simply to launch — it is
+                    to keep moving forward.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         OUR APPROACH
+    ========================================================== -->
+
+    <section class="pnd-section pnd-reveal">
+
+
+        <div class="pnd-section-header">
+
+
+            <div class="pnd-label">
+
+                OUR APPROACH
+
+            </div>
+
+
+            <h2>
+
+                From idea to digital reality.
+
+            </h2>
+
+
+            <p>
+
+                A simple process that keeps the journey
+                understandable and focused.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="pnd-journey">
+
+
+            <!-- STEP 01 -->
+
+            <div class="pnd-journey-card">
+
+                <div class="pnd-journey-number">
+                    STEP 01
+                </div>
+
+                <h4>
+                    Discover
+                </h4>
+
+                <p>
+                    We understand your idea, goals, audience
+                    and requirements.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 02 -->
+
+            <div class="pnd-journey-card">
+
+                <div class="pnd-journey-number">
+                    STEP 02
+                </div>
+
+                <h4>
+                    Plan
+                </h4>
+
+                <p>
+                    We shape the right digital, creative and
+                    visual direction.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 03 -->
+
+            <div class="pnd-journey-card">
+
+                <div class="pnd-journey-number">
+                    STEP 03
+                </div>
+
+                <h4>
+                    Create
+                </h4>
+
+                <p>
+                    We design, develop and produce the required
+                    digital experience.
+                </p>
+
+            </div>
+
+
+            <!-- STEP 04 -->
+
+            <div class="pnd-journey-card">
+
+                <div class="pnd-journey-number">
+                    STEP 04
+                </div>
+
+                <h4>
+                    Launch
+                </h4>
+
+                <p>
+                    We help bring the project into the real
+                    world and keep it moving.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CREATED UNDER
+         
+         WHITE BACKGROUND
+         BLACK TEXT
+    ========================================================== -->
+
+    <section
+        class="pnd-section pnd-reveal"
+        id="created-under">
+
+
+        <div class="pnd-venture">
+
+
+           <div class="pnd-venture-logo"> 
+    <img src="img/JO-GEO-Ventures-Logo-White.jpg" alt="JO GEO Ventures Logo" />
+</div>
+
+            <div>
+
+
+                <small>
+                    CREATED UNDER
+                </small>
+
+
+                <h3>
+                    JO-GEO VENTURES
+                </h3>
+
+
+                <p>
+
+                    Pixel Nest Digital is created under
+                    <strong>
+                        JO-GEO VENTURES
+                    </strong>
+                    as a digital initiative focused on bringing
+                    technology, creativity and opportunity together.
+
+                    <br><br>
+
+                    The platform is built around the idea of
+                    collaboration — connecting different skills,
+                    creative capabilities and digital solutions
+                    under one vision.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FINAL CTA
+    ========================================================== -->
+
+    <section
+        class="pnd-final-cta pnd-reveal">
+
+
+        <div class="pnd-cta-box">
+
+
+            <div class="pnd-label">
+
+                READY TO BEGIN?
+
+            </div>
+
+
+            <h2>
+
+                Let's give your idea a digital life.
+
+            </h2>
+
+
+            <p>
+
+                You don't need everything figured out before
+                you start. Tell us what you have in mind and
+                let's explore the possibilities together.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="pnd-btn-primary">
+
+                Start a Project
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =============================================================
+     FOOTER
+============================================================== -->
+
+<footer class="pnd-footer">
+
+
+    <div class="pnd-container">
+
+
+        <div class="pnd-footer-grid">
+
+
+            <!-- =================================================
+                 FOOTER LOGO
+                 
+                 IMAGE ONLY
+            ================================================== -->
+
+            <div>
+
+
+                <a
+                    href="index.html"
+                    class="pnd-footer-logo">
+
+
+                    <!--
+                        SAME LOGO IMAGE
+
+                        CHANGE PATH IF REQUIRED
+                    -->
+
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital Logo">
+
+
+                </a>
+
+
+                <p
+                    style="
+                        margin-top:8px;
+                        max-width:320px;
+                    ">
+
+                    A digital destination where technology,
+                    creativity and ideas come together.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EXPLORE
+            ================================================== -->
+
+            <div>
+
+
+                <h4>
+                    Explore
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="services.html">
+                    Services
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SERVICES
+            ================================================== -->
+
+            <div>
+
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <a href="website_development.html">
+                    Website Development
+                </a>
+
+
+                <a href="web_applications.html">
+                    Web Applications
+                </a>
+
+
+                <a href="e-commerce.html">
+                    E-Commerce
+                </a>
+
+
+                <a href="logo-brand-design.html">
+                    Brand Design
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CREATIVE
+            ================================================== -->
+
+            <div>
+
+
+                <h4>
+                    Creative
+                </h4>
+
+
+                <a href="photography.html">
+                    Photography
+                </a>
+
+
+                <a href="videography.html">
+                    Videography
+                </a>
+
+
+                <a href="video-editing.html">
+                    Video Editing
+                </a>
+
+
+                <a href="digital-content.html">
+                    Digital Content
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER BOTTOM
+        ====================================================== -->
+
+        <div class="pnd-footer-bottom">
+
+
+            <span>
+
+                ©
+                <span id="pndYear"></span>
+
+                Pixel Nest Digital.
+                All rights reserved.
+
+            </span>
+
+
+            <span>
+
+                A JO-GEO VENTURES INITIATIVE
+
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =============================================================
+     JAVASCRIPT
+============================================================== -->
+
+<script>
+
+
+    /* =========================================================
+       YEAR
+    ========================================================== */
+
+    document.getElementById("pndYear").textContent =
+        new Date().getFullYear();
+
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================== */
+
+    const revealItems =
+        document.querySelectorAll(".pnd-reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: .12
+            }
+
+        );
+
+
+    revealItems.forEach(item => {
+
+        revealObserver.observe(item);
+
+    });
+
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================== */
+
+    const mobileToggle =
+        document.getElementById(
+            "mobileToggle"
+        );
+
+
+    const nav =
+        document.getElementById(
+            "pndNavLinks"
+        );
+
+
+    let mobileOpen = false;
+
+
+    mobileToggle.addEventListener(
+        "click",
+        function() {
+
+            mobileOpen =
+                !mobileOpen;
+
+
+            if (mobileOpen) {
+
+                nav.style.display =
+                    "flex";
+
+                nav.style.position =
+                    "absolute";
+
+                nav.style.top =
+                    "68px";
+
+                nav.style.left =
+                    "5%";
+
+                nav.style.right =
+                    "5%";
+
+                nav.style.padding =
+                    "20px";
+
+                nav.style.flexDirection =
+                    "column";
+
+                nav.style.alignItems =
+                    "stretch";
+
+                nav.style.background =
+                    "rgba(7,17,31,.98)";
+
+                nav.style.border =
+                    "1px solid rgba(148,163,184,.15)";
+
+                nav.style.borderRadius =
+                    "15px";
+
+                nav.style.backdropFilter =
+                    "blur(20px)";
+
+                nav.style.boxShadow =
+                    "0 25px 60px rgba(0,0,0,.4)";
+
+
+                mobileToggle
+                    .setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+
+                mobileToggle
+                    .innerHTML =
+                    '<i class="bi bi-x-lg"></i>';
+
+            }
+
+            else {
+
+                nav.removeAttribute(
+                    "style"
+                );
+
+
+                mobileToggle
+                    .setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+
+                mobileToggle
+                    .innerHTML =
+                    '<i class="bi bi-list"></i>';
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================================
+       CLOSE MOBILE MENU AFTER LINK CLICK
+    ========================================================== */
+
+    nav.querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        window.innerWidth <= 900
+                    ) {
+
+                        nav.removeAttribute(
+                            "style"
+                        );
+
+                        mobileOpen = false;
+
+
+                        mobileToggle
+                            .setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                        mobileToggle
+                            .innerHTML =
+                            '<i class="bi bi-list"></i>';
+
+                    }
+
+                }
+            );
+
+        });
+
+
+
+    /* =========================================================
+       SEARCH
+    ========================================================== */
+
+    const searchInput =
+        document.getElementById(
+            "pndSearch"
+        );
+
+
+    const searchButton =
+        document.getElementById(
+            "pndSearchButton"
+        );
+
+
+    function performSearch() {
+
+        const value =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        if (!value) {
+
+            return;
+
+        }
+
+
+        if (
+            value.includes("website") ||
+            value.includes("web development")
+        ) {
+
+            location.href =
+                "index.html#website-development";
+
+        }
+
+
+        else if (
+            value.includes("application") ||
+            value.includes("web app")
+        ) {
+
+            location.href =
+                "index.html#web-applications";
+
+        }
+
+
+        else if (
+            value.includes("ecommerce") ||
+            value.includes("e-commerce") ||
+            value.includes("online store")
+        ) {
+
+            location.href =
+                "index.html#ecommerce";
+
+        }
+
+
+        else if (
+            value.includes("database") ||
+            value.includes("software")
+        ) {
+
+            location.href =
+                "index.html#software-database";
+
+        }
+
+
+        else if (
+            value.includes("hosting") ||
+            value.includes("maintenance")
+        ) {
+
+            location.href =
+                "index.html#hosting";
+
+        }
+
+
+        else if (
+            value.includes("logo") ||
+            value.includes("brand") ||
+            value.includes("branding")
+        ) {
+
+            location.href =
+                "index.html#branding";
+
+        }
+
+
+        else if (
+            value.includes("photo") ||
+            value.includes("photography")
+        ) {
+
+            location.href =
+                "index.html#photography";
+
+        }
+
+
+        else if (
+            value.includes("videography")
+        ) {
+
+            location.href =
+                "index.html#videography";
+
+        }
+
+
+        else if (
+            value.includes("editing") ||
+            value.includes("video editing")
+        ) {
+
+            location.href =
+                "index.html#video-editing";
+
+        }
+
+
+        else if (
+            value.includes("content")
+        ) {
+
+            location.href =
+                "index.html#digital-content";
+
+        }
+
+
+        else {
+
+            location.href =
+                "index.html#services";
+
+        }
+
+    }
+
+
+    searchInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                performSearch();
+
+            }
+
+        }
+    );
+
+
+    searchButton.addEventListener(
+        "click",
+        performSearch
+    );
+
+
+
+    /* =========================================================
+       HEADER SCROLL EFFECT
+    ========================================================== */
+
+    const header =
+        document.querySelector(
+            ".pnd-navbar"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            if (
+                window.scrollY > 20
+            ) {
+
+                header.style.background =
+                    "rgba(7,17,31,.96)";
+
+                header.style.boxShadow =
+                    "0 10px 35px rgba(0,0,0,.15)";
+
+            }
+
+            else {
+
+                header.style.background =
+                    "rgba(7,17,31,.88)";
+
+                header.style.boxShadow =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+</script>
+
+
+
+<!-- =============================================================
+     BOOTSTRAP JS
+============================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

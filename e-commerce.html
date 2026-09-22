@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>E-Commerce Development | Pixel Nest Digital</title>
+
+<meta name="description" content="Pixel Nest Digital creates modern e-commerce websites and online stores with product catalogs, shopping carts, order management and responsive storefronts.">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+    :root{
+        --pnd-space:#07111F;
+        --pnd-space-2:#0B172A;
+        --pnd-space-3:#111C35;
+
+        --pnd-blue:#2563EB;
+        --pnd-blue-dark:#1D4ED8;
+        --pnd-cyan:#06B6D4;
+        --pnd-violet:#7C3AED;
+
+        --pnd-white:#F8FAFC;
+        --pnd-text:#E2E8F0;
+        --pnd-muted:#94A3B8;
+
+        --pnd-border:rgba(148,163,184,.16);
+        --pnd-glass:rgba(255,255,255,.055);
+    }
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:"DM Sans",sans-serif;
+        background:var(--pnd-space);
+        color:var(--pnd-text);
+        overflow-x:hidden;
+    }
+
+    a{
+        text-decoration:none;
+    }
+
+
+    /* =====================================================
+       GLOBAL LED
+    ===================================================== */
+
+    .pnd-led{
+        position:fixed;
+        top:0;
+        left:0;
+
+        width:100%;
+        height:3px;
+
+        z-index:9999;
+
+        background:
+            linear-gradient(
+                90deg,
+                var(--pnd-blue),
+                var(--pnd-cyan),
+                var(--pnd-violet),
+                var(--pnd-blue)
+            );
+
+        background-size:300% 100%;
+
+        animation:ledMove 5s linear infinite;
+
+        box-shadow:
+            0 0 10px rgba(37,99,235,.8),
+            0 0 24px rgba(6,182,212,.45);
+    }
+
+    @keyframes ledMove{
+
+        0%{
+            background-position:0% 50%;
+        }
+
+        100%{
+            background-position:300% 50%;
+        }
+
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    .pnd-navbar{
+        position:sticky;
+
+        top:0;
+
+        z-index:1000;
+
+        height:76px;
+
+        display:flex;
+
+        align-items:center;
+
+        background:
+            rgba(7,17,31,.84);
+
+        backdrop-filter:blur(20px);
+
+        -webkit-backdrop-filter:blur(20px);
+
+        border-bottom:
+            1px solid
+            var(--pnd-border);
+    }
+
+    .pnd-nav-inner{
+        width:100%;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+    }
+
+    .pnd-brand{
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        color:white;
+    }
+
+    .pnd-brand-mark{
+        width:42px;
+        height:42px;
+
+        border-radius:13px;
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        color:white;
+
+        font-size:16px;
+        font-weight:800;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--pnd-blue),
+                var(--pnd-violet)
+            );
+
+        box-shadow:
+            0 0 20px
+            rgba(37,99,235,.35);
+    }
+
+    .pnd-brand-text{
+        line-height:1;
+    }
+
+    .pnd-brand-text strong{
+        display:block;
+
+        color:white;
+
+        font-size:16px;
+
+        letter-spacing:.4px;
+    }
+
+    .pnd-brand-text span{
+        display:block;
+
+        margin-top:5px;
+
+        color:var(--pnd-muted);
+
+        font-size:9px;
+
+        letter-spacing:2px;
+    }
+
+    .pnd-nav{
+        display:flex;
+
+        align-items:center;
+
+        gap:27px;
+    }
+
+    .pnd-nav a{
+        color:#AEBBCB;
+
+        font-size:14px;
+
+        font-weight:600;
+
+        transition:.3s;
+    }
+
+    .pnd-nav a:hover,
+    .pnd-nav a.active{
+        color:white;
+    }
+
+    .pnd-nav-cta{
+        padding:11px 18px;
+
+        border-radius:12px;
+
+        color:white !important;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--pnd-blue),
+                var(--pnd-violet)
+            );
+
+        box-shadow:
+            0 8px 25px
+            rgba(37,99,235,.22);
+    }
+
+    .pnd-mobile-btn{
+        display:none;
+
+        width:43px;
+        height:43px;
+
+        border-radius:12px;
+
+        border:1px solid
+            var(--pnd-border);
+
+        background:
+            var(--pnd-glass);
+
+        color:white;
+
+        font-size:20px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .pnd-hero{
+        position:relative;
+
+        min-height:750px;
+
+        display:flex;
+
+        align-items:center;
+
+        padding:
+            90px 0 85px;
+
+        overflow:hidden;
+    }
+
+    .hero-grid{
+        position:absolute;
+
+        inset:0;
+
+        opacity:.2;
+
+        background-image:
+            linear-gradient(
+                rgba(148,163,184,.08) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(148,163,184,.08) 1px,
+                transparent 1px
+            );
+
+        background-size:
+            60px 60px;
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+    }
+
+    .hero-glow{
+        position:absolute;
+
+        border-radius:50%;
+
+        filter:blur(90px);
+
+        pointer-events:none;
+    }
+
+    .hero-glow.one{
+        width:430px;
+        height:430px;
+
+        left:-170px;
+        top:-100px;
+
+        background:
+            rgba(37,99,235,.18);
+    }
+
+    .hero-glow.two{
+        width:460px;
+        height:460px;
+
+        right:-180px;
+        top:80px;
+
+        background:
+            rgba(124,58,237,.16);
+    }
+
+    .hero-content{
+        position:relative;
+
+        z-index:2;
+    }
+
+    .pnd-eyebrow{
+        display:inline-flex;
+
+        align-items:center;
+
+        gap:9px;
+
+        padding:
+            8px 13px;
+
+        border-radius:50px;
+
+        border:
+            1px solid
+            rgba(6,182,212,.22);
+
+        background:
+            rgba(6,182,212,.055);
+
+        color:#67E8F9;
+
+        font-size:11px;
+
+        font-weight:800;
+
+        letter-spacing:2px;
+
+        margin-bottom:25px;
+    }
+
+    .eyebrow-dot{
+        width:7px;
+        height:7px;
+
+        border-radius:50%;
+
+        background:#22D3EE;
+
+        box-shadow:
+            0 0 12px
+            #22D3EE;
+
+        animation:
+            blink 1.4s infinite;
+    }
+
+    @keyframes blink{
+
+        50%{
+            opacity:.25;
+        }
+
+    }
+
+    .pnd-hero h1{
+        max-width:850px;
+
+        color:white;
+
+        font-size:
+            clamp(
+                45px,
+                6vw,
+                80px
+            );
+
+        line-height:.98;
+
+        letter-spacing:-3px;
+
+        font-weight:800;
+    }
+
+    .gradient-text{
+        background:
+            linear-gradient(
+                90deg,
+                #60A5FA,
+                #22D3EE,
+                #A78BFA
+            );
+
+        -webkit-background-clip:text;
+
+        -webkit-text-fill-color:transparent;
+    }
+
+    .pnd-hero-desc{
+        max-width:660px;
+
+        color:var(--pnd-muted);
+
+        font-size:17px;
+
+        line-height:1.8;
+
+        margin:
+            28px 0;
+    }
+
+    .hero-actions{
+        display:flex;
+
+        flex-wrap:wrap;
+
+        gap:13px;
+    }
+
+    .pnd-btn{
+        display:inline-flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        gap:9px;
+
+        padding:
+            14px 21px;
+
+        border-radius:13px;
+
+        font-size:14px;
+
+        font-weight:700;
+
+        transition:.3s;
+    }
+
+    .pnd-btn-primary{
+        color:white;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--pnd-blue),
+                var(--pnd-violet)
+            );
+
+        box-shadow:
+            0 15px 35px
+            rgba(37,99,235,.2);
+    }
+
+    .pnd-btn-primary:hover{
+        color:white;
+
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+            0 20px 45px
+            rgba(37,99,235,.3);
+    }
+
+    .pnd-btn-outline{
+        color:white;
+
+        border:
+            1px solid
+            var(--pnd-border);
+
+        background:
+            var(--pnd-glass);
+    }
+
+    .pnd-btn-outline:hover{
+        color:white;
+
+        border-color:
+            rgba(6,182,212,.5);
+
+        transform:
+            translateY(-3px);
+    }
+
+
+    /* =====================================================
+       STORE VISUAL
+    ===================================================== */
+
+    .store-stage{
+        position:relative;
+
+        min-height:520px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+    }
+
+    .store-window{
+        position:relative;
+
+        width:min(100%,530px);
+
+        overflow:hidden;
+
+        border-radius:25px;
+
+        background:
+            rgba(10,23,42,.85);
+
+        border:
+            1px solid
+            rgba(148,163,184,.18);
+
+        backdrop-filter:blur(22px);
+
+        box-shadow:
+            0 40px 90px
+            rgba(0,0,0,.45),
+            0 0 60px
+            rgba(37,99,235,.08);
+
+        animation:
+            storeFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes storeFloat{
+
+        0%,100%{
+            transform:
+                translateY(0)
+                rotateY(-4deg);
+        }
+
+        50%{
+            transform:
+                translateY(-13px)
+                rotateY(-4deg);
+        }
+
+    }
+
+    .store-led{
+        height:3px;
+
+        background:
+            linear-gradient(
+                90deg,
+                var(--pnd-blue),
+                var(--pnd-cyan),
+                var(--pnd-violet)
+            );
+
+        background-size:200% 100%;
+
+        animation:
+            ledMove 3s linear infinite;
+    }
+
+    .store-top{
+        height:55px;
+
+        display:flex;
+
+        align-items:center;
+
+        gap:7px;
+
+        padding:0 17px;
+
+        border-bottom:
+            1px solid
+            var(--pnd-border);
+    }
+
+    .store-dot{
+        width:9px;
+        height:9px;
+
+        border-radius:50%;
+
+        background:#64748B;
+    }
+
+    .store-url{
+        flex:1;
+
+        height:28px;
+
+        margin-left:8px;
+
+        display:flex;
+
+        align-items:center;
+
+        padding:
+            0 10px;
+
+        border-radius:8px;
+
+        background:
+            rgba(255,255,255,.04);
+
+        color:#64748B;
+
+        font-size:10px;
+    }
+
+    .store-body{
+        padding:22px;
+    }
+
+    .store-nav{
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        margin-bottom:23px;
+    }
+
+    .store-logo{
+        width:78px;
+        height:10px;
+
+        border-radius:10px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #2563EB,
+                #22D3EE
+            );
+    }
+
+    .store-nav-icons{
+        display:flex;
+
+        gap:8px;
+    }
+
+    .store-nav-icons span{
+        width:25px;
+        height:25px;
+
+        border-radius:8px;
+
+        border:
+            1px solid
+            rgba(148,163,184,.1);
+
+        background:
+            rgba(255,255,255,.04);
+    }
+
+    .store-banner{
+        height:85px;
+
+        display:flex;
+
+        align-items:center;
+
+        padding:17px;
+
+        border-radius:14px;
+
+        margin-bottom:17px;
+
+        background:
+            linear-gradient(
+                120deg,
+                rgba(37,99,235,.32),
+                rgba(124,58,237,.25)
+            );
+
+        border:
+            1px solid
+            rgba(96,165,250,.15);
+    }
+
+    .banner-text{
+        width:48%;
+    }
+
+    .banner-line{
+        height:8px;
+
+        width:80%;
+
+        border-radius:5px;
+
+        background:#E2E8F0;
+
+        margin-bottom:8px;
+    }
+
+    .banner-line.small{
+        width:50%;
+
+        height:5px;
+
+        background:#94A3B8;
+    }
+
+    .banner-button{
+        width:55px;
+        height:19px;
+
+        border-radius:6px;
+
+        margin-top:10px;
+
+        background:#22D3EE;
+    }
+
+    .banner-art{
+        margin-left:auto;
+
+        width:90px;
+        height:65px;
+
+        border-radius:14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(34,211,238,.35),
+                rgba(124,58,237,.4)
+            );
+    }
+
+    .product-grid{
+        display:grid;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:9px;
+    }
+
+    .product-mini{
+        min-height:135px;
+
+        border-radius:12px;
+
+        padding:8px;
+
+        border:
+            1px solid
+            rgba(148,163,184,.08);
+
+        background:
+            rgba(255,255,255,.035);
+    }
+
+    .product-image{
+        height:70px;
+
+        border-radius:8px;
+
+        margin-bottom:9px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(37,99,235,.3),
+                rgba(6,182,212,.15)
+            );
+    }
+
+    .product-name{
+        width:70%;
+        height:5px;
+
+        border-radius:5px;
+
+        background:#64748B;
+
+        margin-bottom:7px;
+    }
+
+    .product-price{
+        width:42%;
+        height:7px;
+
+        border-radius:5px;
+
+        background:#E2E8F0;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .pnd-section{
+        position:relative;
+
+        padding:105px 0;
+    }
+
+    .pnd-section-alt{
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(37,99,235,.07),
+                transparent 30%
+            ),
+            var(--pnd-space-2);
+    }
+
+    .section-head{
+        max-width:770px;
+
+        margin-bottom:55px;
+    }
+
+    .section-label{
+        color:#22D3EE;
+
+        font-size:11px;
+
+        letter-spacing:2px;
+
+        font-weight:800;
+
+        margin-bottom:12px;
+    }
+
+    .section-title{
+        color:white;
+
+        font-size:
+            clamp(
+                34px,
+                4vw,
+                56px
+            );
+
+        line-height:1.05;
+
+        letter-spacing:-2px;
+
+        font-weight:800;
+    }
+
+    .section-desc{
+        max-width:670px;
+
+        margin-top:18px;
+
+        color:var(--pnd-muted);
+
+        line-height:1.8;
+    }
+
+
+    /* =====================================================
+       ECOMMERCE FEATURES
+    ===================================================== */
+
+    .commerce-card{
+        position:relative;
+
+        height:100%;
+
+        overflow:hidden;
+
+        padding:29px;
+
+        border-radius:22px;
+
+        background:
+            rgba(255,255,255,.045);
+
+        border:
+            1px solid
+            var(--pnd-border);
+
+        transition:.4s;
+    }
+
+    .commerce-card::before{
+        content:"";
+
+        position:absolute;
+
+        left:-100%;
+        top:0;
+
+        width:100%;
+        height:2px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                #22D3EE,
+                #7C3AED,
+                transparent
+            );
+
+        transition:.6s;
+    }
+
+    .commerce-card:hover{
+        transform:
+            translateY(-8px);
+
+        border-color:
+            rgba(37,99,235,.38);
+
+        box-shadow:
+            0 25px 60px
+            rgba(0,0,0,.25);
+    }
+
+    .commerce-card:hover::before{
+        left:100%;
+    }
+
+    .commerce-icon{
+        width:54px;
+        height:54px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        margin-bottom:22px;
+
+        border-radius:16px;
+
+        color:#67E8F9;
+
+        font-size:23px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(37,99,235,.17),
+                rgba(124,58,237,.17)
+            );
+
+        border:
+            1px solid
+            rgba(6,182,212,.14);
+    }
+
+    .commerce-card h3{
+        color:white;
+
+        font-size:20px;
+
+        font-weight:800;
+
+        margin-bottom:10px;
+    }
+
+    .commerce-card p{
+        color:var(--pnd-muted);
+
+        font-size:14px;
+
+        line-height:1.75;
+
+        margin:0;
+    }
+
+    .commerce-index{
+        position:absolute;
+
+        right:20px;
+        top:18px;
+
+        color:
+            rgba(148,163,184,.18);
+
+        font-size:12px;
+
+        font-weight:800;
+    }
+
+
+    /* =====================================================
+       SHOPPING JOURNEY
+    ===================================================== */
+
+    .journey-track{
+        position:relative;
+    }
+
+    .journey-track::before{
+        content:"";
+
+        position:absolute;
+
+        left:8%;
+        right:8%;
+        top:31px;
+
+        height:1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                var(--pnd-blue),
+                var(--pnd-cyan),
+                var(--pnd-violet)
+            );
+
+        opacity:.45;
+    }
+
+    .journey-item{
+        position:relative;
+
+        text-align:center;
+
+        padding:0 10px;
+    }
+
+    .journey-number{
+        position:relative;
+
+        z-index:2;
+
+        width:63px;
+        height:63px;
+
+        margin:0 auto 20px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        border-radius:50%;
+
+        background:
+            var(--pnd-space);
+
+        color:white;
+
+        font-size:13px;
+
+        font-weight:800;
+
+        border:
+            1px solid
+            rgba(37,99,235,.55);
+
+        box-shadow:
+            0 0 25px
+            rgba(37,99,235,.15);
+    }
+
+    .journey-item h3{
+        color:white;
+
+        font-size:17px;
+
+        font-weight:800;
+
+        margin-bottom:8px;
+    }
+
+    .journey-item p{
+        color:var(--pnd-muted);
+
+        font-size:13px;
+
+        line-height:1.65;
+    }
+
+
+    /* =====================================================
+       STORE MANAGEMENT
+    ===================================================== */
+
+    .management-panel{
+        position:relative;
+
+        min-height:380px;
+
+        padding:28px;
+
+        overflow:hidden;
+
+        border-radius:25px;
+
+        border:
+            1px solid
+            var(--pnd-border);
+
+        background:
+            rgba(255,255,255,.035);
+    }
+
+    .management-panel::before{
+        content:"";
+
+        position:absolute;
+
+        width:300px;
+        height:300px;
+
+        right:-140px;
+        bottom:-140px;
+
+        border-radius:50%;
+
+        background:
+            rgba(124,58,237,.1);
+
+        filter:blur(60px);
+    }
+
+    .order-panel{
+        position:relative;
+
+        z-index:2;
+
+        max-width:420px;
+
+        margin:auto;
+
+        padding:19px;
+
+        border-radius:17px;
+
+        border:
+            1px solid
+            rgba(148,163,184,.1);
+
+        background:
+            rgba(7,17,31,.75);
+
+        box-shadow:
+            0 25px 50px
+            rgba(0,0,0,.3);
+    }
+
+    .order-head{
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        margin-bottom:17px;
+    }
+
+    .order-title{
+        width:100px;
+        height:8px;
+
+        border-radius:5px;
+
+        background:#E2E8F0;
+    }
+
+    .order-status{
+        display:flex;
+
+        align-items:center;
+
+        gap:5px;
+
+        color:#4ADE80;
+
+        font-size:9px;
+
+        font-weight:700;
+    }
+
+    .status-dot{
+        width:6px;
+        height:6px;
+
+        border-radius:50%;
+
+        background:#4ADE80;
+
+        box-shadow:
+            0 0 8px #4ADE80;
+    }
+
+    .order-row{
+        display:flex;
+
+        align-items:center;
+
+        gap:11px;
+
+        padding:11px 0;
+
+        border-bottom:
+            1px solid
+            rgba(148,163,184,.08);
+    }
+
+    .order-thumb{
+        width:42px;
+        height:42px;
+
+        flex:0 0 42px;
+
+        border-radius:9px;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(37,99,235,.35),
+                rgba(6,182,212,.15)
+            );
+    }
+
+    .order-info{
+        flex:1;
+    }
+
+    .order-info-line{
+        width:70%;
+        height:6px;
+
+        border-radius:5px;
+
+        background:#64748B;
+
+        margin-bottom:7px;
+    }
+
+    .order-info-line.small{
+        width:45%;
+
+        background:#334155;
+    }
+
+    .order-price{
+        width:40px;
+        height:7px;
+
+        border-radius:5px;
+
+        background:#E2E8F0;
+    }
+
+    .order-total{
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        padding-top:15px;
+    }
+
+    .total-label{
+        color:#64748B;
+
+        font-size:10px;
+    }
+
+    .total-value{
+        color:white;
+
+        font-size:17px;
+
+        font-weight:800;
+    }
+
+
+    /* =====================================================
+       BENEFITS
+    ===================================================== */
+
+    .benefit-list{
+        list-style:none;
+
+        padding:0;
+        margin:0;
+    }
+
+    .benefit-list li{
+        display:flex;
+
+        align-items:flex-start;
+
+        gap:13px;
+
+        margin-bottom:19px;
+
+        color:var(--pnd-muted);
+
+        font-size:14px;
+
+        line-height:1.65;
+    }
+
+    .benefit-list i{
+        color:#22D3EE;
+
+        font-size:17px;
+
+        margin-top:2px;
+    }
+
+
+    /* =====================================================
+       STORE TYPES
+    ===================================================== */
+
+    .store-type{
+        position:relative;
+
+        min-height:190px;
+
+        padding:27px;
+
+        overflow:hidden;
+
+        border-radius:21px;
+
+        border:
+            1px solid
+            var(--pnd-border);
+
+        background:
+            rgba(255,255,255,.035);
+
+        transition:.35s;
+    }
+
+    .store-type:hover{
+        transform:
+            translateY(-6px);
+
+        border-color:
+            rgba(6,182,212,.32);
+    }
+
+    .store-type i{
+        color:#67E8F9;
+
+        font-size:25px;
+
+        margin-bottom:20px;
+    }
+
+    .store-type h3{
+        color:white;
+
+        font-size:18px;
+
+        font-weight:800;
+
+        margin-bottom:8px;
+    }
+
+    .store-type p{
+        color:var(--pnd-muted);
+
+        font-size:13px;
+
+        line-height:1.7;
+
+        margin:0;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .pnd-cta{
+        position:relative;
+
+        overflow:hidden;
+
+        padding:
+            90px 25px;
+
+        text-align:center;
+
+        border-top:
+            1px solid
+            var(--pnd-border);
+
+        border-bottom:
+            1px solid
+            var(--pnd-border);
+
+        background:
+            radial-gradient(
+                circle at 50% 100%,
+                rgba(37,99,235,.18),
+                transparent 50%
+            ),
+            var(--pnd-space-2);
+    }
+
+    .pnd-cta h2{
+        color:white;
+
+        font-size:
+            clamp(
+                35px,
+                5vw,
+                60px
+            );
+
+        font-weight:800;
+
+        letter-spacing:-2px;
+    }
+
+    .pnd-cta p{
+        max-width:620px;
+
+        margin:
+            17px auto 27px;
+
+        color:var(--pnd-muted);
+
+        line-height:1.7;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer{
+        padding:
+            55px 0 25px;
+
+        background:#040B15;
+
+        border-top:
+            1px solid
+            var(--pnd-border);
+    }
+
+    .footer-brand{
+        color:white;
+
+        font-size:19px;
+
+        font-weight:800;
+    }
+
+    footer p{
+        color:#64748B;
+
+        font-size:13px;
+
+        line-height:1.7;
+    }
+
+    .footer-links{
+        display:flex;
+
+        flex-wrap:wrap;
+
+        gap:18px;
+    }
+
+    .footer-links a{
+        color:#64748B;
+
+        font-size:13px;
+
+        transition:.3s;
+    }
+
+    .footer-links a:hover{
+        color:#22D3EE;
+    }
+
+    .copyright{
+        padding-top:25px;
+
+        margin-top:30px;
+
+        border-top:
+            1px solid
+            var(--pnd-border);
+
+        color:#475569;
+
+        font-size:12px;
+    }
+
+
+    /* =====================================================
+       REVEAL
+    ===================================================== */
+
+    .reveal{
+        opacity:0;
+
+        transform:
+            translateY(30px);
+
+        transition:
+            opacity .8s ease,
+            transform .8s ease;
+    }
+
+    .reveal.show{
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media(max-width:991px){
+
+        .pnd-nav{
+            position:absolute;
+
+            top:76px;
+
+            left:15px;
+            right:15px;
+
+            display:none;
+
+            flex-direction:column;
+
+            align-items:stretch;
+
+            gap:5px;
+
+            padding:15px;
+
+            border-radius:18px;
+
+            background:
+                rgba(7,17,31,.97);
+
+            border:
+                1px solid
+                var(--pnd-border);
+
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,.4);
+        }
+
+        .pnd-nav.show{
+            display:flex;
+        }
+
+        .pnd-nav a{
+            padding:12px;
+
+            border-radius:10px;
+        }
+
+        .pnd-nav a:hover{
+            background:
+                rgba(255,255,255,.05);
+        }
+
+        .pnd-nav-cta{
+            text-align:center;
+
+            margin-top:5px;
+        }
+
+        .pnd-mobile-btn{
+            display:block;
+        }
+
+        .pnd-hero{
+            padding-top:75px;
+        }
+
+        .store-stage{
+            margin-top:45px;
+        }
+
+        .store-window{
+            transform:none;
+        }
+
+        .journey-track::before{
+            display:none;
+        }
+
+    }
+
+
+    @media(max-width:767px){
+
+        .pnd-hero{
+            min-height:auto;
+
+            padding:
+                65px 0 75px;
+        }
+
+        .pnd-hero h1{
+            letter-spacing:-2px;
+        }
+
+        .pnd-hero-desc{
+            font-size:15px;
+        }
+
+        .hero-actions{
+            flex-direction:column;
+
+            align-items:stretch;
+        }
+
+        .pnd-btn{
+            width:100%;
+        }
+
+        .store-stage{
+            min-height:390px;
+        }
+
+        .store-body{
+            padding:17px;
+        }
+
+        .product-grid{
+            grid-template-columns:
+                repeat(2,1fr);
+        }
+
+        .product-mini:last-child{
+            display:none;
+        }
+
+        .pnd-section{
+            padding:75px 0;
+        }
+
+        .section-title{
+            letter-spacing:-1.5px;
+        }
+
+        .management-panel{
+            min-height:350px;
+        }
+
+        .journey-item{
+            margin-bottom:28px;
+        }
+
+    }
+
+
+    @media(max-width:430px){
+
+        .store-stage{
+            min-height:335px;
+        }
+
+        .store-body{
+            padding:13px;
+        }
+
+        .store-banner{
+            height:70px;
+        }
+
+        .banner-art{
+            width:65px;
+            height:50px;
+        }
+
+        .product-image{
+            height:55px;
+        }
+
+        .product-mini{
+            min-height:112px;
+        }
+
+    }
+
+
+    @media(prefers-reduced-motion:reduce){
+
+        *,
+        *::before,
+        *::after{
+
+            animation-duration:
+                .01ms !important;
+
+            animation-iteration-count:
+                1 !important;
+
+            scroll-behavior:
+                auto !important;
+
+            transition-duration:
+                .01ms !important;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     LED STRIP
+===================================================== -->
+
+<div class="pnd-led"></div>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="pnd-navbar">
+
+
+<div class="container-xl">
+
+    <div class="pnd-nav-inner">
+
+
+        <a href="index.html"
+           class="pnd-brand">
+
+            <div class="pnd-brand-mark">
+                PN
+            </div>
+
+            <div class="pnd-brand-text">
+
+                <strong>
+                    Pixel Nest
+                </strong>
+
+                <span>
+                    DIGITAL
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="pnd-nav"
+             id="pndNav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html"
+               class="active">
+                Services
+            </a>
+
+            <a href="portfolio.html">
+                Portfolio
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="contact.html"
+               class="pnd-nav-cta">
+
+                Start a Project
+
+                <i class="bi bi-arrow-up-right ms-1"></i>
+
+            </a>
+
+        </div>
+
+
+        <button
+            class="pnd-mobile-btn"
+            id="pndMobileBtn"
+            aria-label="Open navigation">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</nav>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="pnd-hero">
+
+
+<div class="hero-grid"></div>
+
+<div class="hero-glow one"></div>
+
+<div class="hero-glow two"></div>
+
+
+<div class="container-xl">
+
+    <div class="row align-items-center g-5">
+
+
+        <div class="col-lg-6">
+
+            <div class="hero-content reveal">
+
+                <div class="pnd-eyebrow">
+
+                    <span class="eyebrow-dot"></span>
+
+                    E-COMMERCE DEVELOPMENT
+
+                </div>
+
+
+                <h1>
+
+                    Turn products into a
+
+                    <span class="gradient-text">
+                        digital store.
+                    </span>
+
+                </h1>
+
+
+                <p class="pnd-hero-desc">
+
+                    We create modern online stores that make it
+                    easier for customers to discover products,
+                    place orders and connect with your brand.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a href="contact.html"
+                       class="pnd-btn pnd-btn-primary">
+
+                        Build My Store
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+
+                    <a href="#features"
+                       class="pnd-btn pnd-btn-outline">
+
+                        Explore Features
+
+                        <i class="bi bi-arrow-down"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="store-stage reveal">
+
+
+                <div class="store-window">
+
+                    <div class="store-led"></div>
+
+
+                    <div class="store-top">
+
+                        <span class="store-dot"></span>
+                        <span class="store-dot"></span>
+                        <span class="store-dot"></span>
+
+                        <div class="store-url">
+
+                            shop.yourbrand.com
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="store-body">
+
+
+                        <div class="store-nav">
+
+                            <div class="store-logo"></div>
+
+                            <div class="store-nav-icons">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="store-banner">
+
+                            <div class="banner-text">
+
+                                <div class="banner-line"></div>
+
+                                <div class="banner-line small"></div>
+
+                                <div class="banner-button"></div>
+
+                            </div>
+
+                            <div class="banner-art"></div>
+
+                        </div>
+
+
+                        <div class="product-grid">
+
+
+                            <div class="product-mini">
+
+                                <div class="product-image"></div>
+
+                                <div class="product-name"></div>
+
+                                <div class="product-price"></div>
+
+                            </div>
+
+
+                            <div class="product-mini">
+
+                                <div class="product-image"></div>
+
+                                <div class="product-name"></div>
+
+                                <div class="product-price"></div>
+
+                            </div>
+
+
+                            <div class="product-mini">
+
+                                <div class="product-image"></div>
+
+                                <div class="product-name"></div>
+
+                                <div class="product-price"></div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="pnd-section pnd-section-alt"
+         id="features">
+
+
+<div class="container-xl">
+
+
+    <div class="section-head reveal">
+
+        <div class="section-label">
+            STORE FEATURES
+        </div>
+
+        <h2 class="section-title">
+            Everything your online store needs.
+        </h2>
+
+        <p class="section-desc">
+            We can create an e-commerce experience around your
+            products, customers, ordering process and business
+            requirements.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <!-- 01 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    01
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                </div>
+
+                <h3>
+                    Product Catalog
+                </h3>
+
+                <p>
+                    Organize products into categories with images,
+                    descriptions, pricing, variants and useful
+                    product information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    02
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-cart3"></i>
+                </div>
+
+                <h3>
+                    Shopping Cart
+                </h3>
+
+                <p>
+                    Give customers an easy way to add products,
+                    change quantities, review their selections
+                    and proceed toward checkout.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    03
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-credit-card"></i>
+                </div>
+
+                <h3>
+                    Checkout
+                </h3>
+
+                <p>
+                    Build a clear checkout journey for customer
+                    details, delivery information, order review
+                    and suitable payment integration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    04
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+
+                <h3>
+                    Order Management
+                </h3>
+
+                <p>
+                    Manage incoming orders and organize the
+                    information needed to process and fulfill them.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    05
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-boxes"></i>
+                </div>
+
+                <h3>
+                    Inventory
+                </h3>
+
+                <p>
+                    Product and stock information can be structured
+                    around your store's operational requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="commerce-card reveal">
+
+                <span class="commerce-index">
+                    06
+                </span>
+
+                <div class="commerce-icon">
+                    <i class="bi bi-bar-chart"></i>
+                </div>
+
+                <h3>
+                    Store Dashboard
+                </h3>
+
+                <p>
+                    Centralized administration for products,
+                    orders, customers and other store information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     CUSTOMER JOURNEY
+===================================================== -->
+
+<section class="pnd-section">
+
+<div class="container-xl">
+
+
+    <div class="section-head reveal">
+
+        <div class="section-label">
+            SHOPPING JOURNEY
+        </div>
+
+        <h2 class="section-title">
+            From product discovery to order.
+        </h2>
+
+        <p class="section-desc">
+            A good store should make the buying journey simple,
+            clear and enjoyable for your customers.
+        </p>
+
+    </div>
+
+
+    <div class="journey-track">
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="journey-item reveal">
+
+                    <div class="journey-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Discover
+                    </h3>
+
+                    <p>
+                        Customers browse your products and
+                        categories.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="journey-item reveal">
+
+                    <div class="journey-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <p>
+                        Product pages provide information
+                        needed to make a decision.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="journey-item reveal">
+
+                    <div class="journey-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Cart
+                    </h3>
+
+                    <p>
+                        Customers review their selected
+                        products and quantities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="journey-item reveal">
+
+                    <div class="journey-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Order
+                    </h3>
+
+                    <p>
+                        Checkout collects the information
+                        required to complete the purchase.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     STORE MANAGEMENT
+===================================================== -->
+
+<section class="pnd-section pnd-section-alt">
+
+
+<div class="container-xl">
+
+    <div class="row align-items-center g-5">
+
+
+        <div class="col-lg-6">
+
+            <div class="management-panel reveal">
+
+
+                <div class="order-panel">
+
+
+                    <div class="order-head">
+
+                        <div class="order-title"></div>
+
+                        <div class="order-status">
+
+                            <span class="status-dot"></span>
+
+                            LIVE ORDER
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="order-row">
+
+                        <div class="order-thumb"></div>
+
+                        <div class="order-info">
+
+                            <div class="order-info-line"></div>
+
+                            <div class="order-info-line small"></div>
+
+                        </div>
+
+                        <div class="order-price"></div>
+
+                    </div>
+
+
+                    <div class="order-row">
+
+                        <div class="order-thumb"></div>
+
+                        <div class="order-info">
+
+                            <div class="order-info-line"></div>
+
+                            <div class="order-info-line small"></div>
+
+                        </div>
+
+                        <div class="order-price"></div>
+
+                    </div>
+
+
+                    <div class="order-row">
+
+                        <div class="order-thumb"></div>
+
+                        <div class="order-info">
+
+                            <div class="order-info-line"></div>
+
+                            <div class="order-info-line small"></div>
+
+                        </div>
+
+                        <div class="order-price"></div>
+
+                    </div>
+
+
+                    <div class="order-total">
+
+                        <span class="total-label">
+                            ORDER TOTAL
+                        </span>
+
+                        <span class="total-value">
+                            ₹••••
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="section-head mb-4 reveal">
+
+                <div class="section-label">
+                    STORE MANAGEMENT
+                </div>
+
+                <h2 class="section-title">
+                    Your store should work for you too.
+                </h2>
+
+                <p class="section-desc">
+                    Behind every customer-facing store is a
+                    management system that helps you organize
+                    products, orders and important information.
+                </p>
+
+            </div>
+
+
+            <ul class="benefit-list reveal">
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Manage products and categories
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Review and manage customer orders
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Organize product information and pricing
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Track relevant store information
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Create a foundation for future store features
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     STORE TYPES
+===================================================== -->
+
+<section class="pnd-section">
+
+
+<div class="container-xl">
+
+
+    <div class="section-head reveal">
+
+        <div class="section-label">
+            STORE POSSIBILITIES
+        </div>
+
+        <h2 class="section-title">
+            Different products. Different stores.
+        </h2>
+
+        <p class="section-desc">
+            Your online store can be structured according to
+            what you sell and how your customers purchase.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="store-type reveal">
+
+                <i class="bi bi-bag-heart"></i>
+
+                <h3>
+                    Fashion & Lifestyle
+                </h3>
+
+                <p>
+                    Product catalogs, variants, collections
+                    and visual shopping experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="store-type reveal">
+
+                <i class="bi bi-basket"></i>
+
+                <h3>
+                    Food & Products
+                </h3>
+
+                <p>
+                    Online product ordering for food,
+                    packaged products and local businesses.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="store-type reveal">
+
+                <i class="bi bi-palette"></i>
+
+                <h3>
+                    Creative Brands
+                </h3>
+
+                <p>
+                    Brand-focused stores that combine
+                    storytelling, visuals and shopping.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="store-type reveal">
+
+                <i class="bi bi-shop-window"></i>
+
+                <h3>
+                    Business Stores
+                </h3>
+
+                <p>
+                    Digital storefronts for businesses that
+                    want to sell products online.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="pnd-cta">
+
+
+<div class="container">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            OPEN YOUR DIGITAL STORE
+        </div>
+
+
+        <h2>
+
+            Ready to take your products
+
+            <br>
+
+            <span class="gradient-text">
+                online?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Tell us what you sell, how customers currently
+            place orders and what you want your online store
+            to achieve.
+
+        </p>
+
+
+        <a href="contact.html"
+           class="pnd-btn pnd-btn-primary">
+
+            Start My Store
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+<div class="container-xl">
+
+    <div class="row g-4 align-items-start">
+
+
+        <div class="col-lg-5">
+
+            <div class="footer-brand">
+                Pixel Nest Digital
+            </div>
+
+            <p class="mt-3 mb-0">
+
+                Websites, web applications, e-commerce,
+                software projects, branding, photography,
+                videography and digital content.
+
+            </p>
+
+        </div>
+
+
+        <div class="col-lg-7">
+
+            <div class="footer-links justify-content-lg-end">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="portfolio.html">
+                    Portfolio
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © <span id="year"></span>
+        Pixel Nest Digital.
+        All Rights Reserved.
+
+    </div>
+
+</div>
+
+
+</footer>
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const mobileBtn =
+        document.getElementById("pndMobileBtn");
+
+    const nav =
+        document.getElementById("pndNav");
+
+
+    mobileBtn.addEventListener(
+        "click",
+        function(){
+
+            nav.classList.toggle("show");
+
+            const icon =
+                mobileBtn.querySelector("i");
+
+
+            if(
+                nav.classList.contains("show")
+            ){
+
+                icon.className =
+                    "bi bi-x-lg";
+
+            }else{
+
+                icon.className =
+                    "bi bi-list";
+
+            }
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(".pnd-nav a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    nav.classList.remove("show");
+
+                    mobileBtn
+                        .querySelector("i")
+                        .className =
+                        "bi bi-list";
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if(
+                            entry.isIntersecting
+                        ){
+
+                            entry.target
+                                .classList
+                                .add("show");
+
+                            observer
+                                .unobserve(
+                                    entry.target
+                                );
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold:.12
+            }
+
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            observer.observe(element);
+
+        }
+    );
+
+
+    /* =====================================================
+       YEAR
+    ===================================================== */
+
+    document.getElementById("year")
+        .textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2956 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Software & Database Projects | Pixel Nest Digital</title>
+
+    <meta name="description"
+          content="Pixel Nest Digital builds custom software, database systems, business applications, dashboards and data-driven digital solutions.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root{
+            --pnd-space:#07111F;
+            --pnd-space-2:#0B172A;
+            --pnd-space-3:#111C35;
+
+            --pnd-blue:#2563EB;
+            --pnd-blue-dark:#1D4ED8;
+            --pnd-cyan:#06B6D4;
+            --pnd-violet:#7C3AED;
+
+            --pnd-white:#F8FAFC;
+            --pnd-text:#E2E8F0;
+            --pnd-muted:#94A3B8;
+
+            --pnd-border:rgba(148,163,184,.16);
+            --pnd-glass:rgba(255,255,255,.055);
+
+            --radius-xl:30px;
+            --radius-lg:22px;
+            --radius-md:16px;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+            scroll-padding-top:90px;
+        }
+
+        body{
+            font-family:"DM Sans",sans-serif;
+            background:var(--pnd-space);
+            color:var(--pnd-text);
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        ::selection{
+            background:var(--pnd-cyan);
+            color:#04111d;
+        }
+
+
+        /* =========================================================
+           GLOBAL LED
+        ========================================================= */
+
+        .pnd-led{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:3px;
+            z-index:9999;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet),
+                    var(--pnd-blue)
+                );
+
+            background-size:300% 100%;
+            animation:pndLedMove 5s linear infinite;
+
+            box-shadow:
+                0 0 10px rgba(37,99,235,.8),
+                0 0 25px rgba(6,182,212,.35);
+        }
+
+        @keyframes pndLedMove{
+            0%{
+                background-position:0 50%;
+            }
+
+            100%{
+                background-position:300% 50%;
+            }
+        }
+
+
+        /* =========================================================
+           PERMANENT NAVBAR
+        ========================================================= */
+
+        .pnd-navbar{
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background:#fff;
+            border-bottom:1px solid #E5E7EB;
+            box-shadow:0 5px 22px rgba(15,23,42,.06);
+        }
+
+        .pnd-nav-inner{
+            min-height:82px;
+            position:relative;
+        }
+
+        .pnd-brand{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            text-decoration:none;
+            height:100%;
+            flex-shrink:0;
+        }
+
+        .pnd-brand-logo-wrap{
+            width:78px;
+            height:68px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-shrink:0;
+            overflow:visible;
+        }
+
+        .pnd-brand-logo{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:block;
+            transform:scale(1.08);
+        }
+
+        .pnd-nav-links{
+            display:flex;
+            align-items:center;
+            gap:7px;
+        }
+
+        .pnd-nav-links a{
+            color:#D4AF37;
+            padding:10px 13px;
+            border-radius:10px;
+            font-size:14px;
+            font-weight:700;
+            transition:.3s ease;
+        }
+
+        .pnd-nav-links a:hover,
+        .pnd-nav-links a.active{
+            color:#fff;
+            background:#07111F;
+        }
+
+        .pnd-nav-links .pnd-nav-cta{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+            padding:11px 17px;
+            border-radius:11px;
+            color:#fff !important;
+            background:linear-gradient(135deg,var(--pnd-blue),var(--pnd-violet)) !important;
+            box-shadow:0 8px 25px rgba(37,99,235,.22);
+        }
+
+        .pnd-nav-links .pnd-nav-cta:hover,
+        .pnd-nav-links .pnd-nav-cta.active{
+            color:#fff !important;
+            transform:translateY(-1px);
+            box-shadow:0 12px 30px rgba(37,99,235,.32);
+        }
+
+        .pnd-menu{
+            display:none;
+            align-items:center;
+            justify-content:center;
+            border:1px solid #E2E8F0;
+            background:#fff;
+            color:#000;
+            width:42px;
+            height:42px;
+            border-radius:12px;
+            font-size:21px;
+            line-height:1;
+            box-shadow:0 5px 18px rgba(15,23,42,.08);
+        }
+
+        .pnd-menu:focus{
+            outline:2px solid rgba(37,99,235,.28);
+            outline-offset:2px;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .pnd-hero{
+            position:relative;
+            min-height:760px;
+            display:flex;
+            align-items:center;
+            overflow:hidden;
+
+            background:
+                radial-gradient(
+                    circle at 75% 40%,
+                    rgba(37,99,235,.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 15% 70%,
+                    rgba(124,58,237,.10),
+                    transparent 28%
+                );
+        }
+
+        .pnd-grid{
+            position:absolute;
+            inset:0;
+
+            background-image:
+                linear-gradient(
+                    rgba(148,163,184,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.035) 1px,
+                    transparent 1px
+                );
+
+            background-size:55px 55px;
+
+            mask-image:linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+        }
+
+        .pnd-hero-glow{
+            position:absolute;
+            width:430px;
+            height:430px;
+            border-radius:50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(6,182,212,.13),
+                    transparent 68%
+                );
+
+            filter:blur(10px);
+
+            right:6%;
+            top:12%;
+
+            animation:pndGlow 6s ease-in-out infinite;
+        }
+
+        @keyframes pndGlow{
+            0%,100%{
+                transform:scale(1);
+                opacity:.7;
+            }
+
+            50%{
+                transform:scale(1.15);
+                opacity:1;
+            }
+        }
+
+        .pnd-hero-content{
+            position:relative;
+            z-index:2;
+        }
+
+        .pnd-eyebrow{
+            display:inline-flex;
+            align-items:center;
+            gap:9px;
+
+            color:#67E8F9;
+
+            font-size:11px;
+            font-weight:800;
+            letter-spacing:2px;
+
+            margin-bottom:20px;
+        }
+
+        .pnd-eyebrow::before{
+            content:"";
+            width:28px;
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            box-shadow:0 0 10px var(--pnd-cyan);
+        }
+
+        .pnd-hero h1{
+            max-width:750px;
+
+            font-size:clamp(
+                44px,
+                6vw,
+                78px
+            );
+
+            line-height:.98;
+            letter-spacing:-3px;
+
+            color:white;
+            font-weight:800;
+        }
+
+        .pnd-gradient-text{
+            background:
+                linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip:text;
+            background-clip:text;
+            color:transparent;
+        }
+
+        .pnd-hero-description{
+            max-width:650px;
+
+            margin-top:25px;
+
+            color:var(--pnd-muted);
+
+            font-size:17px;
+            line-height:1.8;
+        }
+
+        .pnd-actions{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            margin-top:34px;
+        }
+
+        .pnd-btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+
+            min-height:50px;
+            padding:0 21px;
+
+            border-radius:13px;
+
+            font-size:14px;
+            font-weight:700;
+
+            transition:.3s ease;
+        }
+
+        .pnd-btn-primary{
+            color:white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 12px 35px rgba(37,99,235,.25);
+        }
+
+        .pnd-btn-primary:hover{
+            color:white;
+            transform:translateY(-3px);
+            box-shadow:
+                0 16px 40px rgba(37,99,235,.4);
+        }
+
+        .pnd-btn-outline{
+            color:#DCE7F5;
+            border:1px solid var(--pnd-border);
+            background:rgba(255,255,255,.035);
+        }
+
+        .pnd-btn-outline:hover{
+            color:white;
+            border-color:rgba(6,182,212,.5);
+            background:rgba(6,182,212,.06);
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================================================
+           SOFTWARE VISUAL
+        ========================================================= */
+
+        .pnd-tech-visual{
+            position:relative;
+            min-height:510px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .pnd-tech-orbit{
+            position:absolute;
+
+            width:420px;
+            height:420px;
+
+            border:1px solid rgba(6,182,212,.13);
+            border-radius:50%;
+
+            animation:pndRotate 20s linear infinite;
+        }
+
+        .pnd-tech-orbit::before,
+        .pnd-tech-orbit::after{
+            content:"";
+
+            position:absolute;
+
+            border-radius:50%;
+
+            border:1px dashed rgba(124,58,237,.25);
+        }
+
+        .pnd-tech-orbit::before{
+            inset:35px;
+        }
+
+        .pnd-tech-orbit::after{
+            inset:80px;
+        }
+
+        @keyframes pndRotate{
+            to{
+                transform:rotate(360deg);
+            }
+        }
+
+        .pnd-system-card{
+            position:relative;
+            z-index:5;
+
+            width:min(410px,90vw);
+
+            padding:22px;
+
+            border:1px solid rgba(148,163,184,.18);
+            border-radius:25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(17,28,53,.92),
+                    rgba(7,17,31,.95)
+                );
+
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.35),
+                0 0 40px rgba(37,99,235,.08);
+
+            backdrop-filter:blur(18px);
+
+            animation:pndCardFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes pndCardFloat{
+            0%,100%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(-10px);
+            }
+        }
+
+        .pnd-window-bar{
+            display:flex;
+            align-items:center;
+            gap:7px;
+
+            padding-bottom:18px;
+
+            border-bottom:1px solid rgba(255,255,255,.07);
+        }
+
+        .pnd-window-dot{
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:#64748B;
+        }
+
+        .pnd-window-title{
+            margin-left:auto;
+
+            font-size:10px;
+            color:#64748B;
+            letter-spacing:1px;
+        }
+
+        .pnd-db-head{
+            display:flex;
+            align-items:center;
+            gap:13px;
+
+            margin:22px 0;
+        }
+
+        .pnd-db-icon{
+            width:50px;
+            height:50px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:15px;
+
+            color:#67E8F9;
+            font-size:24px;
+
+            background:rgba(6,182,212,.08);
+
+            border:1px solid rgba(6,182,212,.2);
+
+            box-shadow:
+                0 0 25px rgba(6,182,212,.12);
+        }
+
+        .pnd-db-head strong{
+            display:block;
+            color:white;
+            font-size:16px;
+        }
+
+        .pnd-db-head span{
+            display:block;
+            margin-top:4px;
+            color:#64748B;
+            font-size:11px;
+        }
+
+        .pnd-data-row{
+            display:grid;
+            grid-template-columns:1.3fr .8fr .7fr;
+            gap:8px;
+
+            padding:12px 10px;
+
+            border-bottom:1px solid rgba(255,255,255,.045);
+
+            font-size:10px;
+            color:#94A3B8;
+        }
+
+        .pnd-data-row:first-child{
+            color:#67E8F9;
+            font-weight:700;
+        }
+
+        .pnd-status{
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+        }
+
+        .pnd-status-dot{
+            width:6px;
+            height:6px;
+            border-radius:50%;
+            background:#22C55E;
+
+            box-shadow:
+                0 0 10px #22C55E;
+
+            animation:pndStatus 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pndStatus{
+            50%{
+                opacity:.35;
+            }
+        }
+
+        .pnd-code-line{
+            height:7px;
+            border-radius:10px;
+            margin-top:10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.7),
+                    rgba(6,182,212,.4),
+                    rgba(124,58,237,.5),
+                    transparent
+                );
+
+            animation:pndCode 3s ease-in-out infinite;
+        }
+
+        .pnd-code-line:nth-child(2){
+            width:78%;
+        }
+
+        .pnd-code-line:nth-child(3){
+            width:56%;
+        }
+
+        .pnd-code-line:nth-child(4){
+            width:88%;
+        }
+
+        @keyframes pndCode{
+            0%,100%{
+                opacity:.35;
+            }
+
+            50%{
+                opacity:1;
+            }
+        }
+
+
+        /* =========================================================
+           SECTION COMMON
+        ========================================================= */
+
+        .pnd-section{
+            position:relative;
+            padding:110px 0;
+        }
+
+        .pnd-section-alt{
+            background:
+                linear-gradient(
+                    180deg,
+                    #081321,
+                    #07111F
+                );
+        }
+
+        .pnd-section-head{
+            max-width:720px;
+            margin-bottom:55px;
+        }
+
+        .pnd-section-label{
+            color:#67E8F9;
+
+            font-size:11px;
+            font-weight:800;
+            letter-spacing:2px;
+
+            margin-bottom:13px;
+        }
+
+        .pnd-section h2{
+            color:white;
+
+            font-size:
+                clamp(34px,5vw,54px);
+
+            line-height:1.05;
+            letter-spacing:-2px;
+
+            font-weight:800;
+        }
+
+        .pnd-section-head p{
+            margin-top:18px;
+
+            color:var(--pnd-muted);
+            line-height:1.8;
+        }
+
+
+        /* =========================================================
+           PROJECT CATEGORIES
+        ========================================================= */
+
+        .pnd-category{
+            height:100%;
+
+            padding:26px;
+
+            border:1px solid var(--pnd-border);
+            border-radius:20px;
+
+            background:rgba(255,255,255,.035);
+
+            position:relative;
+            overflow:hidden;
+
+            transition:.35s ease;
+        }
+
+        .pnd-category::before{
+            content:"";
+
+            position:absolute;
+            top:0;
+            left:0;
+
+            width:100%;
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            transform:scaleX(0);
+            transform-origin:left;
+
+            transition:.4s ease;
+        }
+
+        .pnd-category:hover{
+            transform:translateY(-8px);
+
+            border-color:
+                rgba(6,182,212,.3);
+
+            background:
+                rgba(255,255,255,.055);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.2);
+        }
+
+        .pnd-category:hover::before{
+            transform:scaleX(1);
+        }
+
+        .pnd-category-icon{
+            width:55px;
+            height:55px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:16px;
+
+            font-size:23px;
+
+            color:#67E8F9;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.12),
+                    rgba(6,182,212,.08)
+                );
+
+            border:1px solid rgba(6,182,212,.16);
+
+            margin-bottom:22px;
+        }
+
+        .pnd-category h3{
+            color:white;
+            font-size:19px;
+            margin-bottom:10px;
+        }
+
+        .pnd-category p{
+            color:var(--pnd-muted);
+            font-size:13px;
+            line-height:1.7;
+            margin:0;
+        }
+
+
+        /* =========================================================
+           PROJECT FLOW
+        ========================================================= */
+
+        .pnd-flow{
+            position:relative;
+        }
+
+        .pnd-flow-line{
+            position:absolute;
+
+            top:39px;
+            left:9%;
+            right:9%;
+
+            height:1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(6,182,212,.45),
+                    rgba(124,58,237,.45),
+                    transparent
+                );
+        }
+
+        .pnd-step{
+            position:relative;
+            z-index:2;
+
+            text-align:center;
+        }
+
+        .pnd-step-number{
+            width:78px;
+            height:78px;
+
+            margin:0 auto 22px;
+
+            border-radius:50%;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-weight:800;
+            color:white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            border:6px solid var(--pnd-space-2);
+
+            box-shadow:
+                0 0 30px rgba(37,99,235,.22);
+        }
+
+        .pnd-step h3{
+            color:white;
+            font-size:17px;
+            margin-bottom:9px;
+        }
+
+        .pnd-step p{
+            color:var(--pnd-muted);
+            font-size:12px;
+            line-height:1.6;
+        }
+
+
+        /* =========================================================
+           DASHBOARD
+        ========================================================= */
+
+        .pnd-dashboard{
+            padding:25px;
+
+            border-radius:25px;
+
+            border:1px solid var(--pnd-border);
+
+            background:
+                rgba(255,255,255,.035);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.2);
+        }
+
+        .pnd-dashboard-top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding-bottom:20px;
+
+            border-bottom:1px solid rgba(255,255,255,.06);
+        }
+
+        .pnd-dashboard-title strong{
+            display:block;
+            color:white;
+            font-size:17px;
+        }
+
+        .pnd-dashboard-title span{
+            display:block;
+            color:#64748B;
+            font-size:10px;
+            margin-top:4px;
+        }
+
+        .pnd-live{
+            display:flex;
+            align-items:center;
+            gap:7px;
+
+            color:#86EFAC;
+            font-size:10px;
+            font-weight:700;
+        }
+
+        .pnd-live i{
+            width:7px;
+            height:7px;
+            border-radius:50%;
+
+            background:#22C55E;
+
+            box-shadow:
+                0 0 10px #22C55E;
+
+            animation:pndStatus 1.2s infinite;
+        }
+
+        .pnd-metric{
+            margin-top:22px;
+
+            padding:18px;
+
+            border:1px solid rgba(255,255,255,.06);
+            border-radius:17px;
+
+            background:rgba(0,0,0,.12);
+        }
+
+        .pnd-metric span{
+            color:#64748B;
+            font-size:10px;
+        }
+
+        .pnd-metric strong{
+            display:block;
+
+            color:white;
+
+            font-size:25px;
+
+            margin-top:6px;
+        }
+
+        .pnd-bar{
+            height:6px;
+            margin-top:13px;
+
+            border-radius:10px;
+
+            background:rgba(255,255,255,.06);
+
+            overflow:hidden;
+        }
+
+        .pnd-bar span{
+            display:block;
+            height:100%;
+
+            width:78%;
+
+            border-radius:10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            animation:pndBar 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pndBar{
+            from{
+                width:55%;
+            }
+
+            to{
+                width:88%;
+            }
+        }
+
+
+        /* =========================================================
+           BENEFITS
+        ========================================================= */
+
+        .pnd-benefits{
+            display:grid;
+            gap:14px;
+        }
+
+        .pnd-benefit{
+            display:flex;
+            gap:14px;
+            align-items:flex-start;
+
+            padding:17px;
+
+            border:1px solid var(--pnd-border);
+            border-radius:15px;
+
+            background:rgba(255,255,255,.025);
+
+            transition:.3s ease;
+        }
+
+        .pnd-benefit:hover{
+            transform:translateX(5px);
+            border-color:rgba(6,182,212,.25);
+        }
+
+        .pnd-benefit-icon{
+            flex:0 0 40px;
+
+            width:40px;
+            height:40px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:12px;
+
+            color:#67E8F9;
+
+            background:rgba(6,182,212,.08);
+        }
+
+        .pnd-benefit h4{
+            color:white;
+            font-size:14px;
+            margin-bottom:5px;
+        }
+
+        .pnd-benefit p{
+            margin:0;
+            color:#7F8EA3;
+            font-size:11px;
+            line-height:1.6;
+        }
+
+
+        /* =========================================================
+           PROJECT TYPES
+        ========================================================= */
+
+        .pnd-project-card{
+            min-height:240px;
+
+            padding:27px;
+
+            border:1px solid var(--pnd-border);
+            border-radius:22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.018)
+                );
+
+            position:relative;
+            overflow:hidden;
+
+            transition:.35s ease;
+        }
+
+        .pnd-project-card:hover{
+            transform:translateY(-8px);
+
+            border-color:
+                rgba(37,99,235,.35);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.25);
+        }
+
+        .pnd-project-card-number{
+            position:absolute;
+            right:20px;
+            top:15px;
+
+            color:rgba(255,255,255,.05);
+
+            font-size:55px;
+            font-weight:800;
+        }
+
+        .pnd-project-card-icon{
+            color:#67E8F9;
+            font-size:26px;
+            margin-bottom:25px;
+        }
+
+        .pnd-project-card h3{
+            color:white;
+            font-size:19px;
+            margin-bottom:10px;
+        }
+
+        .pnd-project-card p{
+            color:var(--pnd-muted);
+            font-size:13px;
+            line-height:1.7;
+            margin:0;
+        }
+
+
+        /* =========================================================
+           ODD CONTENT SECTIONS — WHITE
+        ========================================================= */
+
+        .pnd-white-section{
+            background:#FFFFFF;
+            color:#0F172A;
+            border-top:1px solid #E2E8F0;
+            border-bottom:1px solid #E2E8F0;
+        }
+
+        .pnd-white-section .pnd-section-label{
+            color:#2563EB;
+        }
+
+        .pnd-white-section .pnd-section h2{
+            color:#0F172A;
+        }
+
+        .pnd-white-section .pnd-section-head p{
+            color:#475569;
+        }
+
+        .pnd-white-section .pnd-category,
+        .pnd-white-section .pnd-project-card,
+        .pnd-white-section .pnd-benefit,
+        .pnd-white-section .pnd-dashboard{
+            background:#F8FAFC;
+            border-color:#E2E8F0;
+            box-shadow:0 12px 35px rgba(15,23,42,.06);
+        }
+
+        .pnd-white-section .pnd-category:hover,
+        .pnd-white-section .pnd-project-card:hover,
+        .pnd-white-section .pnd-benefit:hover{
+            background:#FFFFFF;
+            border-color:rgba(37,99,235,.25);
+            box-shadow:0 20px 50px rgba(15,23,42,.10);
+        }
+
+        .pnd-white-section .pnd-category h3,
+        .pnd-white-section .pnd-project-card h3,
+        .pnd-white-section .pnd-benefit h4,
+        .pnd-white-section .pnd-dashboard-title strong,
+        .pnd-white-section .pnd-metric strong{
+            color:#0F172A;
+        }
+
+        .pnd-white-section .pnd-category p,
+        .pnd-white-section .pnd-project-card p,
+        .pnd-white-section .pnd-benefit p,
+        .pnd-white-section .pnd-section-head p,
+        .pnd-white-section .pnd-metric span{
+            color:#475569;
+        }
+
+        .pnd-white-section .pnd-category-icon,
+        .pnd-white-section .pnd-benefit-icon{
+            color:#2563EB;
+            background:rgba(37,99,235,.08);
+            border-color:rgba(37,99,235,.16);
+        }
+
+        .pnd-white-section .pnd-project-card-icon{
+            color:#2563EB;
+        }
+
+        .pnd-white-section .pnd-project-card-number{
+            color:rgba(15,23,42,.07);
+        }
+
+        .pnd-white-section .pnd-dashboard{
+            background:#F8FAFC;
+        }
+
+        .pnd-white-section .pnd-dashboard-top{
+            border-bottom-color:#E2E8F0;
+        }
+
+        .pnd-white-section .pnd-dashboard-title span{
+            color:#64748B;
+        }
+
+        .pnd-white-section .pnd-metric{
+            background:#FFFFFF;
+            border-color:#E2E8F0;
+        }
+
+        .pnd-white-section .pnd-bar{
+            background:#E2E8F0;
+        }
+
+        .pnd-white-section .pnd-cta{
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(124,58,237,.10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(6,182,212,.08),
+                    transparent 35%
+                ),
+                #F8FAFC;
+            border-color:rgba(37,99,235,.18);
+            box-shadow:0 25px 65px rgba(15,23,42,.10);
+        }
+
+        .pnd-white-section .pnd-cta h2{
+            color:#0F172A;
+        }
+
+        .pnd-white-section .pnd-cta p{
+            color:#475569;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .pnd-cta{
+            position:relative;
+            overflow:hidden;
+
+            padding:70px 40px;
+
+            border-radius:30px;
+
+            border:1px solid rgba(37,99,235,.25);
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(124,58,237,.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(6,182,212,.13),
+                    transparent 35%
+                ),
+                #0B172A;
+
+            box-shadow:
+                0 35px 80px rgba(0,0,0,.25);
+        }
+
+        .pnd-cta::before{
+            content:"";
+
+            position:absolute;
+            top:0;
+            left:0;
+
+            width:100%;
+            height:2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet)
+                );
+
+            background-size:200% 100%;
+
+            animation:pndLedMove 4s linear infinite;
+        }
+
+        .pnd-cta h2{
+            color:white;
+            font-size:clamp(30px,4vw,48px);
+            font-weight:800;
+            letter-spacing:-1.5px;
+        }
+
+        .pnd-cta p{
+            max-width:650px;
+            margin:15px auto 28px;
+
+            color:var(--pnd-muted);
+            line-height:1.7;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .pnd-footer{
+            padding:60px 0 30px;
+
+            border-top:1px solid rgba(255,255,255,.06);
+
+            background:#050D18;
+        }
+
+        .pnd-footer-brand{
+            color:white;
+            font-weight:800;
+            font-size:18px;
+        }
+
+        .pnd-footer p{
+            color:#64748B;
+            font-size:12px;
+            line-height:1.7;
+            max-width:350px;
+            margin-top:12px;
+        }
+
+        .pnd-footer-links{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:flex-end;
+            gap:10px 22px;
+        }
+
+        .pnd-footer-links a{
+            color:#7F8EA3;
+            font-size:12px;
+            transition:.25s ease;
+        }
+
+        .pnd-footer-links a:hover{
+            color:#67E8F9;
+        }
+
+        .pnd-footer-bottom{
+            margin-top:40px;
+            padding-top:20px;
+
+            border-top:1px solid rgba(255,255,255,.05);
+
+            color:#475569;
+            font-size:10px;
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .pnd-reveal{
+            opacity:0;
+            transform:translateY(30px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .pnd-reveal.show{
+            opacity:1;
+            transform:none;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width:991.98px){
+
+            .pnd-nav-inner{
+                min-height:64px;
+            }
+
+            .pnd-brand-logo-wrap{
+                width:70px;
+                height:62px;
+            }
+
+            .pnd-brand-logo{
+                transform:scale(1.06);
+            }
+
+            .pnd-menu{
+                display:inline-flex;
+            }
+
+            .pnd-nav-links{
+                position:absolute;
+                top:calc(100% + 10px);
+                left:12px;
+                right:12px;
+                display:none;
+                flex-direction:column;
+                align-items:stretch;
+                gap:4px;
+                padding:12px;
+                border:1px solid rgba(148,163,184,.22);
+                border-radius:16px;
+                background:rgba(7,17,31,.98);
+                box-shadow:0 25px 60px rgba(0,0,0,.35);
+            }
+
+            .pnd-nav-links.show{
+                display:flex;
+            }
+
+            .pnd-nav-links a{
+                color:#D4AF37;
+                padding:13px 14px;
+                border-radius:10px;
+            }
+
+            .pnd-nav-links a:hover,
+            .pnd-nav-links a.active{
+                color:#fff;
+                background:rgba(255,255,255,.08);
+            }
+
+            .pnd-nav-links .pnd-nav-cta{
+                justify-content:center;
+                color:#fff !important;
+                margin-top:4px;
+            }
+
+            .pnd-hero{
+                min-height:auto;
+                padding:90px 0 80px;
+            }
+
+            .pnd-tech-visual{
+                min-height:460px;
+                margin-top:25px;
+            }
+
+            .pnd-flow-line{
+                display:none;
+            }
+        }
+
+        @media(max-width:767.98px){
+
+            .pnd-nav-inner{
+                min-height:60px;
+            }
+
+            .pnd-brand-logo-wrap{
+                width:64px;
+                height:58px;
+            }
+
+            .pnd-brand-logo{
+                transform:scale(1.04);
+            }
+
+            .pnd-menu{
+                width:39px;
+                height:39px;
+                border-radius:11px;
+                font-size:20px;
+            }
+
+            .pnd-hero h1{
+                letter-spacing:-2px;
+            }
+
+            .pnd-hero-description{
+                font-size:15px;
+            }
+
+            .pnd-section{
+                padding:80px 0;
+            }
+
+            .pnd-tech-orbit{
+                width:320px;
+                height:320px;
+            }
+
+            .pnd-tech-visual{
+                min-height:390px;
+            }
+
+            .pnd-system-card{
+                width:94%;
+            }
+
+            .pnd-cta{
+                padding:50px 22px;
+                border-radius:22px;
+            }
+
+            .pnd-footer-links{
+                justify-content:flex-start;
+                margin-top:25px;
+            }
+        }
+
+        @media(max-width:420px){
+
+            .pnd-brand-logo-wrap{
+                width:60px;
+                height:54px;
+            }
+
+            .pnd-actions{
+                flex-direction:column;
+            }
+
+            .pnd-btn{
+                width:100%;
+            }
+
+            .pnd-tech-orbit{
+                width:275px;
+                height:275px;
+            }
+
+            .pnd-tech-visual{
+                min-height:350px;
+            }
+
+            .pnd-system-card{
+                padding:17px;
+            }
+
+            .pnd-data-row{
+                font-size:8px;
+            }
+
+            .pnd-dashboard{
+                padding:17px;
+            }
+        }
+
+        /* =========================================================
+           EXTRA RESPONSIVE SAFETY
+        ========================================================= */
+
+        @media(max-width:991.98px){
+
+            .pnd-section{
+                padding:90px 0;
+            }
+
+            .pnd-section-head{
+                margin-bottom:42px;
+            }
+
+            .pnd-tech-visual{
+                overflow:hidden;
+            }
+
+            .pnd-dashboard{
+                width:100%;
+            }
+
+            .pnd-project-card{
+                min-height:220px;
+            }
+        }
+
+        @media(max-width:767.98px){
+
+            .pnd-section{
+                padding:72px 0;
+            }
+
+            .pnd-section-head{
+                margin-bottom:34px;
+            }
+
+            .pnd-section h2{
+                font-size:clamp(30px,8vw,42px);
+                letter-spacing:-1.4px;
+            }
+
+            .pnd-section-head p{
+                font-size:14px;
+                line-height:1.75;
+            }
+
+            .pnd-category,
+            .pnd-project-card{
+                padding:22px;
+            }
+
+            .pnd-category{
+                min-height:0;
+            }
+
+            .pnd-project-card{
+                min-height:210px;
+            }
+
+            .pnd-benefit{
+                padding:15px;
+            }
+
+            .pnd-dashboard{
+                padding:18px;
+                border-radius:20px;
+            }
+
+            .pnd-dashboard-top{
+                align-items:flex-start;
+                gap:12px;
+                flex-wrap:wrap;
+            }
+
+            .pnd-metric{
+                margin-top:16px;
+                padding:15px;
+            }
+
+            .pnd-metric strong{
+                font-size:22px;
+            }
+
+            .pnd-cta{
+                padding:45px 20px;
+                border-radius:22px;
+            }
+
+            .pnd-cta h2{
+                font-size:clamp(28px,8vw,40px);
+                letter-spacing:-1px;
+            }
+
+            .pnd-cta p{
+                font-size:14px;
+            }
+        }
+
+        @media(max-width:420px){
+
+            .pnd-section{
+                padding:62px 0;
+            }
+
+            .pnd-category,
+            .pnd-project-card{
+                padding:19px;
+            }
+
+            .pnd-project-card{
+                min-height:0;
+            }
+
+            .pnd-benefit{
+                gap:11px;
+            }
+
+            .pnd-benefit-icon{
+                flex-basis:36px;
+                width:36px;
+                height:36px;
+            }
+
+            .pnd-benefit p{
+                font-size:10.5px;
+            }
+
+            .pnd-data-row{
+                grid-template-columns:1.2fr .8fr .65fr;
+                gap:5px;
+            }
+
+            .pnd-cta{
+                padding:38px 16px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media(prefers-reduced-motion:reduce){
+
+            *,
+            *::before,
+            *::after{
+                animation-duration:.01ms !important;
+                animation-iteration-count:1 !important;
+                scroll-behavior:auto !important;
+                transition-duration:.01ms !important;
+            }
+
+            .pnd-reveal{
+                opacity:1;
+                transform:none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     LED
+========================================================= -->
+
+<div class="pnd-led"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="pnd-navbar">
+
+    <div class="container-xl">
+
+        <div class="pnd-nav-inner d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="pnd-brand" aria-label="Pixel Nest Digital Home">
+                <div class="pnd-brand-logo-wrap">
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital"
+                        class="pnd-brand-logo">
+                </div>
+            </a>
+
+            <button
+                type="button"
+                class="pnd-menu"
+                id="pndMenuBtn"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="pndNav">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="pnd-nav-links" id="pndNav">
+
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+
+                <a href="start-project.html" class="pnd-nav-cta">
+                    Start a Project
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="pnd-hero">
+
+    <div class="pnd-grid"></div>
+
+    <div class="pnd-hero-glow"></div>
+
+
+    <div class="container position-relative">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <div class="pnd-hero-content pnd-reveal">
+
+                    <div class="pnd-eyebrow">
+                        SOFTWARE & DATABASE PROJECTS
+                    </div>
+
+                    <h1>
+                        Build systems that
+                        <span class="pnd-gradient-text">
+                            work smarter.
+                        </span>
+                    </h1>
+
+                    <p class="pnd-hero-description">
+
+                        From custom business software to powerful database
+                        systems, Pixel Nest Digital creates practical digital
+                        solutions designed around the way your business works.
+
+                    </p>
+
+
+                    <div class="pnd-actions">
+
+                        <a
+                            href="contact.html"
+                            class="pnd-btn pnd-btn-primary">
+
+                            Discuss Your Project
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                        <a
+                            href="#solutions"
+                            class="pnd-btn pnd-btn-outline">
+
+                            Explore Solutions
+
+                            <i class="bi bi-arrow-down"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM VISUAL -->
+
+            <div class="col-lg-5">
+
+                <div class="pnd-tech-visual pnd-reveal">
+
+                    <div class="pnd-tech-orbit"></div>
+
+
+                    <div class="pnd-system-card">
+
+                        <div class="pnd-window-bar">
+
+                            <span class="pnd-window-dot"></span>
+                            <span class="pnd-window-dot"></span>
+                            <span class="pnd-window-dot"></span>
+
+                            <span class="pnd-window-title">
+                                SYSTEM / DATABASE
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-db-head">
+
+                            <div class="pnd-db-icon">
+                                <i class="bi bi-database"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Business Data System
+                                </strong>
+
+                                <span>
+                                    Connected · Secure · Structured
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pnd-data-row">
+
+                            <span>DATABASE</span>
+                            <span>RECORDS</span>
+                            <span>STATUS</span>
+
+                        </div>
+
+
+                        <div class="pnd-data-row">
+
+                            <span>Customers</span>
+                            <span>2,480</span>
+
+                            <span class="pnd-status">
+                                <i class="pnd-status-dot"></i>
+                                Live
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-data-row">
+
+                            <span>Products</span>
+                            <span>864</span>
+
+                            <span class="pnd-status">
+                                <i class="pnd-status-dot"></i>
+                                Live
+                            </span>
+
+                        </div>
+
+
+                        <div class="pnd-data-row">
+
+                            <span>Orders</span>
+                            <span>1,942</span>
+
+                            <span class="pnd-status">
+                                <i class="pnd-status-dot"></i>
+                                Live
+                            </span>
+
+                        </div>
+
+
+                        <div class="mt-3">
+
+                            <div class="pnd-code-line"></div>
+                            <div class="pnd-code-line"></div>
+                            <div class="pnd-code-line"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOLUTIONS
+========================================================= -->
+
+<section class="pnd-section pnd-white-section" id="solutions">
+
+    <div class="container">
+
+        <div class="pnd-section-head pnd-reveal">
+
+            <div class="pnd-section-label">
+                WHAT WE BUILD
+            </div>
+
+            <h2>
+                Software built around
+                your actual workflow.
+            </h2>
+
+            <p>
+                We create custom systems that help businesses organize
+                information, automate repetitive work and manage operations
+                from one connected platform.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-window-stack"></i>
+                    </div>
+
+                    <h3>
+                        Custom Business Software
+                    </h3>
+
+                    <p>
+                        Purpose-built applications for managing your
+                        business processes, records, customers and daily
+                        operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-database-check"></i>
+                    </div>
+
+                    <h3>
+                        Database Systems
+                    </h3>
+
+                    <p>
+                        Structured databases that keep important business
+                        information organized, accessible and easy to manage.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
+
+                    <h3>
+                        Management Dashboards
+                    </h3>
+
+                    <p>
+                        Clear dashboards that turn business information
+                        into useful views for monitoring and decision-making.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <h3>
+                        Customer Management
+                    </h3>
+
+                    <p>
+                        Centralized systems for customer records, enquiries,
+                        communication history and business relationships.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+
+                    <h3>
+                        Inventory Systems
+                    </h3>
+
+                    <p>
+                        Track products, stock levels, movements and records
+                        through a system designed for your workflow.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4 pnd-reveal">
+
+                <div class="pnd-category">
+
+                    <div class="pnd-category-icon">
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+                    </div>
+
+                    <h3>
+                        Reports & Analytics
+                    </h3>
+
+                    <p>
+                        Generate useful reports from your business data
+                        without depending on scattered spreadsheets.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECT FLOW
+========================================================= -->
+
+<section class="pnd-section">
+
+    <div class="container">
+
+        <div class="pnd-section-head text-center mx-auto pnd-reveal">
+
+            <div class="pnd-section-label">
+                OUR APPROACH
+            </div>
+
+            <h2>
+                From idea to working system.
+            </h2>
+
+            <p>
+                Every software project starts with understanding your
+                requirements and ends with a system that can grow with you.
+            </p>
+
+        </div>
+
+
+        <div class="pnd-flow">
+
+            <div class="pnd-flow-line"></div>
+
+            <div class="row g-4">
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-step">
+
+                        <div class="pnd-step-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Understand
+                        </h3>
+
+                        <p>
+                            We understand your workflow, requirements and
+                            project goals.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-step">
+
+                        <div class="pnd-step-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Design
+                        </h3>
+
+                        <p>
+                            We plan the interface, system structure and
+                            database architecture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-step">
+
+                        <div class="pnd-step-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Develop
+                        </h3>
+
+                        <p>
+                            We build the software and connect the required
+                            database and functionality.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3 pnd-reveal">
+
+                    <div class="pnd-step">
+
+                        <div class="pnd-step-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Launch
+                        </h3>
+
+                        <p>
+                            Your completed system is prepared for real-world
+                            use and future improvements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD + BENEFITS
+========================================================= -->
+
+<section class="pnd-section pnd-white-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-6 pnd-reveal">
+
+                <div class="pnd-dashboard">
+
+                    <div class="pnd-dashboard-top">
+
+                        <div class="pnd-dashboard-title">
+
+                            <strong>
+                                Project Management Dashboard
+                            </strong>
+
+                            <span>
+                                BUSINESS OPERATIONS / LIVE VIEW
+                            </span>
+
+                        </div>
+
+                        <div class="pnd-live">
+
+                            <i></i>
+                            SYSTEM ACTIVE
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-3">
+
+                        <div class="col-6">
+
+                            <div class="pnd-metric">
+
+                                <span>
+                                    TOTAL RECORDS
+                                </span>
+
+                                <strong>
+                                    8,492
+                                </strong>
+
+                                <div class="pnd-bar">
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-6">
+
+                            <div class="pnd-metric">
+
+                                <span>
+                                    ACTIVE USERS
+                                </span>
+
+                                <strong>
+                                    128
+                                </strong>
+
+                                <div class="pnd-bar">
+                                    <span style="width:64%;"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <div class="pnd-metric">
+
+                                <span>
+                                    DATA ORGANIZATION
+                                </span>
+
+                                <strong>
+                                    Structured
+                                </strong>
+
+                                <div class="pnd-bar">
+                                    <span style="width:91%;"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="pnd-section-head pnd-reveal">
+
+                    <div class="pnd-section-label">
+                        WHY CUSTOM SOFTWARE
+                    </div>
+
+                    <h2>
+                        Your business shouldn't have to adapt to your software.
+                    </h2>
+
+                    <p>
+                        A custom system can be designed around your actual
+                        processes instead of forcing your team into a
+                        one-size-fits-all workflow.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-benefits">
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Connected Information
+                            </h4>
+
+                            <p>
+                                Keep related business information connected
+                                instead of scattered across different files.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Faster Workflows
+                            </h4>
+
+                            <p>
+                                Reduce repetitive tasks and make frequently
+                                used operations easier to manage.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Organized Data
+                            </h4>
+
+                            <p>
+                                Build structured systems for storing and
+                                retrieving important business information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-benefit pnd-reveal">
+
+                        <div class="pnd-benefit-icon">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Built To Grow
+                            </h4>
+
+                            <p>
+                                Create a foundation that can evolve as your
+                                business and requirements change.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECT TYPES
+========================================================= -->
+
+<section class="pnd-section">
+
+    <div class="container">
+
+        <div class="pnd-section-head pnd-reveal">
+
+            <div class="pnd-section-label">
+                PROJECT POSSIBILITIES
+            </div>
+
+            <h2>
+                Systems for different kinds of work.
+            </h2>
+
+            <p>
+                Whether you need a small internal tool or a larger
+                business platform, the system can be shaped around your
+                requirements.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-project-card">
+
+                    <span class="pnd-project-card-number">
+                        01
+                    </span>
+
+                    <div class="pnd-project-card-icon">
+                        <i class="bi bi-shop"></i>
+                    </div>
+
+                    <h3>
+                        Business Systems
+                    </h3>
+
+                    <p>
+                        Software for shops, offices, service businesses and
+                        organizations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-project-card">
+
+                    <span class="pnd-project-card-number">
+                        02
+                    </span>
+
+                    <div class="pnd-project-card-icon">
+                        <i class="bi bi-person-vcard"></i>
+                    </div>
+
+                    <h3>
+                        Management Platforms
+                    </h3>
+
+                    <p>
+                        Manage employees, customers, products, records and
+                        operational information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-project-card">
+
+                    <span class="pnd-project-card-number">
+                        03
+                    </span>
+
+                    <div class="pnd-project-card-icon">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
+
+                    <h3>
+                        Data Dashboards
+                    </h3>
+
+                    <p>
+                        Present important information through clear,
+                        interactive dashboards and reports.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3 pnd-reveal">
+
+                <div class="pnd-project-card">
+
+                    <span class="pnd-project-card-number">
+                        04
+                    </span>
+
+                    <div class="pnd-project-card-icon">
+                        <i class="bi bi-gear"></i>
+                    </div>
+
+                    <h3>
+                        Custom Tools
+                    </h3>
+
+                    <p>
+                        Build specialized digital tools around a unique
+                        workflow or business requirement.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="pnd-section pnd-white-section">
+
+    <div class="container">
+
+        <div class="pnd-cta text-center pnd-reveal">
+
+            <div class="pnd-section-label">
+                HAVE A SOFTWARE IDEA?
+            </div>
+
+            <h2>
+                Let's turn your workflow
+                into a digital system.
+            </h2>
+
+            <p>
+                Tell us what you currently do, what you want to improve,
+                and what your ideal system should look like.
+            </p>
+
+           <a
+    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20am%20interested%20in%20your%20Software%20%26%20Database%20Projects%20services.%20I%20would%20like%20to%20discuss%20my%20software%20or%20database%20project%20requirements.%20Please%20share%20the%20details."
+    class="pnd-btn pnd-btn-primary"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    Start a Software Project
+
+    <i class="bi bi-arrow-up-right"></i>
+
+</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="pnd-footer">
+
+    <div class="container">
+
+        <div class="row align-items-start">
+
+            <div class="col-lg-6">
+
+                <div class="pnd-footer-brand">
+                    PIXEL NEST DIGITAL
+                </div>
+
+                <p>
+                    Websites, web applications, e-commerce, software,
+                    databases and creative digital solutions built around
+                    ideas that deserve to grow.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="pnd-footer-links">
+
+                    <a href="index.html">Home</a>
+
+                    <a href="services.html">Services</a>
+
+                    <a href="portfolio.html">Portfolio</a>
+
+                    <a href="about.html">About</a>
+
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pnd-footer-bottom d-flex flex-wrap justify-content-between gap-3">
+
+            <span>
+                © <span id="pndYear"></span> Pixel Nest Digital.
+                All rights reserved.
+            </span>
+
+            <span>
+                A JO-GEO VENTURES Initiative
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    const menuBtn = document.getElementById("pndMenuBtn");
+    const nav = document.getElementById("pndNav");
+
+    function closePndNav(){
+
+        if(!menuBtn || !nav){
+            return;
+        }
+
+        nav.classList.remove("show");
+        menuBtn.setAttribute("aria-expanded","false");
+        menuBtn.setAttribute("aria-label","Open navigation");
+
+        const icon = menuBtn.querySelector("i");
+
+        if(icon){
+            icon.className = "bi bi-list";
+        }
+    }
+
+    function openPndNav(){
+
+        if(!menuBtn || !nav){
+            return;
+        }
+
+        nav.classList.add("show");
+        menuBtn.setAttribute("aria-expanded","true");
+        menuBtn.setAttribute("aria-label","Close navigation");
+
+        const icon = menuBtn.querySelector("i");
+
+        if(icon){
+            icon.className = "bi bi-x-lg";
+        }
+    }
+
+    if(menuBtn && nav){
+
+        menuBtn.addEventListener("click", function(event){
+            event.stopPropagation();
+
+            if(nav.classList.contains("show")){
+                closePndNav();
+            }else{
+                openPndNav();
+            }
+        });
+
+        nav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function(){
+                closePndNav();
+            });
+        });
+
+        document.addEventListener("click", function(event){
+
+            if(
+                nav.classList.contains("show") &&
+                !nav.contains(event.target) &&
+                !menuBtn.contains(event.target)
+            ){
+                closePndNav();
+            }
+        });
+
+        window.addEventListener("resize", function(){
+
+            if(window.innerWidth > 991.98){
+                closePndNav();
+            }
+        });
+    }
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(".pnd-reveal");
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:.12
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+    /* =========================================================
+       YEAR
+    ========================================================= */
+
+    document.getElementById("pndYear").textContent =
+        new Date().getFullYear();
+
+
+    /* =========================================================
+       SMOOTH INTERNAL LINKS
+    ========================================================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", function(event){
+
+            const target =
+                document.querySelector(this.getAttribute("href"));
+
+            if(target){
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+
