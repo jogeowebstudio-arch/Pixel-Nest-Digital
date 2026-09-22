@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7200,193 +7199,929 @@
   }
 
 }
+/* =========================================================
+   PIXEL NEST DIGITAL HEADER LOGO
+   ========================================================= */
 
+.pnd-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-shrink: 0;
+    text-decoration: none;
+
+    width: auto;
+    max-width: 240px;
+
+    overflow: visible;
+}
+
+.pnd-logo-img {
+    display: block;
+
+    width: auto;
+    height: 62px;
+
+    max-width: 230px;
+    max-height: 62px;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.25s ease;
+}
+
+.pnd-logo:hover .pnd-logo-img {
+    transform: scale(1.02);
+}
 
 
 /* =========================================================
-   PIXEL NEST DIGITAL — AI ASSISTANT / SEARCH / VOICE
-========================================================= */
+   REMOVE OLD TEXT LOGO
+   ========================================================= */
 
-.pnd-ai-launcher{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  z-index:10050;
-  width:62px;
-  height:62px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(103,232,249,.45);
-  border-radius:20px;
-  color:#fff;
-  background:linear-gradient(135deg,#2563eb,#7c3aed 70%,#06b6d4);
-  box-shadow:0 18px 45px rgba(37,99,235,.35),0 0 0 1px rgba(255,255,255,.08) inset;
-  cursor:pointer;
-  transition:.25s ease;
-}
-.pnd-ai-launcher:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 24px 55px rgba(37,99,235,.45),0 0 30px rgba(6,182,212,.18);}
-.pnd-ai-launcher i{font-size:25px;}
-.pnd-ai-launcher::after{
-  content:"";
-  position:absolute;
-  inset:-6px;
-  border:1px solid rgba(103,232,249,.18);
-  border-radius:25px;
-  animation:pndAssistantPulse 2.2s infinite;
-}
-@keyframes pndAssistantPulse{
-  0%,100%{transform:scale(.96);opacity:.15}
-  50%{transform:scale(1.08);opacity:.65}
+.pnd-logo-name {
+    display: none !important;
 }
 
-.pnd-ai-panel{
-  position:fixed;
-  right:24px;
-  bottom:98px;
-  z-index:10049;
-  width:min(430px,calc(100vw - 28px));
-  height:min(650px,calc(100vh - 125px));
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  border:1px solid rgba(148,163,184,.20);
-  border-radius:24px;
-  background:linear-gradient(145deg,rgba(7,17,31,.985),rgba(11,23,42,.985) 55%,rgba(17,28,53,.985));
-  color:#e2e8f0;
-  box-shadow:0 30px 90px rgba(0,0,0,.48),0 0 45px rgba(37,99,235,.12);
-  backdrop-filter:blur(24px);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(18px) scale(.97);
-  transform-origin:bottom right;
-  transition:.25s ease;
-}
-.pnd-ai-panel.active{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0) scale(1);
-}
-.pnd-ai-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:17px 18px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.025);
-}
-.pnd-ai-avatar{
-  width:42px;height:42px;display:grid;place-items:center;
-  flex:0 0 42px;border-radius:13px;color:#fff;
-  background:linear-gradient(135deg,#2563eb,#06b6d4);
-  box-shadow:0 8px 22px rgba(37,99,235,.28);
-}
-.pnd-ai-header-copy{min-width:0;flex:1}
-.pnd-ai-header-copy strong{display:block;color:#fff;font-size:14px;font-weight:800}
-.pnd-ai-status{display:flex;align-items:center;gap:6px;margin-top:3px;color:#94a3b8;font-size:10px}
-.pnd-ai-status-dot{width:6px;height:6px;border-radius:50%;background:#22d3ee;box-shadow:0 0 10px #22d3ee}
-.pnd-ai-close{
-  width:36px;height:36px;display:grid;place-items:center;
-  border:1px solid rgba(255,255,255,.10);border-radius:10px;
-  color:#cbd5e1;background:rgba(255,255,255,.05);cursor:pointer;
-}
-.pnd-ai-close:hover{color:#fff;background:rgba(255,255,255,.09)}
 
-.pnd-ai-tabs{
-  display:grid;grid-template-columns:1fr 1fr;
-  padding:10px 14px 0;gap:8px;
-}
-.pnd-ai-tab{
-  padding:9px 10px;border:1px solid transparent;border-radius:10px;
-  color:#94a3b8;background:transparent;font-size:11px;font-weight:800;cursor:pointer;
-}
-.pnd-ai-tab.active{color:#fff;border-color:rgba(103,232,249,.16);background:rgba(6,182,212,.07)}
+/* =========================================================
+   SERVICES CHEVRON
+   ========================================================= */
 
-.pnd-ai-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
-.pnd-ai-view{display:none;flex:1;min-height:0;flex-direction:column}
-.pnd-ai-view.active{display:flex}
-
-.pnd-ai-messages{
-  flex:1;overflow-y:auto;padding:18px;
-  scrollbar-width:thin;scrollbar-color:rgba(148,163,184,.3) transparent;
-}
-.pnd-ai-message{
-  max-width:88%;padding:11px 13px;margin-bottom:10px;
-  border:1px solid rgba(255,255,255,.08);border-radius:15px;
-  font-size:12px;line-height:1.65;white-space:pre-wrap;
-}
-.pnd-ai-message.bot{background:rgba(255,255,255,.045);color:#cbd5e1;border-top-left-radius:5px}
-.pnd-ai-message.user{margin-left:auto;background:linear-gradient(135deg,rgba(37,99,235,.90),rgba(124,58,237,.82));color:#fff;border-top-right-radius:5px}
-.pnd-ai-typing{display:none;color:#94a3b8;font-size:10px;padding:0 18px 8px}
-.pnd-ai-typing.active{display:block}
-
-.pnd-ai-composer{
-  display:flex;align-items:center;gap:8px;
-  padding:12px;border-top:1px solid rgba(255,255,255,.08);
-  background:rgba(0,0,0,.12);
-}
-.pnd-ai-input{
-  min-width:0;flex:1;height:43px;padding:0 13px;
-  border:1px solid rgba(255,255,255,.10);outline:0;border-radius:11px;
-  color:#fff;background:rgba(255,255,255,.055);font-size:12px;
-}
-.pnd-ai-input:focus{border-color:rgba(103,232,249,.42);box-shadow:0 0 0 3px rgba(6,182,212,.07)}
-.pnd-ai-icon-btn{
-  width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;
-  border:1px solid rgba(255,255,255,.10);border-radius:11px;
-  color:#cbd5e1;background:rgba(255,255,255,.055);cursor:pointer;
-}
-.pnd-ai-icon-btn:hover{color:#fff;background:rgba(255,255,255,.09)}
-.pnd-ai-send{color:#fff;border:0;background:linear-gradient(135deg,#2563eb,#7c3aed)}
-.pnd-ai-icon-btn.listening{
-  color:#fff;background:#dc2626;border-color:rgba(248,113,113,.55);
-  animation:pndVoicePulse 1.1s infinite;
-}
-@keyframes pndVoicePulse{
-  50%{box-shadow:0 0 0 7px rgba(220,38,38,.12)}
+.pnd-chevron {
+    font-size: 9px;
+    margin-left: 4px;
+    transition: transform 0.25s ease;
 }
 
-.pnd-ai-hint{padding:0 14px 10px;color:#64748b;font-size:9px;text-align:center}
-.pnd-ai-quick{
-  display:flex;flex-wrap:wrap;gap:7px;padding:0 18px 12px;
-}
-.pnd-ai-quick button{
-  padding:7px 9px;border:1px solid rgba(255,255,255,.08);border-radius:999px;
-  color:#a5f3fc;background:rgba(6,182,212,.045);font-size:9px;cursor:pointer;
-}
-.pnd-ai-quick button:hover{background:rgba(6,182,212,.09)}
-
-.pnd-search-view{padding:18px}
-.pnd-engine-row{
-  display:flex;gap:8px;margin-bottom:13px;
-}
-.pnd-engine-input{
-  flex:1;min-width:0;height:44px;padding:0 13px;
-  border:1px solid rgba(255,255,255,.10);outline:0;border-radius:11px;
-  color:#fff;background:rgba(255,255,255,.055);font-size:12px;
-}
-.pnd-engine-input:focus{border-color:rgba(103,232,249,.42)}
-.pnd-engine-submit{
-  width:44px;height:44px;border:0;border-radius:11px;color:#fff;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);cursor:pointer;
-}
-.pnd-engine-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.pnd-engine-option{
-  padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;
-  color:#cbd5e1;background:rgba(255,255,255,.035);font-size:11px;font-weight:700;
-  cursor:pointer;text-align:left;
-}
-.pnd-engine-option:hover{border-color:rgba(103,232,249,.24);background:rgba(255,255,255,.06)}
-.pnd-engine-option i{color:#67e8f9;margin-right:7px}
-.pnd-search-note{
-  margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;color:#64748b;font-size:10px;line-height:1.6;
+.pnd-dropdown:hover .pnd-chevron {
+    transform: rotate(180deg);
 }
 
-@media(max-width:600px){
-  .pnd-ai-launcher{right:16px;bottom:16px;width:56px;height:56px;border-radius:18px}
-  .pnd-ai-panel{right:10px;bottom:82px;width:calc(100vw - 20px);height:min(680px,calc(100vh - 100px));border-radius:20px}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    .pnd-logo {
+        max-width: 210px;
+    }
+
+    .pnd-logo-img {
+        height: 56px;
+        max-width: 210px;
+        max-height: 56px;
+    }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .pnd-logo {
+        max-width: 180px;
+    }
+
+    .pnd-logo-img {
+        width: auto;
+        height: auto;
+
+        max-width: 180px;
+        max-height: 52px;
+
+        object-fit: contain;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .pnd-logo {
+        max-width: 160px;
+    }
+
+    .pnd-logo-img {
+        max-width: 160px;
+        max-height: 48px;
+    }
+
+}
+
+/* =========================================================
+   HERO VISUAL — PIXEL NEST DIGITAL
+   ========================================================= */
+
+.pnd-hero-visual {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+    height: 580px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+   ========================================================= */
+
+.pnd-hero-glow {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 380px;
+    height: 380px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.20) 0%,
+            rgba(6, 182, 212, 0.12) 35%,
+            rgba(124, 58, 237, 0.07) 55%,
+            transparent 75%
+        );
+
+    filter: blur(25px);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation: pndGlowPulse 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   OUTER ORBIT
+   ========================================================= */
+
+.pnd-orbit {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 470px;
+    height: 470px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(37, 99, 235, 0.35);
+
+    box-shadow:
+        0 0 20px rgba(37, 99, 235, 0.12),
+        inset 0 0 20px rgba(6, 182, 212, 0.06);
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: pndOrbitRotate 20s linear infinite;
+}
+
+
+/* Orbit decorative dot */
+
+.pnd-orbit::before {
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #06B6D4;
+
+    box-shadow:
+        0 0 10px rgba(6, 182, 212, 0.9),
+        0 0 25px rgba(6, 182, 212, 0.5);
+}
+
+
+/* Second orbit */
+
+.pnd-orbit::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 360px;
+    height: 180px;
+
+    transform: translate(-50%, -50%) rotate(-25deg);
+
+    border: 1px solid rgba(124, 58, 237, 0.22);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN LOGO ORB
+   ========================================================= */
+
+.pnd-about-orb {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 290px;
+    height: 290px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.98) 0%,
+            rgba(248,250,252,0.96) 45%,
+            rgba(241,245,249,0.90) 70%,
+            rgba(226,232,240,0.70) 100%
+        );
+
+    border: 1px solid rgba(255,255,255,0.85);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.22),
+        0 0 35px rgba(37,99,235,0.20),
+        inset 0 0 30px rgba(255,255,255,0.85);
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   INNER ORB
+   ========================================================= */
+
+.pnd-about-orb-inner {
+    position: relative;
+
+    width: 245px;
+    height: 245px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid rgba(37,99,235,0.10);
+
+    box-shadow:
+        inset 0 0 25px rgba(37,99,235,0.08),
+        inset 0 0 45px rgba(6,182,212,0.05);
+
+    overflow: visible;
+
+    z-index: 11;
+}
+
+
+/* =========================================================
+   FULL PIXEL NEST DIGITAL LOGO
+   ========================================================= */
+
+.pnd-hero-logo {
+    position: relative;
+
+    display: block;
+
+    width: 205px;
+    height: auto;
+
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    z-index: 20;
+
+    opacity: 1;
+    visibility: visible;
+
+    filter:
+        drop-shadow(0 5px 10px rgba(0,0,0,0.12))
+        drop-shadow(0 0 18px rgba(37,99,235,0.20));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.pnd-about-orb:hover .pnd-hero-logo {
+    transform: scale(1.05);
+
+    filter:
+        drop-shadow(0 6px 12px rgba(0,0,0,0.14))
+        drop-shadow(0 0 25px rgba(37,99,235,0.30));
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+   ========================================================= */
+
+.pnd-float-card {
+    position: absolute;
+
+    min-width: 220px;
+    max-width: 250px;
+
+    padding: 15px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    border: 1px solid rgba(226,232,240,0.90);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.14),
+        0 0 20px rgba(37,99,235,0.07);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    z-index: 30;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Card hover */
+
+.pnd-float-card:hover {
+    box-shadow:
+        0 20px 45px rgba(15,23,42,0.18),
+        0 0 25px rgba(37,99,235,0.12);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   FLOAT ICON
+   ========================================================= */
+
+.pnd-float-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.12),
+            rgba(6,182,212,0.10)
+        );
+
+    border: 1px solid rgba(37,99,235,0.12);
+
+    color: #2563EB;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   FLOAT CONTENT
+   ========================================================= */
+
+.pnd-float-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.pnd-float-content strong {
+    display: block;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    color: #0F172A;
+}
+
+
+.pnd-float-content small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+
+    color: #64748B;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FLOAT CARD 1 — TOP LEFT
+   ========================================================= */
+
+.pnd-float-one {
+    top: 70px;
+    left: 5px;
+
+    animation:
+        pndFloatOne 4.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOAT CARD 2 — RIGHT
+   ========================================================= */
+
+.pnd-float-two {
+    top: 245px;
+    right: -5px;
+
+    animation:
+        pndFloatTwo 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FLOAT CARD 3 — BOTTOM LEFT
+   ========================================================= */
+
+.pnd-float-three {
+    bottom: 65px;
+    left: 25px;
+
+    animation:
+        pndFloatThree 5.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes pndOrbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes pndGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.65;
+        transform:
+            translate(-50%, -50%)
+            scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+@keyframes pndFloatOne {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+@keyframes pndFloatTwo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(9px);
+    }
+
+}
+
+
+@keyframes pndFloatThree {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =========================================================
+   LARGE LAPTOP / DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .pnd-hero-visual {
+        max-width: 680px;
+        height: 600px;
+    }
+
+    .pnd-orbit {
+        width: 500px;
+        height: 500px;
+    }
+
+    .pnd-about-orb {
+        width: 310px;
+        height: 310px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 260px;
+        height: 260px;
+    }
+
+    .pnd-hero-logo {
+        width: 220px;
+    }
+
+    .pnd-float-one {
+        left: 0;
+    }
+
+    .pnd-float-two {
+        right: -10px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .pnd-hero-visual {
+        max-width: 560px;
+        height: 500px;
+        margin-top: 30px;
+    }
+
+    .pnd-hero-glow {
+        width: 330px;
+        height: 330px;
+    }
+
+    .pnd-orbit {
+        width: 410px;
+        height: 410px;
+    }
+
+    .pnd-orbit::after {
+        width: 315px;
+        height: 155px;
+    }
+
+    .pnd-about-orb {
+        width: 260px;
+        height: 260px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 220px;
+        height: 220px;
+    }
+
+    .pnd-hero-logo {
+        width: 185px;
+    }
+
+    .pnd-float-card {
+        min-width: 195px;
+        max-width: 215px;
+
+        padding: 12px 14px;
+
+        gap: 10px;
+    }
+
+    .pnd-float-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 13px;
+    }
+
+    .pnd-float-content small {
+        font-size: 10px;
+    }
+
+    .pnd-float-one {
+        top: 55px;
+        left: 0;
+    }
+
+    .pnd-float-two {
+        top: 215px;
+        right: -5px;
+    }
+
+    .pnd-float-three {
+        bottom: 45px;
+        left: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .pnd-hero-visual {
+        width: 100%;
+
+        max-width: 440px;
+
+        height: 430px;
+
+        margin-top: 25px;
+
+        overflow: visible;
+    }
+
+    .pnd-hero-glow {
+        width: 270px;
+        height: 270px;
+
+        filter: blur(20px);
+    }
+
+    .pnd-orbit {
+        width: 320px;
+        height: 320px;
+    }
+
+    .pnd-orbit::before {
+        width: 8px;
+        height: 8px;
+    }
+
+    .pnd-orbit::after {
+        width: 245px;
+        height: 120px;
+    }
+
+    .pnd-about-orb {
+        width: 215px;
+        height: 215px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 180px;
+        height: 180px;
+    }
+
+    .pnd-hero-logo {
+        width: 150px;
+    }
+
+    .pnd-float-card {
+        min-width: 165px;
+        max-width: 180px;
+
+        padding: 10px 11px;
+
+        gap: 8px;
+
+        border-radius: 11px;
+    }
+
+    .pnd-float-icon {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 9px;
+
+        font-size: 16px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 11px;
+    }
+
+    .pnd-float-content small {
+        font-size: 9px;
+
+        white-space: normal;
+    }
+
+    .pnd-float-one {
+        top: 35px;
+        left: -5px;
+    }
+
+    .pnd-float-two {
+        top: 185px;
+        right: -5px;
+    }
+
+    .pnd-float-three {
+        bottom: 35px;
+        left: 0;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .pnd-hero-visual {
+        height: 380px;
+
+        max-width: 360px;
+    }
+
+    .pnd-hero-glow {
+        width: 230px;
+        height: 230px;
+    }
+
+    .pnd-orbit {
+        width: 275px;
+        height: 275px;
+    }
+
+    .pnd-orbit::after {
+        width: 210px;
+        height: 100px;
+    }
+
+    .pnd-about-orb {
+        width: 185px;
+        height: 185px;
+    }
+
+    .pnd-about-orb-inner {
+        width: 155px;
+        height: 155px;
+    }
+
+    .pnd-hero-logo {
+        width: 130px;
+    }
+
+    .pnd-float-card {
+        min-width: 145px;
+        max-width: 155px;
+
+        padding: 8px 9px;
+
+        gap: 7px;
+    }
+
+    .pnd-float-icon {
+        width: 30px;
+        height: 30px;
+
+        font-size: 14px;
+    }
+
+    .pnd-float-content strong {
+        font-size: 10px;
+    }
+
+    .pnd-float-content small {
+        font-size: 8px;
+    }
+
+    .pnd-float-one {
+        top: 20px;
+        left: -8px;
+    }
+
+    .pnd-float-two {
+        top: 165px;
+        right: -8px;
+    }
+
+    .pnd-float-three {
+        bottom: 20px;
+        left: -5px;
+    }
+
+}
 </style>
 
 
@@ -7400,30 +8135,29 @@
 <!-- ============================================================
      HEADER / NAVBAR
 ============================================================ -->
-
 <header class="pnd-header" id="pndHeader">
 
     <div class="container-fluid px-3 px-lg-4">
 
         <div class="pnd-header-inner">
 
+            <!-- =====================================================
+                 LOGO
+            ====================================================== -->
+            <a href="#home" class="pnd-logo" aria-label="Pixel Nest Digital Home">
 
-            <!-- LOGO -->
-            <a href="#home" class="pnd-logo">
-
-                <div class="pnd-logo-icon">
-                    <span>PN</span>
-                </div>
-
-                <div class="pnd-logo-name">
-                    <strong>Pixel Nest</strong>
-                    <small>DIGITAL</small>
-                </div>
+                <img
+                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                    alt="Pixel Nest Digital"
+                    class="pnd-logo-img"
+                >
 
             </a>
 
 
-            <!-- SEARCH -->
+            <!-- =====================================================
+                 SEARCH
+            ====================================================== -->
             <div class="pnd-search">
 
                 <div class="pnd-search-icon">
@@ -7434,27 +8168,40 @@
                     type="search"
                     id="desktopSearch"
                     placeholder="Search services, solutions, projects..."
+                    aria-label="Search"
                 >
 
-                <button onclick="performSearch()">
+                <button
+                    type="button"
+                    onclick="performSearch()"
+                >
                     Search
                 </button>
 
             </div>
 
 
-            <!-- DESKTOP NAV -->
-            <nav class="pnd-nav">
+            <!-- =====================================================
+                 DESKTOP NAVIGATION
+            ====================================================== -->
+            <nav class="pnd-nav" aria-label="Main navigation">
 
+               <!-- ABOUT -->
+                <a href="about.html" class="pnd-nav-link">
+                    About
+                </a>
 
-                <!-- SERVICES -->
+                <!-- SERVICES DROPDOWN -->
                 <div class="pnd-dropdown">
 
-                    <a href="#services" class="pnd-nav-link">
+                    <a
+                        href="services.html"
+                        class="pnd-nav-link"
+                    >
                         Services
-                        <i class="bi bi-chevron-down"
-                           style="font-size:9px;"></i>
+                        <i class="bi bi-chevron-down pnd-chevron"></i>
                     </a>
+
 
                     <div class="pnd-dropdown-menu">
 
@@ -7470,12 +8217,12 @@
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-cpu"></i>
-                            <span>AI & Machine Learning</span>
+                            <span>AI &amp; Machine Learning</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-robot"></i>
-                            <span>Robotics & Automation</span>
+                            <span>Robotics &amp; Automation</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
@@ -7490,12 +8237,12 @@
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-cloud"></i>
-                            <span>Hosting & Maintenance</span>
+                            <span>Hosting &amp; Maintenance</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
                             <i class="bi bi-palette"></i>
-                            <span>Logo & Brand Design</span>
+                            <span>Logo &amp; Brand Design</span>
                         </a>
 
                         <a href="#services" class="pnd-dropdown-item">
@@ -7513,23 +8260,25 @@
                 </div>
 
 
-                <a href="#portfolio" class="pnd-nav-link">
+                <!-- PORTFOLIO -->
+                <a href="portfolio.html" class="pnd-nav-link">
                     Portfolio
                 </a>
 
-                <a href="#about" class="pnd-nav-link">
-                    About
-                </a>
 
-                <a href="#contact" class="pnd-nav-link">
+               
+
+
+                <!-- CONTACT -->
+                <a href="contact.html" class="pnd-nav-link">
                     Contact
                 </a>
 
-                <a href="#login" class="pnd-login">
-                    Login
-                </a>
 
-                <a href="#contact" class="pnd-start">
+              
+
+                <!-- GET STARTED -->
+                <a href="start-project.html" class="pnd-start">
                     Get Started
                     <i class="bi bi-arrow-up-right"></i>
                 </a>
@@ -7537,11 +8286,16 @@
             </nav>
 
 
-            <!-- MOBILE BUTTON -->
+            <!-- =====================================================
+                 MOBILE MENU BUTTON
+            ====================================================== -->
             <button
+                type="button"
                 class="pnd-menu-btn"
                 id="pndMenuBtn"
-                aria-label="Open menu"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="pndMobileMenu"
             >
                 <i class="bi bi-list"></i>
             </button>
@@ -7551,8 +8305,6 @@
     </div>
 
 </header>
-
-
 
 <!-- ============================================================
      MOBILE OVERLAY
@@ -7613,9 +8365,9 @@
     </div>
 
 
-    <a href="#home" class="pnd-mobile-link">
+    <a href="about.html" class="pnd-mobile-link">
         <i class="bi bi-house"></i>
-        Home
+        About
     </a>
 
 
@@ -7655,17 +8407,17 @@
     </div>
 
 
-    <a href="#portfolio" class="pnd-mobile-link">
+    <a href="portfolio.html" class="pnd-mobile-link">
         <i class="bi bi-briefcase"></i>
         Portfolio
     </a>
 
-    <a href="#about" class="pnd-mobile-link">
+    <a href="about.html" class="pnd-mobile-link">
         <i class="bi bi-info-circle"></i>
         About
     </a>
 
-    <a href="#contact" class="pnd-mobile-link">
+    <a href="contact.html" class="pnd-mobile-link">
         <i class="bi bi-envelope"></i>
         Contact
     </a>
@@ -7673,13 +8425,9 @@
 
     <div class="pnd-mobile-actions">
 
-        <a href="#login"
-           class="pnd-btn-secondary justify-content-center">
-            <i class="bi bi-person"></i>
-            Login
-        </a>
+        
 
-        <a href="#contact"
+        <a href="start-project.html"
            class="pnd-btn-primary justify-content-center">
             Start a Project
             <i class="bi bi-arrow-up-right"></i>
@@ -7795,68 +8543,110 @@
 
 
 
-            <!-- HERO VISUAL -->
-            <div class="pnd-visual">
+               <!-- =====================================================
+     HERO VISUAL — PIXEL NEST DIGITAL
+====================================================== -->
+
+<div class="pnd-hero-visual">
+
+    <!-- Ambient Glow -->
+    <div class="pnd-hero-glow"></div>
+
+    <!-- Orbit Ring -->
+    <div class="pnd-orbit"></div>
+
+    <!-- Main Logo Orb -->
+    <div class="pnd-about-orb">
+
+        <div class="pnd-about-orb-inner">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-hero-logo"
+                loading="eager"
+            >
+
+        </div>
+
+    </div>
 
 
-                <div class="pnd-orbit"></div>
+    <!-- =================================================
+         FLOATING CARD 1 — DEVELOPMENT
+    ================================================== -->
+
+    <div class="pnd-float-card pnd-float-one">
+
+        <div class="pnd-float-icon">
+            <i class="bi bi-code-slash"></i>
+        </div>
+
+        <div class="pnd-float-content">
+
+            <strong>
+                Digital Development
+            </strong>
+
+            <small>
+                Build • Launch • Grow
+            </small>
+
+        </div>
+
+    </div>
 
 
-                <!-- AI CORE -->
-                <div class="pnd-ai-core">
+    <!-- =================================================
+         FLOATING CARD 2 — DESIGN
+    ================================================== -->
 
-                    <div class="pnd-ai-ring"></div>
-                    <div class="pnd-ai-ring"></div>
+    <div class="pnd-float-card pnd-float-two">
 
-                    <div class="pnd-ai-center">
-                        <i class="bi bi-cpu"></i>
-                    </div>
+        <div class="pnd-float-icon">
+            <i class="bi bi-palette"></i>
+        </div>
 
-                </div>
+        <div class="pnd-float-content">
 
+            <strong>
+                Creative Design
+            </strong>
 
-                <!-- FLOAT CARD 1 -->
-                <div class="pnd-float-card pnd-card-1">
+            <small>
+                Brand • Visual • Identity
+            </small>
 
-                    <i class="bi bi-brain"></i>
+        </div>
 
-                    <span>
-                        AI & ML
-                        <br>
-                        Intelligent Systems
-                    </span>
-
-                </div>
+    </div>
 
 
-                <!-- FLOAT CARD 2 -->
-                <div class="pnd-float-card pnd-card-2">
+    <!-- =================================================
+         FLOATING CARD 3 — MEDIA
+    ================================================== -->
 
-                    <i class="bi bi-robot"></i>
+    <div class="pnd-float-card pnd-float-three">
 
-                    <span>
-                        Robotics
-                        <br>
-                        Automation
-                    </span>
+        <div class="pnd-float-icon">
+            <i class="bi bi-camera"></i>
+        </div>
 
-                </div>
+        <div class="pnd-float-content">
 
+            <strong>
+                Creative Media
+            </strong>
 
-                <!-- FLOAT CARD 3 -->
-                <div class="pnd-float-card pnd-card-3">
+            <small>
+                Photo • Video • Content
+            </small>
 
-                    <i class="bi bi-code-square"></i>
+        </div>
 
-                    <span>
-                        Modern Web
-                        <br>
-                        Digital Platforms
-                    </span>
+    </div>
 
-                </div>
-
-            </div>
+</div>
 
         </div>
 
@@ -7914,7 +8704,7 @@
                 <div class="pnd-about-brand">
 
                     <div class="pnd-about-brand-icon">
-                        PN
+                        PND
                     </div>
 
                     <div>
@@ -12931,7 +13721,7 @@ document.addEventListener("DOMContentLoaded", function(){
   <div class="pnd-subfooter-brand">
 
     <div class="pnd-mini-logo">
-      PN
+      PND
     </div>
 
     <div>
@@ -13970,510 +14760,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-
-
-
-<!-- ============================================================
-     PIXEL NEST DIGITAL — AI ASSISTANT
-============================================================ -->
-
-<button
-    class="pnd-ai-launcher"
-    id="pndAiLauncher"
-    type="button"
-    aria-label="Open Pixel Nest AI Assistant"
-    aria-expanded="false"
-    title="Pixel Nest AI Assistant"
->
-    <i class="bi bi-stars"></i>
-</button>
-
-<aside class="pnd-ai-panel" id="pndAiPanel" aria-label="Pixel Nest AI Assistant">
-
-    <div class="pnd-ai-header">
-        <div class="pnd-ai-avatar">
-            <i class="bi bi-stars"></i>
-        </div>
-
-        <div class="pnd-ai-header-copy">
-            <strong>Pixel Nest AI</strong>
-            <div class="pnd-ai-status">
-                <span class="pnd-ai-status-dot"></span>
-                Assistant ready
-            </div>
-        </div>
-
-        <button class="pnd-ai-close" id="pndAiClose" type="button" aria-label="Close assistant">
-            <i class="bi bi-x-lg"></i>
-        </button>
-    </div>
-
-    <div class="pnd-ai-tabs">
-        <button class="pnd-ai-tab active" type="button" data-ai-tab="assistant">
-            <i class="bi bi-chat-dots me-1"></i> Assistant
-        </button>
-        <button class="pnd-ai-tab" type="button" data-ai-tab="search">
-            <i class="bi bi-search me-1"></i> Web Search
-        </button>
-    </div>
-
-    <div class="pnd-ai-body">
-
-        <div class="pnd-ai-view active" id="pndAiAssistantView">
-
-            <div class="pnd-ai-messages" id="pndAiMessages">
-                <div class="pnd-ai-message bot">
-                    Hi! I'm Pixel Nest AI. Ask me about our services, projects, websites, e-commerce, hosting, design, photography, videography, or how to start a project.
-                </div>
-            </div>
-
-            <div class="pnd-ai-quick">
-                <button type="button" data-ai-quick="What services does Pixel Nest Digital provide?">Our services</button>
-                <button type="button" data-ai-quick="How can I start a project?">Start a project</button>
-                <button type="button" data-ai-quick="Tell me about web development.">Web development</button>
-                <button type="button" data-ai-quick="How can I contact Pixel Nest Digital?">Contact</button>
-            </div>
-
-            <div class="pnd-ai-typing" id="pndAiTyping">Pixel Nest AI is thinking…</div>
-
-            <div class="pnd-ai-composer">
-                <button class="pnd-ai-icon-btn" id="pndAiVoice" type="button" aria-label="Voice input" title="Voice input">
-                    <i class="bi bi-mic"></i>
-                </button>
-
-                <input
-                    class="pnd-ai-input"
-                    id="pndAiInput"
-                    type="text"
-                    autocomplete="off"
-                    placeholder="Ask Pixel Nest AI..."
-                >
-
-                <button class="pnd-ai-icon-btn pnd-ai-send" id="pndAiSend" type="button" aria-label="Send message">
-                    <i class="bi bi-arrow-up"></i>
-                </button>
-            </div>
-
-            <div class="pnd-ai-hint">
-                Voice input uses your browser's speech-recognition support. AI answers use the local site assistant unless an API endpoint is configured.
-            </div>
-
-        </div>
-
-
-        <div class="pnd-ai-view" id="pndAiSearchView">
-
-            <div class="pnd-search-view">
-                <div class="pnd-engine-row">
-                    <input
-                        class="pnd-engine-input"
-                        id="pndWebSearchInput"
-                        type="search"
-                        placeholder="Search the web..."
-                        autocomplete="off"
-                    >
-                    <button class="pnd-engine-submit" id="pndWebSearchBtn" type="button" aria-label="Search the web">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
-
-                <div class="pnd-engine-options">
-                    <button class="pnd-engine-option" type="button" data-engine="google">
-                        <i class="bi bi-google"></i> Google
-                    </button>
-
-                    <button class="pnd-engine-option" type="button" data-engine="bing">
-                        <i class="bi bi-bing"></i> Bing
-                    </button>
-
-                    <button class="pnd-engine-option" type="button" data-engine="youtube">
-                        <i class="bi bi-youtube"></i> YouTube
-                    </button>
-
-                    <button class="pnd-engine-option" type="button" data-engine="maps">
-                        <i class="bi bi-geo-alt"></i> Maps
-                    </button>
-                </div>
-
-                <div class="pnd-search-note">
-                    Type a query or use the microphone. Selecting a search engine opens the results in a new browser tab.
-                </div>
-            </div>
-
-            <div class="pnd-ai-composer">
-                <button class="pnd-ai-icon-btn" id="pndWebVoice" type="button" aria-label="Voice search" title="Voice search">
-                    <i class="bi bi-mic"></i>
-                </button>
-                <input
-                    class="pnd-ai-input"
-                    id="pndWebSearchBottomInput"
-                    type="search"
-                    placeholder="Voice or type a search..."
-                    autocomplete="off"
-                >
-                <button class="pnd-ai-icon-btn pnd-ai-send" id="pndWebSearchBottomBtn" type="button" aria-label="Search">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-
-        </div>
-
-    </div>
-
-</aside>
-
-
-
-
-<script>
-/* =========================================================
-   PIXEL NEST DIGITAL — AI ASSISTANT / WEB SEARCH / VOICE
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const launcher = document.getElementById("pndAiLauncher");
-    const panel = document.getElementById("pndAiPanel");
-    const closeBtn = document.getElementById("pndAiClose");
-
-    const aiInput = document.getElementById("pndAiInput");
-    const aiSend = document.getElementById("pndAiSend");
-    const aiMessages = document.getElementById("pndAiMessages");
-    const aiTyping = document.getElementById("pndAiTyping");
-    const aiVoice = document.getElementById("pndAiVoice");
-
-    const webInput = document.getElementById("pndWebSearchInput");
-    const webBottomInput = document.getElementById("pndWebSearchBottomInput");
-    const webBtn = document.getElementById("pndWebSearchBtn");
-    const webBottomBtn = document.getElementById("pndWebSearchBottomBtn");
-    const webVoice = document.getElementById("pndWebVoice");
-
-    /* ---------------------------------------------------------
-       CONFIGURATION
-       Leave empty for the built-in site assistant.
-       If you have your own backend, set:
-       window.PND_AI_ENDPOINT = "/api/ai";
-       The endpoint should accept POST JSON:
-       { message: "..." }
-       and return JSON:
-       { reply: "..." }
-    --------------------------------------------------------- */
-
-    const AI_ENDPOINT = window.PND_AI_ENDPOINT || "";
-
-    function openAssistant() {
-        panel.classList.add("active");
-        launcher.setAttribute("aria-expanded", "true");
-        setTimeout(() => aiInput.focus(), 180);
-    }
-
-    function closeAssistant() {
-        panel.classList.remove("active");
-        launcher.setAttribute("aria-expanded", "false");
-    }
-
-    launcher.addEventListener("click", function () {
-        if (panel.classList.contains("active")) {
-            closeAssistant();
-        } else {
-            openAssistant();
-        }
-    });
-
-    closeBtn.addEventListener("click", closeAssistant);
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") closeAssistant();
-    });
-
-    /* ---------------------------------------------------------
-       TABS
-    --------------------------------------------------------- */
-
-    document.querySelectorAll(".pnd-ai-tab").forEach(function (tab) {
-        tab.addEventListener("click", function () {
-
-            document.querySelectorAll(".pnd-ai-tab").forEach(t => t.classList.remove("active"));
-            document.querySelectorAll(".pnd-ai-view").forEach(v => v.classList.remove("active"));
-
-            this.classList.add("active");
-
-            if (this.dataset.aiTab === "assistant") {
-                document.getElementById("pndAiAssistantView").classList.add("active");
-                setTimeout(() => aiInput.focus(), 80);
-            } else {
-                document.getElementById("pndAiSearchView").classList.add("active");
-                setTimeout(() => webInput.focus(), 80);
-            }
-        });
-    });
-
-    /* ---------------------------------------------------------
-       CHAT UI
-    --------------------------------------------------------- */
-
-    function addMessage(text, type) {
-        const message = document.createElement("div");
-        message.className = "pnd-ai-message " + type;
-        message.textContent = text;
-        aiMessages.appendChild(message);
-        aiMessages.scrollTop = aiMessages.scrollHeight;
-    }
-
-    function showTyping(show) {
-        aiTyping.classList.toggle("active", show);
-    }
-
-    function localAssistantReply(message) {
-
-        const q = message.toLowerCase();
-
-        if (/hello|hi|hey|good morning|good evening/.test(q)) {
-            return "Hello! I'm Pixel Nest AI. How can I help you explore Pixel Nest Digital?";
-        }
-
-        if (/service|services|what do you do|offer/.test(q)) {
-            return "Pixel Nest Digital works across website development, web applications, e-commerce, software and database projects, AI and automation, hosting and maintenance, logo and brand design, photography, videography, and digital content.";
-        }
-
-        if (/website|web development|web site/.test(q)) {
-            return "Pixel Nest Digital can help create responsive, modern websites for businesses, brands and organizations. The site can be designed around your goals, content, functionality and future growth.";
-        }
-
-        if (/e.?commerce|online store|shop/.test(q)) {
-            return "For e-commerce, Pixel Nest Digital can build an online storefront with product presentation, categories, responsive UI and the technical features required for your project.";
-        }
-
-        if (/ai|machine learning|automation|robot/.test(q)) {
-            return "AI, machine learning, robotics and automation are part of Pixel Nest Digital's technology direction. For a specific implementation, describe the workflow or problem you want to solve.";
-        }
-
-        if (/logo|brand|branding|design/.test(q)) {
-            return "Pixel Nest Digital also provides logo and brand design, helping turn a business idea into a consistent visual identity.";
-        }
-
-        if (/photo|photography|video|videography|editing|content/.test(q)) {
-            return "Photography, videography, video editing and digital content are included in Pixel Nest Digital's creative services.";
-        }
-
-        if (/host|hosting|maintenance|domain|server/.test(q)) {
-            return "Hosting and maintenance can be included as part of a digital project, helping keep a website or application available and maintained after launch.";
-        }
-
-        if (/contact|start|project|quote|begin|hire/.test(q)) {
-            return "To start a project, use the Contact or Get Started buttons on the page and share what you want to build, your required features, and your preferred timeline.";
-        }
-
-        if (/about|pixel nest|company/.test(q)) {
-            return "Pixel Nest Digital is presented on this website as a technology, creativity and digital-solutions initiative under JO-GEO Ventures.";
-        }
-
-        return "I can help you explore Pixel Nest Digital's services and website. Try asking about web development, e-commerce, AI, automation, hosting, design, photography, videography, or starting a project.";
-    }
-
-    async function getAssistantReply(message) {
-
-        if (!AI_ENDPOINT) {
-            return new Promise(resolve => {
-                setTimeout(() => resolve(localAssistantReply(message)), 450);
-            });
-        }
-
-        try {
-            const response = await fetch(AI_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    message: message
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error("AI request failed");
-            }
-
-            const data = await response.json();
-
-            return data.reply ||
-                   data.message ||
-                   "I received the request, but the AI service did not return a response.";
-        } catch (error) {
-            return "The connected AI service is currently unavailable. You can still use the built-in Pixel Nest assistant and web search.";
-        }
-    }
-
-    async function sendAssistantMessage(customMessage) {
-
-        const message = (customMessage || aiInput.value).trim();
-
-        if (!message) {
-            aiInput.focus();
-            return;
-        }
-
-        addMessage(message, "user");
-        aiInput.value = "";
-
-        showTyping(true);
-
-        const reply = await getAssistantReply(message);
-
-        showTyping(false);
-        addMessage(reply, "bot");
-    }
-
-    aiSend.addEventListener("click", () => sendAssistantMessage());
-
-    aiInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            sendAssistantMessage();
-        }
-    });
-
-    document.querySelectorAll("[data-ai-quick]").forEach(function (button) {
-        button.addEventListener("click", function () {
-            sendAssistantMessage(this.dataset.aiQuick);
-        });
-    });
-
-    /* ---------------------------------------------------------
-       WEB SEARCH
-    --------------------------------------------------------- */
-
-    function performWebSearch(engine, query) {
-
-        query = (query || "").trim();
-
-        if (!query) {
-            webInput.focus();
-            return;
-        }
-
-        const encoded = encodeURIComponent(query);
-        let url = "";
-
-        if (engine === "bing") {
-            url = "https://www.bing.com/search?q=" + encoded;
-        } else if (engine === "youtube") {
-            url = "https://www.youtube.com/results?search_query=" + encoded;
-        } else if (engine === "maps") {
-            url = "https://www.google.com/maps/search/" + encoded;
-        } else {
-            url = "https://www.google.com/search?q=" + encoded;
-        }
-
-        window.open(url, "_blank", "noopener,noreferrer");
-    }
-
-    function syncWebInputs(value) {
-        webInput.value = value;
-        webBottomInput.value = value;
-    }
-
-    webBtn.addEventListener("click", function () {
-        performWebSearch("google", webInput.value);
-    });
-
-    webBottomBtn.addEventListener("click", function () {
-        performWebSearch("google", webBottomInput.value);
-    });
-
-    webInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            performWebSearch("google", this.value);
-        }
-    });
-
-    webBottomInput.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            performWebSearch("google", this.value);
-        }
-    });
-
-    document.querySelectorAll(".pnd-engine-option").forEach(function (button) {
-        button.addEventListener("click", function () {
-            performWebSearch(this.dataset.engine, webInput.value);
-        });
-    });
-
-    /* ---------------------------------------------------------
-       VOICE RECOGNITION
-    --------------------------------------------------------- */
-
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
-
-    function setupVoice(button, targetInput, isSearch) {
-
-        if (!SpeechRecognition) {
-            button.addEventListener("click", function () {
-                alert("Voice input is not supported by this browser. Try Google Chrome or Microsoft Edge.");
-            });
-            return;
-        }
-
-        const recognition = new SpeechRecognition();
-
-        recognition.lang = "en-IN";
-        recognition.interimResults = false;
-        recognition.continuous = false;
-        recognition.maxAlternatives = 1;
-
-        button.addEventListener("click", function () {
-
-            try {
-                recognition.start();
-                button.classList.add("listening");
-            } catch (error) {
-                /* Recognition may already be running. */
-            }
-        });
-
-        recognition.onresult = function (event) {
-
-            const transcript =
-                event.results[0][0].transcript.trim();
-
-            targetInput.value = transcript;
-
-            if (isSearch) {
-                syncWebInputs(transcript);
-                performWebSearch("google", transcript);
-            } else {
-                sendAssistantMessage(transcript);
-            }
-        };
-
-        recognition.onerror = function () {
-            button.classList.remove("listening");
-        };
-
-        recognition.onend = function () {
-            button.classList.remove("listening");
-        };
-    }
-
-    setupVoice(aiVoice, aiInput, false);
-    setupVoice(webVoice, webInput, true);
-
-    /* ---------------------------------------------------------
-       KEYBOARD SHORTCUT
-       Ctrl + K opens the assistant.
-    --------------------------------------------------------- */
-
-    document.addEventListener("keydown", function (event) {
-        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-            event.preventDefault();
-            openAssistant();
-        }
-    });
-
-});
-</script>
 
 </body>
 </html>
