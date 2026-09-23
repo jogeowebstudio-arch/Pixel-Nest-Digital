@@ -1453,6 +1453,83 @@
         }
 
 
+
+        /* =========================================================
+           ALTERNATING SECTION BACKGROUNDS
+           Odd sections keep the existing dark theme.
+           Even sections use a clean white background.
+        ========================================================= */
+
+        .pnd-white-section{
+            background:#FFFFFF;
+            color:#172033;
+        }
+
+        .pnd-white-section .pnd-section-label{
+            color:#2563EB;
+        }
+
+        .pnd-white-section .pnd-section h2,
+        .pnd-white-section h2{
+            color:#101827;
+        }
+
+        .pnd-white-section .pnd-section-head p,
+        .pnd-white-section .pnd-section-head > p{
+            color:#64748B;
+        }
+
+        /* Light version of the benefit cards used on white sections */
+        .pnd-white-section .pnd-benefit{
+            background:#FFFFFF;
+            border-color:#E2E8F0;
+            box-shadow:0 10px 30px rgba(15,23,42,.06);
+        }
+
+        .pnd-white-section .pnd-benefit:hover{
+            border-color:rgba(37,99,235,.28);
+            background:#FFFFFF;
+            box-shadow:0 16px 38px rgba(15,23,42,.10);
+        }
+
+        .pnd-white-section .pnd-benefit-icon{
+            color:#2563EB;
+            background:rgba(37,99,235,.07);
+            border:1px solid rgba(37,99,235,.14);
+        }
+
+        .pnd-white-section .pnd-benefit h4{
+            color:#172033;
+        }
+
+        .pnd-white-section .pnd-benefit p{
+            color:#64748B;
+        }
+
+        /* Keep the monitoring dashboard premium and dark on the white section */
+        .pnd-white-section .pnd-monitor{
+            background:
+                linear-gradient(
+                    145deg,
+                    #111C35,
+                    #07111F
+                );
+            border-color:rgba(37,99,235,.16);
+        }
+
+        /* CTA remains a dark premium card while its outer section is white */
+        .pnd-white-section .pnd-cta{
+            box-shadow:0 30px 75px rgba(15,23,42,.16);
+        }
+
+        /* White-section mobile spacing remains consistent */
+        @media(max-width:767.98px){
+            .pnd-white-section{
+                padding-top:80px;
+                padding-bottom:80px;
+            }
+        }
+
         /* =========================================================
            RESPONSIVE
         ========================================================= */
@@ -2139,11 +2216,11 @@
      MONITORING SECTION
 ========================================================= -->
 
-<section class="pnd-section">
+<section class="pnd-section pnd-white-section">
 
     <div class="container">
 
-        <div class="row align-items-center g-5">
+        <div class="row align-items-center g-5>
 
 
             <!-- DASHBOARD -->
@@ -2541,11 +2618,11 @@
      CTA
 ========================================================= -->
 
-<section class="pnd-section">
+<section class="pnd-section pnd-white-section">
 
     <div class="container">
 
-        <div class="pnd-cta text-center pnd-reveal">
+        <div class="pnd-cta text-center pnd-reveal>
 
             <div class="pnd-section-label">
                 NEED TECHNICAL SUPPORT?
@@ -2801,4 +2878,3 @@
 
 </body>
 </html>
-

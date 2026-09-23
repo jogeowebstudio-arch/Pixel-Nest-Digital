@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Our Team | Pixel Nest Digital</title>
-    <meta name="description" content="Meet the people behind Pixel Nest Digital — developers, designers, creators and digital thinkers building meaningful digital experiences.">
+    <meta
+        name="description"
+        content="Meet the people behind Pixel Nest Digital — developers, designers, creators and digital thinkers building meaningful digital experiences."
+    >
 
     <!-- Bootstrap 5.3.3 -->
     <link
@@ -66,6 +69,10 @@
             overflow-x: hidden;
         }
 
+        body.menu-open {
+            overflow: hidden;
+        }
+
         a {
             text-decoration: none;
         }
@@ -73,6 +80,15 @@
         button,
         input {
             font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #founder,
+        #team {
+            scroll-margin-top: calc(var(--pnd-header-height) + 15px);
         }
 
         /* =========================================================
@@ -134,7 +150,9 @@
             z-index: 2;
         }
 
-        /* LOGO */
+        /* =========================================================
+           LOGO
+        ========================================================= */
         .pnd-logo {
             display: flex;
             align-items: center;
@@ -198,7 +216,9 @@
             letter-spacing: 2px;
         }
 
-        /* SEARCH */
+        /* =========================================================
+           SEARCH
+        ========================================================= */
         .pnd-search {
             flex: 1;
             height: 46px;
@@ -246,10 +266,11 @@
             font-size: 13px;
             font-weight: 700;
             background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-violet));
-            cursor: pointer;
         }
 
-        /* NAV */
+        /* =========================================================
+           NAV
+        ========================================================= */
         .pnd-nav {
             display: flex;
             align-items: center;
@@ -287,7 +308,9 @@
             background: linear-gradient(90deg, var(--pnd-blue), var(--pnd-cyan));
         }
 
-        /* DROPDOWN */
+        /* =========================================================
+           DROPDOWN
+        ========================================================= */
         .pnd-dropdown {
             position: relative;
         }
@@ -299,7 +322,11 @@
             width: 290px;
             padding: 10px;
             border-radius: 16px;
-            background: linear-gradient(145deg, rgba(11,23,42,.98), rgba(17,28,53,.98));
+            background: linear-gradient(
+                145deg,
+                rgba(11,23,42,.98),
+                rgba(17,28,53,.98)
+            );
             border: 1px solid rgba(255,255,255,.1);
             box-shadow: 0 25px 70px rgba(0,0,0,.42);
             opacity: 0;
@@ -308,7 +335,8 @@
             transition: .25s ease;
         }
 
-        .pnd-dropdown:hover .pnd-dropdown-menu {
+        .pnd-dropdown:hover .pnd-dropdown-menu,
+        .pnd-dropdown:focus-within .pnd-dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -335,20 +363,15 @@
             background: rgba(6,182,212,.08);
         }
 
-        .pnd-dropdown-item:hover {
+        .pnd-dropdown-item:hover,
+        .pnd-dropdown-item:focus {
             color: white;
             background: rgba(255,255,255,.06);
         }
 
-        /* HEADER BUTTONS */
-        .pnd-login {
-            color: #dbeafe;
-            padding: 10px 11px;
-            font-size: 13px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
+        /* =========================================================
+           HEADER BUTTONS
+        ========================================================= */
         .pnd-start {
             display: inline-flex;
             align-items: center;
@@ -383,6 +406,10 @@
             font-size: 21px;
         }
 
+        .pnd-menu-btn:hover {
+            background: rgba(255,255,255,.1);
+        }
+
         /* =========================================================
            HERO
         ========================================================= */
@@ -395,18 +422,42 @@
             color: white;
 
             background:
-                radial-gradient(circle at 80% 25%, rgba(37,99,235,.2), transparent 28%),
-                radial-gradient(circle at 25% 80%, rgba(6,182,212,.1), transparent 28%),
-                radial-gradient(circle at 65% 90%, rgba(124,58,237,.13), transparent 30%),
-                linear-gradient(120deg, #050b15, #07111f 48%, #0b1730);
+                radial-gradient(
+                    circle at 80% 25%,
+                    rgba(37,99,235,.2),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 25% 80%,
+                    rgba(6,182,212,.1),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 65% 90%,
+                    rgba(124,58,237,.13),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    120deg,
+                    #050b15,
+                    #07111f 48%,
+                    #0b1730
+                );
         }
 
         .team-hero-grid {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(148,163,184,.05) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.05) 1px,
+                    transparent 1px
+                );
             background-size: 55px 55px;
             mask-image: linear-gradient(to bottom, black, transparent);
             opacity: .5;
@@ -423,14 +474,38 @@
             animation: particleFloat 8s ease-in-out infinite;
         }
 
-        .particle-1 { top: 20%; left: 12%; animation-delay: -1s; }
-        .particle-2 { top: 36%; right: 15%; animation-delay: -3s; }
-        .particle-3 { bottom: 23%; left: 32%; animation-delay: -5s; }
-        .particle-4 { top: 15%; right: 38%; animation-delay: -7s; }
+        .particle-1 {
+            top: 20%;
+            left: 12%;
+            animation-delay: -1s;
+        }
+
+        .particle-2 {
+            top: 36%;
+            right: 15%;
+            animation-delay: -3s;
+        }
+
+        .particle-3 {
+            bottom: 23%;
+            left: 32%;
+            animation-delay: -5s;
+        }
+
+        .particle-4 {
+            top: 15%;
+            right: 38%;
+            animation-delay: -7s;
+        }
 
         @keyframes particleFloat {
-            0%,100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-25px) scale(1.35); }
+            0%,100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-25px) scale(1.35);
+            }
         }
 
         .hero-glow {
@@ -459,7 +534,9 @@
         }
 
         @keyframes glowMove {
-            to { transform: translate(30px, 25px) scale(1.1); }
+            to {
+                transform: translate(30px, 25px) scale(1.1);
+            }
         }
 
         .team-hero-content {
@@ -497,8 +574,13 @@
         }
 
         @keyframes pndPulse {
-            0%,100% { box-shadow: 0 0 0 4px rgba(34,211,238,.08); }
-            50% { box-shadow: 0 0 0 9px rgba(34,211,238,.02); }
+            0%,100% {
+                box-shadow: 0 0 0 4px rgba(34,211,238,.08);
+            }
+
+            50% {
+                box-shadow: 0 0 0 9px rgba(34,211,238,.02);
+            }
         }
 
         .team-hero h1 {
@@ -511,7 +593,14 @@
         }
 
         .gradient-text {
-            background: linear-gradient(100deg, #fff, #bfdbfe 32%, #67e8f9 68%, #a78bfa);
+            background:
+                linear-gradient(
+                    100deg,
+                    #fff,
+                    #bfdbfe 32%,
+                    #67e8f9 68%,
+                    #a78bfa
+                );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -592,13 +681,25 @@
         }
 
         @keyframes scrollBounce {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(7px); }
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(7px);
+            }
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* =========================================================
@@ -688,9 +789,22 @@
             justify-content: center;
             overflow: hidden;
             background:
-                radial-gradient(circle at 50% 35%, rgba(37,99,235,.35), transparent 25%),
-                radial-gradient(circle at 70% 75%, rgba(6,182,212,.18), transparent 25%),
-                linear-gradient(145deg, #050b15, #07111f 55%, #101b38);
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(37,99,235,.35),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 70% 75%,
+                    rgba(6,182,212,.18),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    145deg,
+                    #050b15,
+                    #07111f 55%,
+                    #101b38
+                );
         }
 
         .founder-grid {
@@ -698,8 +812,15 @@
             inset: 0;
             opacity: .32;
             background-image:
-                linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(148,163,184,.07) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.07) 1px,
+                    transparent 1px
+                );
             background-size: 42px 42px;
         }
 
@@ -720,11 +841,18 @@
             border: 1px dashed rgba(167,139,250,.18);
         }
 
-        .founder-orbit::before { inset: 45px; }
-        .founder-orbit::after { inset: 92px; }
+        .founder-orbit::before {
+            inset: 45px;
+        }
+
+        .founder-orbit::after {
+            inset: 92px;
+        }
 
         @keyframes founderOrbit {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .founder-image-wrap {
@@ -734,9 +862,18 @@
             aspect-ratio: 1 / 1.16;
             padding: 5px;
             border-radius: 25px;
-            background: linear-gradient(135deg, #22d3ee, #2563eb, #7c3aed, #22d3ee);
+            background:
+                linear-gradient(
+                    135deg,
+                    #22d3ee,
+                    #2563eb,
+                    #7c3aed,
+                    #22d3ee
+                );
             background-size: 300% 300%;
-            animation: borderShift 7s ease infinite, founderFloat 5s ease-in-out infinite;
+            animation:
+                borderShift 7s ease infinite,
+                founderFloat 5s ease-in-out infinite;
             box-shadow:
                 0 0 0 1px rgba(255,255,255,.08),
                 0 25px 70px rgba(0,0,0,.4),
@@ -744,13 +881,23 @@
         }
 
         @keyframes borderShift {
-            0%,100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%,100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes founderFloat {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-9px); }
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
         }
 
         .founder-placeholder {
@@ -765,7 +912,11 @@
             color: #94a3b8;
             text-align: center;
             background:
-                linear-gradient(145deg, rgba(11,23,42,.96), rgba(17,28,53,.96));
+                linear-gradient(
+                    145deg,
+                    rgba(11,23,42,.96),
+                    rgba(17,28,53,.96)
+                );
         }
 
         .founder-placeholder i {
@@ -891,7 +1042,8 @@
             transition: .25s ease;
         }
 
-        .founder-social:hover {
+        .founder-social:hover,
+        .founder-social:focus {
             color: white;
             border-color: transparent;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
@@ -908,8 +1060,16 @@
             overflow: hidden;
             color: white;
             background:
-                radial-gradient(circle at 15% 20%, rgba(37,99,235,.15), transparent 28%),
-                radial-gradient(circle at 85% 80%, rgba(124,58,237,.13), transparent 30%),
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(37,99,235,.15),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(124,58,237,.13),
+                    transparent 30%
+                ),
                 #050b15;
         }
 
@@ -1045,7 +1205,13 @@
             padding: 1px;
             border-radius: 22px;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(6,182,212,.2), rgba(124,58,237,.18));
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.18),
+                    rgba(6,182,212,.2),
+                    rgba(124,58,237,.18)
+                );
             transition: .35s ease;
         }
 
@@ -1075,7 +1241,9 @@
         }
 
         @keyframes ledRotate {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .member-inner {
@@ -1086,7 +1254,13 @@
             padding: 24px;
             border-radius: 21px;
             overflow: hidden;
-            background: linear-gradient(145deg, #07111f, #0b172a 60%, #111c35);
+            background:
+                linear-gradient(
+                    145deg,
+                    #07111f,
+                    #0b172a 60%,
+                    #111c35
+                );
         }
 
         .member-photo {
@@ -1099,18 +1273,36 @@
             overflow: hidden;
             border-radius: 16px;
             background:
-                radial-gradient(circle at 50% 40%, rgba(37,99,235,.23), transparent 30%),
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(37,99,235,.23),
+                    transparent 30%
+                ),
                 linear-gradient(145deg, #0b172a, #101b35);
             border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
         }
 
         .member-photo::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.09), transparent 65%);
+            background:
+                linear-gradient(
+                    120deg,
+                    transparent 35%,
+                    rgba(255,255,255,.09),
+                    transparent 65%
+                );
             transform: translateX(-120%);
             transition: .6s ease;
+            pointer-events: none;
         }
 
         .member-card:hover .member-photo::after {
@@ -1178,7 +1370,8 @@
             transition: .25s ease;
         }
 
-        .member-social:hover {
+        .member-social:hover,
+        .member-social:focus {
             color: white;
             border-color: rgba(103,232,249,.3);
             background: rgba(6,182,212,.1);
@@ -1205,13 +1398,19 @@
             animation: marqueeMove 28s linear infinite;
         }
 
-        .team-marquee:hover .marquee-track {
+        .team-marquee:hover .marquee-track,
+        .team-marquee:focus-within .marquee-track {
             animation-play-state: paused;
         }
 
         @keyframes marqueeMove {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .marquee-person {
@@ -1257,9 +1456,22 @@
             color: white;
             text-align: center;
             background:
-                radial-gradient(circle at 20% 50%, rgba(37,99,235,.18), transparent 30%),
-                radial-gradient(circle at 80% 40%, rgba(124,58,237,.18), transparent 30%),
-                linear-gradient(135deg, #050b15, #07111f 55%, #0b1730);
+                radial-gradient(
+                    circle at 20% 50%,
+                    rgba(37,99,235,.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 40%,
+                    rgba(124,58,237,.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050b15,
+                    #07111f 55%,
+                    #0b1730
+                );
         }
 
         .team-cta-grid {
@@ -1267,8 +1479,15 @@
             inset: 0;
             opacity: .35;
             background-image:
-                linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(148,163,184,.05) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(148,163,184,.05) 1px,
+                    transparent 1px
+                );
             background-size: 50px 50px;
         }
 
@@ -1362,7 +1581,8 @@
             transition: .2s ease;
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover,
+        .footer-links a:focus {
             color: #67e8f9;
             transform: translateX(3px);
         }
@@ -1384,7 +1604,8 @@
             transition: .2s ease;
         }
 
-        .footer-social:hover {
+        .footer-social:hover,
+        .footer-social:focus {
             color: white;
             background: rgba(37,99,235,.18);
             border-color: rgba(103,232,249,.2);
@@ -1405,7 +1626,9 @@
         .reveal {
             opacity: 0;
             transform: translateY(28px);
-            transition: opacity .8s ease, transform .8s ease;
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
         }
 
         .reveal.show {
@@ -1413,9 +1636,17 @@
             transform: translateY(0);
         }
 
-        .delay-1 { transition-delay: .08s; }
-        .delay-2 { transition-delay: .16s; }
-        .delay-3 { transition-delay: .24s; }
+        .delay-1 {
+            transition-delay: .08s;
+        }
+
+        .delay-2 {
+            transition-delay: .16s;
+        }
+
+        .delay-3 {
+            transition-delay: .24s;
+        }
 
         /* =========================================================
            MOBILE MENU
@@ -1444,7 +1675,13 @@
             height: 100vh;
             padding: 25px;
             overflow-y: auto;
-            background: linear-gradient(160deg, #07111f, #0b172a, #111c35);
+            background:
+                linear-gradient(
+                    160deg,
+                    #07111f,
+                    #0b172a,
+                    #111c35
+                );
             border-left: 1px solid rgba(255,255,255,.1);
             transform: translateX(100%);
             transition: .35s ease;
@@ -1469,6 +1706,10 @@
             color: white;
             background: rgba(255,255,255,.06);
             font-size: 20px;
+        }
+
+        .pnd-mobile-close:hover {
+            background: rgba(255,255,255,.1);
         }
 
         .pnd-mobile-search {
@@ -1509,6 +1750,7 @@
         }
 
         .pnd-mobile-link:hover,
+        .pnd-mobile-link:focus,
         .pnd-mobile-link.active {
             color: white;
             background: rgba(255,255,255,.06);
@@ -1533,6 +1775,12 @@
             background: transparent;
             font-size: 14px;
             font-weight: 700;
+            text-align: left;
+        }
+
+        .pnd-mobile-services button:hover {
+            color: white;
+            background: rgba(255,255,255,.04);
         }
 
         .pnd-mobile-service-list {
@@ -1549,6 +1797,11 @@
             padding: 9px 0;
             color: #94a3b8;
             font-size: 12px;
+        }
+
+        .pnd-mobile-service-list a:hover,
+        .pnd-mobile-service-list a:focus {
+            color: #67e8f9;
         }
 
         .pnd-mobile-actions {
@@ -1604,7 +1857,6 @@
 
         @media (max-width: 900px) {
             .pnd-nav,
-            .pnd-login,
             .pnd-start {
                 display: none;
             }
@@ -1812,6 +2064,25 @@
                 transition-duration: .01ms !important;
             }
         }
+
+        .pnd-logo-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pnd-logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+
     </style>
 </head>
 
@@ -1821,21 +2092,31 @@
      HEADER
 ========================================================= -->
 <header class="pnd-header" id="siteHeader">
+
     <div class="container-fluid px-3 px-lg-4">
+
         <div class="pnd-header-inner">
 
-            <a href="index.html" class="pnd-logo" aria-label="Pixel Nest Digital Home">
-                <div class="pnd-logo-icon">
-                    <span>PN</span>
-                </div>
+           <a
+    href="index.html"
+    class="pnd-logo"
+    aria-label="Pixel Nest Digital Home"
+>
+    <div class="pnd-logo-icon">
+        <img src="img/01_PRIMARY_LOGO_TRANSPARENT.png" alt="Pixel Nest Digital Logo">
+    </div>
 
-                <div class="pnd-logo-name">
-                    <strong>Pixel Nest</strong>
-                    <small>DIGITAL</small>
-                </div>
-            </a>
+    <div class="pnd-logo-name">
+        <strong>Pixel Nest</strong>
+        <small>DIGITAL</small>
+    </div>
+</a>
 
-            <form class="pnd-search" id="desktopSearch">
+            <form
+                class="pnd-search"
+                id="desktopSearch"
+                role="search"
+            >
                 <div class="pnd-search-icon">
                     <i class="bi bi-search"></i>
                 </div>
@@ -1845,82 +2126,116 @@
                     id="searchInput"
                     placeholder="Search services, projects, team..."
                     autocomplete="off"
+                    aria-label="Search this page"
                 >
 
-                <button type="submit">Search</button>
+                <button type="submit">
+                    Search
+                </button>
             </form>
 
-            <nav class="pnd-nav" aria-label="Primary navigation">
+            <nav
+                class="pnd-nav"
+                aria-label="Primary navigation"
+            >
 
                 <a href="index.html" class="pnd-nav-link">
-                    <i class="bi bi-house"></i>
                     Home
                 </a>
 
                 <div class="pnd-dropdown">
-                    <a href="#" class="pnd-nav-link">
-                        <i class="bi bi-grid"></i>
+
+                    <a
+                        href="javascript:void(0)"
+                        class="pnd-nav-link"
+                        aria-haspopup="true"
+                    >
                         Services
-                        <i class="bi bi-chevron-down" style="font-size:9px;"></i>
+                        <i
+                            class="bi bi-chevron-down"
+                            style="font-size:9px;"
+                        ></i>
                     </a>
 
                     <div class="pnd-dropdown-menu">
-                        <a href="web-development.html" class="pnd-dropdown-item">
+
+                        <a
+                            href="web-development.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-code-slash"></i>
                             <span>Web Development</span>
                         </a>
 
-                        <a href="software-projects.html" class="pnd-dropdown-item">
+                        <a
+                            href="software-projects.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-window-stack"></i>
-                            <span>Software & Projects</span>
+                            <span>Software &amp; Projects</span>
                         </a>
 
-                        <a href="branding.html" class="pnd-dropdown-item">
+                        <a
+                            href="branding.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-palette"></i>
-                            <span>Branding & Design</span>
+                            <span>Branding &amp; Design</span>
                         </a>
 
-                        <a href="photography.html" class="pnd-dropdown-item">
+                        <a
+                            href="photography.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-camera"></i>
                             <span>Photography</span>
                         </a>
 
-                        <a href="video-production.html" class="pnd-dropdown-item">
+                        <a
+                            href="video-production.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-play-btn"></i>
                             <span>Video Production</span>
                         </a>
 
-                        <a href="hosting.html" class="pnd-dropdown-item">
+                        <a
+                            href="hosting.html"
+                            class="pnd-dropdown-item"
+                        >
                             <i class="bi bi-cloud"></i>
-                            <span>Hosting & Maintenance</span>
+                            <span>Hosting &amp; Maintenance</span>
                         </a>
+
                     </div>
                 </div>
 
                 <a href="about.html" class="pnd-nav-link">
-                    <i class="bi bi-info-circle"></i>
                     About
                 </a>
 
-                <a href="team.html" class="pnd-nav-link active">
-                    <i class="bi bi-people"></i>
+                <a
+                    href="team.html"
+                    class="pnd-nav-link active"
+                    aria-current="page"
+                >
                     Team
                 </a>
 
-                <a href="projects.html" class="pnd-nav-link">
-                    <i class="bi bi-kanban"></i>
-                    Projects
+                <a href="portfolio.html" class="pnd-nav-link">
+                    Portfolio
                 </a>
 
                 <a href="contact.html" class="pnd-nav-link">
-                    <i class="bi bi-envelope"></i>
                     Contact
                 </a>
+
             </nav>
 
-            <a href="login.html" class="pnd-login">Login</a>
-
-            <a href="contact.html" class="pnd-start">
+            <a
+                href="start-project.html"
+                class="pnd-start"
+            >
                 Start a Project
                 <i class="bi bi-arrow-up-right"></i>
             </a>
@@ -1930,6 +2245,8 @@
                 id="menuOpen"
                 type="button"
                 aria-label="Open menu"
+                aria-controls="mobileMenu"
+                aria-expanded="false"
             >
                 <i class="bi bi-list"></i>
             </button>
@@ -1941,14 +2258,28 @@
 <!-- =========================================================
      MOBILE MENU
 ========================================================= -->
-<div class="pnd-mobile-overlay" id="mobileOverlay"></div>
+<div
+    class="pnd-mobile-overlay"
+    id="mobileOverlay"
+    aria-hidden="true"
+></div>
 
-<aside class="pnd-mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+<aside
+    class="pnd-mobile-menu"
+    id="mobileMenu"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+>
 
     <div class="pnd-mobile-top">
-        <a href="index.html" class="pnd-logo">
+
+        <a
+            href="index.html"
+            class="pnd-logo"
+            tabindex="-1"
+        >
             <div class="pnd-logo-icon">
-                <span>PN</span>
+                <span>PND</span>
             </div>
 
             <div class="pnd-logo-name">
@@ -1965,71 +2296,133 @@
         >
             <i class="bi bi-x-lg"></i>
         </button>
+
     </div>
 
-    <form class="pnd-mobile-search" id="mobileSearch">
+    <form
+        class="pnd-mobile-search"
+        id="mobileSearch"
+        role="search"
+    >
         <i class="bi bi-search"></i>
+
         <input
             type="search"
             id="mobileSearchInput"
             placeholder="Search..."
+            aria-label="Search this page"
         >
     </form>
 
-    <a href="index.html" class="pnd-mobile-link">
+    <a
+        href="index.html"
+        class="pnd-mobile-link"
+        tabindex="-1"
+    >
         <i class="bi bi-house"></i>
         Home
     </a>
 
     <div class="pnd-mobile-services">
-        <button type="button" id="servicesToggle">
+
+        <button
+            type="button"
+            id="servicesToggle"
+            aria-expanded="false"
+            aria-controls="mobileServiceList"
+        >
             <span>
                 <i class="bi bi-grid me-2"></i>
                 Services
             </span>
-            <i class="bi bi-chevron-down" id="servicesChevron"></i>
+
+            <i
+                class="bi bi-chevron-down"
+                id="servicesChevron"
+            ></i>
         </button>
 
-        <div class="pnd-mobile-service-list" id="mobileServiceList">
-            <a href="web-development.html">Web Development</a>
-            <a href="software-projects.html">Software & Projects</a>
-            <a href="branding.html">Branding & Design</a>
-            <a href="photography.html">Photography</a>
-            <a href="video-production.html">Video Production</a>
-            <a href="hosting.html">Hosting & Maintenance</a>
+        <div
+            class="pnd-mobile-service-list"
+            id="mobileServiceList"
+        >
+            <a href="web-development.html" tabindex="-1">
+                Web Development
+            </a>
+
+            <a href="software-projects.html" tabindex="-1">
+                Software &amp; Projects
+            </a>
+
+            <a href="branding.html" tabindex="-1">
+                Branding &amp; Design
+            </a>
+
+            <a href="photography.html" tabindex="-1">
+                Photography
+            </a>
+
+            <a href="video-production.html" tabindex="-1">
+                Video Production
+            </a>
+
+            <a href="hosting.html" tabindex="-1">
+                Hosting &amp; Maintenance
+            </a>
         </div>
+
     </div>
 
-    <a href="about.html" class="pnd-mobile-link">
+    <a
+        href="about.html"
+        class="pnd-mobile-link"
+        tabindex="-1"
+    >
         <i class="bi bi-info-circle"></i>
         About
     </a>
 
-    <a href="team.html" class="pnd-mobile-link active">
+    <a
+        href="team.html"
+        class="pnd-mobile-link active"
+        aria-current="page"
+        tabindex="-1"
+    >
         <i class="bi bi-people"></i>
         Team
     </a>
 
-    <a href="projects.html" class="pnd-mobile-link">
-        <i class="bi bi-kanban"></i>
-        Projects
+    <a
+        href="portfolio.html"
+        class="pnd-mobile-link"
+        tabindex="-1"
+    >
+        <i class="bi bi-grid-3x3-gap"></i>
+        Portfolio
     </a>
 
-    <a href="contact.html" class="pnd-mobile-link">
+    <a
+        href="contact.html"
+        class="pnd-mobile-link"
+        tabindex="-1"
+    >
         <i class="bi bi-envelope"></i>
         Contact
     </a>
 
     <div class="pnd-mobile-actions">
-        <a href="login.html" class="btn-secondary-pnd justify-content-center">
-            <i class="bi bi-box-arrow-in-right"></i>
-            Login
-        </a>
 
-        <a href="contact.html" class="btn-primary-pnd justify-content-center">
+      
+
+        <a
+            href="start-project.html"
+            class="btn-primary-pnd justify-content-center"
+            tabindex="-1"
+        >
             Start a Project
             <i class="bi bi-arrow-up-right"></i>
         </a>
+
     </div>
 
 </aside>
@@ -2052,6 +2445,7 @@
     <span class="hero-particle particle-4"></span>
 
     <div class="container">
+
         <div class="team-hero-content">
 
             <div class="team-eyebrow">
@@ -2062,7 +2456,9 @@
             <h1>
                 Meet the minds
                 <br>
-                <span class="gradient-text">behind Pixel Nest.</span>
+                <span class="gradient-text">
+                    behind Pixel Nest.
+                </span>
             </h1>
 
             <p>
@@ -2072,37 +2468,53 @@
             </p>
 
             <div class="hero-actions">
-                <a href="#team" class="btn-primary-pnd">
+
+                <a
+                    href="#team"
+                    class="btn-primary-pnd"
+                >
                     Meet Our Team
                     <i class="bi bi-arrow-down"></i>
                 </a>
 
-                <a href="#founder" class="btn-secondary-pnd">
+                <a
+                    href="#founder"
+                    class="btn-secondary-pnd"
+                >
                     <i class="bi bi-person-badge"></i>
                     Meet the Founder
                 </a>
+
             </div>
 
         </div>
+
     </div>
 
     <div class="hero-scroll">
         Scroll to explore
         <i class="bi bi-chevron-double-down"></i>
     </div>
+
 </section>
 
 <!-- =========================================================
      FOUNDER
 ========================================================= -->
-<section class="founder-section" id="founder">
+<section
+    class="founder-section"
+    id="founder"
+>
 
     <div class="section-orb"></div>
 
     <div class="container">
 
         <div class="section-heading reveal">
-            <div class="section-label">Leadership</div>
+
+            <div class="section-label">
+                Leadership
+            </div>
 
             <h2>
                 The vision starts with
@@ -2113,6 +2525,7 @@
                 A closer look at the person driving the vision, direction
                 and creative energy behind Pixel Nest Digital.
             </p>
+
         </div>
 
         <div class="founder-card reveal">
@@ -2120,23 +2533,44 @@
             <div class="founder-visual">
 
                 <div class="founder-grid"></div>
+
                 <div class="founder-orbit"></div>
 
-                <!-- Replace this placeholder with your founder image.
-                     Example:
-                     <img src="images/founder.jpg" alt="Roshan George">
+                <!--
+                    REPLACE THE PLACEHOLDER BELOW WITH:
+
+                    <img
+                        src="images/founder.jpg"
+                        alt="Roshan George, Founder and CEO of Pixel Nest Digital"
+                        loading="eager"
+                        decoding="async"
+                    >
                 -->
+
                 <div class="founder-image-wrap">
+
                     <div class="founder-placeholder">
+
                         <i class="bi bi-person"></i>
-                        <strong>Founder Image</strong>
-                        <span>Replace with founder photo</span>
+
+                        <strong>
+                            Founder Image
+                        </strong>
+
+                        <span>
+                            Replace with founder photo
+                        </span>
+
                     </div>
+
                 </div>
 
                 <div class="founder-badge">
                     <i class="bi bi-stars"></i>
-                    <span>Founder • Creative Direction • Technology</span>
+
+                    <span>
+                        Founder • Creative Direction • Technology
+                    </span>
                 </div>
 
             </div>
@@ -2144,13 +2578,15 @@
             <div class="founder-content">
 
                 <div class="founder-kicker">
-                    Founder & CEO
+                    Founder &amp; CEO
                 </div>
 
-                <h3>Roshan George</h3>
+                <h3>
+                    Roshan George
+                </h3>
 
                 <span class="founder-role">
-                    Founder & CEO · Pixel Nest Digital
+                    Founder &amp; CEO · Pixel Nest Digital
                 </span>
 
                 <p>
@@ -2167,31 +2603,50 @@
                 </p>
 
                 <div class="founder-quote">
+
                     <p>
                         <i class="bi bi-quote"></i>
+
                         Build with purpose. Create with clarity. Leave every
                         project better than you found it.
                     </p>
+
                 </div>
 
                 <div class="founder-socials">
-                    <a href="#" class="founder-social" aria-label="LinkedIn">
+
+                    <a
+                        href="#"
+                        class="founder-social"
+                        aria-label="LinkedIn"
+                    >
                         <i class="bi bi-linkedin"></i>
                     </a>
 
-                    <a href="#" class="founder-social" aria-label="Instagram">
+                    <a
+                        href="#"
+                        class="founder-social"
+                        aria-label="Instagram"
+                    >
                         <i class="bi bi-instagram"></i>
                     </a>
 
-                    <a href="#" class="founder-social" aria-label="Facebook">
+                    <a
+                        href="#"
+                        class="founder-social"
+                        aria-label="Facebook"
+                    >
                         <i class="bi bi-facebook"></i>
                     </a>
 
-                    <a href="mailto:hello@pixelnestdigital.com"
-                       class="founder-social"
-                       aria-label="Email">
+                    <a
+                        href="mailto:hello@pixelnestdigital.com"
+                        class="founder-social"
+                        aria-label="Email Pixel Nest Digital"
+                    >
                         <i class="bi bi-envelope"></i>
                     </a>
+
                 </div>
 
             </div>
@@ -2199,6 +2654,7 @@
         </div>
 
     </div>
+
 </section>
 
 <!-- =========================================================
@@ -2209,6 +2665,7 @@
     <div class="container">
 
         <div class="values-heading reveal">
+
             <div class="section-label justify-content-center">
                 What Drives Us
             </div>
@@ -2216,7 +2673,9 @@
             <h2>
                 More than a team.
                 <br>
-                <span class="gradient-text">A way of thinking.</span>
+                <span class="gradient-text">
+                    A way of thinking.
+                </span>
             </h2>
 
             <p>
@@ -2224,78 +2683,108 @@
                 creative energy. Together, those differences become the
                 Pixel Nest approach.
             </p>
+
         </div>
 
         <div class="row g-4">
 
             <div class="col-md-6 col-lg-3 reveal delay-1">
+
                 <div class="value-card">
+
                     <div class="value-icon">
                         <i class="bi bi-lightbulb"></i>
                     </div>
 
-                    <h3>Innovation</h3>
+                    <h3>
+                        Innovation
+                    </h3>
 
                     <p>
                         We explore better ways to solve problems and turn
                         ideas into useful digital experiences.
                     </p>
+
                 </div>
+
             </div>
 
             <div class="col-md-6 col-lg-3 reveal delay-2">
+
                 <div class="value-card">
+
                     <div class="value-icon">
                         <i class="bi bi-palette"></i>
                     </div>
 
-                    <h3>Creativity</h3>
+                    <h3>
+                        Creativity
+                    </h3>
 
                     <p>
                         Design is not decoration. It is how ideas become
                         clear, memorable and meaningful.
                     </p>
+
                 </div>
+
             </div>
 
             <div class="col-md-6 col-lg-3 reveal delay-3">
+
                 <div class="value-card">
+
                     <div class="value-icon">
                         <i class="bi bi-code-slash"></i>
                     </div>
 
-                    <h3>Technology</h3>
+                    <h3>
+                        Technology
+                    </h3>
 
                     <p>
                         We combine development, systems and modern tools
                         to build solutions that are practical and scalable.
                     </p>
+
                 </div>
+
             </div>
 
             <div class="col-md-6 col-lg-3 reveal">
+
                 <div class="value-card">
+
                     <div class="value-icon">
                         <i class="bi bi-bullseye"></i>
                     </div>
 
-                    <h3>Precision</h3>
+                    <h3>
+                        Precision
+                    </h3>
 
                     <p>
                         Small details matter. We care about quality,
                         consistency and the experience behind every project.
                     </p>
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <!-- =========================================================
      TEAM
 ========================================================= -->
-<section class="team-section" id="team">
+<section
+    class="team-section"
+    id="team"
+>
 
     <div class="container">
 
@@ -2321,192 +2810,391 @@
 
             <!-- MEMBER 1 -->
             <article class="member-card reveal delay-1">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
-                        <!-- Replace with:
-                             <img src="images/team-1.jpg" alt="Team member">
+
+                        <!--
+                            Replace placeholder with:
+
+                            <img
+                                src="images/team-1.jpg"
+                                alt="Team Member One — Lead Developer"
+                                loading="lazy"
+                                decoding="async"
+                            >
                         -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member One</h3>
-                            <p>Lead Developer</p>
+
+                            <h3>
+                                Team Member One
+                            </h3>
+
+                            <p>
+                                Lead Developer
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="LinkedIn">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member One LinkedIn"
+                            >
                                 <i class="bi bi-linkedin"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member One"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
             <!-- MEMBER 2 -->
             <article class="member-card reveal delay-2">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
+
+                        <!--
+                            <img
+                                src="images/team-2.jpg"
+                                alt="Team Member Two — UI/UX Designer"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member Two</h3>
-                            <p>UI/UX Designer</p>
+
+                            <h3>
+                                Team Member Two
+                            </h3>
+
+                            <p>
+                                UI/UX Designer
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="LinkedIn">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member Two LinkedIn"
+                            >
                                 <i class="bi bi-linkedin"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member Two"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
             <!-- MEMBER 3 -->
             <article class="member-card reveal delay-3">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
+
+                        <!--
+                            <img
+                                src="images/team-3.jpg"
+                                alt="Team Member Three — Creative Director"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member Three</h3>
-                            <p>Creative Director</p>
+
+                            <h3>
+                                Team Member Three
+                            </h3>
+
+                            <p>
+                                Creative Director
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="Instagram">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member Three Instagram"
+                            >
                                 <i class="bi bi-instagram"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member Three"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
             <!-- MEMBER 4 -->
             <article class="member-card reveal delay-1">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
+
+                        <!--
+                            <img
+                                src="images/team-4.jpg"
+                                alt="Team Member Four — Photographer"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member Four</h3>
-                            <p>Photographer</p>
+
+                            <h3>
+                                Team Member Four
+                            </h3>
+
+                            <p>
+                                Photographer
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="Instagram">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member Four Instagram"
+                            >
                                 <i class="bi bi-instagram"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member Four"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
             <!-- MEMBER 5 -->
             <article class="member-card reveal delay-2">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
+
+                        <!--
+                            <img
+                                src="images/team-5.jpg"
+                                alt="Team Member Five — Video Producer"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member Five</h3>
-                            <p>Video Producer</p>
+
+                            <h3>
+                                Team Member Five
+                            </h3>
+
+                            <p>
+                                Video Producer
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="Instagram">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member Five Instagram"
+                            >
                                 <i class="bi bi-instagram"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member Five"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
             <!-- MEMBER 6 -->
             <article class="member-card reveal delay-3">
+
                 <div class="member-inner">
 
                     <div class="member-photo">
+
+                        <!--
+                            <img
+                                src="images/team-6.jpg"
+                                alt="Team Member Six — Digital Strategist"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        -->
+
                         <div class="member-placeholder">
                             <i class="bi bi-person"></i>
                             <span>Profile Image</span>
                         </div>
+
                     </div>
 
                     <div class="member-info">
+
                         <div>
-                            <h3>Team Member Six</h3>
-                            <p>Digital Strategist</p>
+
+                            <h3>
+                                Team Member Six
+                            </h3>
+
+                            <p>
+                                Digital Strategist
+                            </p>
+
                         </div>
 
                         <div class="member-socials">
-                            <a href="#" class="member-social" aria-label="LinkedIn">
+
+                            <a
+                                href="#"
+                                class="member-social"
+                                aria-label="Team Member Six LinkedIn"
+                            >
                                 <i class="bi bi-linkedin"></i>
                             </a>
-                            <a href="#" class="member-social" aria-label="Email">
+
+                            <a
+                                href="mailto:hello@pixelnestdigital.com"
+                                class="member-social"
+                                aria-label="Email Team Member Six"
+                            >
                                 <i class="bi bi-envelope"></i>
                             </a>
+
                         </div>
+
                     </div>
 
                 </div>
+
             </article>
 
         </div>
 
     </div>
 
-    <!-- MOVING STRIP -->
+    <!-- =====================================================
+         MOVING STRIP
+    ====================================================== -->
     <div class="team-marquee">
 
         <div class="marquee-track">
@@ -2515,6 +3203,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-code-slash"></i>
                 </div>
+
                 <div>
                     <strong>Development</strong>
                     <span>Building digital systems</span>
@@ -2525,6 +3214,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-palette"></i>
                 </div>
+
                 <div>
                     <strong>Design</strong>
                     <span>Creating visual experiences</span>
@@ -2535,6 +3225,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-camera"></i>
                 </div>
+
                 <div>
                     <strong>Photography</strong>
                     <span>Capturing the moment</span>
@@ -2545,6 +3236,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-camera-reels"></i>
                 </div>
+
                 <div>
                     <strong>Video</strong>
                     <span>Turning stories into motion</span>
@@ -2555,6 +3247,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-stars"></i>
                 </div>
+
                 <div>
                     <strong>Creativity</strong>
                     <span>Ideas that stand out</span>
@@ -2565,17 +3258,20 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-cloud"></i>
                 </div>
+
                 <div>
                     <strong>Digital Solutions</strong>
                     <span>Technology with purpose</span>
                 </div>
             </div>
 
-            <!-- Duplicate set for seamless animation -->
+            <!-- DUPLICATE SET -->
+
             <div class="marquee-person">
                 <div class="marquee-avatar">
                     <i class="bi bi-code-slash"></i>
                 </div>
+
                 <div>
                     <strong>Development</strong>
                     <span>Building digital systems</span>
@@ -2586,6 +3282,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-palette"></i>
                 </div>
+
                 <div>
                     <strong>Design</strong>
                     <span>Creating visual experiences</span>
@@ -2596,6 +3293,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-camera"></i>
                 </div>
+
                 <div>
                     <strong>Photography</strong>
                     <span>Capturing the moment</span>
@@ -2606,6 +3304,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-camera-reels"></i>
                 </div>
+
                 <div>
                     <strong>Video</strong>
                     <span>Turning stories into motion</span>
@@ -2616,6 +3315,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-stars"></i>
                 </div>
+
                 <div>
                     <strong>Creativity</strong>
                     <span>Ideas that stand out</span>
@@ -2626,6 +3326,7 @@
                 <div class="marquee-avatar">
                     <i class="bi bi-cloud"></i>
                 </div>
+
                 <div>
                     <strong>Digital Solutions</strong>
                     <span>Technology with purpose</span>
@@ -2633,6 +3334,7 @@
             </div>
 
         </div>
+
     </div>
 
 </section>
@@ -2645,9 +3347,13 @@
     <div class="team-cta-grid"></div>
 
     <div class="container">
+
         <div class="team-cta-content reveal">
 
-            <div class="section-label justify-content-center" style="color:#67e8f9;">
+            <div
+                class="section-label justify-content-center"
+                style="color:#67e8f9;"
+            >
                 Let's Create Together
             </div>
 
@@ -2662,12 +3368,16 @@
                 you're building, what you need and where you want to go.
             </p>
 
-            <a href="contact.html" class="btn-primary-pnd">
+            <a
+                href="start-project.html"
+                class="btn-primary-pnd"
+            >
                 Start a Project
                 <i class="bi bi-arrow-up-right"></i>
             </a>
 
         </div>
+
     </div>
 
 </section>
@@ -2685,9 +3395,17 @@
 
             <div class="col-lg-5">
 
-                <a href="index.html" class="footer-brand">
-                    <div class="footer-brand-icon">PN</div>
-                    <strong>Pixel Nest Digital</strong>
+                <a
+                    href="index.html"
+                    class="footer-brand"
+                >
+                    <div class="footer-brand-icon">
+                        PN
+                    </div>
+
+                    <strong>
+                        Pixel Nest Digital
+                    </strong>
                 </a>
 
                 <p class="footer-description">
@@ -2697,19 +3415,35 @@
 
                 <div class="footer-socials">
 
-                    <a href="#" class="footer-social" aria-label="Instagram">
+                    <a
+                        href="#"
+                        class="footer-social"
+                        aria-label="Instagram"
+                    >
                         <i class="bi bi-instagram"></i>
                     </a>
 
-                    <a href="#" class="footer-social" aria-label="Facebook">
+                    <a
+                        href="#"
+                        class="footer-social"
+                        aria-label="Facebook"
+                    >
                         <i class="bi bi-facebook"></i>
                     </a>
 
-                    <a href="#" class="footer-social" aria-label="LinkedIn">
+                    <a
+                        href="#"
+                        class="footer-social"
+                        aria-label="LinkedIn"
+                    >
                         <i class="bi bi-linkedin"></i>
                     </a>
 
-                    <a href="#" class="footer-social" aria-label="YouTube">
+                    <a
+                        href="#"
+                        class="footer-social"
+                        aria-label="YouTube"
+                    >
                         <i class="bi bi-youtube"></i>
                     </a>
 
@@ -2719,12 +3453,14 @@
 
             <div class="col-6 col-lg-2">
 
-                <div class="footer-title">Company</div>
+                <div class="footer-title">
+                    Company
+                </div>
 
                 <div class="footer-links">
                     <a href="about.html">About</a>
                     <a href="team.html">Our Team</a>
-                    <a href="projects.html">Projects</a>
+                    <a href="portfolio.html">Portfolio</a>
                     <a href="contact.html">Contact</a>
                 </div>
 
@@ -2732,30 +3468,54 @@
 
             <div class="col-6 col-lg-2">
 
-                <div class="footer-title">Services</div>
+                <div class="footer-title">
+                    Services
+                </div>
 
                 <div class="footer-links">
-                    <a href="web-development.html">Web Development</a>
-                    <a href="software-projects.html">Software Projects</a>
-                    <a href="branding.html">Branding</a>
-                    <a href="photography.html">Photography</a>
-                    <a href="video-production.html">Video</a>
+                    <a href="web-development.html">
+                        Web Development
+                    </a>
+
+                    <a href="software-projects.html">
+                        Software Projects
+                    </a>
+
+                    <a href="branding.html">
+                        Branding
+                    </a>
+
+                    <a href="photography.html">
+                        Photography
+                    </a>
+
+                    <a href="video-production.html">
+                        Video
+                    </a>
+
+                    <a href="hosting.html">
+                        Hosting
+                    </a>
                 </div>
 
             </div>
 
             <div class="col-12 col-lg-3">
 
-                <div class="footer-title">Let's Talk</div>
+                <div class="footer-title">
+                    Let's Talk
+                </div>
 
                 <div class="footer-links">
+
                     <a href="mailto:hello@pixelnestdigital.com">
                         hello@pixelnestdigital.com
                     </a>
 
-                    <a href="contact.html">
+                    <a href="start-project.html">
                         Start a project
                     </a>
+
                 </div>
 
             </div>
@@ -2763,95 +3523,247 @@
         </div>
 
         <div class="footer-bottom">
+
             <span>
-                © <span id="currentYear"></span> Pixel Nest Digital. All rights reserved.
+                © <span id="currentYear"></span>
+                Pixel Nest Digital.
+                All rights reserved.
             </span>
 
             <span>
                 Technology • Creativity • Digital Solutions
             </span>
+
         </div>
 
     </div>
 
 </footer>
 
-
-<!-- Bootstrap JS -->
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+    "use strict";
+
     /* =========================================================
-       HEADER SCROLL
+       ELEMENTS
     ========================================================= */
     const siteHeader = document.getElementById("siteHeader");
 
-    window.addEventListener("scroll", () => {
-        siteHeader.classList.toggle("scrolled", window.scrollY > 20);
-    }, { passive: true });
-
-
-    /* =========================================================
-       MOBILE MENU
-    ========================================================= */
     const menuOpen = document.getElementById("menuOpen");
     const menuClose = document.getElementById("menuClose");
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileOverlay = document.getElementById("mobileOverlay");
 
+    const servicesToggle =
+        document.getElementById("servicesToggle");
+
+    const mobileServiceList =
+        document.getElementById("mobileServiceList");
+
+    const servicesChevron =
+        document.getElementById("servicesChevron");
+
+
+    /* =========================================================
+       HEADER SCROLL
+    ========================================================= */
+    function updateHeader() {
+        siteHeader.classList.toggle(
+            "scrolled",
+            window.scrollY > 20
+        );
+    }
+
+    updateHeader();
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+    function setMobileLinksTabIndex(isOpen) {
+
+        const mobileLinks =
+            mobileMenu.querySelectorAll(
+                "a, input, button"
+            );
+
+        mobileLinks.forEach(element => {
+
+            if (element === menuClose) {
+                return;
+            }
+
+            element.tabIndex = isOpen ? 0 : -1;
+
+        });
+    }
+
+
     function openMobileMenu() {
+
         mobileMenu.classList.add("active");
         mobileOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        mobileOverlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        menuOpen.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        document.body.classList.add("menu-open");
+
+        setMobileLinksTabIndex(true);
+
+        menuClose.focus();
     }
+
 
     function closeMobileMenu() {
+
         mobileMenu.classList.remove("active");
         mobileOverlay.classList.remove("active");
-        document.body.style.overflow = "";
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        mobileOverlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        menuOpen.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        document.body.classList.remove("menu-open");
+
+        setMobileLinksTabIndex(false);
+
+        menuOpen.focus();
     }
 
-    menuOpen.addEventListener("click", openMobileMenu);
-    menuClose.addEventListener("click", closeMobileMenu);
-    mobileOverlay.addEventListener("click", closeMobileMenu);
 
-    document.querySelectorAll(".pnd-mobile-link, .pnd-mobile-service-list a")
+    menuOpen.addEventListener(
+        "click",
+        openMobileMenu
+    );
+
+    menuClose.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+    mobileOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+    /* =========================================================
+       CLOSE MENU AFTER NAVIGATION
+    ========================================================= */
+    document
+        .querySelectorAll(
+            ".pnd-mobile-link, .pnd-mobile-service-list a, .pnd-mobile-actions a"
+        )
         .forEach(link => {
-            link.addEventListener("click", closeMobileMenu);
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
         });
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeMobileMenu();
+
+    /* =========================================================
+       ESCAPE KEY
+    ========================================================= */
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                mobileMenu.classList.contains("active")
+            ) {
+                closeMobileMenu();
+            }
+
         }
-    });
+    );
 
 
     /* =========================================================
        MOBILE SERVICES
     ========================================================= */
-    const servicesToggle = document.getElementById("servicesToggle");
-    const mobileServiceList = document.getElementById("mobileServiceList");
-    const servicesChevron = document.getElementById("servicesChevron");
+    servicesToggle.addEventListener(
+        "click",
+        () => {
 
-    servicesToggle.addEventListener("click", () => {
-        mobileServiceList.classList.toggle("active");
+            const isOpen =
+                mobileServiceList.classList.toggle("active");
 
-        if (mobileServiceList.classList.contains("active")) {
-            servicesChevron.classList.remove("bi-chevron-down");
-            servicesChevron.classList.add("bi-chevron-up");
-        } else {
-            servicesChevron.classList.remove("bi-chevron-up");
-            servicesChevron.classList.add("bi-chevron-down");
+            servicesToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            if (isOpen) {
+
+                servicesChevron.classList.remove(
+                    "bi-chevron-down"
+                );
+
+                servicesChevron.classList.add(
+                    "bi-chevron-up"
+                );
+
+            } else {
+
+                servicesChevron.classList.remove(
+                    "bi-chevron-up"
+                );
+
+                servicesChevron.classList.add(
+                    "bi-chevron-down"
+                );
+
+            }
+
         }
-    });
+    );
 
 
     /* =========================================================
        SEARCH
     ========================================================= */
     function handleSearch(inputElement) {
-        const query = inputElement.value.trim().toLowerCase();
+
+        const query =
+            inputElement.value.trim().toLowerCase();
 
         if (!query) {
             inputElement.focus();
@@ -2859,104 +3771,261 @@
         }
 
         const searchableSections = [
-            { keywords: ["team", "people", "member"], target: "#team" },
-            { keywords: ["founder", "ceo", "roshan", "leadership"], target: "#founder" },
-            { keywords: ["value", "innovation", "creativity", "technology"], target: ".values-section" },
-            { keywords: ["contact", "project", "start"], target: ".team-cta" }
+
+            {
+                keywords: [
+                    "team",
+                    "people",
+                    "member",
+                    "members",
+                    "staff"
+                ],
+                target: "#team"
+            },
+
+            {
+                keywords: [
+                    "founder",
+                    "ceo",
+                    "roshan",
+                    "leadership"
+                ],
+                target: "#founder"
+            },
+
+            {
+                keywords: [
+                    "value",
+                    "values",
+                    "innovation",
+                    "creativity",
+                    "technology",
+                    "precision"
+                ],
+                target: ".values-section"
+            },
+
+            {
+                keywords: [
+                    "service",
+                    "services",
+                    "development",
+                    "design",
+                    "branding",
+                    "photography",
+                    "video",
+                    "hosting"
+                ],
+                target: ".values-section"
+            },
+
+            {
+                keywords: [
+                    "contact",
+                    "project",
+                    "start",
+                    "cta"
+                ],
+                target: ".team-cta"
+            }
+
         ];
 
-        const match = searchableSections.find(item =>
-            item.keywords.some(keyword => query.includes(keyword))
-        );
+        const match =
+            searchableSections.find(item =>
+                item.keywords.some(
+                    keyword => query.includes(keyword)
+                )
+            );
 
         if (match) {
-            document.querySelector(match.target)?.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+
+            const target =
+                document.querySelector(match.target);
+
+            if (target) {
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
         } else {
-            alert("No matching section found. Try: team, founder, services, values or project.");
+
+            alert(
+                "No matching section found. Try: team, founder, values, services or project."
+            );
+
         }
+
     }
 
-    document.getElementById("desktopSearch").addEventListener("submit", (event) => {
-        event.preventDefault();
-        handleSearch(document.getElementById("searchInput"));
-    });
 
-    document.getElementById("mobileSearch").addEventListener("submit", (event) => {
-        event.preventDefault();
-        handleSearch(document.getElementById("mobileSearchInput"));
-    });
+    document
+        .getElementById("desktopSearch")
+        .addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                handleSearch(
+                    document.getElementById("searchInput")
+                );
+
+            }
+        );
+
+
+    document
+        .getElementById("mobileSearch")
+        .addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                handleSearch(
+                    document.getElementById(
+                        "mobileSearchInput"
+                    )
+                );
+
+            }
+        );
 
 
     /* =========================================================
        SCROLL REVEAL
     ========================================================= */
-    const revealElements = document.querySelectorAll(".reveal");
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
 
-        entries.forEach(entry => {
+    if ("IntersectionObserver" in window) {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                observer.unobserve(entry.target);
-            }
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
 
-        });
+                    entries.forEach(entry => {
 
-    }, {
-        threshold: 0.12
-    });
+                        if (entry.isIntersecting) {
 
-    revealElements.forEach(element => revealObserver.observe(element));
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(
+            element =>
+                revealObserver.observe(element)
+        );
+
+    } else {
+
+        revealElements.forEach(
+            element =>
+                element.classList.add("show")
+        );
+
+    }
 
 
     /* =========================================================
        CURRENT YEAR
     ========================================================= */
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.getElementById(
+        "currentYear"
+    ).textContent = new Date().getFullYear();
 
 
     /* =========================================================
-       SMOOTH ANCHOR OFFSET
+       SMOOTH ANCHOR SCROLL
     ========================================================= */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(anchor => {
 
-        anchor.addEventListener("click", function(event) {
+            anchor.addEventListener(
+                "click",
+                function(event) {
 
-            const targetId = this.getAttribute("href");
+                    const targetId =
+                        this.getAttribute("href");
 
-            if (!targetId || targetId === "#") {
-                return;
-            }
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        event.preventDefault();
+                        return;
+                    }
 
-            const target = document.querySelector(targetId);
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
 
-            if (!target) {
-                return;
-            }
+                    if (!target) {
+                        return;
+                    }
 
-            event.preventDefault();
+                    event.preventDefault();
 
-            const headerHeight = siteHeader.offsetHeight;
+                    const headerHeight =
+                        siteHeader.offsetHeight;
 
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                headerHeight -
-                15;
+                    const targetPosition =
+                        target.getBoundingClientRect().top +
+                        window.scrollY -
+                        headerHeight -
+                        15;
 
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth"
+                    });
 
+                }
+            );
 
         });
 
-    });
+
+    /* =========================================================
+       PREVENT MOBILE MENU FROM STAYING OPEN ON RESIZE
+    ========================================================= */
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 900 &&
+                mobileMenu.classList.contains("active")
+            ) {
+                closeMobileMenu();
+            }
+
+        }
+    );
+
 </script>
 
 </body>

@@ -1,2109 +1,4515 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Web Applications | Pixel Nest Digital
+    </title>
+
+    <meta
+        name="description"
+        content="Pixel Nest Digital develops custom web applications using modern frontend technologies, Python, PHP, ASP.NET, databases and scalable application architectures."
+    >
+
+    <meta
+        name="keywords"
+        content="web applications, Python web development, Django, Flask, PHP, ASP.NET, C#, SQL Server, MySQL, PostgreSQL, SQLite, Pixel Nest Digital"
+    >
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
 
-<title>Web Applications | Pixel Nest Digital</title>
+    <!-- =========================================================
+         BOOTSTRAP
+    ========================================================== -->
 
-<meta name="description" content="Pixel Nest Digital develops custom web applications, dashboards, portals, database-connected systems and business solutions.">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<style>
 
-    :root{
-        --pnd-space:#07111F;
-        --pnd-space-2:#0B172A;
-        --pnd-space-3:#111C35;
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
 
-        --pnd-blue:#2563EB;
-        --pnd-blue-dark:#1D4ED8;
-        --pnd-cyan:#06B6D4;
-        --pnd-violet:#7C3AED;
+    <link
+        rel="icon"
+        href="img/01_PRIMARY_LOGO_TRANSPARENT.png">
 
-        --pnd-white:#F8FAFC;
-        --pnd-text:#E2E8F0;
-        --pnd-muted:#94A3B8;
 
-        --pnd-border:rgba(148,163,184,.16);
-        --pnd-glass:rgba(255,255,255,.055);
-    }
+    <style>
 
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+        /* =====================================================
+           ROOT
+        ===================================================== */
 
-    html{
-        scroll-behavior:smooth;
-    }
+        :root {
 
-    body{
-        font-family:"DM Sans",sans-serif;
-        background:var(--pnd-space);
-        color:var(--pnd-text);
-        overflow-x:hidden;
-    }
+            --pnd-bg:
+                #07111F;
 
-    a{
-        text-decoration:none;
-    }
+            --pnd-bg-two:
+                #0B172A;
 
-    /* =====================================================
-       LED STRIP
-    ===================================================== */
+            --pnd-card:
+                #111C35;
 
-    .pnd-led{
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:3px;
-        z-index:9999;
+            --pnd-card-light:
+                #15233F;
 
-        background:
-            linear-gradient(
-                90deg,
-                var(--pnd-blue),
-                var(--pnd-cyan),
-                var(--pnd-violet),
-                var(--pnd-blue)
-            );
+            --pnd-blue:
+                #2563EB;
 
-        background-size:300% 100%;
+            --pnd-cyan:
+                #06B6D4;
 
-        animation:ledMove 5s linear infinite;
+            --pnd-violet:
+                #7C3AED;
 
-        box-shadow:
-            0 0 10px rgba(37,99,235,.8),
-            0 0 24px rgba(6,182,212,.45);
-    }
+            --pnd-white:
+                #FFFFFF;
 
-    @keyframes ledMove{
-        0%{
-            background-position:0% 50%;
+            --pnd-text:
+                #D9E4F2;
+
+            --pnd-muted:
+                #8FA2BB;
+
+            --pnd-border:
+                rgba(255,255,255,.09);
+
+            --pnd-radius:
+                22px;
+
         }
 
-        100%{
-            background-position:300% 50%;
-        }
-    }
 
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
-    /* =====================================================
-       NAVBAR
-    ===================================================== */
-
-    .pnd-navbar{
-        position:sticky;
-        top:0;
-        z-index:1000;
-
-        height:76px;
-
-        display:flex;
-        align-items:center;
-
-        background:white;
-
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
-
-        border-bottom:1px solid var(--pnd-border);
-    }
-
-    .pnd-nav-inner{
-        width:100%;
-
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-    }
-
-    .pnd-brand{
-        display:flex;
-        align-items:center;
-        gap:14px;
-
-        color:white;
-    }
-
-    .pnd-brand-mark{
-        width:52px;
-        height:52px;
-
-        border-radius:13px;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        font-size:19px;
-        font-weight:800;
-
-        color:white;
-
-        background:
-            linear-gradient(
-                135deg,
-                var(--pnd-blue),
-                var(--pnd-violet)
-            );
-
-        box-shadow:
-            0 0 24px rgba(37,99,235,.40);
-    }
-
-    .pnd-brand-text{
-        line-height:1;
-    }
-
-    .pnd-brand-text strong{
-        display:block;
-
-        font-size:19px;
-        letter-spacing:.4px;
-    }
-
-    .pnd-brand-text span{
-        display:block;
-
-        margin-top:6px;
-
-        color:var(--pnd-muted);
-
-        font-size:10px;
-        letter-spacing:2.2px;
-    }
-
-    .pnd-nav{
-        display:flex;
-        align-items:center;
-        gap:27px;
-    }
-
-    .pnd-nav a{
-        color:#D4AF37;
-
-        font-size:14px;
-        font-weight:600;
-
-        transition:.3s;
-    }
-
-    .pnd-nav a:hover,
-    .pnd-nav a.active{
-        color:#FFFFFF;
-    }
-
-    .pnd-nav-cta{
-        padding:11px 18px;
-
-        border-radius:12px;
-
-        color:white !important;
-
-        background:
-            linear-gradient(
-                135deg,
-                var(--pnd-blue),
-                var(--pnd-violet)
-            );
-
-        box-shadow:
-            0 8px 25px rgba(37,99,235,.22);
-    }
-
-    .pnd-mobile-btn{
-        display:none;
-
-        width:43px;
-        height:43px;
-
-        border-radius:12px;
-
-        color:black;
-
-        
-        background:var(--pnd-glass);
-
-        border:1px solid var(--pnd-border);
-
-        font-size:20px;
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .pnd-hero{
-        position:relative;
-
-        min-height:730px;
-
-        display:flex;
-        align-items:center;
-
-        padding:95px 0 85px;
-
-        overflow:hidden;
-    }
-
-    .hero-grid{
-        position:absolute;
-        inset:0;
-
-        opacity:.22;
-
-        background-image:
-            linear-gradient(
-                rgba(148,163,184,.08) 1px,
-                transparent 1px
-            ),
-            linear-gradient(
-                90deg,
-                rgba(148,163,184,.08) 1px,
-                transparent 1px
-            );
-
-        background-size:60px 60px;
-
-        mask-image:
-            linear-gradient(
-                to bottom,
-                black,
-                transparent 90%
-            );
-    }
-
-    .hero-glow{
-        position:absolute;
-
-        border-radius:50%;
-
-        filter:blur(90px);
-
-        pointer-events:none;
-    }
-
-    .hero-glow.one{
-        width:420px;
-        height:420px;
-
-        left:-170px;
-        top:-100px;
-
-        background:rgba(37,99,235,.18);
-    }
-
-    .hero-glow.two{
-        width:450px;
-        height:450px;
-
-        right:-180px;
-        top:100px;
-
-        background:rgba(124,58,237,.15);
-    }
-
-    .hero-content{
-        position:relative;
-        z-index:2;
-    }
-
-    .pnd-eyebrow{
-        display:inline-flex;
-        align-items:center;
-        gap:9px;
-
-        padding:8px 13px;
-
-        border-radius:50px;
-
-        border:1px solid rgba(6,182,212,.22);
-
-        background:rgba(6,182,212,.055);
-
-        color:#67E8F9;
-
-        font-size:11px;
-        font-weight:800;
-        letter-spacing:2px;
-
-        margin-bottom:25px;
-    }
-
-    .eyebrow-dot{
-        width:7px;
-        height:7px;
-
-        border-radius:50%;
-
-        background:#22D3EE;
-
-        box-shadow:0 0 12px #22D3EE;
-
-        animation:blink 1.4s infinite;
-    }
-
-    @keyframes blink{
-        50%{
-            opacity:.25;
-        }
-    }
-
-    .pnd-hero h1{
-        max-width:850px;
-
-        color:white;
-
-        font-size:
-            clamp(
-                45px,
-                6vw,
-                80px
-            );
-
-        line-height:.98;
-
-        letter-spacing:-3px;
-
-        font-weight:800;
-    }
-
-    .gradient-text{
-        background:
-            linear-gradient(
-                90deg,
-                #60A5FA,
-                #22D3EE,
-                #A78BFA
-            );
-
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-    }
-
-    .pnd-hero-desc{
-        max-width:670px;
-
-        margin:28px 0;
-
-        color:var(--pnd-muted);
-
-        font-size:17px;
-
-        line-height:1.8;
-    }
-
-    .hero-actions{
-        display:flex;
-        flex-wrap:wrap;
-        gap:13px;
-    }
-
-    .pnd-btn{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:9px;
-
-        padding:14px 21px;
-
-        border-radius:13px;
-
-        font-size:14px;
-        font-weight:700;
-
-        transition:.3s;
-    }
-
-    .pnd-btn-primary{
-        color:white;
-
-        background:
-            linear-gradient(
-                135deg,
-                var(--pnd-blue),
-                var(--pnd-violet)
-            );
-
-        box-shadow:
-            0 15px 35px rgba(37,99,235,.2);
-    }
-
-    .pnd-btn-primary:hover{
-        color:white;
-
-        transform:translateY(-3px);
-
-        box-shadow:
-            0 20px 45px rgba(37,99,235,.3);
-    }
-
-    .pnd-btn-outline{
-        color:white;
-
-        border:1px solid var(--pnd-border);
-
-        background:var(--pnd-glass);
-    }
-
-    .pnd-btn-outline:hover{
-        color:white;
-
-        border-color:
-            rgba(6,182,212,.5);
-
-        transform:translateY(-3px);
-    }
-
-
-    /* =====================================================
-       APPLICATION VISUAL
-    ===================================================== */
-
-    .app-stage{
-        position:relative;
-
-        min-height:500px;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
-
-    .app-window{
-        position:relative;
-
-        width:min(100%,520px);
-
-        overflow:hidden;
-
-        border-radius:24px;
-
-        background:
-            rgba(10,23,42,.82);
-
-        border:1px solid
-            rgba(148,163,184,.18);
-
-        backdrop-filter:blur(22px);
-
-        box-shadow:
-            0 40px 90px rgba(0,0,0,.45),
-            0 0 60px rgba(37,99,235,.08);
-
-        animation:appFloat 5s ease-in-out infinite;
-    }
-
-    @keyframes appFloat{
-
-        0%,100%{
-            transform:
-                translateY(0)
-                rotateX(2deg)
-                rotateY(-4deg);
+        * {
+            box-sizing:
+                border-box;
         }
 
-        50%{
-            transform:
-                translateY(-14px)
-                rotateX(2deg)
-                rotateY(-4deg);
-        }
-    }
 
-    .app-led{
-        height:3px;
+        html {
 
-        background:
-            linear-gradient(
-                90deg,
-                var(--pnd-blue),
-                var(--pnd-cyan),
-                var(--pnd-violet)
-            );
+            scroll-behavior:
+                smooth;
 
-        background-size:200% 100%;
-
-        animation:ledMove 3s linear infinite;
-    }
-
-    .app-top{
-        height:55px;
-
-        display:flex;
-        align-items:center;
-
-        gap:7px;
-
-        padding:0 17px;
-
-        border-bottom:1px solid var(--pnd-border);
-    }
-
-    .app-dot{
-        width:9px;
-        height:9px;
-
-        border-radius:50%;
-
-        background:#64748B;
-    }
-
-    .app-url{
-        flex:1;
-
-        height:28px;
-
-        margin-left:8px;
-
-        padding:0 10px;
-
-        display:flex;
-        align-items:center;
-
-        border-radius:8px;
-
-        background:rgba(255,255,255,.04);
-
-        color:#64748B;
-
-        font-size:10px;
-    }
-
-    .app-body{
-        display:grid;
-
-        grid-template-columns:105px 1fr;
-
-        min-height:370px;
-    }
-
-    .app-sidebar{
-        padding:20px 13px;
-
-        border-right:1px solid var(--pnd-border);
-
-        background:rgba(255,255,255,.018);
-    }
-
-    .side-logo{
-        width:55px;
-        height:9px;
-
-        border-radius:10px;
-
-        margin:3px 0 25px 7px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #2563EB,
-                #22D3EE
-            );
-    }
-
-    .side-item{
-        height:28px;
-
-        margin-bottom:8px;
-
-        border-radius:7px;
-
-        background:rgba(255,255,255,.045);
-    }
-
-    .side-item.active{
-        background:
-            linear-gradient(
-                90deg,
-                rgba(37,99,235,.5),
-                rgba(6,182,212,.18)
-            );
-    }
-
-    .app-main{
-        padding:22px;
-    }
-
-    .app-heading{
-        width:45%;
-        height:11px;
-
-        border-radius:10px;
-
-        background:#E2E8F0;
-
-        margin-bottom:8px;
-    }
-
-    .app-subheading{
-        width:28%;
-        height:6px;
-
-        border-radius:10px;
-
-        background:#475569;
-
-        margin-bottom:24px;
-    }
-
-    .dashboard-cards{
-        display:grid;
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        gap:9px;
-
-        margin-bottom:13px;
-    }
-
-    .dashboard-card{
-        min-height:70px;
-
-        padding:12px;
-
-        border-radius:11px;
-
-        border:1px solid
-            rgba(148,163,184,.08);
-
-        background:
-            rgba(255,255,255,.035);
-    }
-
-    .dash-line{
-        width:45%;
-        height:5px;
-
-        border-radius:10px;
-
-        background:#64748B;
-
-        margin-bottom:10px;
-    }
-
-    .dash-value{
-        width:65%;
-        height:10px;
-
-        border-radius:5px;
-
-        background:#E2E8F0;
-    }
-
-    .dashboard-large{
-        min-height:125px;
-
-        padding:15px;
-
-        border-radius:12px;
-
-        border:1px solid
-            rgba(148,163,184,.08);
-
-        background:
-            rgba(255,255,255,.035);
-    }
-
-    .fake-chart{
-        height:75px;
-
-        display:flex;
-        align-items:flex-end;
-
-        gap:7px;
-
-        margin-top:13px;
-    }
-
-    .chart-bar{
-        flex:1;
-
-        border-radius:4px 4px 0 0;
-
-        background:
-            linear-gradient(
-                to top,
-                #2563EB,
-                #22D3EE
-            );
-
-        animation:chartPulse 2s ease-in-out infinite alternate;
-    }
-
-    .chart-bar:nth-child(1){height:35%}
-    .chart-bar:nth-child(2){height:58%}
-    .chart-bar:nth-child(3){height:42%}
-    .chart-bar:nth-child(4){height:75%}
-    .chart-bar:nth-child(5){height:55%}
-    .chart-bar:nth-child(6){height:90%}
-    .chart-bar:nth-child(7){height:68%}
-
-    @keyframes chartPulse{
-        from{
-            opacity:.65;
         }
 
-        to{
-            opacity:1;
+
+        body {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            background:
+                var(--pnd-bg);
+
+            color:
+                var(--pnd-text);
+
+            overflow-x:
+                hidden;
+
         }
-    }
 
 
-    /* =====================================================
-       SECTION
-    ===================================================== */
+        a {
 
-    .pnd-section{
-        position:relative;
+            text-decoration:
+                none;
 
-        padding:105px 0;
-    }
-
-    .pnd-section-alt{
-        background:
-            radial-gradient(
-                circle at 15% 20%,
-                rgba(37,99,235,.07),
-                transparent 30%
-            ),
-            var(--pnd-space-2);
-    }
-
-    /* Requested white sections */
-    #applications.pnd-section-alt,
-    .pnd-section[data-white-section],
-    .pnd-section-alt.pnd-data-core,
-    .pnd-section-alt.pnd-built-for-use{
-        background:#FFFFFF;
-    }
-
-    /* =====================================================
-       WHITE SECTION THEME
-    ===================================================== */
-
-    #applications.pnd-section-alt,
-    .pnd-data-core,
-    .pnd-built-for-use{
-        background:#FFFFFF;
-    }
-
-    #applications.pnd-section-alt .section-title,
-    .pnd-data-core .section-title,
-    .pnd-built-for-use .section-title{
-        color:#07111F;
-    }
-
-    #applications.pnd-section-alt .section-desc,
-    .pnd-data-core .section-desc,
-    .pnd-built-for-use .section-desc{
-        color:#64748B;
-    }
-
-    #applications.pnd-section-alt .app-card{
-        background:#FFFFFF;
-        border-color:rgba(15,23,42,.12);
-        box-shadow:0 12px 35px rgba(15,23,42,.06);
-    }
-
-    #applications.pnd-section-alt .app-card h3,
-    .pnd-data-core .feature-list li,
-    .pnd-built-for-use .security-card h3{
-        color:#07111F;
-    }
-
-    #applications.pnd-section-alt .app-card p,
-    .pnd-built-for-use .security-card p{
-        color:#64748B;
-    }
-
-    .pnd-data-core .database-panel{
-        background:#F8FAFC;
-        border-color:rgba(15,23,42,.12);
-    }
-
-    .pnd-data-core .feature-list{
-        color:#334155;
-    }
-
-    .pnd-data-core .feature-list li{
-        border-color:rgba(15,23,42,.08);
-    }
-
-    .pnd-built-for-use .security-card{
-        background:#FFFFFF;
-        border-color:rgba(15,23,42,.12);
-        box-shadow:0 12px 35px rgba(15,23,42,.06);
-    }
-
-    .section-head{
-        max-width:760px;
-
-        margin-bottom:55px;
-    }
-
-    .section-label{
-        color:#22D3EE;
-
-        font-size:11px;
-        letter-spacing:2px;
-        font-weight:800;
-
-        margin-bottom:12px;
-    }
-
-    .section-title{
-        color:white;
-
-        font-size:
-            clamp(
-                34px,
-                4vw,
-                56px
-            );
-
-        line-height:1.05;
-
-        letter-spacing:-2px;
-
-        font-weight:800;
-    }
-
-    .section-desc{
-        max-width:670px;
-
-        color:var(--pnd-muted);
-
-        line-height:1.8;
-
-        margin-top:18px;
-    }
-
-
-    /* =====================================================
-       APPLICATION CARDS
-    ===================================================== */
-
-    .app-card{
-        position:relative;
-
-        height:100%;
-
-        overflow:hidden;
-
-        padding:29px;
-
-        border-radius:22px;
-
-        background:
-            rgba(255,255,255,.045);
-
-        border:1px solid
-            var(--pnd-border);
-
-        transition:
-            transform .4s,
-            border-color .4s,
-            box-shadow .4s;
-    }
-
-    .app-card::before{
-        content:"";
-
-        position:absolute;
-
-        top:0;
-        left:-100%;
-
-        width:100%;
-        height:2px;
-
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                #22D3EE,
-                #7C3AED,
-                transparent
-            );
-
-        transition:.6s;
-    }
-
-    .app-card:hover{
-        transform:translateY(-8px);
-
-        border-color:
-            rgba(37,99,235,.38);
-
-        box-shadow:
-            0 25px 60px rgba(0,0,0,.25);
-    }
-
-    .app-card:hover::before{
-        left:100%;
-    }
-
-    .app-icon{
-        width:54px;
-        height:54px;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        border-radius:16px;
-
-        margin-bottom:22px;
-
-        color:#67E8F9;
-
-        font-size:23px;
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(37,99,235,.17),
-                rgba(124,58,237,.17)
-            );
-
-        border:1px solid
-            rgba(6,182,212,.14);
-    }
-
-    .app-card h3{
-        color:white;
-
-        font-size:20px;
-
-        font-weight:800;
-
-        margin-bottom:10px;
-    }
-
-    .app-card p{
-        color:var(--pnd-muted);
-
-        font-size:14px;
-
-        line-height:1.75;
-
-        margin:0;
-    }
-
-    .app-index{
-        position:absolute;
-
-        right:20px;
-        top:18px;
-
-        color:
-            rgba(148,163,184,.18);
-
-        font-size:12px;
-
-        font-weight:800;
-    }
-
-
-    /* =====================================================
-       WORKFLOW
-    ===================================================== */
-
-    .workflow{
-        position:relative;
-    }
-
-    .workflow::before{
-        content:"";
-
-        position:absolute;
-
-        top:42px;
-        left:7%;
-        right:7%;
-
-        height:1px;
-
-        background:
-            linear-gradient(
-                90deg,
-                var(--pnd-blue),
-                var(--pnd-cyan),
-                var(--pnd-violet)
-            );
-
-        opacity:.45;
-    }
-
-    .workflow-card{
-        position:relative;
-
-        text-align:center;
-
-        padding:15px;
-    }
-
-    .workflow-number{
-        position:relative;
-        z-index:2;
-
-        width:58px;
-        height:58px;
-
-        margin:0 auto 20px;
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
-
-        border-radius:50%;
-
-        color:white;
-
-        font-size:13px;
-        font-weight:800;
-
-        background:
-            var(--pnd-space-2);
-
-        border:1px solid
-            rgba(37,99,235,.55);
-
-        box-shadow:
-            0 0 25px
-            rgba(37,99,235,.18);
-    }
-
-    .workflow-card h3{
-        color:white;
-
-        font-size:17px;
-
-        font-weight:800;
-
-        margin-bottom:8px;
-    }
-
-    .workflow-card p{
-        color:var(--pnd-muted);
-
-        font-size:13px;
-
-        line-height:1.65;
-    }
-
-
-    /* =====================================================
-       CAPABILITIES
-    ===================================================== */
-
-    .capability-box{
-        padding:30px;
-
-        height:100%;
-
-        border-radius:22px;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(37,99,235,.09),
-                rgba(124,58,237,.04)
-            );
-
-        border:1px solid
-            var(--pnd-border);
-    }
-
-    .capability-title{
-        color:white;
-
-        font-size:22px;
-
-        font-weight:800;
-
-        margin-bottom:20px;
-    }
-
-    .capability-list{
-        list-style:none;
-
-        padding:0;
-        margin:0;
-    }
-
-    .capability-list li{
-        display:flex;
-
-        align-items:flex-start;
-
-        gap:12px;
-
-        padding:13px 0;
-
-        border-bottom:
-            1px solid
-            rgba(148,163,184,.09);
-
-        color:var(--pnd-muted);
-
-        font-size:14px;
-
-        line-height:1.6;
-    }
-
-    .capability-list li:last-child{
-        border-bottom:0;
-    }
-
-    .capability-list i{
-        color:#22D3EE;
-
-        margin-top:2px;
-    }
-
-
-    /* =====================================================
-       DATABASE VISUAL
-    ===================================================== */
-
-    .database-panel{
-        position:relative;
-
-        padding:35px;
-
-        min-height:370px;
-
-        border-radius:25px;
-
-        border:1px solid
-            var(--pnd-border);
-
-        background:
-            rgba(255,255,255,.035);
-
-        overflow:hidden;
-    }
-
-    .database-panel::after{
-        content:"";
-
-        position:absolute;
-
-        width:280px;
-        height:280px;
-
-        border-radius:50%;
-
-        right:-130px;
-        bottom:-130px;
-
-        background:
-            rgba(6,182,212,.09);
-
-        filter:blur(55px);
-    }
-
-    .db-cylinder{
-        position:absolute;
-
-        left:50%;
-        top:50%;
-
-        transform:
-            translate(-50%,-50%);
-
-        width:190px;
-        height:230px;
-    }
-
-    .db-layer{
-        position:absolute;
-
-        left:0;
-
-        width:190px;
-        height:55px;
-
-        border-radius:50%;
-
-        border:2px solid
-            rgba(34,211,238,.65);
-
-        background:
-            linear-gradient(
-                90deg,
-                rgba(37,99,235,.28),
-                rgba(124,58,237,.2)
-            );
-
-        box-shadow:
-            0 0 25px
-            rgba(6,182,212,.12);
-    }
-
-    .db-layer:nth-child(1){
-        top:0;
-    }
-
-    .db-layer:nth-child(2){
-        top:55px;
-    }
-
-    .db-layer:nth-child(3){
-        top:110px;
-    }
-
-    .db-layer:nth-child(4){
-        top:165px;
-    }
-
-    .db-lines{
-        position:absolute;
-
-        left:50%;
-        top:50%;
-
-        width:300px;
-        height:300px;
-
-        transform:
-            translate(-50%,-50%);
-
-        border:
-            1px dashed
-            rgba(6,182,212,.2);
-
-        border-radius:50%;
-
-        animation:dbRotate 15s linear infinite;
-    }
-
-    @keyframes dbRotate{
-        to{
-            transform:
-                translate(-50%,-50%)
-                rotate(360deg);
         }
-    }
 
 
-    /* =====================================================
-       SECURITY / PERFORMANCE
-    ===================================================== */
+        img {
 
-    .security-card{
-        padding:28px;
+            max-width:
+                100%;
 
-        border-radius:20px;
+        }
 
-        border:1px solid
-            var(--pnd-border);
 
-        background:
-            rgba(255,255,255,.035);
-    }
+        ::selection {
 
-    .security-card i{
-        color:#67E8F9;
+            background:
+                var(--pnd-blue);
 
-        font-size:26px;
+            color:
+                #fff;
 
-        margin-bottom:17px;
-    }
+        }
 
-    .security-card h3{
-        color:white;
 
-        font-size:18px;
+        /* =====================================================
+           SCROLLBAR
+        ===================================================== */
 
-        font-weight:800;
+        ::-webkit-scrollbar {
 
-        margin-bottom:9px;
-    }
+            width:
+                8px;
 
-    .security-card p{
-        color:var(--pnd-muted);
+        }
 
-        font-size:13px;
 
-        line-height:1.7;
+        ::-webkit-scrollbar-track {
 
-        margin:0;
-    }
+            background:
+                #050C17;
 
+        }
 
-    /* =====================================================
-       CTA
-    ===================================================== */
 
-    .pnd-cta{
-        position:relative;
+        ::-webkit-scrollbar-thumb {
 
-        overflow:hidden;
+            background:
+                linear-gradient(
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
 
-        padding:90px 25px;
+            border-radius:
+                20px;
 
-        text-align:center;
+        }
 
-        border-top:1px solid
-            var(--pnd-border);
 
-        border-bottom:1px solid
-            var(--pnd-border);
+        /* =====================================================
+           TOP LED
+        ===================================================== */
 
-        background:
-            radial-gradient(
-                circle at 50% 100%,
-                rgba(37,99,235,.18),
-                transparent 50%
-            ),
-            var(--pnd-space-2);
-    }
+        .pnd-top-led {
 
-    .pnd-cta h2{
-        color:white;
+            position:
+                fixed;
 
-        font-size:
-            clamp(
-                35px,
-                5vw,
-                60px
-            );
+            top:
+                0;
 
-        font-weight:800;
+            left:
+                0;
 
-        letter-spacing:-2px;
-    }
+            width:
+                100%;
 
-    .pnd-cta p{
-        max-width:620px;
+            height:
+                2px;
 
-        margin:17px auto 27px;
+            z-index:
+                9999;
 
-        color:var(--pnd-muted);
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet),
+                    var(--pnd-blue)
+                );
 
-        line-height:1.7;
-    }
+            background-size:
+                300% 100%;
 
+            animation:
+                pndLed 8s linear infinite;
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+        }
 
-    footer{
-        padding:55px 0 25px;
 
-        background:#040B15;
+        @keyframes pndLed {
 
-        border-top:1px solid
-            var(--pnd-border);
-    }
+            0% {
+                background-position:
+                    0% 50%;
+            }
 
-    .footer-brand{
-        color:white;
+            100% {
+                background-position:
+                    300% 50%;
+            }
 
-        font-size:19px;
+        }
 
-        font-weight:800;
-    }
 
-    footer p{
-        color:#64748B;
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-        font-size:13px;
+        .pnd-header {
 
-        line-height:1.7;
-    }
+            position:
+                fixed;
 
-    .footer-links{
-        display:flex;
+            top:
+                2px;
 
-        flex-wrap:wrap;
+            left:
+                0;
 
-        gap:18px;
-    }
+            width:
+                100%;
 
-    .footer-links a{
-        color:#64748B;
+            z-index:
+                1000;
 
-        font-size:13px;
+            background:
+                rgba(7,17,31,.88);
 
-        transition:.3s;
-    }
+            backdrop-filter:
+                blur(20px);
 
-    .footer-links a:hover{
-        color:#22D3EE;
-    }
+            -webkit-backdrop-filter:
+                blur(20px);
 
-    .copyright{
-        padding-top:25px;
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
 
-        margin-top:30px;
+            transition:
+                .3s ease;
 
-        border-top:1px solid
-            var(--pnd-border);
+        }
 
-        color:#475569;
 
-        font-size:12px;
-    }
-
-
-    /* =====================================================
-       REVEAL
-    ===================================================== */
-
-    .reveal{
-        opacity:0;
-
-        transform:
-            translateY(30px);
-
-        transition:
-            opacity .8s ease,
-            transform .8s ease;
-    }
-
-    .reveal.show{
-        opacity:1;
-
-        transform:
-            translateY(0);
-    }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media(max-width:991px){
-
-        .pnd-nav{
-            position:absolute;
-
-            top:76px;
-            left:15px;
-            right:15px;
-
-            display:none;
-
-            flex-direction:column;
-
-            align-items:stretch;
-
-            gap:5px;
-
-            padding:15px;
-
-            border-radius:18px;
+        .pnd-header.scrolled {
 
             background:
                 rgba(7,17,31,.97);
 
-            border:1px solid
-                var(--pnd-border);
+            box-shadow:
+                0 15px 45px rgba(0,0,0,.25);
+
+        }
+
+
+        .pnd-header-inner {
+
+            min-height:
+                78px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                25px;
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .pnd-logo {
+
+            flex-shrink:
+                0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+        }
+
+
+        .pnd-logo-img {
+
+            width:
+                auto;
+
+            max-width:
+                175px;
+
+            max-height:
+                52px;
+
+            object-fit:
+                contain;
+
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .pnd-search {
+
+            height:
+                42px;
+
+            flex:
+                1;
+
+            max-width:
+                400px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            background:
+                rgba(255,255,255,.035);
+
+            border-radius:
+                13px;
+
+            overflow:
+                hidden;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .pnd-search:focus-within {
+
+            border-color:
+                rgba(37,99,235,.6);
 
             box-shadow:
-                0 25px 60px
-                rgba(0,0,0,.4);
+                0 0 0 3px rgba(37,99,235,.08);
+
         }
 
-        .pnd-nav.show{
-            display:flex;
+
+        .pnd-search-icon {
+
+            padding-left:
+                14px;
+
+            color:
+                var(--pnd-muted);
+
         }
 
-        .pnd-nav a{
-            padding:12px;
 
-            border-radius:10px;
-        }
+        .pnd-search input {
 
-        .pnd-nav a:hover{
+            flex:
+                1;
+
+            min-width:
+                0;
+
+            height:
+                100%;
+
+            border:
+                0;
+
+            outline:
+                none;
+
             background:
-                rgba(255,255,255,.05);
-        }
+                transparent;
 
-        .pnd-nav-cta{
-            text-align:center;
-
-            margin-top:5px;
-        }
-
-        .pnd-mobile-btn{
-            display:block;
-        }
-
-        .pnd-hero{
-            padding-top:75px;
-        }
-
-        .app-stage{
-            margin-top:50px;
-        }
-
-        .app-window{
-            transform:none;
-        }
-
-        .workflow::before{
-            display:none;
-        }
-    }
-
-
-    @media(max-width:767px){
-
-        .pnd-hero{
-            min-height:auto;
+            color:
+                #fff;
 
             padding:
-                65px 0 75px;
+                0 12px;
+
+            font-size:
+                13px;
+
         }
 
-        .pnd-hero h1{
-            letter-spacing:-2px;
+
+        .pnd-search input::placeholder {
+
+            color:
+                #71849d;
+
         }
 
-        .pnd-hero-desc{
-            font-size:15px;
+
+        .pnd-search button {
+
+            height:
+                100%;
+
+            border:
+                0;
+
+            padding:
+                0 18px;
+
+            color:
+                #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    #1d4ed8
+                );
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
         }
 
-        .hero-actions{
-            flex-direction:column;
 
-            align-items:stretch;
+        /* =====================================================
+           DESKTOP NAV
+        ===================================================== */
+
+        .pnd-nav {
+
+            margin-left:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                4px;
+
         }
 
-        .pnd-btn{
-            width:100%;
+
+        .pnd-nav-link {
+
+            position:
+                relative;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                10px 12px;
+
+            color:
+                #B9C8DA;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+            border-radius:
+                10px;
+
+            transition:
+                .25s ease;
+
         }
 
-        .app-stage{
-            min-height:390px;
+
+        .pnd-nav-link:hover,
+        .pnd-nav-link.active {
+
+            color:
+                #fff;
+
+            background:
+                rgba(255,255,255,.045);
+
         }
 
-        .app-window{
-            width:100%;
+
+        .pnd-nav-link.active::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                12px;
+
+            right:
+                12px;
+
+            bottom:
+                4px;
+
+            height:
+                2px;
+
+            border-radius:
+                10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
         }
 
-        .app-body{
-            grid-template-columns:78px 1fr;
+
+        /* =====================================================
+           SERVICES DROPDOWN
+        ===================================================== */
+
+        .pnd-dropdown {
+
+            position:
+                relative;
+
         }
 
-        .app-sidebar{
-            padding:17px 9px;
+
+        .pnd-dropdown-menu {
+
+            position:
+                absolute;
+
+            top:
+                calc(100% + 14px);
+
+            left:
+                0;
+
+            width:
+                275px;
+
+            padding:
+                10px;
+
+            background:
+                rgba(11,23,42,.98);
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            border-radius:
+                17px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.4);
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                translateY(8px);
+
+            transition:
+                .25s ease;
+
         }
 
-        .app-main{
-            padding:15px;
+
+        .pnd-dropdown:hover
+        .pnd-dropdown-menu {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateY(0);
+
         }
 
-        .dashboard-cards{
+
+        .pnd-dropdown-item {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+            padding:
+                12px 13px;
+
+            border-radius:
+                11px;
+
+            color:
+                #B9C8DA;
+
+            font-size:
+                13px;
+
+            transition:
+                .2s ease;
+
+        }
+
+
+        .pnd-dropdown-item:hover {
+
+            background:
+                rgba(37,99,235,.12);
+
+            color:
+                #fff;
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .pnd-dropdown-item i {
+
+            width:
+                30px;
+
+            height:
+                30px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                9px;
+
+            background:
+                rgba(37,99,235,.12);
+
+            color:
+                var(--pnd-cyan);
+
+        }
+
+
+        /* =====================================================
+           GET STARTED
+        ===================================================== */
+
+        .pnd-header-btn {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                10px 17px;
+
+            border-radius:
+                11px;
+
+            color:
+                #fff;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 8px 25px rgba(37,99,235,.22);
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-header-btn:hover {
+
+            color:
+                #fff;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 12px 35px rgba(37,99,235,.32);
+
+        }
+
+
+        /* =====================================================
+           MOBILE BUTTON
+        ===================================================== */
+
+        .pnd-menu-btn {
+
+            display:
+                none;
+
+            width:
+                43px;
+
+            height:
+                43px;
+
+            margin-left:
+                auto;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            background:
+                rgba(255,255,255,.04);
+
+            color:
+                #fff;
+
+            border-radius:
+                12px;
+
+            font-size:
+                20px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .pnd-mobile-overlay {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(0,0,0,.65);
+
+            z-index:
+                1998;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .pnd-mobile-overlay.show {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+        }
+
+
+        .pnd-mobile-menu {
+
+            position:
+                fixed;
+
+            top:
+                0;
+
+            right:
+                -100%;
+
+            width:
+                min(380px, 88%);
+
+            height:
+                100vh;
+
+            z-index:
+                1999;
+
+            padding:
+                25px 22px;
+
+            background:
+                #081424;
+
+            border-left:
+                1px solid rgba(255,255,255,.08);
+
+            box-shadow:
+                -25px 0 70px rgba(0,0,0,.4);
+
+            overflow-y:
+                auto;
+
+            transition:
+                .35s ease;
+
+        }
+
+
+        .pnd-mobile-menu.show {
+
+            right:
+                0;
+
+        }
+
+
+        .pnd-mobile-top {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .pnd-mobile-logo {
+
+            max-width:
+                155px;
+
+            max-height:
+                45px;
+
+        }
+
+
+        .pnd-mobile-close {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            border-radius:
+                10px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            color:
+                #fff;
+
+            font-size:
+                18px;
+
+        }
+
+
+        .pnd-mobile-search {
+
+            display:
+                flex;
+
+            height:
+                44px;
+
+            margin-bottom:
+                25px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius:
+                12px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .pnd-mobile-search input {
+
+            flex:
+                1;
+
+            min-width:
+                0;
+
+            border:
+                0;
+
+            outline:
+                none;
+
+            padding:
+                0 13px;
+
+            background:
+                transparent;
+
+            color:
+                #fff;
+
+        }
+
+
+        .pnd-mobile-search button {
+
+            width:
+                48px;
+
+            border:
+                0;
+
+            background:
+                var(--pnd-blue);
+
+            color:
+                #fff;
+
+        }
+
+
+        .pnd-mobile-links {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                4px;
+
+        }
+
+
+        .pnd-mobile-link {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            min-height:
+                48px;
+
+            padding:
+                0 13px;
+
+            color:
+                #B9C8DA;
+
+            border-radius:
+                10px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                600;
+
+        }
+
+
+        .pnd-mobile-link:hover,
+        .pnd-mobile-link.active {
+
+            color:
+                #fff;
+
+            background:
+                rgba(37,99,235,.1);
+
+        }
+
+
+        .pnd-mobile-services-list {
+
+            display:
+                none;
+
+            padding:
+                5px 0 7px 15px;
+
+        }
+
+
+        .pnd-mobile-services-list.show {
+
+            display:
+                block;
+
+        }
+
+
+        .pnd-mobile-service-link {
+
+            display:
+                block;
+
+            padding:
+                10px 13px;
+
+            color:
+                #879BB5;
+
+            font-size:
+                13px;
+
+            border-left:
+                1px solid rgba(37,99,235,.3);
+
+        }
+
+
+        .pnd-mobile-service-link:hover {
+
+            color:
+                #fff;
+
+            background:
+                rgba(255,255,255,.03);
+
+        }
+
+
+        .pnd-mobile-cta {
+
+            margin-top:
+                30px;
+
+            padding:
+                20px;
+
+            border:
+                1px solid rgba(37,99,235,.18);
+
+            border-radius:
+                17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.1),
+                    rgba(124,58,237,.08)
+                );
+
+        }
+
+
+        .pnd-mobile-cta small {
+
+            display:
+                block;
+
+            margin-bottom:
+                8px;
+
+            color:
+                var(--pnd-cyan);
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .pnd-mobile-cta p {
+
+            margin:
+                0 0 15px;
+
+            color:
+                #8FA2BB;
+
+            font-size:
+                13px;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .pnd-hero {
+
+            position:
+                relative;
+
+            min-height:
+                780px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            padding:
+                150px 0 100px;
+
+            overflow:
+                hidden;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(37,99,235,.14),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 20% 70%,
+                    rgba(124,58,237,.1),
+                    transparent 28%
+                ),
+
+                var(--pnd-bg);
+
+        }
+
+
+        .pnd-hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent
+                );
+
+            pointer-events:
+                none;
+
+        }
+
+
+        .pnd-container {
+
+            width:
+                min(1180px, calc(100% - 36px));
+
+            margin:
+                auto;
+
+        }
+
+
+        .pnd-hero-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.05fr .95fr;
+
+            gap:
+                60px;
+
+            align-items:
+                center;
+
+        }
+
+
+        .pnd-eyebrow {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                7px 11px;
+
+            margin-bottom:
+                20px;
+
+            border:
+                1px solid rgba(6,182,212,.18);
+
+            background:
+                rgba(6,182,212,.055);
+
+            border-radius:
+                30px;
+
+            color:
+                #6DD9E8;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+        }
+
+
+        .pnd-eyebrow span {
+
+            width:
+                6px;
+
+            height:
+                6px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--pnd-cyan);
+
+            box-shadow:
+                0 0 12px var(--pnd-cyan);
+
+        }
+
+
+        .pnd-hero h1 {
+
+            margin:
+                0;
+
+            max-width:
+                800px;
+
+            color:
+                #fff;
+
+            font-size:
+                clamp(45px, 6vw, 78px);
+
+            line-height:
+                .98;
+
+            letter-spacing:
+                -3px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .pnd-hero h1 span {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #61D9F0,
+                    #8E7CFF
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+        }
+
+
+        .pnd-hero-description {
+
+            max-width:
+                650px;
+
+            margin:
+                25px 0 30px;
+
+            color:
+                #9DAEC2;
+
+            font-size:
+                16px;
+
+            line-height:
+                1.85;
+
+        }
+
+
+        .pnd-hero-buttons {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+
+        }
+
+
+        .pnd-btn-primary,
+        .pnd-btn-secondary {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                9px;
+
+            padding:
+                13px 20px;
+
+            border-radius:
+                12px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-btn-primary {
+
+            color:
+                #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-violet)
+                );
+
+            box-shadow:
+                0 12px 30px rgba(37,99,235,.22);
+
+        }
+
+
+        .pnd-btn-primary:hover {
+
+            color:
+                #fff;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .pnd-btn-secondary {
+
+            color:
+                #D7E4F2;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            background:
+                rgba(255,255,255,.03);
+
+        }
+
+
+        .pnd-btn-secondary:hover {
+
+            color:
+                #fff;
+
+            border-color:
+                rgba(6,182,212,.4);
+
+            background:
+                rgba(6,182,212,.06);
+
+        }
+
+
+        /* =====================================================
+           HERO VISUAL
+        ===================================================== */
+
+        .pnd-app-visual {
+
+            position:
+                relative;
+
+            min-height:
+                510px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+        }
+
+
+        .pnd-app-glow {
+
+            position:
+                absolute;
+
+            width:
+                360px;
+
+            height:
+                360px;
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.2),
+                    rgba(6,182,212,.08),
+                    transparent 68%
+                );
+
+            filter:
+                blur(15px);
+
+            animation:
+                appGlow 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes appGlow {
+
+            0%,
+            100% {
+                transform:
+                    scale(.95);
+            }
+
+            50% {
+                transform:
+                    scale(1.08);
+            }
+
+        }
+
+
+        .pnd-code-window {
+
+            position:
+                relative;
+
+            width:
+                min(100%, 490px);
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            border-radius:
+                20px;
+
+            overflow:
+                hidden;
+
+            background:
+                rgba(10,20,38,.92);
+
+            box-shadow:
+                0 40px 100px rgba(0,0,0,.45),
+                0 0 80px rgba(37,99,235,.08);
+
+            transform:
+                perspective(1000px)
+                rotateY(-5deg)
+                rotateX(3deg);
+
+            z-index:
+                2;
+
+        }
+
+
+        .pnd-code-top {
+
+            height:
+                48px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            padding:
+                0 15px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.025);
+
+        }
+
+
+        .pnd-code-dot {
+
+            width:
+                9px;
+
+            height:
+                9px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,.25);
+
+        }
+
+
+        .pnd-code-title {
+
+            margin-left:
+                8px;
+
+            color:
+                #72859F;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .pnd-code-body {
+
+            padding:
+                25px;
+
+            font-family:
+                monospace;
+
+            font-size:
+                12px;
+
+            line-height:
+                2;
+
+            color:
+                #91A7C3;
+
+        }
+
+
+        .code-purple {
+            color:
+                #B89CFF;
+        }
+
+
+        .code-blue {
+            color:
+                #69A7FF;
+        }
+
+
+        .code-cyan {
+            color:
+                #58D7E7;
+        }
+
+
+        .code-green {
+            color:
+                #7DE0A3;
+        }
+
+
+        .code-orange {
+            color:
+                #F3B875;
+        }
+
+
+        .pnd-floating-card {
+
+            position:
+                absolute;
+
+            z-index:
+                5;
+
+            padding:
+                13px 15px;
+
+            min-width:
+                150px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            border-radius:
+                14px;
+
+            background:
+                rgba(14,27,48,.92);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,.3);
+
+            animation:
+                floatCard 4s ease-in-out infinite;
+
+        }
+
+
+        @keyframes floatCard {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px);
+            }
+
+        }
+
+
+        .pnd-floating-one {
+
+            top:
+                75px;
+
+            left:
+                -15px;
+
+        }
+
+
+        .pnd-floating-two {
+
+            right:
+                -15px;
+
+            bottom:
+                80px;
+
+            animation-delay:
+                1.5s;
+
+        }
+
+
+        .pnd-floating-card small {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+            color:
+                #70839B;
+
+            font-size:
+                9px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .pnd-floating-card strong {
+
+            color:
+                #fff;
+
+            font-size:
+                13px;
+
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .pnd-stats {
+
+            position:
+                relative;
+
+            margin-top:
+                -35px;
+
+            z-index:
+                10;
+
+        }
+
+
+        .pnd-stats-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            background:
+                rgba(17,28,53,.82);
+
+            backdrop-filter:
+                blur(15px);
+
+        }
+
+
+        .pnd-stat {
+
+            padding:
+                25px;
+
+            border-right:
+                1px solid rgba(255,255,255,.07);
+
+        }
+
+
+        .pnd-stat:last-child {
+
+            border-right:
+                0;
+
+        }
+
+
+        .pnd-stat strong {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+
+            color:
+                #fff;
+
+            font-size:
+                22px;
+
+        }
+
+
+        .pnd-stat span {
+
+            color:
+                #8093AC;
+
+            font-size:
+                12px;
+
+        }
+
+
+        /* =====================================================
+           COMMON SECTION
+        ===================================================== */
+
+        .pnd-section {
+
+            position:
+                relative;
+
+            padding:
+                110px 0;
+
+        }
+
+
+        .pnd-section-light {
+
+            background:
+                #F7F9FC;
+
+            color:
+                #152238;
+
+        }
+
+
+        .pnd-section-dark {
+
+            background:
+                var(--pnd-bg-two);
+
+        }
+
+
+        .pnd-section-label {
+
+            display:
+                inline-block;
+
+            margin-bottom:
+                12px;
+
+            color:
+                var(--pnd-cyan);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+        }
+
+
+        .pnd-section-title {
+
+            margin:
+                0;
+
+            color:
+                #fff;
+
+            font-size:
+                clamp(32px,4vw,52px);
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -1.5px;
+
+        }
+
+
+        .pnd-section-light .pnd-section-title {
+
+            color:
+                #101D32;
+
+        }
+
+
+        .pnd-section-description {
+
+            max-width:
+                650px;
+
+            margin:
+                17px 0 0;
+
+            color:
+                #8294AC;
+
+            line-height:
+                1.8;
+
+            font-size:
+                15px;
+
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .pnd-intro-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            gap:
+                70px;
+
+            align-items:
+                center;
+
+        }
+
+
+        .pnd-intro-copy p {
+
+            color:
+                #7589A4;
+
+            line-height:
+                1.9;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .pnd-check-list {
+
+            display:
+                grid;
+
             grid-template-columns:
                 repeat(2,1fr);
+
+            gap:
+                12px;
+
+            margin-top:
+                25px;
+
         }
 
-        .dashboard-cards
-        .dashboard-card:last-child{
-            display:none;
+
+        .pnd-check {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+            color:
+                #52647D;
+
+            font-size:
+                13px;
+
         }
 
-        .pnd-section{
-            padding:75px 0;
+
+        .pnd-check i {
+
+            color:
+                #2563EB;
+
+            font-size:
+                16px;
+
         }
 
-        .section-title{
-            letter-spacing:-1.5px;
+
+        .pnd-intro-card {
+
+            padding:
+                30px;
+
+            border:
+                1px solid #E2E8F0;
+
+            border-radius:
+                24px;
+
+            background:
+                #fff;
+
+            box-shadow:
+                0 25px 60px rgba(15,23,42,.08);
+
         }
 
-        .database-panel{
-            min-height:330px;
+
+        .pnd-intro-card-head {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                14px;
+
+            margin-bottom:
+                25px;
+
         }
 
-        .workflow-card{
-            margin-bottom:25px;
-        }
-    }
 
+        .pnd-intro-icon {
 
-    @media(max-width:430px){
+            width:
+                50px;
 
-        .app-stage{
-            min-height:340px;
-        }
+            height:
+                50px;
 
-        .app-body{
-            min-height:310px;
-        }
+            display:
+                grid;
 
-        .app-sidebar{
-            display:none;
-        }
+            place-items:
+                center;
 
-        .app-body{
-            grid-template-columns:1fr;
-        }
+            border-radius:
+                14px;
 
-        .app-main{
-            padding:17px;
-        }
+            color:
+                #2563EB;
 
-        .dashboard-large{
-            min-height:105px;
+            background:
+                #EFF6FF;
+
+            font-size:
+                22px;
+
         }
 
-        .fake-chart{
-            height:60px;
-        }
-    }
 
+        .pnd-intro-card h3 {
 
-    @media(max-width:991px){
-        .pnd-brand-mark{
-            width:48px;
-            height:48px;
-            font-size:18px;
-        }
+            margin:
+                0;
 
-        .pnd-brand-text strong{
-            font-size:18px;
+            color:
+                #16243A;
+
+            font-size:
+                20px;
+
         }
 
-        .pnd-brand-text span{
-            font-size:9px;
+
+        .pnd-layer {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                13px;
+
+            padding:
+                14px;
+
+            margin-bottom:
+                9px;
+
+            border:
+                1px solid #E7ECF2;
+
+            border-radius:
+                12px;
+
+            color:
+                #53647A;
+
+            font-size:
+                13px;
+
+            background:
+                #FAFBFD;
+
         }
 
-        .pnd-section{
-            padding:85px 0;
+
+        .pnd-layer i {
+
+            color:
+                #2563EB;
+
         }
 
-        .section-head{
-            margin-bottom:42px;
-        }
-    }
 
-    @media(max-width:767px){
-        .pnd-navbar{
-            height:70px;
-        }
+        /* =====================================================
+           ARCHITECTURE
+        ===================================================== */
 
-        .pnd-nav{
-            top:70px;
-        }
+        .pnd-architecture {
 
-        .pnd-brand{
-            gap:10px;
-            min-width:0;
-        }
+            margin-top:
+                55px;
 
-        .pnd-brand-mark{
-            width:44px;
-            height:44px;
-            border-radius:12px;
-            font-size:17px;
-            flex:0 0 44px;
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                18px;
+
         }
 
-        .pnd-brand-text strong{
-            font-size:16px;
-            white-space:nowrap;
+
+        .pnd-architecture-card {
+
+            position:
+                relative;
+
+            min-height:
+                260px;
+
+            padding:
+                28px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius:
+                20px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            overflow:
+                hidden;
+
+            transition:
+                .3s ease;
+
         }
 
-        .pnd-brand-text span{
-            margin-top:4px;
-            font-size:8px;
-            letter-spacing:1.8px;
+
+        .pnd-architecture-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(37,99,235,.3);
+
+            background:
+                rgba(37,99,235,.04);
+
         }
 
-        .pnd-mobile-btn{
-            flex:0 0 43px;
+
+        .pnd-architecture-number {
+
+            color:
+                rgba(255,255,255,.08);
+
+            font-size:
+                60px;
+
+            font-weight:
+                700;
+
+            line-height:
+                1;
+
         }
 
-        .pnd-section{
-            padding:70px 0;
+
+        .pnd-architecture-icon {
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            margin:
+                15px 0;
+
+            border-radius:
+                13px;
+
+            color:
+                var(--pnd-cyan);
+
+            background:
+                rgba(6,182,212,.08);
+
+            font-size:
+                20px;
+
         }
 
-        .section-title{
-            font-size:clamp(30px,8vw,42px);
-            line-height:1.08;
+
+        .pnd-architecture-card h3 {
+
+            color:
+                #fff;
+
+            font-size:
+                19px;
+
+            margin-bottom:
+                10px;
+
         }
 
-        .section-desc{
-            font-size:14px;
-            line-height:1.75;
+
+        .pnd-architecture-card p {
+
+            margin:
+                0;
+
+            color:
+                #7F92AC;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.75;
+
         }
 
-        #applications.pnd-section-alt .app-card,
-        .pnd-data-core .database-panel,
-        .pnd-built-for-use .security-card{
-            box-shadow:0 8px 25px rgba(15,23,42,.06);
+
+        /* =====================================================
+           TECHNOLOGY SECTION
+        ===================================================== */
+
+        .pnd-tech-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                14px;
+
+            margin-top:
+                50px;
+
         }
-    }
 
-    @media(max-width:430px){
-        .pnd-brand-text strong{
-            font-size:15px;
+
+        .pnd-tech-card {
+
+            padding:
+                23px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius:
+                17px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition:
+                .25s ease;
+
         }
 
-        .pnd-brand-mark{
-            width:42px;
-            height:42px;
-            flex-basis:42px;
-            font-size:16px;
+
+        .pnd-tech-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(6,182,212,.25);
+
         }
 
-        .pnd-nav{
-            left:10px;
-            right:10px;
+
+        .pnd-tech-card i {
+
+            font-size:
+                24px;
+
+            color:
+                var(--pnd-cyan);
+
         }
-    }
 
 
-    @media(prefers-reduced-motion:reduce){
+        .pnd-tech-card h4 {
 
-        *,
-        *::before,
-        *::after{
+            margin:
+                17px 0 7px;
 
-            animation-duration:
-                .01ms !important;
+            color:
+                #fff;
 
-            animation-iteration-count:
-                1 !important;
+            font-size:
+                16px;
 
-            scroll-behavior:
-                auto !important;
-
-            transition-duration:
-                .01ms !important;
         }
-    }
-
-/* =========================================================
-   LOGO — SLIGHTLY LARGER
-========================================================= */
-
-.pnd-brand-logo-wrap{
-    width:64px;
-    height:64px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
-    overflow:hidden;
-}
-
-.pnd-brand-logo{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-    display:block;
-}
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+        .pnd-tech-card p {
 
-@media (max-width:991px){
+            margin:
+                0;
 
-    .pnd-brand-logo-wrap{
-        width:58px;
-        height:58px;
-    }
+            color:
+                #7387A0;
 
-}
+            font-size:
+                12px;
 
+            line-height:
+                1.6;
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width:767px){
-
-    .pnd-brand-logo-wrap{
-        width:52px;
-        height:52px;
-    }
-
-}
-/* =========================================================
-   PND LOGO — LARGE / FLIPKART-STYLE
-========================================================= */
-
-.pnd-brand-logo-wrap{
-    width:78px;
-    height:68px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
-    overflow:visible;
-}
-
-.pnd-brand-logo{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-    display:block;
-
-    transform:scale(1.08);
-    transform-origin:center;
-}
+        }
 
 
-/* =========================================================
-   NAVBAR BRAND — NO EXTRA SPACE
-========================================================= */
+        .pnd-tech-tags {
 
-.pnd-brand{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+            display:
+                flex;
 
-    text-decoration:none;
-    height:100%;
+            flex-wrap:
+                wrap;
 
-    flex-shrink:0;
-}
+            gap:
+                6px;
 
+            margin-top:
+                12px;
 
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width:991px){
-
-    .pnd-brand-logo-wrap{
-        width:70px;
-        height:62px;
-    }
-
-    .pnd-brand-logo{
-        transform:scale(1.06);
-    }
-
-}
+        }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+        .pnd-tech-tag {
 
-@media (max-width:767px){
+            padding:
+                4px 7px;
 
-    .pnd-brand-logo-wrap{
-        width:64px;
-        height:58px;
-    }
+            border:
+                1px solid rgba(255,255,255,.07);
 
-    .pnd-brand-logo{
-        transform:scale(1.04);
-    }
+            border-radius:
+                6px;
 
-}
+            color:
+                #91A2B8;
 
+            font-size:
+                9px;
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width:420px){
-
-    .pnd-brand-logo-wrap{
-        width:60px;
-        height:54px;
-    }
+        }
 
 
-    
-</style>
+        /* =====================================================
+           WHAT WE BUILD
+        ===================================================== */
 
+        .pnd-build-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                18px;
+
+            margin-top:
+                50px;
+
+        }
+
+
+        .pnd-build-card {
+
+            position:
+                relative;
+
+            padding:
+                30px;
+
+            min-height:
+                240px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius:
+                20px;
+
+            background:
+                #101C32;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .pnd-build-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(37,99,235,.35);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.18);
+
+        }
+
+
+        .pnd-build-icon {
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            margin-bottom:
+                20px;
+
+            border-radius:
+                13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.15),
+                    rgba(124,58,237,.12)
+                );
+
+            color:
+                #70B9FF;
+
+            font-size:
+                20px;
+
+        }
+
+
+        .pnd-build-card h3 {
+
+            color:
+                #fff;
+
+            font-size:
+                18px;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .pnd-build-card p {
+
+            color:
+                #7F92AC;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.75;
+
+            margin:
+                0;
+
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .pnd-feature-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                18px;
+
+            margin-top:
+                50px;
+
+        }
+
+
+        .pnd-feature {
+
+            display:
+                flex;
+
+            gap:
+                16px;
+
+            padding:
+                22px;
+
+            border:
+                1px solid #E3E8EF;
+
+            border-radius:
+                17px;
+
+            background:
+                #fff;
+
+        }
+
+
+        .pnd-feature-icon {
+
+            flex-shrink:
+                0;
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border-radius:
+                12px;
+
+            color:
+                #2563EB;
+
+            background:
+                #EFF6FF;
+
+        }
+
+
+        .pnd-feature h4 {
+
+            margin:
+                0 0 6px;
+
+            color:
+                #142239;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .pnd-feature p {
+
+            margin:
+                0;
+
+            color:
+                #718197;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.65;
+
+        }
+
+
+        /* =====================================================
+           PROCESS
+        ===================================================== */
+
+        .pnd-process {
+
+            margin-top:
+                55px;
+
+        }
+
+
+        .pnd-process-row {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                12px;
+
+        }
+
+
+        .pnd-process-card {
+
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius:
+                17px;
+
+            background:
+                rgba(255,255,255,.025);
+
+        }
+
+
+        .pnd-process-number {
+
+            color:
+                var(--pnd-cyan);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .pnd-process-card h4 {
+
+            margin:
+                18px 0 8px;
+
+            color:
+                #fff;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .pnd-process-card p {
+
+            margin:
+                0;
+
+            color:
+                #788CA6;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        /* =====================================================
+           DEVELOPER MESSAGE
+        ===================================================== */
+
+        .pnd-developer-section {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .pnd-developer-box {
+
+            position:
+                relative;
+
+            padding:
+                55px;
+
+            border:
+                1px solid rgba(37,99,235,.2);
+
+            border-radius:
+                28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.09),
+                    rgba(124,58,237,.06)
+                );
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .pnd-developer-box::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                300px;
+
+            height:
+                300px;
+
+            top:
+                -150px;
+
+            right:
+                -100px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(6,182,212,.08);
+
+            filter:
+                blur(20px);
+
+        }
+
+
+        .pnd-developer-label {
+
+            color:
+                var(--pnd-cyan);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .pnd-developer-box h2 {
+
+            max-width:
+                780px;
+
+            margin:
+                0 0 20px;
+
+            color:
+                #fff;
+
+            font-size:
+                clamp(28px,4vw,46px);
+
+            line-height:
+                1.15;
+
+        }
+
+
+        .pnd-developer-message {
+
+            max-width:
+                850px;
+
+            color:
+                #93A5BD;
+
+            font-size:
+                15px;
+
+            line-height:
+                1.9;
+
+        }
+
+
+        .pnd-developer-sign {
+
+            margin-top:
+                25px;
+
+            color:
+                #fff;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .pnd-developer-sign span {
+
+            display:
+                block;
+
+            margin-top:
+                4px;
+
+            color:
+                var(--pnd-cyan);
+
+            font-size:
+                11px;
+
+            font-weight:
+                500;
+
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .pnd-final-cta {
+
+            padding:
+                100px 0;
+
+            background:
+                #F7F9FC;
+
+        }
+
+
+        .pnd-cta-box {
+
+            position:
+                relative;
+
+            text-align:
+                center;
+
+            padding:
+                70px 30px;
+
+            border-radius:
+                28px;
+
+            overflow:
+                hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07111F,
+                    #101D35
+                );
+
+            box-shadow:
+                0 30px 70px rgba(7,17,31,.15);
+
+        }
+
+
+        .pnd-cta-box::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                400px;
+
+            height:
+                400px;
+
+            left:
+                50%;
+
+            top:
+                50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            border-radius:
+                50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.13),
+                    transparent 65%
+                );
+
+        }
+
+
+        .pnd-cta-box > * {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .pnd-cta-label {
+
+            color:
+                var(--pnd-cyan);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            margin-bottom:
+                13px;
+
+        }
+
+
+        .pnd-cta-box h2 {
+
+            margin:
+                0 auto 15px;
+
+            max-width:
+                700px;
+
+            color:
+                #fff;
+
+            font-size:
+                clamp(30px,4vw,50px);
+
+            letter-spacing:
+                -1.5px;
+
+        }
+
+
+        .pnd-cta-box p {
+
+            max-width:
+                600px;
+
+            margin:
+                0 auto 25px;
+
+            color:
+                #8497B0;
+
+            line-height:
+                1.8;
+
+            font-size:
+                14px;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .pnd-footer {
+
+            padding:
+                70px 0 25px;
+
+            background:
+                #050C17;
+
+            border-top:
+                1px solid rgba(255,255,255,.06);
+
+        }
+
+
+        .pnd-footer-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.4fr repeat(3,1fr);
+
+            gap:
+                40px;
+
+            padding-bottom:
+                45px;
+
+        }
+
+
+        .pnd-footer-logo img {
+
+            width:
+                auto;
+
+            max-width:
+                170px;
+
+            max-height:
+                50px;
+
+        }
+
+
+        .pnd-footer p {
+
+            color:
+                #71849D;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .pnd-footer h4 {
+
+            margin:
+                0 0 18px;
+
+            color:
+                #fff;
+
+            font-size:
+                13px;
+
+        }
+
+
+        .pnd-footer a:not(.pnd-footer-logo) {
+
+            display:
+                block;
+
+            margin-bottom:
+                11px;
+
+            color:
+                #74879F;
+
+            font-size:
+                12px;
+
+            transition:
+                .2s ease;
+
+        }
+
+
+        .pnd-footer a:not(.pnd-footer-logo):hover {
+
+            color:
+                #fff;
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .pnd-footer-bottom {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            padding-top:
+                22px;
+
+            border-top:
+                1px solid rgba(255,255,255,.06);
+
+            color:
+                #566A84;
+
+            font-size:
+                11px;
+
+        }
+
+
+        /* =====================================================
+           REVEAL
+        ===================================================== */
+
+        .pnd-reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+
+        }
+
+
+        .pnd-reveal.show {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .pnd-search {
+
+                max-width:
+                    280px;
+
+            }
+
+
+            .pnd-nav-link {
+
+                padding:
+                    9px 8px;
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .pnd-header-btn {
+
+                display:
+                    none;
+
+            }
+
+
+            .pnd-hero-grid {
+
+                gap:
+                    35px;
+
+            }
+
+
+            .pnd-tech-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE / TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .pnd-search,
+            .pnd-nav {
+
+                display:
+                    none;
+
+            }
+
+
+            .pnd-menu-btn {
+
+                display:
+                    block;
+
+            }
+
+
+            .pnd-header-inner {
+
+                min-height:
+                    72px;
+
+            }
+
+
+            .pnd-hero {
+
+                min-height:
+                    auto;
+
+                padding:
+                    135px 0 80px;
+
+            }
+
+
+            .pnd-hero-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-hero-content {
+
+                text-align:
+                    center;
+
+            }
+
+
+            .pnd-eyebrow {
+
+                justify-content:
+                    center;
+
+            }
+
+
+            .pnd-hero-description {
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
+
+            }
+
+
+            .pnd-hero-buttons {
+
+                justify-content:
+                    center;
+
+            }
+
+
+            .pnd-app-visual {
+
+                min-height:
+                    420px;
+
+            }
+
+
+            .pnd-intro-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    40px;
+
+            }
+
+
+            .pnd-architecture {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-build-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .pnd-process-row {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .pnd-footer-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .pnd-container {
+
+                width:
+                    min(100% - 28px, 1180px);
+
+            }
+
+
+            .pnd-logo-img {
+
+                max-width:
+                    145px;
+
+                max-height:
+                    44px;
+
+            }
+
+
+            .pnd-hero {
+
+                padding:
+                    120px 0 65px;
+
+            }
+
+
+            .pnd-hero h1 {
+
+                font-size:
+                    43px;
+
+                letter-spacing:
+                    -2px;
+
+            }
+
+
+            .pnd-hero-description {
+
+                font-size:
+                    14px;
+
+                line-height:
+                    1.75;
+
+            }
+
+
+            .pnd-hero-buttons {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .pnd-btn-primary,
+            .pnd-btn-secondary {
+
+                width:
+                    100%;
+
+            }
+
+
+            .pnd-app-visual {
+
+                min-height:
+                    350px;
+
+            }
+
+
+            .pnd-code-window {
+
+                transform:
+                    none;
+
+            }
+
+
+            .pnd-code-body {
+
+                padding:
+                    18px;
+
+                font-size:
+                    9px;
+
+            }
+
+
+            .pnd-floating-card {
+
+                min-width:
+                    125px;
+
+                padding:
+                    10px;
+
+            }
+
+
+            .pnd-floating-one {
+
+                top:
+                    15px;
+
+                left:
+                    -5px;
+
+            }
+
+
+            .pnd-floating-two {
+
+                right:
+                    -5px;
+
+                bottom:
+                    20px;
+
+            }
+
+
+            .pnd-stats {
+
+                margin-top:
+                    -15px;
+
+            }
+
+
+            .pnd-stats-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+            }
+
+
+            .pnd-stat {
+
+                padding:
+                    18px;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,.07);
+
+            }
+
+
+            .pnd-stat:nth-child(2) {
+
+                border-right:
+                    0;
+
+            }
+
+
+            .pnd-stat:nth-child(3),
+            .pnd-stat:nth-child(4) {
+
+                border-bottom:
+                    0;
+
+            }
+
+
+            .pnd-section {
+
+                padding:
+                    75px 0;
+
+            }
+
+
+            .pnd-section-title {
+
+                font-size:
+                    34px;
+
+            }
+
+
+            .pnd-check-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-tech-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-build-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-feature-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-process-row {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-developer-box {
+
+                padding:
+                    30px 22px;
+
+            }
+
+
+            .pnd-footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    30px 20px;
+
+            }
+
+
+            .pnd-footer-grid > div:first-child {
+
+                grid-column:
+                    1 / -1;
+
+            }
+
+
+            .pnd-footer-bottom {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    8px;
+
+            }
+
+
+            .pnd-cta-box {
+
+                padding:
+                    50px 20px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .pnd-footer-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .pnd-footer-grid > div:first-child {
+
+                grid-column:
+                    auto;
+
+            }
+
+
+            .pnd-logo-img {
+
+                max-width:
+                    130px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation:
+                    none !important;
+
+                transition:
+                    none !important;
+
+                scroll-behavior:
+                    auto !important;
+
+            }
+
+
+            .pnd-reveal {
+
+                opacity:
+                    1;
+
+                transform:
+                    none;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     LED
-===================================================== -->
 
-<div class="pnd-led"></div>
+<!-- =========================================================
+     TOP LED
+========================================================== -->
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="pnd-navbar">
+<div class="pnd-top-led"></div>
 
 
-<div class="container-xl">
+<!-- =========================================================
+     HEADER
+========================================================== -->
 
-    <div class="pnd-nav-inner">
+<header
+    class="pnd-header"
+    id="pndHeader">
+
+    <div class="container-fluid px-3 px-lg-4">
+
+        <div class="pnd-header-inner">
 
 
-       <a
-            href="index.html"
-            class="pnd-brand"
-            aria-label="Pixel Nest Digital Home">
+            <!-- LOGO -->
 
-            <div class="pnd-brand-logo-wrap">
+            <a
+                href="index.html"
+                class="pnd-logo"
+                aria-label="Pixel Nest Digital Home">
 
                 <img
                     src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    class="pnd-brand-logo"
-                    alt="Pixel Nest Digital">
+                    alt="Pixel Nest Digital"
+                    class="pnd-logo-img">
+
+            </a>
+
+
+            <!-- SEARCH -->
+
+            <div class="pnd-search">
+
+                <div class="pnd-search-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <input
+                    type="search"
+                    id="desktopSearch"
+                    placeholder="Search services, solutions, projects..."
+                    aria-label="Search">
+
+                <button
+                    type="button"
+                    id="desktopSearchBtn">
+
+                    Search
+
+                </button>
 
             </div>
+
+
+            <!-- DESKTOP NAV -->
+
+            <nav
+                class="pnd-nav"
+                aria-label="Main navigation">
+
+
+                <a
+                    href="index.html"
+                    class="pnd-nav-link">
+
+                    Home
+
+                </a>
+
+
+                <!-- SERVICES DROPDOWN ONLY -->
+
+                <div class="pnd-dropdown">
+
+                    <a
+                        href="#"
+                        class="pnd-nav-link active"
+                        onclick="return false;">
+
+                        Services
+
+                        <i
+                            class="bi bi-chevron-down"
+                            style="font-size:9px;"></i>
+
+                    </a>
+
+
+                    <div class="pnd-dropdown-menu">
+
+
+                        <a
+                            href="website_development.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-code-slash"></i>
+
+                            <span>
+                                Website Development
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="web_applications.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-window-stack"></i>
+
+                            <span>
+                                Web Applications
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="e-commerce.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-cart3"></i>
+
+                            <span>
+                                E-Commerce Solutions
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="software-database.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-database"></i>
+
+                            <span>
+                                Software & Database
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="hosting-maintenance.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-cloud"></i>
+
+                            <span>
+                                Hosting & Maintenance
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="logo-brand-design.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-palette"></i>
+
+                            <span>
+                                Logo & Brand Design
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="photography.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-camera"></i>
+
+                            <span>
+                                Photography
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="videography.html"
+                            class="pnd-dropdown-item">
+
+                            <i class="bi bi-camera-video"></i>
+
+                            <span>
+                                Videography
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="about.html"
+                    class="pnd-nav-link">
+
+                    About
+
+                </a>
+
+
+                <a
+                    href="team.html"
+                    class="pnd-nav-link">
+
+                    Team
+
+                </a>
+
+
+                <a
+                    href="projects.html"
+                    class="pnd-nav-link">
+
+                    Projects
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="pnd-nav-link">
+
+                    Contact
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- GET STARTED -->
+
+            <a
+                href="contact.html"
+                class="pnd-header-btn">
+
+                Get Started
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button
+                type="button"
+                class="pnd-menu-btn"
+                id="pndMenuBtn"
+                aria-label="Open menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MOBILE OVERLAY
+========================================================== -->
+
+<div
+    class="pnd-mobile-overlay"
+    id="pndMobileOverlay">
+</div>
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================== -->
+
+<aside
+    class="pnd-mobile-menu"
+    id="pndMobileMenu">
+
+
+    <div class="pnd-mobile-top">
+
+        <a href="index.html">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital"
+                class="pnd-mobile-logo">
 
         </a>
 
 
-        <div class="pnd-nav"
-             id="pndNav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="services.html">
-               
-                Services
-            </a>
-
-            <a href="portfolio.html">
-                Portfolio
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="start-project.html"
-               class="pnd-nav-cta">
-
-                Start a Project
-
-                <i class="bi bi-arrow-up-right ms-1"></i>
-
-            </a>
-
-        </div>
-
-
         <button
-            class="pnd-mobile-btn"
-            id="pndMobileBtn"
-            aria-label="Open navigation">
+            type="button"
+            class="pnd-mobile-close"
+            id="pndMobileClose"
+            aria-label="Close menu">
 
-            <i class="bi bi-list"></i>
+            <i class="bi bi-x-lg"></i>
 
         </button>
 
     </div>
 
-</div>
+
+    <!-- MOBILE SEARCH -->
+
+    <form
+        class="pnd-mobile-search"
+        id="mobileSearchForm">
+
+        <input
+            type="search"
+            id="mobileSearch"
+            placeholder="Search...">
+
+        <button type="submit">
+
+            <i class="bi bi-search"></i>
+
+        </button>
+
+    </form>
 
 
-</nav>
+    <!-- MOBILE LINKS -->
 
-<!-- =====================================================
+    <div class="pnd-mobile-links">
+
+
+        <a
+            href="index.html"
+            class="pnd-mobile-link">
+
+            Home
+
+        </a>
+
+
+        <!-- MOBILE SERVICES -->
+
+        <div>
+
+            <a
+                href="#"
+                class="pnd-mobile-link active"
+                id="mobileServicesBtn"
+                onclick="return false;">
+
+                <span>
+                    Services
+                </span>
+
+                <i
+                    class="bi bi-chevron-down"
+                    id="mobileServicesIcon"></i>
+
+            </a>
+
+
+            <div
+                class="pnd-mobile-services-list"
+                id="mobileServicesList">
+
+
+                <a
+                    href="website_development.html"
+                    class="pnd-mobile-service-link">
+
+                    Website Development
+
+                </a>
+
+
+                <a
+                    href="web_applications.html"
+                    class="pnd-mobile-service-link">
+
+                    Web Applications
+
+                </a>
+
+
+                <a
+                    href="e-commerce.html"
+                    class="pnd-mobile-service-link">
+
+                    E-Commerce Solutions
+
+                </a>
+
+
+                <a
+                    href="software-database.html"
+                    class="pnd-mobile-service-link">
+
+                    Software & Database
+
+                </a>
+
+
+                <a
+                    href="hosting-maintenance.html"
+                    class="pnd-mobile-service-link">
+
+                    Hosting & Maintenance
+
+                </a>
+
+
+                <a
+                    href="logo-brand-design.html"
+                    class="pnd-mobile-service-link">
+
+                    Logo & Brand Design
+
+                </a>
+
+
+                <a
+                    href="photography.html"
+                    class="pnd-mobile-service-link">
+
+                    Photography
+
+                </a>
+
+
+                <a
+                    href="videography.html"
+                    class="pnd-mobile-service-link">
+
+                    Videography
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="about.html"
+            class="pnd-mobile-link">
+
+            About
+
+        </a>
+
+
+        <a
+            href="team.html"
+            class="pnd-mobile-link">
+
+            Team
+
+        </a>
+
+
+        <a
+            href="projects.html"
+            class="pnd-mobile-link">
+
+            Projects
+
+        </a>
+
+
+        <a
+            href="contact.html"
+            class="pnd-mobile-link">
+
+            Contact
+
+        </a>
+
+
+    </div>
+
+
+    <!-- MOBILE CTA -->
+
+    <div class="pnd-mobile-cta">
+
+        <small>
+            HAVE A PROJECT?
+        </small>
+
+        <p>
+            Tell us what you want to build and
+            let's turn the idea into a working
+            digital solution.
+        </p>
+
+        <a
+            href="contact.html"
+            class="pnd-btn-primary">
+
+            Start a Project
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+
+</aside>
+
+
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================== -->
 
 <section class="pnd-hero">
 
+    <div class="pnd-container">
 
-<div class="hero-grid"></div>
-
-<div class="hero-glow one"></div>
-
-<div class="hero-glow two"></div>
+        <div class="pnd-hero-grid">
 
 
-<div class="container-xl">
+            <div class="pnd-hero-content pnd-reveal">
 
-    <div class="row align-items-center g-5">
-
-
-        <div class="col-lg-6">
-
-            <div class="hero-content reveal">
 
                 <div class="pnd-eyebrow">
 
-                    <span class="eyebrow-dot"></span>
+                    <span></span>
 
-                    WEB APPLICATIONS
+                    WEB APPLICATION DEVELOPMENT
 
                 </div>
 
 
                 <h1>
 
-                    Turn your workflow into a
+                    Ideas into
 
-                    <span class="gradient-text">
-                        digital system.
+                    <span>
+                        working systems.
                     </span>
 
                 </h1>
 
 
-                <p class="pnd-hero-desc">
+                <p class="pnd-hero-description">
 
-                    We build custom web applications that help
-                    businesses manage information, automate
-                    workflows, connect databases and deliver
-                    useful digital experiences from anywhere.
+                    We create custom web applications that bring
+                    together beautiful interfaces, powerful
+                    backend systems and structured databases.
+                    From small business tools to complete
+                    management platforms, we build applications
+                    around the way your organization works.
 
                 </p>
 
 
-                <div class="hero-actions">
+                <div class="pnd-hero-buttons">
 
-                    <a href="contact.html"
-                       class="pnd-btn pnd-btn-primary">
+                    <a
+                        href="contact.html"
+                        class="pnd-btn-primary">
 
-                        Build an Application
+                        Build Your Application
 
                         <i class="bi bi-arrow-up-right"></i>
 
                     </a>
 
 
-                    <a href="#applications"
-                       class="pnd-btn pnd-btn-outline">
+                    <a
+                        href="#technology"
+                        class="pnd-btn-secondary">
 
-                        Explore Solutions
+                        Explore Technology
 
                         <i class="bi bi-arrow-down"></i>
 
@@ -2111,171 +4517,859 @@
 
                 </div>
 
+
             </div>
 
-        </div>
+
+            <!-- APPLICATION VISUAL -->
+
+            <div class="pnd-app-visual pnd-reveal">
 
 
-        <div class="col-lg-6">
-
-            <div class="app-stage reveal">
+                <div class="pnd-app-glow"></div>
 
 
-                <div class="app-window">
+                <div class="pnd-floating-card pnd-floating-one">
 
-                    <div class="app-led"></div>
+                    <small>
+                        Backend
+                    </small>
+
+                    <strong>
+                        Python • PHP • ASP.NET
+                    </strong>
+
+                </div>
 
 
-                    <div class="app-top">
+                <div class="pnd-floating-card pnd-floating-two">
 
-                        <span class="app-dot"></span>
-                        <span class="app-dot"></span>
-                        <span class="app-dot"></span>
+                    <small>
+                        Database
+                    </small>
 
-                        <div class="app-url">
+                    <strong>
+                        SQL • MySQL • SQLite
+                    </strong>
 
-                            app.yourbusiness.com
+                </div>
 
-                        </div>
+
+                <div class="pnd-code-window">
+
+
+                    <div class="pnd-code-top">
+
+                        <span class="pnd-code-dot"></span>
+                        <span class="pnd-code-dot"></span>
+                        <span class="pnd-code-dot"></span>
+
+                        <span class="pnd-code-title">
+                            application.py
+                        </span>
 
                     </div>
 
 
-                    <div class="app-body">
+                    <div class="pnd-code-body">
 
+                        <div>
+                            <span class="code-purple">
+                                class
+                            </span>
 
-                        <div class="app-sidebar">
-
-                            <div class="side-logo"></div>
-
-                            <div class="side-item active"></div>
-                            <div class="side-item"></div>
-                            <div class="side-item"></div>
-                            <div class="side-item"></div>
-                            <div class="side-item"></div>
-                            <div class="side-item"></div>
-
+                            <span class="code-blue">
+                                Application
+                            </span>:
                         </div>
 
 
-                        <div class="app-main">
+                        <div>
+                            &nbsp;&nbsp;
+                            <span class="code-purple">
+                                def
+                            </span>
 
-                            <div class="app-heading"></div>
-
-                            <div class="app-subheading"></div>
-
-
-                            <div class="dashboard-cards">
-
-                                <div class="dashboard-card">
-
-                                    <div class="dash-line"></div>
-
-                                    <div class="dash-value"></div>
-
-                                </div>
-
-
-                                <div class="dashboard-card">
-
-                                    <div class="dash-line"></div>
-
-                                    <div class="dash-value"></div>
-
-                                </div>
-
-
-                                <div class="dashboard-card">
-
-                                    <div class="dash-line"></div>
-
-                                    <div class="dash-value"></div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="dashboard-large">
-
-                                <div class="dash-line"></div>
-
-                                <div class="fake-chart">
-
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-                                    <div class="chart-bar"></div>
-
-                                </div>
-
-                            </div>
-
+                            <span class="code-cyan">
+                                dashboard
+                            </span>(self):
                         </div>
 
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            data =
+                            <span class="code-green">
+                                database.fetch()
+                            </span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-purple">
+                                return
+                            </span>
+
+                            render(
+                            <span class="code-orange">
+                                "dashboard"
+                            </span>,
+                            </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            data=data
+                        </div>
+
+
+                        <br>
+
+
+                        <div>
+                            <span class="code-purple">
+                                SELECT
+                            </span>
+
+                            users,
+                            projects
+                        </div>
+
+
+                        <div>
+                            <span class="code-purple">
+                                FROM
+                            </span>
+
+                            application_data
+                        </div>
+
+
+                        <div>
+                            <span class="code-purple">
+                                WHERE
+                            </span>
+
+                            status =
+                            <span class="code-green">
+                                'active'
+                            </span>;
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATS
+========================================================== -->
+
+<section class="pnd-stats">
+
+    <div class="pnd-container">
+
+        <div class="pnd-stats-grid">
+
+            <div class="pnd-stat">
+
+                <strong>
+                    Frontend
+                </strong>
+
+                <span>
+                    Modern responsive interfaces
+                </span>
+
+            </div>
+
+
+            <div class="pnd-stat">
+
+                <strong>
+                    Backend
+                </strong>
+
+                <span>
+                    Python • PHP • ASP.NET
+                </span>
+
+            </div>
+
+
+            <div class="pnd-stat">
+
+                <strong>
+                    Database
+                </strong>
+
+                <span>
+                    Structured & reliable data
+                </span>
+
+            </div>
+
+
+            <div class="pnd-stat">
+
+                <strong>
+                    Full System
+                </strong>
+
+                <span>
+                    Connected application architecture
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================== -->
+
+<section class="pnd-section pnd-section-light">
+
+    <div class="pnd-container">
+
+        <div class="pnd-intro-grid">
+
+
+            <div class="pnd-intro-copy pnd-reveal">
+
+                <span class="pnd-section-label">
+                    WHAT WE BUILD
+                </span>
+
+                <h2 class="pnd-section-title">
+                    More than a website.
+                    A working application.
+                </h2>
+
+
+                <p>
+
+                    A web application is designed to do more than
+                    display information. It can collect data,
+                    process information, manage users, generate
+                    reports, control business operations and
+                    provide different experiences for different
+                    users.
+
+                </p>
+
+
+                <p>
+
+                    At Pixel Nest Digital, we can build the
+                    frontend interface, backend logic and database
+                    structure as connected parts of one system.
+
+                </p>
+
+
+                <div class="pnd-check-list">
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Responsive frontend
+                    </div>
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Backend development
+                    </div>
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Database design
+                    </div>
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        User authentication
+                    </div>
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Admin dashboards
+                    </div>
+
+                    <div class="pnd-check">
+                        <i class="bi bi-check-circle-fill"></i>
+                        CRUD systems
                     </div>
 
                 </div>
 
             </div>
 
+
+            <div class="pnd-intro-card pnd-reveal">
+
+
+                <div class="pnd-intro-card-head">
+
+                    <div class="pnd-intro-icon">
+
+                        <i class="bi bi-diagram-3"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Application Architecture
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="pnd-layer">
+
+                    <i class="bi bi-window"></i>
+
+                    Frontend Interface
+
+                </div>
+
+
+                <div class="pnd-layer">
+
+                    <i class="bi bi-cpu"></i>
+
+                    Backend / Application Logic
+
+                </div>
+
+
+                <div class="pnd-layer">
+
+                    <i class="bi bi-database"></i>
+
+                    Database Layer
+
+                </div>
+
+
+                <div class="pnd-layer">
+
+                    <i class="bi bi-shuffle"></i>
+
+                    APIs & Integrations
+
+                </div>
+
+
+                <div class="pnd-layer">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    Authentication & Security
+
+                </div>
+
+
+            </div>
+
         </div>
 
     </div>
-
-</div>
-
 
 </section>
 
-<!-- =====================================================
-     APPLICATION TYPES
-===================================================== -->
 
-<section class="pnd-section pnd-section-alt"
-         id="applications"
-         data-white-section>
+<!-- =========================================================
+     ARCHITECTURE
+========================================================== -->
 
+<section class="pnd-section pnd-section-dark">
 
-<div class="container-xl">
+    <div class="pnd-container">
 
 
-    <div class="section-head reveal">
+        <div class="pnd-reveal">
 
-        <div class="section-label">
-            WHAT WE BUILD
+            <span class="pnd-section-label">
+                HOW IT WORKS
+            </span>
+
+            <h2 class="pnd-section-title">
+                Three layers.
+                One connected system.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                We approach web applications as complete
+                digital systems where the interface, business
+                logic and data work together.
+
+            </p>
+
         </div>
 
-        <h2 class="section-title">
-            Applications designed around real workflows.
-        </h2>
 
-        <p class="section-desc">
-            Instead of forcing your business into a generic
-            software package, we can create a web-based system
-            around the way your organization actually works.
-        </p>
+        <div class="pnd-architecture">
+
+
+            <div class="pnd-architecture-card pnd-reveal">
+
+                <div class="pnd-architecture-number">
+                    01
+                </div>
+
+                <div class="pnd-architecture-icon">
+
+                    <i class="bi bi-window"></i>
+
+                </div>
+
+                <h3>
+                    Frontend
+                </h3>
+
+                <p>
+
+                    The visible part of the application.
+                    We create responsive interfaces using
+                    HTML, CSS, JavaScript and Bootstrap with
+                    a focus on usability and performance.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-architecture-card pnd-reveal">
+
+                <div class="pnd-architecture-number">
+                    02
+                </div>
+
+                <div class="pnd-architecture-icon">
+
+                    <i class="bi bi-cpu"></i>
+
+                </div>
+
+                <h3>
+                    Backend
+                </h3>
+
+                <p>
+
+                    The application logic behind the interface.
+                    Depending on project requirements, we can
+                    work with Python, PHP, ASP.NET and C# based
+                    application architectures.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-architecture-card pnd-reveal">
+
+                <div class="pnd-architecture-number">
+                    03
+                </div>
+
+                <div class="pnd-architecture-icon">
+
+                    <i class="bi bi-database"></i>
+
+                </div>
+
+                <h3>
+                    Database
+                </h3>
+
+                <p>
+
+                    Structured storage for application data.
+                    We can design tables, relationships, CRUD
+                    operations, queries and data workflows
+                    using suitable database technologies.
+
+                </p>
+
+            </div>
+
+
+        </div>
 
     </div>
 
+</section>
 
-    <div class="row g-4">
+
+<!-- =========================================================
+     TECHNOLOGY
+========================================================== -->
+
+<section
+    class="pnd-section pnd-section-dark"
+    id="technology">
+
+    <div class="pnd-container">
 
 
-        <!-- 01 -->
+        <div class="pnd-reveal">
 
-        <div class="col-md-6 col-lg-4">
+            <span class="pnd-section-label">
+                TECHNOLOGY STACK
+            </span>
 
-            <div class="app-card reveal">
+            <h2 class="pnd-section-title">
+                The tools behind
+                the application.
+            </h2>
 
-                <span class="app-index">
-                    01
-                </span>
+            <p class="pnd-section-description">
 
-                <div class="app-icon">
+                Technology choices are based on the requirements
+                of each project rather than forcing every project
+                into the same stack.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-tech-grid">
+
+
+            <!-- FRONTEND -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-code-slash"></i>
+
+                <h4>
+                    Frontend
+                </h4>
+
+                <p>
+                    Interfaces that users interact with.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        HTML5
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        CSS3
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        JavaScript
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Bootstrap
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PYTHON -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-filetype-py"></i>
+
+                <h4>
+                    Python
+                </h4>
+
+                <p>
+                    Flexible backend development for custom
+                    application systems.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        Python
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Django
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Flask
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHP -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-filetype-php"></i>
+
+                <h4>
+                    PHP
+                </h4>
+
+                <p>
+                    Server-side application development for
+                    dynamic web systems.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        PHP
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        MySQL
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        CRUD
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ASP.NET -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-braces"></i>
+
+                <h4>
+                    ASP.NET
+                </h4>
+
+                <p>
+                    Microsoft-based application development
+                    using C# and .NET technologies.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        ASP.NET
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        C#
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        .NET
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SQL SERVER -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-database"></i>
+
+                <h4>
+                    SQL Server
+                </h4>
+
+                <p>
+                    Relational database systems for structured
+                    application data.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        SQL Server
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        SQL
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Queries
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MYSQL -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-database-fill"></i>
+
+                <h4>
+                    MySQL
+                </h4>
+
+                <p>
+                    Popular relational database technology for
+                    dynamic applications.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        MySQL
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        SQL
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Relations
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- POSTGRESQL -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-database-check"></i>
+
+                <h4>
+                    PostgreSQL
+                </h4>
+
+                <p>
+                    Powerful relational database technology for
+                    structured application systems.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        PostgreSQL
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        SQL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SQLITE -->
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-hdd-stack"></i>
+
+                <h4>
+                    SQLite
+                </h4>
+
+                <p>
+                    Lightweight database technology suitable for
+                    smaller applications and development.
+                </p>
+
+                <div class="pnd-tech-tags">
+
+                    <span class="pnd-tech-tag">
+                        SQLite
+                    </span>
+
+                    <span class="pnd-tech-tag">
+                        Local Data
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHAT WE CAN BUILD
+========================================================== -->
+
+<section class="pnd-section pnd-section-dark">
+
+    <div class="pnd-container">
+
+
+        <div class="pnd-reveal">
+
+            <span class="pnd-section-label">
+                APPLICATION TYPES
+            </span>
+
+            <h2 class="pnd-section-title">
+                Systems designed around
+                real-world workflows.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                Applications can be developed for businesses,
+                educational institutions, organizations,
+                startups and individual projects.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-build-grid">
+
+
+            <div class="pnd-build-card pnd-reveal">
+
+                <div class="pnd-build-icon">
                     <i class="bi bi-speedometer2"></i>
                 </div>
 
@@ -2284,817 +5378,777 @@
                 </h3>
 
                 <p>
-                    Centralized dashboards for viewing information,
-                    managing records, monitoring activities and
-                    controlling application features.
+
+                    Centralized dashboards for managing users,
+                    records, reports, products and application
+                    activity.
+
                 </p>
 
             </div>
 
-        </div>
+
+            <div class="pnd-build-card pnd-reveal">
+
+                <div class="pnd-build-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <h3>
+                    Business Management
+                </h3>
+
+                <p>
+
+                    Custom systems for managing products,
+                    customers, orders, inventory and daily
+                    business operations.
+
+                </p>
+
+            </div>
 
 
-        <!-- 02 -->
+            <div class="pnd-build-card pnd-reveal">
 
-        <div class="col-md-6 col-lg-4">
+                <div class="pnd-build-icon">
+                    <i class="bi bi-receipt"></i>
+                </div>
 
-            <div class="app-card reveal">
+                <h3>
+                    Billing Systems
+                </h3>
 
-                <span class="app-index">
-                    02
-                </span>
+                <p>
 
-                <div class="app-icon">
+                    Applications for billing, invoice generation,
+                    transaction records and business reporting.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-build-card pnd-reveal">
+
+                <div class="pnd-build-icon">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+
+                <h3>
+                    Booking Systems
+                </h3>
+
+                <p>
+
+                    Appointment and booking workflows with
+                    structured records and user management.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-build-card pnd-reveal">
+
+                <div class="pnd-build-icon">
                     <i class="bi bi-people"></i>
                 </div>
 
                 <h3>
-                    Management Systems
+                    User Management
                 </h3>
 
                 <p>
-                    Custom systems for managing customers, employees,
-                    products, services, records and day-to-day
-                    business operations.
+
+                    Registration, login, profiles, permissions
+                    and role-based application experiences.
+
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="pnd-build-card pnd-reveal">
 
-        <!-- 03 -->
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="app-card reveal">
-
-                <span class="app-index">
-                    03
-                </span>
-
-                <div class="app-icon">
-                    <i class="bi bi-database-check"></i>
+                <div class="pnd-build-icon">
+                    <i class="bi bi-bar-chart"></i>
                 </div>
 
                 <h3>
-                    Database Applications
+                    Reports & Analytics
                 </h3>
 
                 <p>
-                    Applications connected to structured databases
-                    for storing, retrieving, updating and managing
-                    business information.
+
+                    Data-driven dashboards, reports and
+                    application insights for decision-making.
+
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="pnd-build-card pnd-reveal">
 
-        <!-- 04 -->
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="app-card reveal">
-
-                <span class="app-index">
-                    04
-                </span>
-
-                <div class="app-icon">
-                    <i class="bi bi-file-earmark-text"></i>
+                <div class="pnd-build-icon">
+                    <i class="bi bi-box-seam"></i>
                 </div>
 
                 <h3>
-                    Data & Record Systems
+                    Inventory Systems
                 </h3>
 
                 <p>
-                    Digital forms and record-management platforms
-                    that reduce dependence on manual paperwork
-                    and scattered files.
+
+                    Product records, stock management,
+                    categories, transactions and reporting.
+
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="pnd-build-card pnd-reveal">
 
-        <!-- 05 -->
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="app-card reveal">
-
-                <span class="app-index">
-                    05
-                </span>
-
-                <div class="app-icon">
-                    <i class="bi bi-diagram-3"></i>
+                <div class="pnd-build-icon">
+                    <i class="bi bi-mortarboard"></i>
                 </div>
 
                 <h3>
-                    Business Portals
+                    Educational Systems
                 </h3>
 
                 <p>
-                    Secure online portals that provide different
-                    users with access to relevant information,
-                    tools and workflows.
+
+                    Student management, course systems,
+                    examination workflows and institutional
+                    applications.
+
                 </p>
 
             </div>
 
-        </div>
 
+            <div class="pnd-build-card pnd-reveal">
 
-        <!-- 06 -->
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="app-card reveal">
-
-                <span class="app-index">
-                    06
-                </span>
-
-                <div class="app-icon">
-                    <i class="bi bi-kanban"></i>
+                <div class="pnd-build-icon">
+                    <i class="bi bi-gear"></i>
                 </div>
 
                 <h3>
-                    Workflow Applications
+                    Custom Applications
                 </h3>
 
                 <p>
-                    Digital workflows that organize tasks,
-                    approvals, submissions, tracking and
-                    operational processes.
+
+                    If your workflow doesn't fit an existing
+                    system, we can design an application around
+                    your specific requirements.
+
                 </p>
 
             </div>
 
-        </div>
 
+        </div>
 
     </div>
-
-</div>
-
 
 </section>
 
-<!-- =====================================================
-     PROCESS
-===================================================== -->
 
-<section class="pnd-section"
-         id="process">
+<!-- =========================================================
+     FEATURES
+========================================================== -->
 
+<section class="pnd-section pnd-section-light">
 
-<div class="container-xl">
+    <div class="pnd-container">
 
 
-    <div class="section-head reveal">
+        <div class="pnd-reveal">
 
-        <div class="section-label">
-            APPLICATION JOURNEY
-        </div>
-
-        <h2 class="section-title">
-            From business problem to working application.
-        </h2>
-
-        <p class="section-desc">
-            We break complex application projects into clear
-            stages so that the system evolves around your
-            actual requirements.
-        </p>
-
-    </div>
-
-
-    <div class="workflow">
-
-        <div class="row g-4">
-
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="workflow-card reveal">
-
-                    <div class="workflow-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Understand
-                    </h3>
-
-                    <p>
-                        We identify your users, workflow,
-                        data and business requirements.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="workflow-card reveal">
-
-                    <div class="workflow-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Structure
-                    </h3>
-
-                    <p>
-                        We plan screens, navigation, roles,
-                        database structure and functionality.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="workflow-card reveal">
-
-                    <div class="workflow-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Develop
-                    </h3>
-
-                    <p>
-                        The application is built and connected
-                        to the required services and data.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="workflow-card reveal">
-
-                    <div class="workflow-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Launch
-                    </h3>
-
-                    <p>
-                        We test the system, deploy it and
-                        support the next stage of development.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     DATABASE SECTION
-===================================================== -->
-
-<section class="pnd-section pnd-section-alt pnd-data-core">
-
-
-<div class="container-xl">
-
-    <div class="row align-items-center g-5">
-
-
-        <div class="col-lg-6">
-
-            <div class="database-panel reveal">
-
-                <div class="db-lines"></div>
-
-                <div class="db-cylinder">
-
-                    <div class="db-layer"></div>
-                    <div class="db-layer"></div>
-                    <div class="db-layer"></div>
-                    <div class="db-layer"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-6">
-
-            <div class="section-head mb-4 reveal">
-
-                <div class="section-label">
-                    DATA AT THE CORE
-                </div>
-
-                <h2 class="section-title">
-                    Your application.
-                    Your data.
-                    Your workflow.
-                </h2>
-
-                <p class="section-desc">
-                    A web application becomes much more useful
-                    when the interface and data layer work together.
-                    We can structure applications around the
-                    information your organization needs to manage.
-                </p>
-
-            </div>
-
-
-            <ul class="feature-list reveal">
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-                        Structured database integration
-                    </span>
-                </li>
-
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-                        Create, view, edit and manage records
-                    </span>
-                </li>
-
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-                        Search, filtering and organized data views
-                    </span>
-                </li>
-
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-                        User roles and access-based functionality
-                    </span>
-                </li>
-
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-                        Reports and dashboard-style information
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     CAPABILITIES
-===================================================== -->
-
-<section class="pnd-section">
-
-
-<div class="container-xl">
-
-    <div class="row g-4">
-
-
-        <div class="col-lg-6">
-
-            <div class="capability-box reveal">
-
-                <div class="section-label">
-                    APPLICATION CAPABILITIES
-                </div>
-
-                <div class="capability-title">
-                    Build the features your workflow needs.
-                </div>
-
-
-                <ul class="capability-list">
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            User registration and authentication
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            Admin and user dashboards
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            Forms and data collection
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            Search and filtering systems
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            File and document management
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            Reports and data views
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        <span>
-                            Notifications and communication features
-                        </span>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-lg-6">
-
-            <div class="capability-box reveal">
-
-                <div class="section-label">
-                    CUSTOMIZATION
-                </div>
-
-                <div class="capability-title">
-                    Built around the way you work.
-                </div>
-
-
-                <ul class="capability-list">
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Custom interface and dashboard layouts
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Different user roles and permissions
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Business-specific workflows
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            API and third-party integrations where required
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Scalable application architecture
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Hosting and deployment support
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <i class="bi bi-arrow-right-circle"></i>
-
-                        <span>
-                            Future feature expansion
-                        </span>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     QUALITY
-===================================================== -->
-
-<section class="pnd-section pnd-section-alt pnd-built-for-use">
-
-
-<div class="container-xl">
-
-
-    <div class="section-head reveal">
-
-        <div class="section-label">
-            BUILT FOR USE
-        </div>
-
-        <h2 class="section-title">
-            Technology should simplify the work.
-        </h2>
-
-        <p class="section-desc">
-            We focus on creating applications that are practical
-            to use, understandable for users and structured for
-            future improvements.
-        </p>
-
-    </div>
-
-
-    <div class="row g-4">
-
-
-        <div class="col-md-6 col-lg-3">
-
-            <div class="security-card reveal">
-
-                <i class="bi bi-phone"></i>
-
-                <h3>
-                    Responsive
-                </h3>
-
-                <p>
-                    Interfaces designed to work across
-                    different screen sizes where required.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-3">
-
-            <div class="security-card reveal">
-
-                <i class="bi bi-shield-check"></i>
-
-                <h3>
-                    Access Control
-                </h3>
-
-                <p>
-                    User roles and permissions can be
-                    structured around application needs.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-3">
-
-            <div class="security-card reveal">
-
-                <i class="bi bi-speedometer"></i>
-
-                <h3>
-                    Performance
-                </h3>
-
-                <p>
-                    Efficient layouts and application
-                    structures help keep workflows practical.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-3">
-
-            <div class="security-card reveal">
-
-                <i class="bi bi-arrow-repeat"></i>
-
-                <h3>
-                    Expandable
-                </h3>
-
-                <p>
-                    Features can be planned so the application
-                    can evolve with your requirements.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     CTA
-===================================================== -->
-
-<section class="pnd-cta">
-
-
-<div class="container">
-
-    <div class="reveal">
-
-        <div class="section-label">
-            BUILD YOUR SYSTEM
-        </div>
-
-        <h2>
-
-            Have a workflow
-            <br>
-
-            <span class="gradient-text">
-                that needs a digital solution?
+            <span class="pnd-section-label">
+                CORE CAPABILITIES
             </span>
 
-        </h2>
+            <h2 class="pnd-section-title">
+                Built for usability,
+                structure and growth.
+            </h2>
 
+            <p class="pnd-section-description">
 
-        <p>
-            Tell us what you currently do manually,
-            what you want to manage digitally and
-            what your users need.
-        </p>
-
-
-        <a href="contact.html"
-           class="pnd-btn pnd-btn-primary">
-
-            Discuss Your Application
-
-            <i class="bi bi-arrow-up-right"></i>
-
-        </a>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-<div class="container-xl">
-
-    <div class="row g-4 align-items-start">
-
-
-        <div class="col-lg-5">
-
-            <div class="footer-brand">
-                Pixel Nest Digital
-            </div>
-
-            <p class="mt-3 mb-0">
-
-                Websites, web applications, e-commerce,
-                software projects, branding, photography,
-                videography and digital content.
+                A good application should not only work.
+                It should be understandable, maintainable and
+                comfortable for people to use.
 
             </p>
 
         </div>
 
 
-        <div class="col-lg-7">
+        <div class="pnd-feature-grid">
 
-            <div class="footer-links justify-content-lg-end">
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-phone"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Responsive Interfaces
+                    </h4>
+
+                    <p>
+                        Applications designed to work across
+                        desktop, tablet and mobile screens.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-person-lock"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Authentication
+                    </h4>
+
+                    <p>
+                        User registration, login, sessions,
+                        roles and protected application areas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-database-check"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Database Management
+                    </h4>
+
+                    <p>
+                        Structured tables, relationships,
+                        queries and CRUD operations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-arrow-left-right"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        API Integration
+                    </h4>
+
+                    <p>
+                        Application interfaces for connecting
+                        frontend, backend and external services.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Search & Filtering
+                    </h4>
+
+                    <p>
+                        Useful search, filtering and sorting
+                        experiences for application data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-file-earmark-bar-graph"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Reports
+                    </h4>
+
+                    <p>
+                        Data presentation through dashboards,
+                        tables and application reports.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-speedometer"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Performance
+                    </h4>
+
+                    <p>
+                        Efficient interfaces and structured
+                        application workflows.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-feature pnd-reveal">
+
+                <div class="pnd-feature-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+
+                <div>
+
+                    <h4>
+                        Structured Development
+                    </h4>
+
+                    <p>
+                        Organized code and database structures
+                        that make future changes easier.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================== -->
+
+<section class="pnd-section pnd-section-dark">
+
+    <div class="pnd-container">
+
+
+        <div class="pnd-reveal">
+
+            <span class="pnd-section-label">
+                OUR PROCESS
+            </span>
+
+            <h2 class="pnd-section-title">
+                From requirement
+                to running application.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                Each application begins with understanding the
+                workflow before choosing the technology.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-process">
+
+
+            <div class="pnd-process-row">
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 01
+                    </span>
+
+                    <h4>
+                        Understand
+                    </h4>
+
+                    <p>
+                        We identify the purpose, users,
+                        workflow and requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 02
+                    </span>
+
+                    <h4>
+                        Plan
+                    </h4>
+
+                    <p>
+                        We define the application structure,
+                        pages, database and technology stack.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 03
+                    </span>
+
+                    <h4>
+                        Design
+                    </h4>
+
+                    <p>
+                        The user interface and application
+                        experience are designed before development.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 04
+                    </span>
+
+                    <h4>
+                        Develop
+                    </h4>
+
+                    <p>
+                        Frontend, backend and database components
+                        are developed and connected.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 05
+                    </span>
+
+                    <h4>
+                        Integrate
+                    </h4>
+
+                    <p>
+                        APIs, authentication, forms and
+                        application workflows are connected.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 06
+                    </span>
+
+                    <h4>
+                        Test
+                    </h4>
+
+                    <p>
+                        Features, forms, database operations and
+                        responsive layouts are tested.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 07
+                    </span>
+
+                    <h4>
+                        Deploy
+                    </h4>
+
+                    <p>
+                        The application is prepared for its
+                        intended hosting environment.
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-process-card pnd-reveal">
+
+                    <span class="pnd-process-number">
+                        STEP 08
+                    </span>
+
+                    <h4>
+                        Improve
+                    </h4>
+
+                    <p>
+                        Future improvements and maintenance can
+                        be added as the application grows.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DEVELOPER MESSAGE
+========================================================== -->
+
+<section class="pnd-section pnd-section-dark pnd-developer-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-developer-box pnd-reveal">
+
+
+            <div class="pnd-developer-label">
+                DEVELOPER'S MESSAGE
+            </div>
+
+
+            <h2>
+                I believe an application should
+                solve a problem, not create another one.
+            </h2>
+
+
+            <p class="pnd-developer-message">
+
+                As the developer behind Pixel Nest Digital,
+                my approach is simple: first understand what
+                the application needs to accomplish, then build
+                the technology around that requirement.
+
+                <br><br>
+
+                I focus on creating interfaces that are easy to
+                understand, backend systems that follow a clear
+                structure and databases that keep information
+                organized. Whether the project requires Python,
+                PHP, ASP.NET, JavaScript, SQL Server, MySQL or
+                another suitable technology, the goal is not to
+                use technology simply because it is available.
+                The goal is to choose the right approach for
+                the project.
+
+                <br><br>
+
+                Every application is an opportunity to turn an
+                idea, workflow or business process into something
+                practical that people can actually use.
+
+            </p>
+
+
+            <div class="pnd-developer-sign">
+
+                Roshan George
+
+                <span>
+                    Developer & Founder — Pixel Nest Digital
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================== -->
+
+<section class="pnd-final-cta">
+
+    <div class="pnd-container">
+
+        <div class="pnd-cta-box pnd-reveal">
+
+
+            <div class="pnd-cta-label">
+                HAVE AN APPLICATION IDEA?
+            </div>
+
+
+            <h2>
+                Let's turn your workflow
+                into a working system.
+            </h2>
+
+
+            <p>
+
+                Whether you have a complete requirement or
+                just an idea, let's discuss what the application
+                needs to do and explore the right technology
+                for it.
+
+            </p>
+
+
+           <a
+    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20my%20project."
+    class="pnd-btn-primary"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    Discuss Your Project
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="pnd-footer">
+
+    <div class="pnd-container">
+
+
+        <div class="pnd-footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="pnd-footer-logo">
+
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital Logo">
+
+                </a>
+
+
+                <p style="margin-top:12px; max-width:320px;">
+
+                    A digital destination where technology,
+                    creativity and ideas come together.
+
+                </p>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
 
                 <a href="index.html">
                     Home
                 </a>
 
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="portfolio.html">
-                    Portfolio
-                </a>
 
                 <a href="about.html">
                     About
                 </a>
+
+
+                <a href="team.html">
+                    Team
+                </a>
+
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
 
                 <a href="contact.html">
                     Contact
@@ -3102,64 +6156,140 @@
 
             </div>
 
+
+            <!-- SERVICES -->
+
+            <div>
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <a href="website_development.html">
+                    Website Development
+                </a>
+
+
+                <a href="web_applications.html">
+                    Web Applications
+                </a>
+
+
+                <a href="e-commerce.html">
+                    E-Commerce
+                </a>
+
+
+                <a href="software-database.html">
+                    Software & Database
+                </a>
+
+
+                <a href="hosting-maintenance.html">
+                    Hosting & Maintenance
+                </a>
+
+            </div>
+
+
+            <!-- CREATIVE -->
+
+            <div>
+
+                <h4>
+                    Creative
+                </h4>
+
+
+                <a href="logo-brand-design.html">
+                    Logo & Brand Design
+                </a>
+
+
+                <a href="photography.html">
+                    Photography
+                </a>
+
+
+                <a href="videography.html">
+                    Videography
+                </a>
+
+
+                <a href="video-editing.html">
+                    Video Editing
+                </a>
+
+
+                <a href="digital-content.html">
+                    Digital Content
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="pnd-footer-bottom">
+
+
+            <span>
+
+                ©
+                <span id="pndYear"></span>
+                Pixel Nest Digital.
+                All rights reserved.
+
+            </span>
+
+
+            <span>
+
+                Technology • Creativity • Digital Solutions
+
+            </span>
+
+
         </div>
 
     </div>
 
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        Pixel Nest Digital.
-        All Rights Reserved.
-
-    </div>
-
-</div>
-
-
 </footer>
 
-<!-- =====================================================
-     BOOTSTRAP JS
-===================================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
 <script>
 
     /* =====================================================
-       MOBILE MENU
+       HEADER SCROLL
     ===================================================== */
 
-    const mobileBtn =
-        document.getElementById("pndMobileBtn");
-
-    const nav =
-        document.getElementById("pndNav");
+    const pndHeader =
+        document.getElementById("pndHeader");
 
 
-    mobileBtn.addEventListener(
-        "click",
-        function(){
+    window.addEventListener(
+        "scroll",
+        function () {
 
-            nav.classList.toggle("show");
+            if (window.scrollY > 20) {
 
-            const icon =
-                mobileBtn.querySelector("i");
+                pndHeader.classList.add(
+                    "scrolled"
+                );
 
+            }
 
-            if(
-                nav.classList.contains("show")
-            ){
+            else {
 
-                icon.className =
-                    "bi bi-x-lg";
-
-            }else{
-
-                icon.className =
-                    "bi bi-list";
+                pndHeader.classList.remove(
+                    "scrolled"
+                );
 
             }
 
@@ -3167,55 +6297,344 @@
     );
 
 
-    document
-        .querySelectorAll(".pnd-nav a")
-        .forEach(link => {
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const pndMenuBtn =
+        document.getElementById("pndMenuBtn");
+
+    const pndMobileMenu =
+        document.getElementById("pndMobileMenu");
+
+    const pndMobileOverlay =
+        document.getElementById("pndMobileOverlay");
+
+    const pndMobileClose =
+        document.getElementById("pndMobileClose");
+
+
+    function openMobileMenu() {
+
+        pndMobileMenu.classList.add(
+            "show"
+        );
+
+        pndMobileOverlay.classList.add(
+            "show"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    function closeMobileMenu() {
+
+        pndMobileMenu.classList.remove(
+            "show"
+        );
+
+        pndMobileOverlay.classList.remove(
+            "show"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    pndMenuBtn.addEventListener(
+        "click",
+        openMobileMenu
+    );
+
+
+    pndMobileClose.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+    pndMobileOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+    /* =====================================================
+       MOBILE SERVICES
+    ===================================================== */
+
+    const mobileServicesBtn =
+        document.getElementById(
+            "mobileServicesBtn"
+        );
+
+    const mobileServicesList =
+        document.getElementById(
+            "mobileServicesList"
+        );
+
+    const mobileServicesIcon =
+        document.getElementById(
+            "mobileServicesIcon"
+        );
+
+
+    mobileServicesBtn.addEventListener(
+        "click",
+        function () {
+
+            mobileServicesList.classList.toggle(
+                "show"
+            );
+
+
+            if (
+                mobileServicesList.classList.contains(
+                    "show"
+                )
+            ) {
+
+                mobileServicesIcon.className =
+                    "bi bi-chevron-up";
+
+            }
+
+            else {
+
+                mobileServicesIcon.className =
+                    "bi bi-chevron-down";
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU WHEN LINK CLICKED
+    ===================================================== */
+
+    document.querySelectorAll(
+        ".pnd-mobile-service-link, .pnd-mobile-link:not(#mobileServicesBtn)"
+    ).forEach(
+        function (link) {
 
             link.addEventListener(
                 "click",
-                () => {
+                function () {
 
-                    nav.classList.remove("show");
-
-                    mobileBtn
-                        .querySelector("i")
-                        .className =
-                        "bi bi-list";
+                    closeMobileMenu();
 
                 }
             );
 
-        });
+        }
+    );
 
 
     /* =====================================================
-       SCROLL REVEAL
+       DESKTOP SEARCH
+    ===================================================== */
+
+    const desktopSearch =
+        document.getElementById(
+            "desktopSearch"
+        );
+
+    const desktopSearchBtn =
+        document.getElementById(
+            "desktopSearchBtn"
+        );
+
+
+    function performSearch(value) {
+
+        const searchValue =
+            value.trim().toLowerCase();
+
+
+        if (!searchValue) {
+
+            return;
+
+        }
+
+
+        if (
+            searchValue.includes("website") ||
+            searchValue.includes("frontend")
+        ) {
+
+            window.location.href =
+                "website_development.html";
+
+        }
+
+        else if (
+            searchValue.includes("application") ||
+            searchValue.includes("backend") ||
+            searchValue.includes("python") ||
+            searchValue.includes("php") ||
+            searchValue.includes("asp")
+        ) {
+
+            window.location.href =
+                "web_applications.html";
+
+        }
+
+        else if (
+            searchValue.includes("commerce") ||
+            searchValue.includes("shop") ||
+            searchValue.includes("ecommerce")
+        ) {
+
+            window.location.href =
+                "e-commerce.html";
+
+        }
+
+        else if (
+            searchValue.includes("logo") ||
+            searchValue.includes("brand")
+        ) {
+
+            window.location.href =
+                "logo-brand-design.html";
+
+        }
+
+        else if (
+            searchValue.includes("photo")
+        ) {
+
+            window.location.href =
+                "photography.html";
+
+        }
+
+        else if (
+            searchValue.includes("video") ||
+            searchValue.includes("editing")
+        ) {
+
+            window.location.href =
+                "videography.html";
+
+        }
+
+        else if (
+            searchValue.includes("hosting") ||
+            searchValue.includes("maintenance")
+        ) {
+
+            window.location.href =
+                "hosting-maintenance.html";
+
+        }
+
+        else {
+
+            window.location.href =
+                "projects.html";
+
+        }
+
+    }
+
+
+    desktopSearchBtn.addEventListener(
+        "click",
+        function () {
+
+            performSearch(
+                desktopSearch.value
+            );
+
+        }
+    );
+
+
+    desktopSearch.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                performSearch(
+                    desktopSearch.value
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MOBILE SEARCH
+    ===================================================== */
+
+    const mobileSearchForm =
+        document.getElementById(
+            "mobileSearchForm"
+        );
+
+    const mobileSearch =
+        document.getElementById(
+            "mobileSearch"
+        );
+
+
+    mobileSearchForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            performSearch(
+                mobileSearch.value
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       REVEAL ANIMATION
     ===================================================== */
 
     const revealElements =
-        document.querySelectorAll(".reveal");
+        document.querySelectorAll(
+            ".pnd-reveal"
+        );
 
 
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
-
-            entries => {
+            function (entries) {
 
                 entries.forEach(
-                    entry => {
+                    function (entry) {
 
-                        if(
+                        if (
                             entry.isIntersecting
-                        ){
+                        ) {
 
-                            entry.target
-                                .classList
-                                .add("show");
+                            entry.target.classList.add(
+                                "show"
+                            );
 
-                            observer
-                                .unobserve(
-                                    entry.target
-                                );
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
                         }
 
@@ -3223,18 +6642,18 @@
                 );
 
             },
-
             {
-                threshold:.12
+                threshold: 0.12
             }
-
         );
 
 
     revealElements.forEach(
-        element => {
+        function (element) {
 
-            observer.observe(element);
+            revealObserver.observe(
+                element
+            );
 
         }
     );
@@ -3244,11 +6663,41 @@
        YEAR
     ===================================================== */
 
-    document.getElementById("year")
-        .textContent =
+    document.getElementById(
+        "pndYear"
+    ).textContent =
         new Date().getFullYear();
+
+
+    /* =====================================================
+       ESCAPE KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
 
 </script>
 
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
 </body>
+
 </html>
