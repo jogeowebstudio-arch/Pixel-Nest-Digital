@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-   content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Website Development | Pixel Nest Digital</title>
+    <title>
+        Website Development | Pixel Nest Digital
+    </title>
 
-<meta name="description"
-   content="Pixel Nest Digital creates modern, responsive and high-performance websites for businesses, brands and organizations.">
+    <meta
+        name="description"
+        content="Pixel Nest Digital creates modern, responsive, high-performance websites for businesses, brands, organizations, startups and individuals."
+    >
 
-<link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+    <meta
+        name="keywords"
+        content="website development, web design, responsive websites, business website, ecommerce website, Pixel Nest Digital"
+    >
 
-<link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet">
+    <!-- =========================================================
+         BOOTSTRAP 5.3.3
+    ========================================================== -->
 
-<link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
 
 <style>
 
@@ -34,23 +60,32 @@
 
 :root{
 
-    --space:#07111F;
-    --space-2:#0B172A;
-    --space-3:#111C35;
+    --pnd-space:#07111f;
+    --pnd-space-2:#0b172a;
+    --pnd-space-3:#111c35;
 
-    --blue:#2563EB;
-    --cyan:#06B6D4;
-    --violet:#7C3AED;
+    --pnd-blue:#2563eb;
+    --pnd-blue-dark:#1d4ed8;
 
-    --green:#22C55E;
-    --red:#EF4444;
+    --pnd-cyan:#06b6d4;
 
-    --white:#F8FAFC;
-    --text:#E2E8F0;
-    --muted:#94A3B8;
+    --pnd-violet:#7c3aed;
 
-    --border:rgba(148,163,184,.16);
-    --glass:rgba(255,255,255,.055);
+    --pnd-white:#f8fafc;
+
+    --pnd-text:#e2e8f0;
+
+    --pnd-muted:#94a3b8;
+
+    --pnd-dark-text:#0f172a;
+
+    --pnd-light:#f8fafc;
+
+    --pnd-border:rgba(148,163,184,.16);
+
+    --pnd-glass:rgba(255,255,255,.055);
+
+    --pnd-header-height:74px;
 
 }
 
@@ -60,147 +95,207 @@
 ========================================================= */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
+
 html{
+
     scroll-behavior:smooth;
-    overflow-x:hidden;
+
 }
+
 
 body{
 
-    margin:0;
-
     font-family:"DM Sans",sans-serif;
 
-    background:var(--space);
+    background:
 
-    color:var(--text);
+        var(--pnd-space);
+
+    color:
+
+        var(--pnd-text);
 
     overflow-x:hidden;
 
 }
 
-img{
-    max-width:100%;
-}
 
 a{
+
     text-decoration:none;
-}
-
-
-/* =========================================================
-   BOOTSTRAP CONTAINER OPTIMIZATION
-========================================================= */
-
-.container-xl{
-
-    width:100%;
-
-    margin-left:auto;
-    margin-right:auto;
-
-    padding-left:clamp(16px,3vw,32px);
-    padding-right:clamp(16px,3vw,32px);
 
 }
 
 
+button,
+input,
+textarea{
+
+    font-family:inherit;
+
+}
+
+
+img{
+
+    max-width:100%;
+
+}
+
+
 /* =========================================================
-   LED
+   GLOBAL CONTAINER
 ========================================================= */
 
-.pnd-led{
+.pnd-container{
+
+    width:
+
+        min(1180px, calc(100% - 40px));
+
+    margin:
+
+        0 auto;
+
+}
+
+
+/* =========================================================
+   TOP LED
+========================================================= */
+
+.pnd-top-led{
 
     position:fixed;
 
     top:0;
+
     left:0;
 
     width:100%;
-    height:3px;
 
-    z-index:9999;
+    height:2px;
+
+    z-index:10000;
 
     background:
+
         linear-gradient(
             90deg,
-            var(--blue),
-            var(--cyan),
-            var(--violet),
-            var(--blue)
+            var(--pnd-blue),
+            var(--pnd-cyan),
+            var(--pnd-violet),
+            var(--pnd-blue)
         );
 
     background-size:300% 100%;
 
-    animation:ledMove 5s linear infinite;
+    animation:
 
-    box-shadow:
-        0 0 10px rgba(37,99,235,.8),
-        0 0 22px rgba(6,182,212,.5);
+        pndLed 7s linear infinite;
 
 }
 
-@keyframes ledMove{
+
+@keyframes pndLed{
 
     0%{
-        background-position:0% 50%;
+
+        background-position:0%;
+
     }
 
     100%{
-        background-position:300% 50%;
+
+        background-position:300%;
+
     }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pnd-header{
+
+    position:
+
+        sticky;
+
+    top:0;
+
+    z-index:9999;
+
+    min-height:
+
+        var(--pnd-header-height);
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #07111f 0%,
+            #0b172a 50%,
+            #111c3a 100%
+        );
+
+    border-bottom:
+
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 8px 30px rgba(0,0,0,.18);
+
+    transition:
+
+        .3s ease;
+
+}
+
+
+.pnd-header.scrolled{
+
+    box-shadow:
+
+        0 12px 45px rgba(0,0,0,.35);
+
+}
+
+
+.pnd-header-inner{
+
+    min-height:
+
+        var(--pnd-header-height);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+
+        space-between;
+
+    gap:28px;
 
 }
 
 
 /* =========================================================
    NAVBAR
-========================================================= */
-
-.pnd-navbar{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    width:100%;
-
-    min-height:82px;
-
-    background:white;
-
-    backdrop-filter:blur(20px);
-
-    -webkit-backdrop-filter:blur(20px);
-
-    border-bottom:1px solid var(--border);
-
-}
-
-
-.pnd-nav-inner{
-
-    min-height:82px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-}
-
-
-
-/* =========================================================
-   NAVIGATION
+   NO LOGO
 ========================================================= */
 
 .pnd-nav{
@@ -209,103 +304,348 @@ a{
 
     align-items:center;
 
-    gap:clamp(18px,2.2vw,30px);
+    justify-content:flex-end;
+
+    gap:8px;
+
+    margin-left:auto;
 
 }
 
 
-.pnd-nav a{
+.pnd-nav-link{
 
-    color:#D4AF37;
+    position:relative;
+
+    color:#cbd5e1;
+
+    padding:10px 13px;
 
     font-size:14px;
 
     font-weight:600;
 
-    white-space:nowrap;
+    border-radius:10px;
 
     transition:.3s ease;
 
 }
 
 
-.pnd-nav a:hover,
-.pnd-nav a.active{
+.pnd-nav-link:hover{
+
+    color:#fff;
+
+    background:
+
+        rgba(255,255,255,.055);
+
+}
+
+
+.pnd-nav-link.active{
 
     color:#fff;
 
 }
 
 
-.pnd-nav-cta{
+.pnd-nav-link.active::after{
 
-    padding:10px 17px;
+    content:"";
 
-    border-radius:11px;
+    position:absolute;
 
-    color:#fff !important;
+    left:50%;
+
+    bottom:2px;
+
+    width:20px;
+
+    height:2px;
+
+    transform:translateX(-50%);
+
+    border-radius:20px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--violet)
-        );
 
-    box-shadow:
-        0 8px 25px rgba(37,99,235,.22);
+        linear-gradient(
+            90deg,
+            var(--pnd-blue),
+            var(--pnd-cyan)
+        );
 
 }
 
 
 /* =========================================================
-   MOBILE BUTTON
+   NAV CTA
 ========================================================= */
 
-.pnd-mobile-btn{
+.pnd-nav-cta{
+
+    margin-left:10px;
+
+    padding:11px 18px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--pnd-blue),
+            #3b82f6
+        );
+
+    font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:
+
+        0 8px 25px rgba(37,99,235,.25);
+
+    transition:.3s ease;
+
+}
+
+
+.pnd-nav-cta:hover{
+
+    color:#fff;
+
+    transform:
+
+        translateY(-2px);
+
+    box-shadow:
+
+        0 12px 30px rgba(37,99,235,.4);
+
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+========================================================= */
+
+.pnd-menu-toggle{
 
     display:none;
 
-    width:42px;
+    width:44px;
 
-    height:42px;
+    height:44px;
 
-    border:1px solid var(--border);
+    border:1px solid rgba(255,255,255,.12);
 
-    border-radius:11px;
+    border-radius:12px;
 
-    background:var(--glass);
+    background:
 
-    color:#000000;
+        rgba(255,255,255,.05);
+
+    color:#fff;
+
+    font-size:21px;
 
     align-items:center;
 
     justify-content:center;
 
-    font-size:19px;
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.pnd-mobile-nav{
+
+    position:fixed;
+
+    top:0;
+
+    right:-100%;
+
+    width:min(360px,86%);
+
+    height:100vh;
+
+    z-index:10001;
+
+    padding:85px 25px 30px;
+
+    background:
+
+        linear-gradient(
+            160deg,
+            #07111f,
+            #0b172a 60%,
+            #111c35
+        );
+
+    border-left:
+
+        1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+
+        -20px 0 60px rgba(0,0,0,.45);
+
+    transition:
+
+        right .35s ease;
+
+    overflow-y:auto;
 
 }
-@media (max-width:767px){
 
-    .pnd-navbar{
-        min-height:78px;
-    }
 
-    .pnd-nav-inner{
-        min-height:78px;
-    }
+.pnd-mobile-nav.open{
+
+    right:0;
 
 }
+
+
+.pnd-mobile-close{
+
+    position:absolute;
+
+    top:22px;
+
+    right:22px;
+
+    width:42px;
+
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+}
+
+
+.pnd-mobile-nav-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+
+.pnd-mobile-nav-links a{
+
+    color:#cbd5e1;
+
+    padding:15px 12px;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+
+.pnd-mobile-nav-links a:hover,
+.pnd-mobile-nav-links a.active{
+
+    color:#fff;
+
+    background:
+
+        rgba(37,99,235,.13);
+
+}
+
+
+.pnd-mobile-cta{
+
+    margin-top:25px;
+
+    display:block;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--pnd-blue),
+            var(--pnd-cyan)
+        );
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+
+.pnd-mobile-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(5px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s ease;
+
+}
+
+
+.pnd-mobile-overlay.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
-.pnd-hero{
+.pnd-service-hero{
 
     position:relative;
 
-    min-height:clamp(600px,82vh,780px);
+    min-height:
+
+        calc(100vh - 74px);
 
     display:flex;
 
@@ -313,101 +653,131 @@ a{
 
     overflow:hidden;
 
-    padding:
-        clamp(70px,8vw,110px)
-        0
-        clamp(55px,7vw,90px);
+    background:
+
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(37,99,235,.13),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(6,182,212,.09),
+            transparent 30%
+        ),
+
+        var(--pnd-space);
 
 }
 
 
-.hero-grid{
+.pnd-grid-bg{
 
     position:absolute;
 
     inset:0;
 
-    opacity:.22;
+    opacity:.28;
 
     background-image:
 
         linear-gradient(
-            rgba(148,163,184,.08) 1px,
+            rgba(148,163,184,.07) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(148,163,184,.08) 1px,
+            rgba(148,163,184,.07) 1px,
             transparent 1px
         );
 
-    background-size:60px 60px;
+    background-size:
+
+        55px 55px;
 
     mask-image:
+
         linear-gradient(
             to bottom,
             black,
-            transparent 90%
+            transparent
         );
 
 }
 
 
-.hero-glow{
+.pnd-hero-orb{
 
     position:absolute;
 
     border-radius:50%;
 
-    filter:blur(80px);
+    filter:blur(90px);
 
     pointer-events:none;
 
 }
 
 
-.hero-glow.one{
-
-    width:380px;
-
-    height:380px;
-
-    background:rgba(37,99,235,.18);
-
-    top:-100px;
-
-    left:-100px;
-
-}
-
-
-.hero-glow.two{
+.pnd-hero-orb.one{
 
     width:420px;
 
     height:420px;
 
-    background:rgba(124,58,237,.15);
+    left:-200px;
 
-    right:-130px;
+    top:10%;
 
-    top:80px;
+    background:
+
+        rgba(37,99,235,.13);
 
 }
 
 
-.hero-content{
+.pnd-hero-orb.two{
+
+    width:360px;
+
+    height:360px;
+
+    right:-160px;
+
+    bottom:5%;
+
+    background:
+
+        rgba(124,58,237,.12);
+
+}
+
+
+.pnd-hero-content{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.05fr .95fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    padding:90px 0;
 
 }
 
 
 /* =========================================================
-   EYEBROW
+   HERO COPY
 ========================================================= */
 
 .pnd-eyebrow{
@@ -418,130 +788,120 @@ a{
 
     gap:9px;
 
-    padding:8px 13px;
+    padding:7px 12px;
 
-    border:1px solid rgba(6,182,212,.22);
+    border-radius:30px;
 
-    border-radius:50px;
+    border:
 
-    background:rgba(6,182,212,.055);
+        1px solid rgba(6,182,212,.25);
 
-    color:#67E8F9;
+    background:
+
+        rgba(6,182,212,.06);
+
+    color:#67e8f9;
 
     font-size:11px;
 
+    letter-spacing:1.5px;
+
     font-weight:800;
 
-    letter-spacing:2px;
-
-    margin-bottom:24px;
+    margin-bottom:22px;
 
 }
 
 
-.eyebrow-dot{
+.pnd-eyebrow::before{
+
+    content:"";
 
     width:7px;
 
     height:7px;
 
-    flex:0 0 7px;
-
     border-radius:50%;
 
-    background:#22D3EE;
+    background:
 
-    box-shadow:0 0 12px #22D3EE;
+        var(--pnd-cyan);
 
-    animation:blink 1.4s infinite;
+    box-shadow:
 
-}
-
-
-@keyframes blink{
-
-    50%{
-        opacity:.25;
-    }
+        0 0 12px var(--pnd-cyan);
 
 }
 
 
-/* =========================================================
-   HERO TEXT
-========================================================= */
+.pnd-hero-title{
 
-.pnd-hero h1{
+    font-size:
 
-    margin:0;
-
-    max-width:800px;
-
-    color:#fff;
-
-    font-size:clamp(42px,6vw,82px);
+        clamp(46px, 6vw, 82px);
 
     line-height:.98;
 
-    letter-spacing:clamp(-2px,-.3vw,-3px);
+    letter-spacing:-3px;
 
     font-weight:800;
+
+    color:#f8fafc;
+
+    margin-bottom:26px;
 
 }
 
 
-.gradient-text{
+.pnd-hero-title span{
+
+    display:block;
 
     background:
+
         linear-gradient(
             90deg,
-            #60A5FA,
-            #22D3EE,
-            #A78BFA
+            #60a5fa,
+            #22d3ee,
+            #a78bfa
         );
 
     -webkit-background-clip:text;
 
-    -webkit-text-fill-color:transparent;
+    background-clip:text;
+
+    color:transparent;
 
 }
 
 
-.pnd-hero-desc{
+.pnd-hero-description{
 
     max-width:650px;
 
-    margin:
-        clamp(20px,3vw,28px)
-        0;
+    color:#94a3b8;
 
-    color:var(--muted);
-
-    font-size:clamp(15px,1.5vw,17px);
+    font-size:17px;
 
     line-height:1.8;
+
+    margin-bottom:30px;
 
 }
 
 
-.hero-actions{
+.pnd-hero-actions{
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:13px;
+    gap:12px;
 
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.pnd-btn{
-
-    min-height:50px;
+.pnd-btn-primary{
 
     display:inline-flex;
 
@@ -549,34 +909,31 @@ a{
 
     justify-content:center;
 
-    gap:9px;
+    gap:10px;
 
-    padding:13px 20px;
+    padding:14px 22px;
 
     border-radius:12px;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    transition:.3s ease;
-
-}
-
-
-.pnd-btn-primary{
 
     color:#fff;
 
     background:
+
         linear-gradient(
             135deg,
-            var(--blue),
-            var(--violet)
+            var(--pnd-blue),
+            #3b82f6
         );
 
+    font-weight:700;
+
+    font-size:14px;
+
     box-shadow:
-        0 15px 35px rgba(37,99,235,.2);
+
+        0 14px 35px rgba(37,99,235,.24);
+
+    transition:.3s ease;
 
 }
 
@@ -585,29 +942,65 @@ a{
 
     color:#fff;
 
-    transform:translateY(-3px);
+    transform:
+
+        translateY(-3px);
+
+    box-shadow:
+
+        0 18px 42px rgba(37,99,235,.4);
 
 }
 
 
-.pnd-btn-outline{
+.pnd-btn-secondary{
 
-    color:#fff;
+    display:inline-flex;
 
-    border:1px solid var(--border);
+    align-items:center;
 
-    background:var(--glass);
+    justify-content:center;
+
+    gap:10px;
+
+    padding:13px 22px;
+
+    border-radius:12px;
+
+    color:#dbeafe;
+
+    border:
+
+        1px solid rgba(255,255,255,.12);
+
+    background:
+
+        rgba(255,255,255,.04);
+
+    font-weight:700;
+
+    font-size:14px;
+
+    transition:.3s ease;
 
 }
 
 
-.pnd-btn-outline:hover{
+.pnd-btn-secondary:hover{
 
     color:#fff;
 
-    border-color:rgba(6,182,212,.5);
+    border-color:
 
-    transform:translateY(-3px);
+        rgba(6,182,212,.4);
+
+    background:
+
+        rgba(6,182,212,.08);
+
+    transform:
+
+        translateY(-3px);
 
 }
 
@@ -616,11 +1009,11 @@ a{
    HERO VISUAL
 ========================================================= */
 
-.hero-visual{
+.pnd-code-stage{
 
-    width:100%;
+    position:relative;
 
-    min-height:420px;
+    min-height:540px;
 
     display:flex;
 
@@ -628,47 +1021,81 @@ a{
 
     justify-content:center;
 
-    position:relative;
+}
+
+
+.pnd-code-glow{
+
+    position:absolute;
+
+    width:390px;
+
+    height:390px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(37,99,235,.18),
+            rgba(6,182,212,.08),
+            transparent 70%
+        );
+
+    filter:blur(12px);
 
 }
 
 
-.code-window{
-
-    width:min(100%,500px);
+.pnd-code-window{
 
     position:relative;
 
+    z-index:4;
+
+    width:min(560px,100%);
+
+    border-radius:22px;
+
     overflow:hidden;
 
-    border:1px solid rgba(148,163,184,.18);
+    border:
 
-    border-radius:24px;
+        1px solid rgba(255,255,255,.13);
 
-    background:rgba(10,23,42,.78);
+    background:
+
+        rgba(11,23,42,.82);
 
     backdrop-filter:blur(20px);
 
     box-shadow:
-        0 35px 80px rgba(0,0,0,.4),
-        0 0 50px rgba(37,99,235,.08);
+
+        0 35px 100px rgba(0,0,0,.5),
+
+        0 0 60px rgba(37,99,235,.12);
 
     transform:
-        perspective(1000px)
+
+        perspective(1200px)
         rotateY(-7deg)
         rotateX(3deg);
 
-    animation:windowFloat 5s ease-in-out infinite;
+    animation:
+
+        pndWindowFloat 6s ease-in-out infinite;
 
 }
 
 
-@keyframes windowFloat{
+@keyframes pndWindowFloat{
 
-    0%,100%{
+    0%,
+    100%{
 
         transform:
-            perspective(1000px)
+            perspective(1200px)
             rotateY(-7deg)
             rotateX(3deg)
             translateY(0);
@@ -678,9 +1105,9 @@ a{
     50%{
 
         transform:
-            perspective(1000px)
-            rotateY(-7deg)
-            rotateX(3deg)
+            perspective(1200px)
+            rotateY(-4deg)
+            rotateX(2deg)
             translateY(-12px);
 
     }
@@ -688,64 +1115,82 @@ a{
 }
 
 
-.window-led{
+.pnd-window-top{
 
-    height:3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--cyan),
-            var(--violet)
-        );
-
-    background-size:200% 100%;
-
-    animation:ledMove 3s linear infinite;
-
-}
-
-
-.window-top{
-
-    min-height:54px;
+    height:52px;
 
     display:flex;
 
     align-items:center;
 
-    gap:7px;
+    gap:8px;
 
     padding:0 18px;
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+
+        1px solid rgba(255,255,255,.08);
+
+    background:
+
+        rgba(255,255,255,.035);
 
 }
 
 
-.window-dot{
+.pnd-dot{
 
-    width:9px;
+    width:10px;
 
-    height:9px;
-
-    flex:0 0 9px;
+    height:10px;
 
     border-radius:50%;
 
-    background:#64748B;
+}
+
+
+.pnd-dot.red{
+
+    background:#fb7185;
 
 }
 
 
-.window-url{
+.pnd-dot.yellow{
 
-    min-width:0;
+    background:#facc15;
+
+}
+
+
+.pnd-dot.green{
+
+    background:#4ade80;
+
+}
+
+
+.pnd-window-address{
+
+    margin-left:10px;
 
     flex:1;
 
-    height:28px;
+    height:27px;
+
+    border-radius:7px;
+
+    background:
+
+        rgba(255,255,255,.05);
+
+    border:
+
+        1px solid rgba(255,255,255,.06);
+
+    color:#64748b;
+
+    font-size:10px;
 
     display:flex;
 
@@ -753,680 +1198,763 @@ a{
 
     padding:0 10px;
 
-    margin-left:10px;
+}
 
-    border-radius:8px;
 
-    background:rgba(255,255,255,.04);
+.pnd-code-body{
 
-    color:#64748B;
+    padding:28px 25px 30px;
+
+    min-height:380px;
+
+    font-family:
+
+        "Courier New",
+        monospace;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    color:#94a3b8;
+
+}
+
+
+.code-blue{
+
+    color:#60a5fa;
+
+}
+
+
+.code-cyan{
+
+    color:#67e8f9;
+
+}
+
+
+.code-violet{
+
+    color:#c4b5fd;
+
+}
+
+
+.code-green{
+
+    color:#86efac;
+
+}
+
+
+.code-white{
+
+    color:#f8fafc;
+
+}
+
+
+.code-muted{
+
+    color:#475569;
+
+}
+
+
+/* =========================================================
+   FLOATING HERO CARDS
+========================================================= */
+
+.pnd-floating-card{
+
+    position:absolute;
+
+    z-index:7;
+
+    padding:14px 17px;
+
+    border-radius:15px;
+
+    border:
+
+        1px solid rgba(255,255,255,.12);
+
+    background:
+
+        rgba(7,17,31,.78);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 20px 50px rgba(0,0,0,.35);
+
+    animation:
+
+        pndFloatCard 5s ease-in-out infinite;
+
+}
+
+
+@keyframes pndFloatCard{
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+.pnd-floating-card i{
+
+    font-size:20px;
+
+}
+
+
+.pnd-floating-card strong{
+
+    display:block;
+
+    color:#f8fafc;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+
+.pnd-floating-card small{
+
+    display:block;
+
+    color:#64748b;
 
     font-size:10px;
 
-    overflow:hidden;
+}
+
+
+.pnd-floating-one{
+
+    top:35px;
+
+    right:-20px;
 
 }
 
 
-.website-preview{
+.pnd-floating-two{
 
-    padding:25px;
+    bottom:45px;
+
+    left:-25px;
+
+    animation-delay:-2s;
 
 }
 
 
-.preview-nav{
+.pnd-floating-three{
+
+    top:48%;
+
+    right:-45px;
+
+    animation-delay:-3s;
+
+}
+
+
+/* =========================================================
+   HERO TRUST STRIP
+========================================================= */
+
+.pnd-hero-tech{
 
     display:flex;
 
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:30px;
-
-}
-
-
-.preview-logo{
-
-    width:82px;
-
-    height:10px;
-
-    border-radius:10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #3B82F6,
-            #22D3EE
-        );
-
-}
-
-
-.preview-menu{
-
-    display:flex;
-
-    gap:6px;
-
-}
-
-
-.preview-menu span{
-
-    width:28px;
-
-    height:5px;
-
-    border-radius:5px;
-
-    background:#334155;
-
-}
-
-
-.preview-hero{
-
-    padding:25px 0 35px;
-
-}
-
-
-.preview-small{
-
-    width:90px;
-
-    height:6px;
-
-    border-radius:10px;
-
-    background:#22D3EE;
-
-    margin-bottom:14px;
-
-}
-
-
-.preview-title{
-
-    width:75%;
-
-    height:17px;
-
-    border-radius:5px;
-
-    background:#E2E8F0;
-
-    margin-bottom:8px;
-
-}
-
-
-.preview-title.second{
-
-    width:55%;
-
-    background:#64748B;
-
-}
-
-
-.preview-text{
-
-    width:70%;
-
-    height:6px;
-
-    border-radius:5px;
-
-    background:#334155;
-
-    margin-top:17px;
-
-}
-
-
-.preview-button{
-
-    width:100px;
-
-    height:29px;
-
-    margin-top:20px;
-
-    border-radius:8px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #2563EB,
-            #7C3AED
-        );
-
-}
-
-
-.preview-cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
+    flex-wrap:wrap;
 
     gap:10px;
 
+    margin-top:30px;
+
 }
 
 
-.preview-card{
+.pnd-tech-pill{
 
-    height:75px;
+    padding:7px 11px;
+
+    border-radius:30px;
+
+    color:#94a3b8;
+
+    border:
+
+        1px solid rgba(255,255,255,.09);
+
+    background:
+
+        rgba(255,255,255,.025);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
+
+}
+
+
+/* =========================================================
+   LIGHT SECTION
+========================================================= */
+
+.pnd-light-section{
+
+    position:relative;
+
+    background:#f8fafc;
+
+    color:#0f172a;
+
+    padding:105px 0;
+
+}
+
+
+.pnd-light-section.alt{
+
+    background:#eef2f7;
+
+}
+
+
+/* =========================================================
+   DARK SECTION
+========================================================= */
+
+.pnd-dark-section{
+
+    position:relative;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #07111f,
+            #0b172a
+        );
+
+    padding:105px 0;
+
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.pnd-section-header{
+
+    max-width:760px;
+
+    margin-bottom:55px;
+
+}
+
+
+.pnd-section-header.center{
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+    text-align:center;
+
+}
+
+
+.pnd-section-label{
+
+    display:inline-block;
+
+    color:#2563eb;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.6px;
+
+    margin-bottom:13px;
+
+}
+
+
+.pnd-dark-section .pnd-section-label{
+
+    color:#67e8f9;
+
+}
+
+
+.pnd-section-title{
+
+    font-size:
+
+        clamp(32px,4vw,54px);
+
+    line-height:1.08;
+
+    letter-spacing:-1.8px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+
+.pnd-section-description{
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#64748b;
+
+}
+
+
+.pnd-dark-section .pnd-section-description{
+
+    color:#94a3b8;
+
+}
+
+
+/* =========================================================
+   INTRO GRID
+========================================================= */
+
+.pnd-intro-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        .9fr 1.1fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+
+.pnd-intro-number{
+
+    font-size:110px;
+
+    line-height:.8;
+
+    font-weight:800;
+
+    color:
+
+        rgba(37,99,235,.09);
+
+    letter-spacing:-8px;
+
+}
+
+
+.pnd-intro-copy h3{
+
+    font-size:27px;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+}
+
+
+.pnd-intro-copy p{
+
+    color:#64748b;
+
+    line-height:1.85;
+
+    margin-bottom:16px;
+
+}
+
+
+/* =========================================================
+   DEVELOPER MESSAGE
+========================================================= */
+
+.pnd-developer-section{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #07111f,
+            #0b172a 50%,
+            #101c36
+        );
 
     position:relative;
 
     overflow:hidden;
 
-    border-radius:11px;
+}
 
-    border:1px solid rgba(148,163,184,.1);
 
-    background:rgba(255,255,255,.04);
+.pnd-developer-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    right:-200px;
+
+    top:-220px;
+
+    background:
+
+        rgba(37,99,235,.12);
+
+    filter:blur(80px);
 
 }
 
 
-.preview-card::before{
+.pnd-developer-grid{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+
+        260px 1fr;
+
+    gap:55px;
+
+    align-items:center;
+
+}
+
+
+.pnd-developer-card{
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(37,99,235,.22),
+            rgba(6,182,212,.08)
+        );
+
+    border:
+
+        1px solid rgba(96,165,250,.28);
+
+    box-shadow:
+
+        0 0 60px rgba(37,99,235,.14);
+
+}
+
+
+.pnd-developer-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border-radius:50%;
+
+    border:
+
+        1px dashed rgba(6,182,212,.3);
+
+    animation:
+
+        pndOrbit 14s linear infinite;
+
+}
+
+
+@keyframes pndOrbit{
+
+    from{
+
+        transform:rotate(0);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+.pnd-developer-icon{
+
+    font-size:76px;
+
+    color:#67e8f9;
+
+}
+
+
+.pnd-developer-copy .pnd-section-label{
+
+    color:#67e8f9;
+
+}
+
+
+.pnd-developer-copy h2{
+
+    color:#f8fafc;
+
+    font-size:
+
+        clamp(30px,4vw,48px);
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    margin-bottom:22px;
+
+}
+
+
+.pnd-developer-copy p{
+
+    color:#94a3b8;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    max-width:780px;
+
+}
+
+
+.pnd-developer-signature{
+
+    margin-top:25px;
+
+    color:#e2e8f0;
+
+    font-weight:700;
+
+}
+
+
+.pnd-developer-signature span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================================
+   WEBSITE TYPES
+========================================================= */
+
+.pnd-types-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+
+.pnd-type-card{
+
+    position:relative;
+
+    padding:27px 23px;
+
+    min-height:230px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    border:
+
+        1px solid #e2e8f0;
+
+    transition:.35s ease;
+
+    overflow:hidden;
+
+}
+
+
+.pnd-type-card::before{
 
     content:"";
 
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
+
     height:3px;
 
     background:
+
         linear-gradient(
             90deg,
-            #2563EB,
-            #06B6D4
+            var(--pnd-blue),
+            var(--pnd-cyan)
         );
 
-}
+    transform:scaleX(0);
 
+    transform-origin:left;
 
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-.pnd-section,
-.pnd-section-white{
-
-    position:relative;
-
-    padding:
-        clamp(65px,8vw,105px)
-        0;
+    transition:.35s ease;
 
 }
 
 
-.pnd-section{
+.pnd-type-card:hover{
 
-    background:var(--space);
+    transform:
 
-}
+        translateY(-8px);
 
+    border-color:
 
-.pnd-section-alt{
-
-    background:var(--space-2);
-
-}
-
-
-.pnd-section-white{
-
-    background:#fff;
-
-    color:#172033;
-
-}
-
-
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
-.section-head{
-
-    max-width:760px;
-
-    margin-bottom:
-        clamp(35px,5vw,55px);
-
-}
-
-
-.section-label{
-
-    margin-bottom:12px;
-
-    color:#22D3EE;
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
-    font-weight:800;
-
-}
-
-
-.section-title{
-
-    margin:0;
-
-    color:#fff;
-
-    font-size:clamp(32px,4vw,56px);
-
-    line-height:1.05;
-
-    letter-spacing:-2px;
-
-    font-weight:800;
-
-}
-
-
-.section-desc{
-
-    max-width:650px;
-
-    margin-top:18px;
-
-    color:var(--muted);
-
-    line-height:1.8;
-
-}
-
-
-.pnd-section-white .section-label{
-
-    color:#16A34A;
-
-}
-
-
-.pnd-section-white .section-title{
-
-    color:#111827;
-
-}
-
-
-.pnd-section-white .section-desc{
-
-    color:#64748B;
-
-}
-
-
-/* =========================================================
-   SERVICE CARDS
-========================================================= */
-
-.service-card{
-
-    height:100%;
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:28px;
-
-    border:1px solid var(--border);
-
-    border-radius:22px;
-
-    background:rgba(255,255,255,.045);
-
-    transition:.4s ease;
-
-}
-
-
-.service-card:hover{
-
-    transform:translateY(-7px);
-
-    border-color:rgba(37,99,235,.35);
-
-    background:rgba(255,255,255,.065);
+        rgba(37,99,235,.25);
 
     box-shadow:
-        0 25px 55px rgba(0,0,0,.22);
+
+        0 25px 55px rgba(15,23,42,.09);
 
 }
 
 
-.service-icon{
+.pnd-type-card:hover::before{
 
-    width:52px;
-    height:52px;
+    transform:scaleX(1);
 
-    display:flex;
+}
 
-    align-items:center;
-    justify-content:center;
 
-    margin-bottom:22px;
+.pnd-type-icon{
 
-    border-radius:15px;
+    width:48px;
 
-    color:#67E8F9;
+    height:48px;
 
-    font-size:23px;
+    border-radius:14px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:#2563eb;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(37,99,235,.17),
-            rgba(124,58,237,.17)
-        );
 
-    border:1px solid rgba(6,182,212,.14);
+        rgba(37,99,235,.08);
+
+    font-size:21px;
+
+    margin-bottom:20px;
 
 }
 
 
-.service-card h3{
+.pnd-type-card h3{
+
+    font-size:18px;
+
+    font-weight:800;
 
     margin-bottom:10px;
 
-    color:#fff;
-
-    font-size:20px;
-
-    font-weight:800;
-
 }
 
 
-.service-card p{
+.pnd-type-card p{
 
-    margin:0;
+    color:#64748b;
 
-    color:var(--muted);
-
-    font-size:14px;
+    font-size:13px;
 
     line-height:1.7;
-
-}
-
-
-.service-number{
-
-    position:absolute;
-
-    top:18px;
-    right:20px;
-
-    color:rgba(148,163,184,.18);
-
-    font-size:12px;
-
-    font-weight:800;
-
-}
-
-
-/* =========================================================
-   WHITE SERVICE
-========================================================= */
-
-.pnd-section-white .service-card{
-
-    background:#fff;
-
-    border:1px solid #E5E7EB;
-
-    box-shadow:
-        0 10px 30px rgba(15,23,42,.05);
-
-}
-
-
-.pnd-section-white .service-card:hover{
-
-    background:#fff;
-
-    border-color:#BBF7D0;
-
-    box-shadow:
-        0 20px 45px rgba(15,23,42,.10);
-
-}
-
-
-.pnd-section-white .service-card h3{
-
-    color:#111827;
-
-}
-
-
-.pnd-section-white .service-card p{
-
-    color:#64748B;
-
-}
-
-
-.pnd-section-white .service-number{
-
-    color:#CBD5E1;
-
-}
-
-
-.pnd-section-white .service-icon{
-
-    color:#16A34A;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(239,68,68,.08),
-            rgba(34,197,94,.10)
-        );
-
-    border:1px solid rgba(34,197,94,.18);
-
-}
-
-
-/* =========================================================
-   FEATURE LIST
-========================================================= */
-
-.feature-list{
-
-    list-style:none;
-
-    margin:0;
-
-    padding:0;
-
-}
-
-
-.feature-list li{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:13px;
-
-    margin-bottom:18px;
-
-    color:var(--muted);
-
-    line-height:1.6;
-
-}
-
-
-.feature-list i{
-
-    flex:0 0 auto;
-
-    margin-top:2px;
-
-    color:#22D3EE;
-
-    font-size:17px;
-
-}
-
-
-/* =========================================================
-   RESPONSIVE DEVICES
-========================================================= */
-
-.responsive-panel{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:35px;
-
-    border:1px solid var(--border);
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(37,99,235,.08),
-            rgba(124,58,237,.04)
-        );
-
-}
-
-
-.device-stage{
-
-    position:relative;
-
-    width:100%;
-
-    min-height:390px;
-
-}
-
-
-.device{
-
-    position:absolute;
-
-    overflow:hidden;
-
-    border:5px solid #1E293B;
-
-    background:#020617;
-
-    box-shadow:
-        0 30px 60px rgba(0,0,0,.35);
-
-}
-
-
-.device-screen{
-
-    width:100%;
-    height:100%;
-
-    position:relative;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(37,99,235,.2),
-            rgba(6,182,212,.08)
-        );
-
-}
-
-
-.device-screen::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:15%;
-    top:18%;
-
-    width:70%;
-    height:15px;
-
-    border-radius:10px;
-
-    background:#E2E8F0;
-
-    box-shadow:
-        0 30px 0 #475569,
-        0 60px 0 #334155;
-
-}
-
-
-.desktop-device{
-
-    width:330px;
-    height:220px;
-
-    left:20px;
-    top:55px;
-
-    border-radius:15px;
-
-}
-
-
-.tablet-device{
-
-    width:145px;
-    height:190px;
-
-    right:65px;
-    top:125px;
-
-    border-radius:18px;
-
-}
-
-
-.mobile-device{
-
-    width:72px;
-    height:140px;
-
-    right:20px;
-    top:220px;
-
-    border-radius:14px;
 
 }
 
@@ -1435,329 +1963,650 @@ a{
    PROCESS
 ========================================================= */
 
-.process-line{
+.pnd-process-grid{
 
-    position:relative;
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap:18px;
 
 }
 
 
-.process-line::before{
+.pnd-process-card{
 
-    content:"";
+    position:relative;
 
-    position:absolute;
+    padding:28px 22px;
 
-    left:25px;
-
-    top:35px;
-    bottom:35px;
-
-    width:1px;
+    border-radius:20px;
 
     background:
-        linear-gradient(
-            to bottom,
-            var(--blue),
-            var(--cyan),
-            var(--violet),
-            transparent
-        );
+
+        rgba(255,255,255,.045);
+
+    border:
+
+        1px solid rgba(255,255,255,.09);
+
+    transition:.35s ease;
 
 }
 
 
-.process-item{
+.pnd-process-card:hover{
 
-    position:relative;
+    transform:
 
-    display:flex;
+        translateY(-7px);
 
-    gap:25px;
+    background:
 
-    padding-bottom:35px;
+        rgba(255,255,255,.07);
+
+    border-color:
+
+        rgba(96,165,250,.3);
 
 }
 
 
-.process-icon{
+.pnd-process-number{
 
-    position:relative;
+    font-size:12px;
 
-    z-index:2;
+    font-weight:800;
 
-    flex:0 0 51px;
+    color:#67e8f9;
 
-    width:51px;
-    height:51px;
+    letter-spacing:1px;
 
-    display:flex;
+    margin-bottom:22px;
 
-    align-items:center;
-    justify-content:center;
+}
 
-    border-radius:50%;
 
-    color:#fff;
+.pnd-process-card h3{
+
+    color:#f8fafc;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+    font-weight:800;
+
+}
+
+
+.pnd-process-card p{
+
+    color:#94a3b8;
 
     font-size:13px;
 
-    font-weight:800;
-
-    background:var(--space-2);
-
-    border:1px solid rgba(37,99,235,.5);
-
-}
-
-
-.process-content{
-
-    padding-top:3px;
-
-}
-
-
-.process-content h3{
-
-    margin-bottom:7px;
-
-    color:#fff;
-
-    font-size:20px;
-
-    font-weight:800;
-
-}
-
-
-.process-content p{
-
-    max-width:650px;
-
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    line-height:1.7;
-
-}
-
-
-.pnd-section-white .process-line::before{
-
-    background:
-        linear-gradient(
-            to bottom,
-            #EF4444,
-            #22C55E,
-            #16A34A,
-            transparent
-        );
-
-}
-
-
-.pnd-section-white .process-icon{
-
-    background:#fff;
-
-    color:#111827;
-
-    border:1px solid #BBF7D0;
-
-}
-
-
-.pnd-section-white .process-content h3{
-
-    color:#111827;
-
-}
-
-
-.pnd-section-white .process-content p{
-
-    color:#64748B;
+    line-height:1.75;
 
 }
 
 
 /* =========================================================
-   TECH
+   DETAILED DEVELOPMENT PHASES
 ========================================================= */
 
-.tech-box{
+.pnd-phase-grid{
 
-    min-height:70px;
+    display:grid;
 
-    display:flex;
+    grid-template-columns:
 
-    align-items:center;
+        1fr 1fr;
 
-    gap:14px;
+    gap:20px;
 
-    padding:16px 18px;
+}
 
-    border:1px solid var(--border);
 
-    border-radius:15px;
+.pnd-phase-card{
 
-    background:rgba(255,255,255,.04);
+    padding:30px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    border:
+
+        1px solid #e2e8f0;
+
+    display:grid;
+
+    grid-template-columns:55px 1fr;
+
+    gap:20px;
 
     transition:.3s ease;
 
 }
 
 
-.tech-box:hover{
+.pnd-phase-card:hover{
 
-    transform:translateY(-4px);
+    transform:
 
-    border-color:rgba(6,182,212,.35);
+        translateY(-5px);
 
-}
+    box-shadow:
 
-
-.tech-box i{
-
-    flex:0 0 auto;
-
-    color:#60A5FA;
-
-    font-size:23px;
+        0 20px 50px rgba(15,23,42,.08);
 
 }
 
 
-.tech-box strong{
+.pnd-phase-icon{
 
-    display:block;
+    width:50px;
 
-    color:#fff;
+    height:50px;
 
-    font-size:14px;
+    border-radius:15px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:#2563eb;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.1),
+            rgba(6,182,212,.1)
+        );
+
+    font-size:20px;
 
 }
 
 
-.tech-box span{
+.pnd-phase-card h3{
 
-    display:block;
+    font-size:19px;
 
-    margin-top:3px;
+    font-weight:800;
 
-    color:#64748B;
+    margin-bottom:10px;
 
-    font-size:11px;
+}
+
+
+.pnd-phase-card p{
+
+    color:#64748b;
+
+    line-height:1.75;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+
+}
+
+
+.pnd-phase-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+
+.pnd-phase-list li{
+
+    position:relative;
+
+    padding-left:18px;
+
+    color:#475569;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+
+}
+
+
+.pnd-phase-list li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:8px;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#2563eb;
 
 }
 
 
 /* =========================================================
-   PROJECT CARDS
+   FEATURE STRIP
 ========================================================= */
 
-.project-card{
+.pnd-feature-grid{
 
-    height:310px;
+    display:grid;
 
-    position:relative;
+    grid-template-columns:
 
-    overflow:hidden;
+        repeat(3,1fr);
 
-    border:1px solid var(--border);
-
-    border-radius:22px;
-
-    background:#0F1B30;
+    gap:20px;
 
 }
 
 
-.project-card img{
+.pnd-feature-card{
 
-    width:100%;
-    height:100%;
+    padding:30px;
 
-    object-fit:cover;
+    border-radius:20px;
 
-    opacity:.7;
+    background:
 
-    transition:.5s ease;
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
 
-}
+    border:
 
-
-.project-card:hover img{
-
-    transform:scale(1.08);
-
-    opacity:.45;
+        1px solid rgba(255,255,255,.09);
 
 }
 
 
-.project-overlay{
+.pnd-feature-card i{
 
-    position:absolute;
+    font-size:27px;
 
-    inset:0;
+    color:#67e8f9;
+
+    margin-bottom:18px;
+
+    display:block;
+
+}
+
+
+.pnd-feature-card h3{
+
+    color:#f8fafc;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    margin-bottom:11px;
+
+}
+
+
+.pnd-feature-card p{
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+    line-height:1.75;
+
+}
+
+
+/* =========================================================
+   TECHNOLOGY STACK
+========================================================= */
+
+.pnd-tech-grid{
 
     display:flex;
 
-    flex-direction:column;
+    flex-wrap:wrap;
 
-    justify-content:flex-end;
+    gap:12px;
 
-    padding:25px;
+}
+
+
+.pnd-tech-card{
+
+    min-width:145px;
+
+    flex:1;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    border:
+
+        1px solid rgba(255,255,255,.09);
 
     background:
+
+        rgba(255,255,255,.035);
+
+    text-align:center;
+
+    transition:.3s ease;
+
+}
+
+
+.pnd-tech-card:hover{
+
+    transform:
+
+        translateY(-5px);
+
+    border-color:
+
+        rgba(6,182,212,.3);
+
+}
+
+
+.pnd-tech-card i{
+
+    display:block;
+
+    font-size:26px;
+
+    color:#60a5fa;
+
+    margin-bottom:10px;
+
+}
+
+
+.pnd-tech-card strong{
+
+    color:#e2e8f0;
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   WEBSITE QUALITY SECTION
+========================================================= */
+
+.pnd-quality-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        .95fr 1.05fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+
+.pnd-quality-visual{
+
+    position:relative;
+
+    min-height:390px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+
         linear-gradient(
-            transparent 25%,
-            rgba(3,8,20,.95)
+            145deg,
+            #0b172a,
+            #111c35
         );
 
+    border:
+
+        1px solid rgba(255,255,255,.09);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
 }
 
 
-.project-tag{
+.pnd-quality-ring{
 
-    margin-bottom:7px;
+    width:250px;
 
-    color:#67E8F9;
+    height:250px;
 
-    font-size:10px;
+    border-radius:50%;
 
-    letter-spacing:1.5px;
+    border:
+
+        1px solid rgba(96,165,250,.25);
+
+    box-shadow:
+
+        0 0 70px rgba(37,99,235,.12);
+
+    display:grid;
+
+    place-items:center;
+
+    position:relative;
+
+}
+
+
+.pnd-quality-ring::before,
+.pnd-quality-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+
+        1px dashed rgba(6,182,212,.25);
+
+}
+
+
+.pnd-quality-ring::before{
+
+    inset:28px;
+
+}
+
+
+.pnd-quality-ring::after{
+
+    inset:-30px;
+
+}
+
+
+.pnd-quality-icon{
+
+    font-size:72px;
+
+    color:#67e8f9;
+
+}
+
+
+.pnd-quality-list{
+
+    display:grid;
+
+    gap:17px;
+
+}
+
+
+.pnd-quality-item{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.pnd-quality-item-icon{
+
+    flex:none;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+
+        rgba(37,99,235,.09);
+
+    color:#2563eb;
+
+}
+
+
+.pnd-quality-item h4{
+
+    font-size:16px;
 
     font-weight:800;
-
-}
-
-
-.project-overlay h3{
 
     margin-bottom:5px;
 
-    color:#fff;
+}
 
-    font-size:22px;
+
+.pnd-quality-item p{
+
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin:0;
+
+}
+
+
+/* =========================================================
+   PROJECT JOURNEY
+========================================================= */
+
+.pnd-journey{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(6,1fr);
+
+    gap:10px;
+
+}
+
+
+.pnd-journey-step{
+
+    position:relative;
+
+    padding:22px 14px;
+
+    text-align:center;
+
+    border-radius:16px;
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+    background:
+
+        rgba(255,255,255,.035);
+
+}
+
+
+.pnd-journey-step span{
+
+    display:block;
+
+    width:34px;
+
+    height:34px;
+
+    margin:0 auto 12px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+
+        rgba(37,99,235,.15);
+
+    color:#60a5fa;
+
+    font-size:12px;
 
     font-weight:800;
 
 }
 
 
-.project-overlay p{
+.pnd-journey-step strong{
 
-    margin:0;
+    display:block;
 
-    color:#94A3B8;
+    color:#e2e8f0;
 
-    font-size:13px;
+    font-size:12px;
 
 }
 
@@ -1766,50 +2615,67 @@ a{
    FAQ
 ========================================================= */
 
-.accordion-item{
+.pnd-faq{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+
+.pnd-faq .accordion-item{
 
     margin-bottom:10px;
 
+    border:
+
+        1px solid #e2e8f0 !important;
+
+    border-radius:14px !important;
+
     overflow:hidden;
 
-    border:1px solid var(--border) !important;
-
-    border-radius:15px !important;
-
-    background:rgba(255,255,255,.035);
+    background:#fff;
 
 }
 
 
-.accordion-button{
+.pnd-faq .accordion-button{
 
-    padding:20px;
+    padding:19px 20px;
 
-    color:#fff !important;
-
-    background:transparent !important;
-
-    box-shadow:none !important;
+    font-size:15px;
 
     font-weight:700;
 
+    color:#0f172a;
+
+    background:#fff;
+
+    box-shadow:none;
+
 }
 
 
-.accordion-button::after{
+.pnd-faq .accordion-button:not(.collapsed){
 
-    filter:invert(1);
+    color:#2563eb;
+
+    background:#f8fafc;
 
 }
 
 
-.accordion-body{
+.pnd-faq .accordion-body{
+
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.8;
 
     padding:0 20px 20px;
-
-    color:var(--muted);
-
-    line-height:1.7;
 
 }
 
@@ -1818,59 +2684,127 @@ a{
    CTA
 ========================================================= */
 
-.pnd-cta{
+.pnd-final-cta{
+
+    padding:100px 0;
+
+    background:
+
+        #07111f;
+
+}
+
+
+.pnd-cta-box{
 
     position:relative;
 
     overflow:hidden;
 
-    padding:
-        clamp(65px,8vw,85px)
-        20px;
+    padding:75px 55px;
 
     text-align:center;
 
-    border-top:1px solid var(--border);
+    border-radius:28px;
 
-    border-bottom:1px solid var(--border);
+    border:
+
+        1px solid rgba(96,165,250,.2);
 
     background:
+
         radial-gradient(
-            circle at 50% 100%,
-            rgba(37,99,235,.18),
-            transparent 50%
+            circle at 50% 0%,
+            rgba(37,99,235,.2),
+            transparent 45%
         ),
-        var(--space-2);
+
+        linear-gradient(
+            145deg,
+            #0b172a,
+            #101c35
+        );
 
 }
 
 
-.pnd-cta h2{
+.pnd-cta-box::before{
 
-    margin:0;
+    content:"";
 
-    color:#fff;
+    position:absolute;
 
-    font-size:clamp(34px,5vw,60px);
+    width:350px;
 
-    line-height:1.05;
+    height:350px;
 
-    letter-spacing:-2px;
+    border-radius:50%;
+
+    left:50%;
+
+    top:-230px;
+
+    transform:translateX(-50%);
+
+    background:
+
+        rgba(6,182,212,.08);
+
+    filter:blur(60px);
+
+}
+
+
+.pnd-cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.pnd-cta-label{
+
+    color:#67e8f9;
+
+    font-size:11px;
 
     font-weight:800;
 
+    letter-spacing:1.5px;
+
+    margin-bottom:15px;
+
 }
 
 
-.pnd-cta p{
+.pnd-cta-box h2{
 
-    max-width:620px;
+    color:#f8fafc;
 
-    margin:17px auto 27px;
+    font-size:
 
-    color:var(--muted);
+        clamp(30px,4vw,50px);
 
-    line-height:1.7;
+    line-height:1.1;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+
+.pnd-cta-box p{
+
+    max-width:650px;
+
+    margin:0 auto 28px;
+
+    color:#94a3b8;
+
+    line-height:1.8;
 
 }
 
@@ -1879,923 +2813,617 @@ a{
    FOOTER
 ========================================================= */
 
-footer{
+.pnd-footer{
 
-    padding:55px 0 25px;
+    background:
 
-    background:#040B15;
+        #050b14;
 
-    border-top:1px solid var(--border);
+    border-top:
+
+        1px solid rgba(255,255,255,.07);
+
+    padding:70px 0 25px;
 
 }
 
 
-.footer-brand{
+.pnd-footer-grid{
 
-    color:#fff;
+    display:grid;
 
-    font-size:19px;
+    grid-template-columns:
+
+        1.5fr 1fr 1.2fr 1.2fr;
+
+    gap:40px;
+
+    padding-bottom:55px;
+
+}
+
+
+.pnd-footer-logo img{
+
+    width:190px;
+
+    max-height:60px;
+
+    object-fit:contain;
+
+    object-position:left center;
+
+}
+
+
+.pnd-footer-description{
+
+    max-width:320px;
+
+    margin-top:17px;
+
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+.pnd-footer h4{
+
+    color:#f8fafc;
+
+    font-size:14px;
+
+    margin-bottom:17px;
 
     font-weight:800;
 
 }
 
 
-footer p{
+.pnd-footer a{
 
-    color:#64748B;
+    display:block;
+
+    width:max-content;
+
+    max-width:100%;
+
+    color:#64748b;
 
     font-size:13px;
 
-    line-height:1.7;
+    margin-bottom:10px;
+
+    transition:.3s ease;
 
 }
 
 
-.footer-links{
+.pnd-footer a:hover{
+
+    color:#60a5fa;
+
+    transform:translateX(3px);
+
+}
+
+
+.pnd-footer-bottom{
+
+    padding-top:22px;
+
+    border-top:
+
+        1px solid rgba(255,255,255,.07);
 
     display:flex;
 
-    flex-wrap:wrap;
+    align-items:center;
 
-    gap:18px;
+    justify-content:space-between;
 
-}
-
-
-.footer-links a{
-
-    color:#64748B;
-
-    font-size:13px;
-
-    transition:.3s;
-
-}
-
-
-.footer-links a:hover{
-
-    color:#22D3EE;
-
-}
-
-
-.copyright{
-
-    margin-top:30px;
-
-    padding-top:25px;
-
-    border-top:1px solid var(--border);
+    gap:20px;
 
     color:#475569;
 
-    font-size:12px;
+    font-size:11px;
 
 }
 
 
 /* =========================================================
-   REVEAL
+   REVEAL ANIMATION
 ========================================================= */
 
-.reveal{
+.pnd-reveal{
 
     opacity:0;
 
-    transform:translateY(25px);
+    transform:
+
+        translateY(25px);
 
     transition:
-        opacity .7s ease,
-        transform .7s ease;
+
+        opacity .8s ease,
+        transform .8s ease;
 
 }
 
 
-.reveal.show{
+.pnd-reveal.visible{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+
+        translateY(0);
 
 }
 
 
 /* =========================================================
-   TABLET
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:991px){
-
-    .pnd-navbar,
-    .pnd-nav-inner{
-
-        min-height:64px;
-
-    }
-
-
-    .pnd-brand{
-
-        width:43px;
-        height:43px;
-
-    }
-
-
-    .pnd-brand-logo-wrap{
-
-        width:43px;
-        height:43px;
-
-    }
-
+@media(max-width:1100px){
 
     .pnd-nav{
 
-        position:absolute;
+        gap:2px;
 
-        top:69px;
+    }
 
-        left:12px;
-        right:12px;
+
+    .pnd-nav-link{
+
+        padding-left:9px;
+
+        padding-right:9px;
+
+    }
+
+
+    .pnd-hero-content{
+
+        gap:40px;
+
+    }
+
+
+    .pnd-types-grid{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .pnd-process-grid{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .pnd-journey{
+
+        grid-template-columns:
+
+            repeat(3,1fr);
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .pnd-nav{
 
         display:none;
 
-        flex-direction:column;
-
-        align-items:stretch;
-
-        gap:4px;
-
-        padding:12px;
-
-        border:1px solid var(--border);
-
-        border-radius:16px;
-
-        background:rgba(7,17,31,.98);
-
-        box-shadow:
-            0 25px 60px rgba(0,0,0,.4);
-
     }
 
 
-    .pnd-nav.show{
+    .pnd-menu-toggle{
 
         display:flex;
 
     }
 
 
-    .pnd-nav a{
+    .pnd-hero-content{
 
-        padding:12px;
-
-        border-radius:9px;
-
-    }
-
-
-    .pnd-nav a:hover{
-
-        background:rgba(255,255,255,.05);
-
-    }
-
-
-    .pnd-nav-cta{
-
-        margin-top:4px;
+        grid-template-columns:1fr;
 
         text-align:center;
 
-    }
-
-
-    .pnd-mobile-btn{
-
-        display:flex;
+        padding:75px 0;
 
     }
 
 
-    .pnd-hero{
+    .pnd-hero-description{
 
-        min-height:auto;
+        margin-left:auto;
 
-        padding:
-            75px 0
-            70px;
+        margin-right:auto;
 
     }
 
 
-    .hero-visual{
+    .pnd-hero-actions{
 
-        min-height:380px;
-
-        margin-top:15px;
+        justify-content:center;
 
     }
 
 
-    .code-window{
+    .pnd-hero-tech{
 
-        transform:
-            perspective(1000px)
-            rotateY(-4deg)
-            rotateX(2deg);
+        justify-content:center;
 
     }
 
 
-    .device-stage{
+    .pnd-code-stage{
 
-        margin-top:10px;
+        min-height:480px;
+
+    }
+
+
+    .pnd-intro-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+    .pnd-intro-number{
+
+        font-size:80px;
+
+    }
+
+
+    .pnd-developer-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        justify-items:center;
+
+    }
+
+
+    .pnd-developer-copy p{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+
+    .pnd-quality-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .pnd-feature-grid{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .pnd-footer-grid{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
 
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+@media(max-width:650px){
 
-@media(max-width:767px){
+    .pnd-container{
 
-    .container-xl{
+        width:
 
-        padding-left:16px;
-        padding-right:16px;
+            calc(100% - 28px);
 
     }
 
 
-    .pnd-navbar,
-    .pnd-nav-inner{
-
-        min-height:60px;
-
-    }
-
-
-    .pnd-brand{
-
-        width:39px;
-        height:39px;
-
-    }
-
-
-    .pnd-brand-logo-wrap{
-
-        width:39px;
-        height:39px;
-
-    }
-
-
-    .pnd-nav{
-
-        top:63px;
-
-        left:10px;
-        right:10px;
-
-    }
-
-
-    .pnd-mobile-btn{
-
-        width:39px;
-        height:39px;
-
-        font-size:18px;
-
-    }
-
-
-    /* HERO */
-
-    .pnd-hero{
-
-        padding:
-            58px 0
-            55px;
-
-    }
-
-
-    .pnd-eyebrow{
-
-        max-width:100%;
-
-        margin-bottom:20px;
-
-        font-size:9px;
-
-        letter-spacing:1.5px;
-
-    }
-
-
-    .pnd-hero h1{
-
-        font-size:clamp(38px,11vw,52px);
-
-        letter-spacing:-2px;
-
-        line-height:1;
-
-    }
-
-
-    .pnd-hero-desc{
-
-        margin:20px 0;
-
-        font-size:15px;
-
-        line-height:1.7;
-
-    }
-
-
-    .hero-actions{
-
-        display:grid;
-
-        grid-template-columns:1fr;
-
-        width:100%;
-
-        gap:10px;
-
-    }
-
-
-    .pnd-btn{
-
-        width:100%;
-
-        min-height:48px;
-
-        padding:12px 17px;
-
-    }
-
-
-    /* HERO VISUAL */
-
-    .hero-visual{
+    .pnd-service-hero{
 
         min-height:auto;
 
-        margin-top:30px;
+    }
+
+
+    .pnd-hero-title{
+
+        font-size:
+
+            clamp(42px,12vw,62px);
+
+        letter-spacing:-2.5px;
 
     }
 
 
-    .code-window{
+    .pnd-hero-description{
 
-        width:100%;
+        font-size:15px;
 
-        border-radius:18px;
+    }
+
+
+    .pnd-code-stage{
+
+        min-height:390px;
+
+    }
+
+
+    .pnd-code-window{
 
         transform:none;
 
-        animation:windowFloatMobile 5s ease-in-out infinite;
-
-    }
-
-
-    @keyframes windowFloatMobile{
-
-        0%,100%{
-            transform:translateY(0);
-        }
-
-        50%{
-            transform:translateY(-7px);
-        }
-
-    }
-
-
-    .window-top{
-
-        min-height:44px;
-
-        padding:0 12px;
-
-    }
-
-
-    .window-dot{
-
-        width:7px;
-        height:7px;
-
-        flex-basis:7px;
-
-    }
-
-
-    .window-url{
-
-        height:24px;
-
-        margin-left:6px;
-
-        font-size:8px;
-
-    }
-
-
-    .website-preview{
-
-        padding:18px;
-
-    }
-
-
-    .preview-nav{
-
-        margin-bottom:20px;
-
-    }
-
-
-    .preview-hero{
-
-        padding:18px 0 25px;
-
-    }
-
-
-    .preview-small{
-
-        width:65px;
-
-        height:5px;
-
-        margin-bottom:10px;
-
-    }
-
-
-    .preview-title{
-
-        height:12px;
-
-    }
-
-
-    .preview-text{
-
-        margin-top:12px;
-
-        height:5px;
-
-    }
-
-
-    .preview-button{
-
-        width:80px;
-
-        height:24px;
-
-        margin-top:15px;
-
-    }
-
-
-    .preview-cards{
-
-        gap:6px;
-
-    }
-
-
-    .preview-card{
-
-        height:55px;
-
-    }
-
-
-    /* SECTIONS */
-
-    .pnd-section,
-    .pnd-section-white{
-
-        padding:
-            65px 0;
-
-    }
-
-
-    .section-head{
-
-        margin-bottom:35px;
-
-    }
-
-
-    .section-title{
-
-        font-size:clamp(30px,8vw,40px);
-
-        letter-spacing:-1.5px;
-
-    }
-
-
-    .section-desc{
-
-        font-size:14px;
-
-        line-height:1.7;
-
-    }
-
-
-    /* SERVICE */
-
-    .service-card{
-
-        padding:23px;
-
-        border-radius:18px;
-
-    }
-
-
-    .service-icon{
-
-        width:46px;
-        height:46px;
-
-        margin-bottom:18px;
-
-        font-size:20px;
-
-    }
-
-
-    .service-card h3{
-
-        font-size:18px;
-
-    }
-
-
-    .service-card p{
-
-        font-size:13px;
-
-    }
-
-
-    /* FEATURE */
-
-    .feature-list li{
-
-        margin-bottom:15px;
-
-        font-size:14px;
-
-    }
-
-
-    /* DEVICE SECTION */
-
-    .responsive-panel{
-
-        padding:15px;
-
-        border-radius:20px;
-
-    }
-
-
-    .device-stage{
-
         width:100%;
 
-        min-height:270px;
-
-        margin:0;
-
-        transform:none;
+        border-radius:17px;
 
     }
 
 
-    .desktop-device{
+    .pnd-window-address{
 
-        width:220px;
-
-        height:145px;
-
-        left:0;
-
-        top:35px;
-
-        border-width:4px;
+        display:none;
 
     }
 
 
-    .tablet-device{
+    .pnd-code-body{
 
-        width:105px;
+        min-height:280px;
 
-        height:140px;
+        padding:20px 16px;
 
-        right:38px;
+        font-size:10px;
 
-        top:90px;
-
-        border-width:4px;
+        line-height:1.8;
 
     }
 
 
-    .mobile-device{
+    .pnd-floating-card{
 
-        width:58px;
-
-        height:112px;
-
-        right:0;
-
-        top:155px;
-
-        border-width:4px;
+        padding:10px 12px;
 
     }
 
 
-    .device-screen::before{
-
-        height:9px;
-
-        box-shadow:
-            0 20px 0 #475569,
-            0 40px 0 #334155;
-
-    }
-
-
-    /* PROCESS */
-
-    .process-line::before{
-
-        left:21px;
-
-        top:30px;
-        bottom:30px;
-
-    }
-
-
-    .process-item{
-
-        gap:15px;
-
-        padding-bottom:28px;
-
-    }
-
-
-    .process-icon{
-
-        flex:0 0 43px;
-
-        width:43px;
-        height:43px;
-
-        font-size:11px;
-
-    }
-
-
-    .process-content h3{
-
-        font-size:18px;
-
-    }
-
-
-    .process-content p{
-
-        font-size:13px;
-
-    }
-
-
-    /* TECH */
-
-    .tech-box{
-
-        min-height:64px;
-
-        padding:13px;
-
-        gap:10px;
-
-    }
-
-
-    .tech-box i{
-
-        font-size:19px;
-
-    }
-
-
-    .tech-box strong{
-
-        font-size:12px;
-
-    }
-
-
-    .tech-box span{
+    .pnd-floating-card strong{
 
         font-size:10px;
 
     }
 
 
-    /* PROJECT */
+    .pnd-floating-card small{
 
-    .project-card{
-
-        height:245px;
-
-        border-radius:18px;
+        font-size:8px;
 
     }
 
 
-    .project-overlay{
+    .pnd-floating-one{
 
-        padding:20px;
+        top:10px;
 
-    }
-
-
-    .project-overlay h3{
-
-        font-size:19px;
+        right:-5px;
 
     }
 
 
-    .project-overlay p{
+    .pnd-floating-two{
 
-        font-size:12px;
+        left:-5px;
 
-    }
-
-
-    /* FAQ */
-
-    .accordion-button{
-
-        padding:17px;
-
-        font-size:14px;
+        bottom:15px;
 
     }
 
 
-    .accordion-body{
+    .pnd-floating-three{
 
-        padding:
-            0 17px 17px;
-
-        font-size:13px;
+        display:none;
 
     }
 
 
-    /* CTA */
+    .pnd-light-section,
+    .pnd-dark-section,
+    .pnd-final-cta{
 
-    .pnd-cta{
-
-        padding:
-            65px 16px;
-
-    }
-
-
-    .pnd-cta h2{
-
-        font-size:clamp(32px,9vw,45px);
-
-        letter-spacing:-1.5px;
+        padding:75px 0;
 
     }
 
 
-    /* FOOTER */
+    .pnd-types-grid,
+    .pnd-process-grid,
+    .pnd-feature-grid{
 
-    footer{
-
-        padding:
-            45px 0
-            20px;
+        grid-template-columns:1fr;
 
     }
 
 
-    .footer-links{
+    .pnd-phase-grid{
 
-        justify-content:flex-start !important;
+        grid-template-columns:1fr;
 
-        gap:13px;
+    }
+
+
+    .pnd-phase-card{
+
+        padding:22px;
+
+        grid-template-columns:45px 1fr;
+
+        gap:15px;
+
+    }
+
+
+    .pnd-phase-icon{
+
+        width:43px;
+
+        height:43px;
+
+    }
+
+
+    .pnd-quality-visual{
+
+        min-height:300px;
+
+    }
+
+
+    .pnd-quality-ring{
+
+        width:190px;
+
+        height:190px;
+
+    }
+
+
+    .pnd-quality-icon{
+
+        font-size:52px;
+
+    }
+
+
+    .pnd-journey{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .pnd-cta-box{
+
+        padding:48px 22px;
+
+        border-radius:20px;
+
+    }
+
+
+    .pnd-footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+
+    .pnd-footer-bottom{
+
+        display:block;
+
+        line-height:1.9;
+
+    }
+
+
+    .pnd-footer-bottom span{
+
+        display:block;
+
+        margin-bottom:5px;
 
     }
 
 }
 
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
 @media(max-width:380px){
 
-    .pnd-hero h1{
+    .pnd-hero-actions{
 
-        font-size:36px;
+        flex-direction:column;
 
     }
 
 
-    .pnd-eyebrow{
+    .pnd-btn-primary,
+    .pnd-btn-secondary{
+
+        width:100%;
+
+    }
+
+
+    .pnd-code-body{
 
         font-size:8px;
 
-        letter-spacing:1px;
+    }
+
+
+    .pnd-floating-card{
+
+        transform:scale(.85);
 
     }
 
 
-    .website-preview{
+    .pnd-developer-card{
 
-        padding:14px;
+        width:185px;
 
-    }
-
-
-    .preview-cards{
-
-        gap:4px;
+        height:185px;
 
     }
 
 
-    .preview-card{
+    .pnd-developer-icon{
 
-        height:48px;
-
-    }
-
-
-    .desktop-device{
-
-        width:195px;
-
-        height:130px;
-
-    }
-
-
-    .tablet-device{
-
-        width:90px;
-
-        height:120px;
-
-        right:30px;
-
-    }
-
-
-    .mobile-device{
-
-        width:52px;
-
-        height:100px;
+        font-size:60px;
 
     }
 
@@ -2808,325 +3436,292 @@ footer p{
 
 @media(prefers-reduced-motion:reduce){
 
+    html{
+
+        scroll-behavior:auto;
+
+    }
+
+
     *,
     *::before,
     *::after{
 
-        animation-duration:.01ms !important;
+        animation:none !important;
 
-        animation-iteration-count:1 !important;
+        transition:none !important;
 
-        scroll-behavior:auto !important;
+    }
 
-        transition-duration:.01ms !important;
+
+    .pnd-reveal{
+
+        opacity:1;
+
+        transform:none;
 
     }
 
 }
-
-/* =========================================================
-   LOGO — SLIGHTLY LARGER
-========================================================= */
-
-.pnd-brand-logo-wrap{
-    width:64px;
-    height:64px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
-    overflow:hidden;
-}
-
-.pnd-brand-logo{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-    display:block;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width:991px){
-
-    .pnd-brand-logo-wrap{
-        width:58px;
-        height:58px;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width:767px){
-
-    .pnd-brand-logo-wrap{
-        width:52px;
-        height:52px;
-    }
-
-}
-/* =========================================================
-   PND LOGO — LARGE / FLIPKART-STYLE
-========================================================= */
-
-.pnd-brand-logo-wrap{
-    width:78px;
-    height:68px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-shrink:0;
-    overflow:visible;
-}
-
-.pnd-brand-logo{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-    display:block;
-
-    transform:scale(1.08);
-    transform-origin:center;
-}
-
-
-/* =========================================================
-   NAVBAR BRAND — NO EXTRA SPACE
-========================================================= */
-
-.pnd-brand{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    text-decoration:none;
-    height:100%;
-
-    flex-shrink:0;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width:991px){
-
-    .pnd-brand-logo-wrap{
-        width:70px;
-        height:62px;
-    }
-
-    .pnd-brand-logo{
-        transform:scale(1.06);
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width:767px){
-
-    .pnd-brand-logo-wrap{
-        width:64px;
-        height:58px;
-    }
-
-    .pnd-brand-logo{
-        transform:scale(1.04);
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width:420px){
-
-    .pnd-brand-logo-wrap{
-        width:60px;
-        height:54px;
-    }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="pnd-led"></div>
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- =========================================================
+     TOP LED
+========================================================= -->
 
-<nav class="pnd-navbar">
-
-
-<div class="container-xl">
-
-    <div class="pnd-nav-inner">
+<div class="pnd-top-led"></div>
 
 
-        <!-- LOGO ONLY -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-        <a
-            href="index.html"
-            class="pnd-brand"
-            aria-label="Pixel Nest Digital Home">
+<header
+    class="pnd-header"
+    id="pndHeader"
+>
 
-            <div class="pnd-brand-logo-wrap">
+    <div class="container-fluid px-3 px-lg-4">
 
-                <img
-                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    class="pnd-brand-logo"
-                    alt="Pixel Nest Digital">
-
-            </div>
-
-        </a>
+        <div class="pnd-header-inner">
 
 
-        <!-- NAV -->
+            <!--
+                NAVBAR INTENTIONALLY HAS NO LOGO
+            -->
 
-        <div
-            class="pnd-nav"
-            id="pndNav">
+            <div></div>
 
-            <a href="index.html">
-                Home
-            </a>
 
-            <a
-                href="services.html">
-                Services
-            </a>
+            <!-- =================================================
+                 DESKTOP NAVIGATION
+            ================================================== -->
 
-            <a href="portfolio.html">
-                Portfolio
-            </a>
+            <nav
+                class="pnd-nav"
+                aria-label="Main navigation"
+            >
 
-            <a href="about.html">
-                About
-            </a>
-              <a href="team.html">
-                Team
-            </a>
+                <a
+                    href="index.html"
+                    class="pnd-nav-link"
+                >
+                    Home
+                </a>
 
-            <a href="contact.html">
-                Contact
-            </a>
+                <a
+                    href="#"
+                    class="pnd-nav-link active"
+                >
+                    Services
+                </a>
 
-            <a
-                href="start-project.html"
-                class="pnd-nav-cta">
+                <a
+                    href="about.html"
+                    class="pnd-nav-link"
+                >
+                    About
+                </a>
 
-                Start a Project
+                <a
+                    href="team.html"
+                    class="pnd-nav-link"
+                >
+                    Team
+                </a>
 
-                <i class="bi bi-arrow-up-right ms-1"></i>
+                <a
+                    href="projects.html"
+                    class="pnd-nav-link"
+                >
+                    Projects
+                </a>
 
-            </a>
+                <a
+                    href="contact.html"
+                    class="pnd-nav-link"
+                >
+                    Contact
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="pnd-nav-cta"
+                >
+                    Start a Project
+                    <i class="bi bi-arrow-up-right ms-1"></i>
+                </a>
+
+            </nav>
+
+
+            <!-- =================================================
+                 MOBILE BUTTON
+            ================================================== -->
+
+            <button
+                class="pnd-menu-toggle"
+                id="pndMenuToggle"
+                aria-label="Open navigation"
+            >
+
+                <i class="bi bi-list"></i>
+
+            </button>
 
         </div>
 
-
-        <!-- MOBILE -->
-
-        <button
-            class="pnd-mobile-btn"
-            id="pndMobileBtn"
-            aria-label="Open menu"
-            aria-expanded="false">
-
-            <i class="bi bi-list"></i>
-
-        </button>
-
-
     </div>
 
-</div>
+</header>
 
 
-</nav>
+<!-- =========================================================
+     MOBILE OVERLAY
+========================================================= -->
 
-<!-- =====================================================
+<div
+    class="pnd-mobile-overlay"
+    id="pndMobileOverlay"
+></div>
+
+
+<!-- =========================================================
+     MOBILE NAV
+========================================================= -->
+
+<aside
+    class="pnd-mobile-nav"
+    id="pndMobileNav"
+>
+
+    <button
+        class="pnd-mobile-close"
+        id="pndMobileClose"
+        aria-label="Close navigation"
+    >
+
+        <i class="bi bi-x-lg"></i>
+
+    </button>
+
+
+    <nav class="pnd-mobile-nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a
+            href="#"
+            class="active"
+        >
+            Services
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="team.html">
+            Team
+        </a>
+
+        <a href="projects.html">
+            Projects
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <a
+        href="contact.html"
+        class="pnd-mobile-cta"
+    >
+
+        Start a Project
+
+        <i class="bi bi-arrow-up-right ms-1"></i>
+
+    </a>
+
+</aside>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
-<section class="pnd-hero">
+<section class="pnd-service-hero">
 
+    <div class="pnd-grid-bg"></div>
 
-<div class="hero-grid"></div>
+    <div class="pnd-hero-orb one"></div>
 
-<div class="hero-glow one"></div>
-
-<div class="hero-glow two"></div>
-
-
-<div class="container-xl">
-
-    <div class="row align-items-center g-4 g-lg-5">
+    <div class="pnd-hero-orb two"></div>
 
 
-        <div class="col-lg-6">
+    <div class="pnd-container">
 
-            <div class="hero-content reveal">
+        <div class="pnd-hero-content">
+
+
+            <!-- =================================================
+                 HERO COPY
+            ================================================== -->
+
+            <div class="pnd-reveal">
 
                 <div class="pnd-eyebrow">
-
-                    <span class="eyebrow-dot"></span>
-
                     WEBSITE DEVELOPMENT
-
                 </div>
 
 
-                <h1>
+                <h1 class="pnd-hero-title">
 
-                    Websites built to
+                    Websites that
 
-                    <span class="gradient-text">
-
-                        make an impact.
-
+                    <span>
+                        work for your business.
                     </span>
 
                 </h1>
 
 
-                <p class="pnd-hero-desc">
+                <p class="pnd-hero-description">
 
-                    We create modern, responsive and engaging
-                    websites that help businesses, brands and
-                    organizations build a stronger digital presence.
+                    We design and develop modern, responsive and
+                    purpose-driven websites that help businesses,
+                    brands, organizations and individuals build a
+                    strong digital presence.
 
                 </p>
 
 
-                <div class="hero-actions">
+                <div class="pnd-hero-actions">
 
                     <a
                         href="contact.html"
-                        class="pnd-btn pnd-btn-primary">
+                        class="pnd-btn-primary"
+                    >
 
                         Start Your Website
 
@@ -3137,9 +3732,10 @@ footer p{
 
                     <a
                         href="#process"
-                        class="pnd-btn pnd-btn-outline">
+                        class="pnd-btn-secondary"
+                    >
 
-                        How We Build
+                        See How We Work
 
                         <i class="bi bi-arrow-down"></i>
 
@@ -3147,76 +3743,176 @@ footer p{
 
                 </div>
 
+
+                <div class="pnd-hero-tech">
+
+                    <span class="pnd-tech-pill">
+                        HTML5
+                    </span>
+
+                    <span class="pnd-tech-pill">
+                        CSS3
+                    </span>
+
+                    <span class="pnd-tech-pill">
+                        BOOTSTRAP
+                    </span>
+
+                    <span class="pnd-tech-pill">
+                        JAVASCRIPT
+                    </span>
+
+                    <span class="pnd-tech-pill">
+                        RESPONSIVE
+                    </span>
+
+                </div>
+
             </div>
 
-        </div>
+
+            <!-- =================================================
+                 HERO VISUAL
+            ================================================== -->
+
+            <div class="pnd-code-stage pnd-reveal">
 
 
-        <div class="col-lg-6">
-
-            <div class="hero-visual reveal">
-
-                <div class="code-window">
-
-                    <div class="window-led"></div>
+                <div class="pnd-code-glow"></div>
 
 
-                    <div class="window-top">
-
-                        <span class="window-dot"></span>
-
-                        <span class="window-dot"></span>
-
-                        <span class="window-dot"></span>
+                <div class="pnd-code-window">
 
 
-                        <div class="window-url">
+                    <div class="pnd-window-top">
 
-                            yourbusiness.com
+                        <span class="pnd-dot red"></span>
+
+                        <span class="pnd-dot yellow"></span>
+
+                        <span class="pnd-dot green"></span>
+
+
+                        <div class="pnd-window-address">
+
+                            pixelnestdigital.com
 
                         </div>
 
                     </div>
 
 
-                    <div class="website-preview">
+                    <div class="pnd-code-body">
 
-                        <div class="preview-nav">
-
-                            <div class="preview-logo"></div>
-
-
-                            <div class="preview-menu">
-
-                                <span></span>
-                                <span></span>
-                                <span></span>
-
-                            </div>
-
+                        <div>
+                            <span class="code-blue">&lt;section</span>
+                            <span class="code-cyan"> class</span>=
+                            <span class="code-green">"hero"</span>
+                            <span class="code-blue">&gt;</span>
                         </div>
 
 
-                        <div class="preview-hero">
-
-                            <div class="preview-small"></div>
-
-                            <div class="preview-title"></div>
-
-                            <div class="preview-title second"></div>
-
-                            <div class="preview-text"></div>
-
-                            <div class="preview-button"></div>
-
+                        <div>
+                            &nbsp;&nbsp;
+                            <span class="code-blue">&lt;div</span>
+                            <span class="code-cyan"> class</span>=
+                            <span class="code-green">"container"</span>
+                            <span class="code-blue">&gt;</span>
                         </div>
 
 
-                        <div class="preview-cards">
+                        <br>
 
-                            <div class="preview-card"></div>
-                            <div class="preview-card"></div>
-                            <div class="preview-card"></div>
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;h1&gt;</span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-white">
+                                Your Digital Presence.
+                            </span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;/h1&gt;</span>
+                        </div>
+
+
+                        <br>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;p&gt;</span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-violet">
+                                Built around your goals.
+                            </span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;/p&gt;</span>
+                        </div>
+
+
+                        <br>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;button</span>
+                            <span class="code-cyan"> class</span>=
+                            <span class="code-green">"start"</span>
+                            <span class="code-blue">&gt;</span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-white">
+                                Start Project
+                            </span>
+                        </div>
+
+
+                        <div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="code-blue">&lt;/button&gt;</span>
+                        </div>
+
+
+                        <br>
+
+
+                        <div>
+                            &nbsp;&nbsp;
+                            <span class="code-blue">&lt;/div&gt;</span>
+                        </div>
+
+
+                        <div>
+                            <span class="code-blue">&lt;/section&gt;</span>
+                        </div>
+
+
+                        <br>
+
+
+                        <div class="code-muted">
+
+                            // responsive • fast • purposeful
 
                         </div>
 
@@ -3224,1015 +3920,140 @@ footer p{
 
                 </div>
 
+
+                <!-- FLOATING CARD -->
+
+                <div class="pnd-floating-card pnd-floating-one">
+
+                    <i
+                        class="bi bi-phone"
+                        style="color:#60a5fa;"
+                    ></i>
+
+                    <strong>
+                        Responsive
+                    </strong>
+
+                    <small>
+                        Every screen
+                    </small>
+
+                </div>
+
+
+                <div class="pnd-floating-card pnd-floating-two">
+
+                    <i
+                        class="bi bi-speedometer2"
+                        style="color:#67e8f9;"
+                    ></i>
+
+                    <strong>
+                        Performance
+                    </strong>
+
+                    <small>
+                        Built to perform
+                    </small>
+
+                </div>
+
+
+                <div class="pnd-floating-card pnd-floating-three">
+
+                    <i
+                        class="bi bi-shield-check"
+                        style="color:#a78bfa;"
+                    ></i>
+
+                    <strong>
+                        Secure
+                    </strong>
+
+                    <small>
+                        Quality focused
+                    </small>
+
+                </div>
+
+
             </div>
 
         </div>
 
     </div>
-
-</div>
-
 
 </section>
 
-<!-- =====================================================
-     WHAT WE BUILD
-===================================================== -->
 
-<section
-    class="pnd-section-white"
-    id="what-we-build">
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
 
-<div class="container-xl">
+<section class="pnd-light-section">
 
-    <div class="section-head reveal">
+    <div class="pnd-container">
 
-        <div class="section-label">
-            WHAT WE BUILD
-        </div>
+        <div class="pnd-section-header pnd-reveal">
 
-        <h2 class="section-title">
-            A website should do more than just look good.
-        </h2>
-
-        <p class="section-desc">
-
-            Your website is often the first interaction people
-            have with your brand. We combine design, usability,
-            performance and functionality to create experiences
-            that work across every screen.
-
-        </p>
-
-    </div>
-
-
-    <div class="row g-3 g-md-4">
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">01</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-window-stack"></i>
-                </div>
-
-                <h3>Business Websites</h3>
-
-                <p>
-
-                    Professional websites designed to present
-                    your company, services, products and story
-                    clearly to your audience.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">02</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-phone"></i>
-                </div>
-
-                <h3>Responsive Websites</h3>
-
-                <p>
-
-                    Experiences optimized for mobile phones,
-                    tablets, laptops and large desktop displays.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">03</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-shop"></i>
-                </div>
-
-                <h3>Product & Service Websites</h3>
-
-                <p>
-
-                    Product-focused layouts that make it easy
-                    for visitors to understand your offerings
-                    and take action.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">04</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-images"></i>
-                </div>
-
-                <h3>Creative Websites</h3>
-
-                <p>
-
-                    Visual experiences for photographers,
-                    creators, agencies, portfolios and brands.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">05</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-building"></i>
-                </div>
-
-                <h3>Institutional Websites</h3>
-
-                <p>
-
-                    Structured digital platforms for schools,
-                    churches, organizations, institutions and
-                    community projects.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6 col-lg-4">
-
-            <div class="service-card reveal">
-
-                <span class="service-number">06</span>
-
-                <div class="service-icon">
-                    <i class="bi bi-stars"></i>
-                </div>
-
-                <h3>Custom Experiences</h3>
-
-                <p>
-
-                    Custom website interfaces with animations,
-                    galleries, forms, interactions and features
-                    built around your requirements.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     FEATURES
-===================================================== -->
-
-<section class="pnd-section">
-
-
-<div class="container-xl">
-
-    <div class="row align-items-center g-5">
-
-        <div class="col-lg-6">
-
-            <div class="section-head reveal">
-
-                <div class="section-label">
-                    MORE THAN DESIGN
-                </div>
-
-                <h2 class="section-title">
-                    Designed around your business.
-                </h2>
-
-                <p class="section-desc">
-
-                    Every website we create is planned around
-                    your audience, goals and brand identity.
-
-                </p>
-
-            </div>
-
-
-            <ul class="feature-list reveal">
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Modern and premium visual design</span>
-                </li>
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Mobile-first responsive layouts</span>
-                </li>
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Smooth animations and interactions</span>
-                </li>
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Clear navigation and user experience</span>
-                </li>
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Contact forms and enquiry functionality</span>
-                </li>
-
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Hosting and maintenance support</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="col-lg-6">
-
-            <div class="responsive-panel reveal">
-
-                <div class="device-stage">
-
-                    <div class="device desktop-device">
-                        <div class="device-screen"></div>
-                    </div>
-
-                    <div class="device tablet-device">
-                        <div class="device-screen"></div>
-                    </div>
-
-                    <div class="device mobile-device">
-                        <div class="device-screen"></div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     PROCESS
-===================================================== -->
-
-<section
-    class="pnd-section-white"
-    id="process">
-
-
-<div class="container-xl">
-
-    <div class="section-head reveal">
-
-        <div class="section-label">
-            OUR PROCESS
-        </div>
-
-        <h2 class="section-title">
-            From idea to launch.
-        </h2>
-
-        <p class="section-desc">
-
-            A clear development process keeps your project
-            organized while giving room for creativity.
-
-        </p>
-
-    </div>
-
-
-    <div class="row">
-
-        <div class="col-lg-9">
-
-            <div class="process-line">
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">01</div>
-
-                    <div class="process-content">
-
-                        <h3>Discover</h3>
-
-                        <p>
-
-                            We understand your business, audience,
-                            goals, content and functional requirements.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">02</div>
-
-                    <div class="process-content">
-
-                        <h3>Plan</h3>
-
-                        <p>
-
-                            We organize the website structure,
-                            sections, navigation and user journey.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">03</div>
-
-                    <div class="process-content">
-
-                        <h3>Design</h3>
-
-                        <p>
-
-                            We create a visual direction that
-                            represents your brand and communicates
-                            your message clearly.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">04</div>
-
-                    <div class="process-content">
-
-                        <h3>Develop</h3>
-
-                        <p>
-
-                            The approved design becomes a responsive,
-                            functional website using suitable
-                            technologies and components.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">05</div>
-
-                    <div class="process-content">
-
-                        <h3>Test</h3>
-
-                        <p>
-
-                            We check responsiveness, navigation,
-                            forms, interactions and important
-                            functionality across devices.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="process-item reveal">
-
-                    <div class="process-icon">06</div>
-
-                    <div class="process-content">
-
-                        <h3>Launch</h3>
-
-                        <p>
-
-                            Once everything is ready, your website
-                            can be deployed to hosting and connected
-                            to your domain.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     TECHNOLOGY
-===================================================== -->
-
-<section class="pnd-section">
-
-
-<div class="container-xl">
-
-    <div class="section-head reveal">
-
-        <div class="section-label">
-            TECHNOLOGY
-        </div>
-
-        <h2 class="section-title">
-            The tools behind the experience.
-        </h2>
-
-        <p class="section-desc">
-
-            We select technologies according to the project's
-            requirements rather than forcing every project
-            into the same stack.
-
-        </p>
-
-    </div>
-
-
-    <div class="row g-3">
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-filetype-html"></i>
-
-                <div>
-
-                    <strong>HTML5</strong>
-                    <span>Structure</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-filetype-css"></i>
-
-                <div>
-
-                    <strong>CSS3</strong>
-                    <span>Visual design</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-filetype-js"></i>
-
-                <div>
-
-                    <strong>JavaScript</strong>
-                    <span>Interactions</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-bootstrap"></i>
-
-                <div>
-
-                    <strong>Bootstrap</strong>
-                    <span>Responsive UI</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-git"></i>
-
-                <div>
-
-                    <strong>Git</strong>
-                    <span>Version control</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-6 col-md-4 col-lg-3">
-
-            <div class="tech-box reveal">
-
-                <i class="bi bi-cloud"></i>
-
-                <div>
-
-                    <strong>Cloud / Hosting</strong>
-                    <span>Deployment</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     WEBSITE COLLECTION
-===================================================== -->
-
-<section
-    class="pnd-section-white"
-    id="website-collection">
-
-
-<div class="container-xl">
-
-    <div class="section-head reveal">
-
-        <div class="section-label">
-            WEBSITE COLLECTION
-        </div>
-
-        <h2 class="section-title">
-
-            Different businesses.
-            Different experiences.
-
-        </h2>
-
-        <p class="section-desc">
-
-            From business websites to creative portfolios,
-            we build digital experiences around the identity
-            and purpose of each project.
-
-        </p>
-
-    </div>
-
-
-    <div class="row g-3 g-md-4">
-
-
-        <div class="col-md-6">
-
-            <div class="project-card reveal">
-
-                <img
-                    src="img/BUSINESS WEBSITE.png"
-                    alt="Business website project"
-                    loading="lazy">
-
-                <div class="project-overlay">
-
-                    <div class="project-tag">
-                        BUSINESS WEBSITE
-                    </div>
-
-                    <h3>
-                        Modern Business Presence
-                    </h3>
-
-                    <p>
-                        Clean structure • Responsive design
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-6">
-
-            <div class="project-card reveal">
-
-                <img
-                    src="img/creative-website.png"
-                    alt="Creative website project"
-                    loading="lazy">
-
-                <div class="project-overlay">
-
-                    <div class="project-tag">
-                        CREATIVE WEBSITE
-                    </div>
-
-                    <h3>
-                        Visual Storytelling
-                    </h3>
-
-                    <p>
-                        Images • Motion • Brand experience
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     FAQ
-===================================================== -->
-
-<section class="pnd-section">
-
-
-<div class="container-xl">
-
-    <div class="section-head reveal">
-
-        <div class="section-label">
-            FAQ
-        </div>
-
-        <h2 class="section-title">
-            Questions before we start?
-        </h2>
-
-    </div>
-
-
-    <div class="row">
-
-        <div class="col-lg-9">
-
-            <div
-                class="accordion"
-                id="websiteFaq">
-
-
-                <div class="accordion-item reveal">
-
-                    <h2 class="accordion-header">
-
-                        <button
-                            class="accordion-button"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faqOne">
-
-                            How long does website development take?
-
-                        </button>
-
-                    </h2>
-
-
-                    <div
-                        id="faqOne"
-                        class="accordion-collapse collapse show"
-                        data-bs-parent="#websiteFaq">
-
-                        <div class="accordion-body">
-
-                            The timeline depends on the number of
-                            pages, features, content and integrations.
-                            A simple website can be completed much
-                            faster than a large custom platform.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="accordion-item reveal">
-
-                    <h2 class="accordion-header">
-
-                        <button
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faqTwo">
-
-                            Will the website work on mobile?
-
-                        </button>
-
-                    </h2>
-
-
-                    <div
-                        id="faqTwo"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#websiteFaq">
-
-                        <div class="accordion-body">
-
-                            Yes. Responsive behavior is considered
-                            throughout the design and development
-                            process for mobile, tablet, laptop and
-                            desktop displays.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="accordion-item reveal">
-
-                    <h2 class="accordion-header">
-
-                        <button
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faqThree">
-
-                            Can you connect a domain and hosting?
-
-                        </button>
-
-                    </h2>
-
-
-                    <div
-                        id="faqThree"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#websiteFaq">
-
-                        <div class="accordion-body">
-
-                            Yes. Domain connection, hosting setup,
-                            deployment and ongoing maintenance can
-                            be included according to your project
-                            requirements.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="accordion-item reveal">
-
-                    <h2 class="accordion-header">
-
-                        <button
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#faqFour">
-
-                            Can you add custom features?
-
-                        </button>
-
-                    </h2>
-
-
-                    <div
-                        id="faqFour"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#websiteFaq">
-
-                        <div class="accordion-body">
-
-                            Yes. Forms, galleries, booking systems,
-                            product sections, databases, dashboards,
-                            integrations and other custom functionality
-                            can be planned around the project.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     CTA
-===================================================== -->
-
-<section class="pnd-cta">
-
-
-<div class="container">
-
-    <div class="reveal">
-
-        <div class="section-label">
-            START SOMETHING DIGITAL
-        </div>
-
-        <h2>
-
-            Have a website idea?
-
-            <br>
-
-            <span class="gradient-text">
-                Let's build it.
+            <span class="pnd-section-label">
+                MORE THAN JUST A WEBSITE
             </span>
 
-        </h2>
+            <h2 class="pnd-section-title">
+                Your website is often the first
+                conversation with your customer.
+            </h2>
 
-        <p>
+            <p class="pnd-section-description">
 
-            Tell us about your business, idea or project.
-            We'll help turn it into a practical digital
-            experience.
-
-        </p>
-
-       <a
-    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20am%20interested%20in%20your%20Website%20Development%20service.%20I%20would%20like%20to%20discuss%20my%20website%20project%20and%20get%20more%20details.%20Thank%20you."
-    class="pnd-btn pnd-btn-primary"
-    target="_blank"
-    rel="noopener noreferrer">
-
-    Start a Project
-
-    <i class="bi bi-arrow-up-right"></i>
-
-</a>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-
-<div class="container-xl">
-
-    <div class="row g-4 align-items-start">
-
-        <div class="col-lg-5">
-
-            <div class="footer-brand">
-                Pixel Nest Digital
-            </div>
-
-            <p class="mt-3 mb-0">
-
-                Websites, web applications, e-commerce,
-                software projects, branding, photography,
-                videography and digital content.
+                A professional website should do more than
+                look attractive. It should communicate your
+                identity, explain what you offer, build trust,
+                guide visitors and make it easy for people to
+                take the next step.
 
             </p>
 
         </div>
 
 
-        <div class="col-lg-7">
+        <div class="pnd-intro-grid pnd-reveal">
 
-            <div class="footer-links justify-content-lg-end">
+            <div>
 
-                <a href="index.html">Home</a>
+                <div class="pnd-intro-number">
+                    01
+                </div>
 
-                <a href="services.html">Services</a>
+            </div>
 
-                <a href="portfolio.html">Portfolio</a>
 
-                <a href="about.html">About</a>
+            <div class="pnd-intro-copy">
 
-                <a href="contact.html">Contact</a>
+                <h3>
+                    We build around the purpose behind the website.
+                </h3>
+
+                <p>
+
+                    Before development begins, we focus on what
+                    the website actually needs to accomplish.
+
+                    Is it intended to introduce a company?
+                    Generate enquiries? Showcase products?
+                    Present a portfolio? Sell online? Provide
+                    information to customers?
+
+                </p>
+
+                <p>
+
+                    The answer influences the structure,
+                    content, user experience and technology
+                    used throughout the project.
+
+                </p>
 
             </div>
 
@@ -4240,200 +4061,2031 @@ footer p{
 
     </div>
 
+</section>
 
-    <div class="copyright">
 
-        © <span id="year"></span>
-        Pixel Nest Digital.
-        All Rights Reserved.
+<!-- =========================================================
+     DEVELOPER MESSAGE
+========================================================= -->
+
+<section class="pnd-dark-section pnd-developer-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-developer-grid pnd-reveal">
+
+
+            <div class="pnd-developer-card">
+
+                <i class="bi bi-code-slash pnd-developer-icon"></i>
+
+            </div>
+
+
+            <div class="pnd-developer-copy">
+
+                <span class="pnd-section-label">
+                    A MESSAGE FROM THE DEVELOPER
+                </span>
+
+
+                <h2>
+                    A website should be built
+                    for people first.
+                </h2>
+
+
+                <p>
+
+                    Every website project starts with an idea.
+                    My role is to take that idea and turn it into
+                    a digital experience that is clear, useful
+                    and technically reliable.
+
+                </p>
+
+
+                <p>
+
+                    I don't believe a website should simply be
+                    created because every business is expected
+                    to have one. It should have a reason to exist.
+                    It should represent the business, communicate
+                    its value and make the experience easier for
+                    the people visiting it.
+
+                </p>
+
+
+                <p>
+
+                    From the first layout to the final deployment,
+                    the goal is to keep the process practical,
+                    transparent and focused on creating something
+                    that you can actually use and grow with.
+
+                </p>
+
+
+                <div class="pnd-developer-signature">
+
+                    Pixel Nest Digital
+
+                    <span>
+                        Technology • Creativity • Digital Solutions
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-</div>
+</section>
 
+
+<!-- =========================================================
+     WEBSITE TYPES
+========================================================= -->
+
+<section class="pnd-light-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                WHAT WE BUILD
+            </span>
+
+            <h2 class="pnd-section-title">
+                Websites designed for different needs.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                Different businesses require different digital
+                experiences. We shape the website according to
+                its purpose, audience and required functionality.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-types-grid">
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-building"></i>
+                </div>
+
+                <h3>
+                    Business Websites
+                </h3>
+
+                <p>
+
+                    Professional websites for companies,
+                    service providers and organizations that
+                    need a clear and credible online presence.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-person-workspace"></i>
+                </div>
+
+                <h3>
+                    Portfolio Websites
+                </h3>
+
+                <p>
+
+                    Personal and professional portfolios that
+                    showcase projects, skills, services,
+                    achievements and creative work.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <h3>
+                    Product Websites
+                </h3>
+
+                <p>
+
+                    Product-focused websites designed to present
+                    products, features, information and enquiry
+                    or purchase pathways.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-cart3"></i>
+                </div>
+
+                <h3>
+                    E-Commerce
+                </h3>
+
+                <p>
+
+                    Online stores with product catalogues,
+                    shopping experiences, order workflows and
+                    business-focused interfaces.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-megaphone"></i>
+                </div>
+
+                <h3>
+                    Landing Pages
+                </h3>
+
+                <p>
+
+                    Focused pages designed around a specific
+                    campaign, service, product, event or
+                    marketing objective.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-mortarboard"></i>
+                </div>
+
+                <h3>
+                    Institutional Websites
+                </h3>
+
+                <p>
+
+                    Structured websites for educational
+                    institutions, organizations, communities
+                    and professional bodies.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+
+                <h3>
+                    Event Websites
+                </h3>
+
+                <p>
+
+                    Event-focused digital experiences for
+                    conferences, launches, programmes and
+                    special occasions.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-type-card pnd-reveal">
+
+                <div class="pnd-type-icon">
+                    <i class="bi bi-stars"></i>
+                </div>
+
+                <h3>
+                    Custom Websites
+                </h3>
+
+                <p>
+
+                    Custom-built websites when the project
+                    requires a unique structure, workflow or
+                    visual experience.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section
+    class="pnd-dark-section"
+    id="process"
+>
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                OUR DEVELOPMENT PROCESS
+            </span>
+
+            <h2 class="pnd-section-title">
+                From idea to a working website.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                A website project becomes easier to manage when
+                every stage has a clear purpose. Our process
+                moves from understanding the idea to designing,
+                developing, testing and launching the website.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-process-grid">
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    01 / DISCOVER
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+
+                    We understand your business, audience,
+                    goals, required pages, functionality and
+                    expectations.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    02 / PLAN
+                </div>
+
+                <h3>
+                    Structure
+                </h3>
+
+                <p>
+
+                    We plan the website architecture, page
+                    structure, content flow and important
+                    user journeys.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    03 / DESIGN
+                </div>
+
+                <h3>
+                    Visualise
+                </h3>
+
+                <p>
+
+                    We create the visual direction, layouts,
+                    responsive interface and design language
+                    for the website.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    04 / DEVELOP
+                </div>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+
+                    The approved design is converted into a
+                    responsive and functional website.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    05 / TEST
+                </div>
+
+                <h3>
+                    Validate
+                </h3>
+
+                <p>
+
+                    We check responsiveness, navigation,
+                    forms, links, visual consistency and
+                    important functionality.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    06 / LAUNCH
+                </div>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+
+                    The website is prepared for deployment,
+                    hosting and final handover.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    07 / SUPPORT
+                </div>
+
+                <h3>
+                    Maintain
+                </h3>
+
+                <p>
+
+                    Updates, maintenance, content changes and
+                    technical support can continue after launch.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-process-card pnd-reveal">
+
+                <div class="pnd-process-number">
+                    08 / GROW
+                </div>
+
+                <h3>
+                    Improve
+                </h3>
+
+                <p>
+
+                    As your business grows, the website can
+                    evolve with new pages, features and
+                    digital requirements.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DETAILED PHASES
+========================================================= -->
+
+<section class="pnd-light-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header pnd-reveal">
+
+            <span class="pnd-section-label">
+                WHAT HAPPENS INSIDE THE PROJECT
+            </span>
+
+            <h2 class="pnd-section-title">
+                Every important part has a place.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                Website development is not only writing HTML,
+                CSS and JavaScript. A successful project involves
+                planning, design, content, development, testing,
+                deployment and ongoing improvement.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-phase-grid">
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Discovery & Planning
+                    </h3>
+
+                    <p>
+
+                        We begin by understanding what the website
+                        needs to accomplish and who will use it.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Business and project requirements
+                        </li>
+
+                        <li>
+                            Target audience
+                        </li>
+
+                        <li>
+                            Required pages
+                        </li>
+
+                        <li>
+                            Features and functionality
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-palette"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        UI / UX Design
+                    </h3>
+
+                    <p>
+
+                        The interface is designed to make the
+                        website visually clear and easy to navigate.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Visual hierarchy
+                        </li>
+
+                        <li>
+                            Typography and colour
+                        </li>
+
+                        <li>
+                            Navigation structure
+                        </li>
+
+                        <li>
+                            Mobile-first considerations
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-code-square"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Front-End Development
+                    </h3>
+
+                    <p>
+
+                        The visual design becomes a real
+                        interactive website using modern
+                        front-end technologies.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            HTML5 semantic structure
+                        </li>
+
+                        <li>
+                            CSS3 styling and animation
+                        </li>
+
+                        <li>
+                            Bootstrap responsive layouts
+                        </li>
+
+                        <li>
+                            JavaScript interactions
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+           
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-phone"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Responsive Development
+                    </h3>
+
+                    <p>
+
+                        The website is designed to adapt to
+                        different screen sizes rather than
+                        being limited to desktop.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Mobile phones
+                        </li>
+
+                        <li>
+                            Tablets
+                        </li>
+
+                        <li>
+                            Laptops
+                        </li>
+
+                        <li>
+                            Desktop displays
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-speedometer2"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Performance
+                    </h3>
+
+                    <p>
+
+                        We pay attention to page structure,
+                        assets, scripts and layout behaviour
+                        so the website remains practical to use.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Optimised assets
+                        </li>
+
+                        <li>
+                            Efficient layouts
+                        </li>
+
+                        <li>
+                            Lightweight interactions
+                        </li>
+
+                        <li>
+                            Performance-conscious development
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Testing & Quality
+                    </h3>
+
+                    <p>
+
+                        Before delivery, the website is checked
+                        across important screens and interactions.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Responsive testing
+                        </li>
+
+                        <li>
+                            Navigation testing
+                        </li>
+
+                        <li>
+                            Form testing
+                        </li>
+
+                        <li>
+                            Visual consistency
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-phase-card pnd-reveal">
+
+                <div class="pnd-phase-icon">
+                    <i class="bi bi-cloud-arrow-up"></i>
+                </div>
+
+                <div>
+
+                    <h3>
+                        Deployment & Hosting
+                    </h3>
+
+                    <p>
+
+                        Once the website is ready, it can be
+                        deployed to a suitable hosting environment
+                        and connected to the domain.
+
+                    </p>
+
+                    <ul class="pnd-phase-list">
+
+                        <li>
+                            Hosting setup
+                        </li>
+
+                        <li>
+                            Domain connection
+                        </li>
+
+                        <li>
+                            Deployment
+                        </li>
+
+                        <li>
+                            Launch support
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUALITY FEATURES
+========================================================= -->
+
+<section class="pnd-dark-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                WHAT WE FOCUS ON
+            </span>
+
+            <h2 class="pnd-section-title">
+                A website should feel right
+                from every direction.
+            </h2>
+
+        </div>
+
+
+        <div class="pnd-feature-grid">
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-phone"></i>
+
+                <h3>
+                    Responsive
+                </h3>
+
+                <p>
+
+                    Layouts are built to adapt across mobile,
+                    tablet, laptop and desktop screen sizes.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-lightning-charge"></i>
+
+                <h3>
+                    Performance
+                </h3>
+
+                <p>
+
+                    Clean structure and sensible asset usage
+                    help create a smoother browsing experience.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-search"></i>
+
+                <h3>
+                    SEO-Ready Structure
+                </h3>
+
+                <p>
+
+                    Semantic HTML, meaningful content structure,
+                    metadata and mobile-friendly layouts provide
+                    a foundation for search optimisation.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-shield-lock"></i>
+
+                <h3>
+                    Security Awareness
+                </h3>
+
+                <p>
+
+                    Development considers secure forms,
+                    sensible validation and responsible handling
+                    of website functionality.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-person-check"></i>
+
+                <h3>
+                    User Experience
+                </h3>
+
+                <p>
+
+                    Navigation, readability, buttons and
+                    information flow are considered around
+                    the visitor's journey.
+
+                </p>
+
+            </div>
+
+
+            <div class="pnd-feature-card pnd-reveal">
+
+                <i class="bi bi-arrows-angle-expand"></i>
+
+                <h3>
+                    Future Growth
+                </h3>
+
+                <p>
+
+                    The website can be planned with future
+                    pages, features and integrations in mind.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNOLOGIES
+========================================================= -->
+
+<section class="pnd-light-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                TECHNOLOGY
+            </span>
+
+            <h2 class="pnd-section-title">
+                Built with practical web technologies.
+            </h2>
+
+            <p class="pnd-section-description">
+
+                The technology stack is selected according to
+                the requirements of the project rather than
+                forcing every website into the same solution.
+
+            </p>
+
+        </div>
+
+
+        <div class="pnd-tech-grid">
+
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-filetype-html"></i>
+
+                <strong>
+                    HTML5
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-filetype-css"></i>
+
+                <strong>
+                    CSS3
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-bootstrap"></i>
+
+                <strong>
+                    Bootstrap
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-tech-card pnd-reveal">
+
+                <i class="bi bi-filetype-js"></i>
+
+                <strong>
+                    JavaScript
+                </strong>
+
+            </div>
+
+
+            
+
+           
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUALITY / RESPONSIVE
+========================================================= -->
+
+<section class="pnd-light-section alt">
+
+    <div class="pnd-container">
+
+        <div class="pnd-quality-grid">
+
+
+            <div class="pnd-quality-visual pnd-reveal">
+
+                <div class="pnd-quality-ring">
+
+                    <i
+                        class="bi bi-globe2 pnd-quality-icon"
+                    ></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="pnd-reveal">
+
+                <div class="pnd-section-header">
+
+                    <span class="pnd-section-label">
+                        THE EXPERIENCE
+                    </span>
+
+                    <h2 class="pnd-section-title">
+                        One website.
+                        Many screens.
+                    </h2>
+
+                    <p class="pnd-section-description">
+
+                        Your customers may discover you through
+                        a phone, tablet, laptop or desktop.
+                        The website needs to remain useful and
+                        visually consistent across those
+                        different experiences.
+
+                    </p>
+
+                </div>
+
+
+                <div class="pnd-quality-list">
+
+
+                    <div class="pnd-quality-item">
+
+                        <div class="pnd-quality-item-icon">
+
+                            <i class="bi bi-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Mobile Experience
+                            </h4>
+
+                            <p>
+                                Comfortable navigation and
+                                readable content on smaller screens.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-quality-item">
+
+                        <div class="pnd-quality-item-icon">
+
+                            <i class="bi bi-layout-text-window"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Clear Information
+                            </h4>
+
+                            <p>
+                                Content is organised so visitors
+                                can understand the offering quickly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-quality-item">
+
+                        <div class="pnd-quality-item-icon">
+
+                            <i class="bi bi-cursor"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Meaningful Actions
+                            </h4>
+
+                            <p>
+                                Calls-to-action guide visitors
+                                toward enquiries, purchases or
+                                other intended actions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pnd-quality-item">
+
+                        <div class="pnd-quality-item-icon">
+
+                            <i class="bi bi-eye"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4>
+                                Visual Consistency
+                            </h4>
+
+                            <p>
+                                Colours, typography, spacing and
+                                components work together as one
+                                digital identity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECT JOURNEY
+========================================================= -->
+
+<section class="pnd-dark-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                YOUR PROJECT JOURNEY
+            </span>
+
+            <h2 class="pnd-section-title">
+                A simple path from conversation
+                to launch.
+            </h2>
+
+        </div>
+
+
+        <div class="pnd-journey">
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>01</span>
+
+                <strong>
+                    Enquiry
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>02</span>
+
+                <strong>
+                    Discussion
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>03</span>
+
+                <strong>
+                    Planning
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>04</span>
+
+                <strong>
+                    Design
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>05</span>
+
+                <strong>
+                    Development
+                </strong>
+
+            </div>
+
+
+            <div class="pnd-journey-step pnd-reveal">
+
+                <span>06</span>
+
+                <strong>
+                    Launch
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="pnd-light-section">
+
+    <div class="pnd-container">
+
+        <div class="pnd-section-header center pnd-reveal">
+
+            <span class="pnd-section-label">
+                FREQUENTLY ASKED QUESTIONS
+            </span>
+
+            <h2 class="pnd-section-title">
+                Before we build your website.
+            </h2>
+
+        </div>
+
+
+        <div
+            class="accordion pnd-faq pnd-reveal"
+            id="websiteFaq"
+        >
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqOne"
+                    >
+
+                        How long does website development take?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        The timeline depends on the number of
+                        pages, design complexity, functionality,
+                        content readiness and integrations.
+                        A simple informational website and a
+                        custom business platform will naturally
+                        require different amounts of development
+                        time.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqTwo"
+                    >
+
+                        Will my website work on mobile phones?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        Yes. Responsive development is part of
+                        the website approach, with layouts designed
+                        to adapt to mobile, tablet and desktop
+                        screen sizes.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqThree"
+                    >
+
+                        Can you connect a domain and hosting?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        Hosting and domain setup can be included
+                        as part of the project depending on the
+                        selected requirements and hosting
+                        arrangement.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqFour"
+                    >
+
+                        Can the website be updated later?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqFour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        Yes. New pages, content, sections,
+                        integrations and other improvements can
+                        be added later depending on the technical
+                        structure of the website.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqFive"
+                    >
+
+                        Do I need to provide all the content?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqFive"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        Content requirements can be discussed
+                        during planning. Depending on the project,
+                        the client may provide business information,
+                        images, products and other materials while
+                        Pixel Nest Digital structures them into
+                        the website.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqSix"
+                    >
+
+                        Can you build a custom website instead of a template?
+
+                    </button>
+
+                </h2>
+
+
+                <div
+                    id="faqSix"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#websiteFaq"
+                >
+
+                    <div class="accordion-body">
+
+                        Yes. The structure and visual direction
+                        can be developed around the specific
+                        requirements of the project rather than
+                        following a fixed template.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="pnd-final-cta">
+
+    <div class="pnd-container">
+
+        <div class="pnd-cta-box pnd-reveal">
+
+            <div class="pnd-cta-content">
+
+                <div class="pnd-cta-label">
+                    READY TO BUILD?
+                </div>
+
+
+                <h2>
+                    Let's turn your idea
+                    into a website.
+                </h2>
+
+
+                <p>
+
+                    Whether you are starting a new business,
+                    refreshing an existing website or building
+                    something completely custom, let's discuss
+                    what you need.
+
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="pnd-btn-primary"
+                >
+
+                    Start Your Project
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="pnd-footer">
+
+    <div class="pnd-container">
+
+        <div class="pnd-footer-grid">
+
+
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="pnd-footer-logo"
+                >
+
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital"
+                    >
+
+                </a>
+
+
+                <p class="pnd-footer-description">
+
+                    A digital destination where technology,
+                    creativity and ideas come together.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 EXPLORE
+            ================================================== -->
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="team.html">
+                    Team
+                </a>
+
+
+                <a href="projects.html">
+                    Projects
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 SERVICES
+            ================================================== -->
+
+            <div>
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <a href="website_development.html">
+                    Website Development
+                </a>
+
+
+                <a href="web_applications.html">
+                    Web Applications
+                </a>
+
+
+                <a href="e-commerce.html">
+                    E-Commerce
+                </a>
+
+
+                <a href="logo-brand-design.html">
+                    Brand Design
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 CREATIVE
+            ================================================== -->
+
+            <div>
+
+                <h4>
+                    Creative
+                </h4>
+
+
+                <a href="photography.html">
+                    Photography
+                </a>
+
+
+                <a href="videography.html">
+                    Videography
+                </a>
+
+
+                <a href="video-editing.html">
+                    Video Editing
+                </a>
+
+
+                <a href="digital-content.html">
+                    Digital Content
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================== -->
+
+        <div class="pnd-footer-bottom">
+
+            <span>
+
+                ©
+                <span id="pndYear"></span>
+                Pixel Nest Digital.
+                All rights reserved.
+
+            </span>
+
+
+            <span>
+
+                A JO-GEO VENTURES INITIATIVE
+
+            </span>
+
+        </div>
+
+    </div>
 
 </footer>
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
 
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
+
 <script>
 
 /* =========================================================
-   MOBILE MENU
+   HEADER SCROLL
 ========================================================= */
 
-const mobileBtn =
-    document.getElementById("pndMobileBtn");
-
-const nav =
-    document.getElementById("pndNav");
+const pndHeader =
+    document.getElementById("pndHeader");
 
 
-mobileBtn.addEventListener("click", function(){
+window.addEventListener(
+    "scroll",
+    function(){
 
-    const isOpen =
-        nav.classList.toggle("show");
+        if(window.scrollY > 30){
 
-    const icon =
-        mobileBtn.querySelector("i");
+            pndHeader.classList.add("scrolled");
 
-    mobileBtn.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
+        }else{
 
-    if(isOpen){
+            pndHeader.classList.remove("scrolled");
 
-        icon.className =
-            "bi bi-x-lg";
-
-    }else{
-
-        icon.className =
-            "bi bi-list";
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
-   CLOSE MENU
+   MOBILE NAVIGATION
 ========================================================= */
+
+const menuToggle =
+    document.getElementById("pndMenuToggle");
+
+const mobileNav =
+    document.getElementById("pndMobileNav");
+
+const mobileClose =
+    document.getElementById("pndMobileClose");
+
+const mobileOverlay =
+    document.getElementById("pndMobileOverlay");
+
+
+function openMobileNav(){
+
+    mobileNav.classList.add("open");
+
+    mobileOverlay.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeMobileNav(){
+
+    mobileNav.classList.remove("open");
+
+    mobileOverlay.classList.remove("open");
+
+    document.body.style.overflow = "";
+
+}
+
+
+menuToggle.addEventListener(
+    "click",
+    openMobileNav
+);
+
+
+mobileClose.addEventListener(
+    "click",
+    closeMobileNav
+);
+
+
+mobileOverlay.addEventListener(
+    "click",
+    closeMobileNav
+);
+
 
 document
-    .querySelectorAll(".pnd-nav a")
-    .forEach(link => {
+    .querySelectorAll(".pnd-mobile-nav-links a")
+    .forEach(
+        link => {
 
-        link.addEventListener("click", () => {
-
-            nav.classList.remove("show");
-
-            mobileBtn.setAttribute(
-                "aria-expanded",
-                "false"
+            link.addEventListener(
+                "click",
+                closeMobileNav
             );
 
-            mobileBtn
-                .querySelector("i")
-                .className =
-                "bi bi-list";
-
-        });
-
-    });
+        }
+    );
 
 
 /* =========================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
-========================================================= */
-
-document.addEventListener("click", function(event){
-
-    if(
-        !nav.contains(event.target) &&
-        !mobileBtn.contains(event.target)
-    ){
-
-        nav.classList.remove("show");
-
-        mobileBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        mobileBtn
-            .querySelector("i")
-            .className =
-            "bi bi-list";
-
-    }
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
+   REVEAL ON SCROLL
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(".pnd-reveal");
 
 
-const observer =
+const revealObserver =
     new IntersectionObserver(
 
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if(entry.isIntersecting){
+                    if(entry.isIntersecting){
 
-                    entry.target
-                        .classList
-                        .add("show");
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                    observer.unobserve(
-                        entry.target
-                    );
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
 
                 }
-
-            });
+            );
 
         },
 
         {
-            threshold:.10,
-            rootMargin:"0px 0px -30px 0px"
+            threshold:.12
         }
 
     );
 
 
-revealElements.forEach(element => {
+revealElements.forEach(
+    element => {
 
-    observer.observe(element);
+        revealObserver.observe(
+            element
+        );
 
-});
+    }
+);
 
 
 /* =========================================================
-   YEAR
+   FOOTER YEAR
 ========================================================= */
 
-document.getElementById("year")
+document.getElementById("pndYear")
     .textContent =
     new Date().getFullYear();
 
 
 /* =========================================================
-   PREVENT MOBILE MENU STATE AFTER RESIZE
+   ESCAPE KEY
 ========================================================= */
 
-window.addEventListener("resize", function(){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(window.innerWidth > 991){
+        if(event.key === "Escape"){
 
-        nav.classList.remove("show");
+            closeMobileNav();
 
-        mobileBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        mobileBtn
-            .querySelector("i")
-            .className =
-            "bi bi-list";
+        }
 
     }
-
-});
+);
 
 </script>
+
 
 </body>
 
