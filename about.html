@@ -2351,7 +2351,7 @@ body.pnd-menu-open {
         .pnd-card-bg-dream {
 
             background-image:
-                url('img/concept-business-growth-profit-development-success-seedling-are-growing-from-rich-soil_117255-1665.PNG');
+                url('img/robotic-process-automation-of-business-workflows-with-a-businessman-in-background-touching-a-button-photo.png');
 
         }
 
@@ -2367,7 +2367,7 @@ body.pnd-menu-open {
         .pnd-card-bg-grow {
 
             background-image:
-                url('img/robotic-process-automation-of-business-workflows-with-a-businessman-in-background-touching-a-button-photo.png');
+                url('img/concept-business-growth-profit-development-success-seedling-are-growing-from-rich-soil_117255-1665.PNG');
 
         }
 
@@ -2736,32 +2736,51 @@ body.pnd-menu-open {
 
         }
 
+.pnd-value-card {
+    position: relative;
 
-        .pnd-value-card {
+    height: 220px;
+    min-height: 0;
 
-            position: relative;
+    padding: 0;
 
-            min-height: 210px;
+    border-radius: 17px;
 
-            padding: 25px;
+    background: #FFFFFF;
 
-            border-radius: 17px;
+    border: 1px solid #E5E7EB;
 
-            background: #FFFFFF;
+    overflow: hidden;
 
-            border:
-                1px solid #E5E7EB;
+    transition: .35s;
 
-            overflow: hidden;
+    box-shadow:
+        0 12px 35px
+        rgba(15,23,42,.04);
+}
 
-            transition: .35s;
+.pnd-value-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
 
-            box-shadow:
-                0 12px 35px
-                rgba(15,23,42,.04);
+    object-fit: cover;
+}
+/* Tablet */
+@media (max-width: 991px) {
+    .pnd-value-card {
+        min-height: 220px;
+        padding: 22px;
+    }
+}
 
-        }
-
+/* Mobile */
+@media (max-width: 576px) {
+    .pnd-value-card {
+        min-height: 190px;
+        padding: 20px;
+    }
+}
 
         .pnd-value-card:hover {
 
@@ -4161,6 +4180,497 @@ body.pnd-menu-open {
 
         }
 
+        /* =========================================================
+   OUR VALUES — IMAGE BACKGROUND CARDS
+========================================================= */
+
+.pnd-values-grid{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:24px;
+
+}
+
+
+/* =========================================================
+   VALUE CARD
+========================================================= */
+
+.pnd-value-card{
+
+    position:relative;
+
+    min-height:390px;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    isolation:isolate;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background-color:#111827;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease,
+        border-color .4s ease;
+
+}
+
+
+/* =========================================================
+   INDIVIDUAL BACKGROUND IMAGES
+========================================================= */
+
+.pnd-value-dream{
+
+    background-image:
+        url("img/values-dream.jpg");
+
+}
+
+.pnd-value-creativity{
+
+    background-image:
+        url("img/values-creativity.jpg");
+
+}
+
+.pnd-value-integrity{
+
+    background-image:
+        url("img/values-integrity.jpg");
+
+}
+
+.pnd-value-quality{
+
+    background-image:
+        url("img/values-quality.jpg");
+
+}
+
+.pnd-value-collaboration{
+
+    background-image:
+        url("img/values-collaboration.jpg");
+
+}
+
+.pnd-value-growth{
+
+    background-image:
+        url("img/values-growth.jpg");
+
+}
+
+
+/* =========================================================
+   DARK IMAGE OVERLAY
+========================================================= */
+
+.pnd-value-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,10,20,.05) 0%,
+            rgba(5,10,20,.15) 25%,
+            rgba(5,10,20,.55) 55%,
+            rgba(5,10,20,.94) 100%
+        );
+
+    transition:
+        background .5s ease;
+
+}
+
+
+/* =========================================================
+   HOVER IMAGE EFFECT
+========================================================= */
+
+.pnd-value-card:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.015);
+
+    border-color:
+        rgba(255,255,255,.35);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+}
+
+
+.pnd-value-card:hover
+.pnd-value-overlay{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,10,20,.02) 0%,
+            rgba(5,10,20,.18) 25%,
+            rgba(5,10,20,.62) 55%,
+            rgba(5,10,20,.96) 100%
+        );
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.pnd-value-content{
+
+    position:relative;
+
+    width:100%;
+
+    padding:32px;
+
+    z-index:2;
+
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.pnd-value-number{
+
+    position:absolute;
+
+    top:-245px;
+
+    right:28px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:rgba(255,255,255,.7);
+
+    padding:8px 12px;
+
+    border:1px solid
+        rgba(255,255,255,.22);
+
+    border-radius:100px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.pnd-value-icon{
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.2);
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+
+}
+
+
+.pnd-value-icon i{
+
+    font-size:25px;
+
+    color:#fff;
+
+}
+
+
+.pnd-value-card:hover
+.pnd-value-icon{
+
+    transform:
+        translateY(-5px)
+        rotate(-3deg);
+
+    background:
+        rgba(255,255,255,.2);
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.pnd-value-card h4{
+
+    margin:0 0 10px;
+
+    color:#fff;
+
+    font-size:25px;
+
+    font-weight:800;
+
+    letter-spacing:-.4px;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.pnd-value-card p{
+
+    margin:0;
+
+    max-width:420px;
+
+    color:
+        rgba(255,255,255,.78);
+
+    font-size:14px;
+
+    line-height:1.75;
+
+}
+
+
+/* =========================================================
+   IMAGE ZOOM
+========================================================= */
+
+.pnd-value-card{
+
+    background-size:100%;
+
+    transition:
+        background-size .8s ease,
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        box-shadow .5s ease,
+        border-color .4s ease;
+
+}
+
+
+.pnd-value-card:hover{
+
+    background-size:110%;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:991px){
+
+    .pnd-values-grid{
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+        gap:20px;
+
+    }
+
+
+    .pnd-value-card{
+
+        min-height:360px;
+
+    }
+
+
+    .pnd-value-content{
+
+        padding:28px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:767px){
+
+    .pnd-values-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+
+    .pnd-value-card{
+
+        min-height:360px;
+
+        border-radius:20px;
+
+    }
+
+
+    .pnd-value-content{
+
+        padding:26px;
+
+    }
+
+
+    .pnd-value-card h4{
+
+        font-size:23px;
+
+    }
+
+
+    .pnd-value-card p{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width:575px){
+
+    .pnd-value-card{
+
+        min-height:330px;
+
+        border-radius:18px;
+
+    }
+
+
+    .pnd-value-content{
+
+        padding:22px;
+
+    }
+
+
+    .pnd-value-icon{
+
+        width:52px;
+
+        height:52px;
+
+        margin-bottom:16px;
+
+    }
+
+
+    .pnd-value-icon i{
+
+        font-size:22px;
+
+    }
+
+
+    .pnd-value-card h4{
+
+        font-size:21px;
+
+    }
+
+
+    .pnd-value-card p{
+
+        font-size:13px;
+
+        line-height:1.65;
+
+    }
+
+
+    .pnd-value-number{
+
+        top:-220px;
+
+        right:20px;
+
+    }
+
+}
+
     </style>
 
 </head>
@@ -4341,7 +4851,7 @@ body.pnd-menu-open {
                 </a>
 <!-- CONTACT -->
 
-                <
+                
 
 
                 <!-- GET STARTED -->
@@ -5356,50 +5866,58 @@ body.pnd-menu-open {
 
 
 
-    <!-- =========================================================
-         OUR VALUES
-    ========================================================== -->
 
-    <section
-        class="pnd-section pnd-reveal"
-        id="values">
+<!-- =========================================================
+     OUR VALUES
+========================================================= -->
 
+<section
+    class="pnd-section pnd-reveal"
+    id="values"
+>
 
-        <div class="pnd-section-header">
+    <div class="pnd-section-header">
 
-
-            <div class="pnd-label">
-                OUR VALUES
-            </div>
-
-
-            <h2>
-                What drives the Pixel Nest.
-            </h2>
-
-
-            <p>
-                The principles behind the way we approach
-                people, ideas and projects.
-            </p>
-
-
+        <div class="pnd-label">
+            OUR VALUES
         </div>
 
+        <h2>
+            What drives the Pixel Nest.
+        </h2>
+
+        <p>
+            The principles behind the way we approach
+            people, ideas and projects.
+        </p>
+
+    </div>
 
 
-        <div class="pnd-values-grid">
+    <div class="pnd-values-grid">
 
 
-            <!-- VALUE 01 -->
+        <!-- =================================================
+             VALUE 01 — DREAM
+        ================================================== -->
 
-            <div class="pnd-value-card">
+        <div
+            class="pnd-value-card pnd-value-dream"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     01
                 </div>
 
-                <i class="bi bi-lightbulb"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-lightbulb"></i>
+
+                </div>
 
                 <h4>
                     Dream
@@ -5412,16 +5930,30 @@ body.pnd-menu-open {
 
             </div>
 
+        </div>
 
-            <!-- VALUE 02 -->
 
-            <div class="pnd-value-card">
+        <!-- =================================================
+             VALUE 02 — CREATIVITY
+        ================================================== -->
+
+        <div
+            class="pnd-value-card pnd-value-creativity"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     02
                 </div>
 
-                <i class="bi bi-stars"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
 
                 <h4>
                     Creativity
@@ -5434,16 +5966,30 @@ body.pnd-menu-open {
 
             </div>
 
+        </div>
 
-            <!-- VALUE 03 -->
 
-            <div class="pnd-value-card">
+        <!-- =================================================
+             VALUE 03 — INTEGRITY
+        ================================================== -->
+
+        <div
+            class="pnd-value-card pnd-value-integrity"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     03
                 </div>
 
-                <i class="bi bi-shield-check"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-shield-check"></i>
+
+                </div>
 
                 <h4>
                     Integrity
@@ -5456,16 +6002,30 @@ body.pnd-menu-open {
 
             </div>
 
+        </div>
 
-            <!-- VALUE 04 -->
 
-            <div class="pnd-value-card">
+        <!-- =================================================
+             VALUE 04 — QUALITY
+        ================================================== -->
+
+        <div
+            class="pnd-value-card pnd-value-quality"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     04
                 </div>
 
-                <i class="bi bi-gem"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-gem"></i>
+
+                </div>
 
                 <h4>
                     Quality
@@ -5478,16 +6038,30 @@ body.pnd-menu-open {
 
             </div>
 
+        </div>
 
-            <!-- VALUE 05 -->
 
-            <div class="pnd-value-card">
+        <!-- =================================================
+             VALUE 05 — COLLABORATION
+        ================================================== -->
+
+        <div
+            class="pnd-value-card pnd-value-collaboration"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     05
                 </div>
 
-                <i class="bi bi-people"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
 
                 <h4>
                     Collaboration
@@ -5500,16 +6074,30 @@ body.pnd-menu-open {
 
             </div>
 
+        </div>
 
-            <!-- VALUE 06 -->
 
-            <div class="pnd-value-card">
+        <!-- =================================================
+             VALUE 06 — GROWTH
+        ================================================== -->
+
+        <div
+            class="pnd-value-card pnd-value-growth"
+        >
+
+            <div class="pnd-value-overlay"></div>
+
+            <div class="pnd-value-content">
 
                 <div class="pnd-value-number">
                     06
                 </div>
 
-                <i class="bi bi-graph-up-arrow"></i>
+                <div class="pnd-value-icon">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                </div>
 
                 <h4>
                     Growth
@@ -5522,130 +6110,12 @@ body.pnd-menu-open {
 
             </div>
 
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         OUR APPROACH
-    ========================================================== -->
-
-    <section class="pnd-section pnd-reveal">
-
-
-        <div class="pnd-section-header">
-
-
-            <div class="pnd-label">
-                OUR APPROACH
-            </div>
-
-
-            <h2>
-                From idea to digital reality.
-            </h2>
-
-
-            <p>
-                A simple process that keeps the journey
-                understandable and focused.
-            </p>
-
-
         </div>
 
 
+    </div>
 
-        <div class="pnd-journey">
-
-
-            <!-- STEP 01 -->
-
-            <div class="pnd-journey-card">
-
-                <div class="pnd-journey-number">
-                    STEP 01
-                </div>
-
-                <h4>
-                    Discover
-                </h4>
-
-                <p>
-                    We understand your idea, goals, audience
-                    and requirements.
-                </p>
-
-            </div>
-
-
-            <!-- STEP 02 -->
-
-            <div class="pnd-journey-card">
-
-                <div class="pnd-journey-number">
-                    STEP 02
-                </div>
-
-                <h4>
-                    Plan
-                </h4>
-
-                <p>
-                    We shape the right digital, creative and
-                    visual direction.
-                </p>
-
-            </div>
-
-
-            <!-- STEP 03 -->
-
-            <div class="pnd-journey-card">
-
-                <div class="pnd-journey-number">
-                    STEP 03
-                </div>
-
-                <h4>
-                    Create
-                </h4>
-
-                <p>
-                    We design, develop and produce the required
-                    digital experience.
-                </p>
-
-            </div>
-
-
-            <!-- STEP 04 -->
-
-            <div class="pnd-journey-card">
-
-                <div class="pnd-journey-number">
-                    STEP 04
-                </div>
-
-                <h4>
-                    Launch
-                </h4>
-
-                <p>
-                    We help bring the project into the real
-                    world and keep it moving.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
+</section>
 
 
     <!-- =========================================================
@@ -5823,9 +6293,7 @@ body.pnd-menu-open {
                 </a>
 
 
-                <a href="services.html">
-                    Services
-                </a>
+               
 
 
                 <a href="about.html">
@@ -5859,7 +6327,6 @@ body.pnd-menu-open {
                     Web Applications
                 </a>
 
-
                 <a href="e-commerce.html">
                     E-Commerce
                 </a>
@@ -5892,10 +6359,7 @@ body.pnd-menu-open {
                 </a>
 
 
-                <a href="video-editing.html">
-                    Video Editing
-                </a>
-
+              
 
                 <a href="digital-content.html">
                     Digital Content
