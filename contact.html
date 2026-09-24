@@ -5,16 +5,19 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Contact Pixel Nest Digital for website development, web applications, e-commerce, software projects, branding, photography, videography and digital content.">
+    <meta
+        name="description"
+        content="Contact Pixel Nest Digital for website development, web applications, e-commerce, branding, photography, videography and digital solutions.">
 
-    <meta name="theme-color"
-          content="#07111F">
+    <meta
+        name="theme-color"
+        content="#07111F">
 
-    <title>Contact Us | Pixel Nest Digital</title>
+    <title>Contact | Pixel Nest Digital</title>
 
 
     <!-- =========================================================
@@ -31,8 +34,8 @@
     ========================================================== -->
 
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
 
 
     <!-- =========================================================
@@ -40,9 +43,13 @@
     ========================================================== -->
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+
+    <!-- =========================================================
+         MAIN CSS
+    ========================================================== -->
 
     <style>
 
@@ -52,75 +59,123 @@
 
         :root {
 
-            --pnd-space:#07111F;
-            --pnd-space-2:#0B172A;
-            --pnd-space-3:#111C35;
+            --pnd-space: #07111F;
+            --pnd-space-2: #0B172A;
+            --pnd-space-3: #111C35;
 
-            --pnd-blue:#2563EB;
-            --pnd-blue-dark:#1D4ED8;
+            --pnd-blue: #2563EB;
+            --pnd-blue-dark: #1D4ED8;
 
-            --pnd-cyan:#06B6D4;
-            --pnd-violet:#7C3AED;
+            --pnd-cyan: #06B6D4;
+            --pnd-violet: #7C3AED;
 
-            --pnd-green:#22C55E;
+            --pnd-green: #22C55E;
 
-            --pnd-white:#F8FAFC;
-            --pnd-text:#E2E8F0;
-            --pnd-muted:#94A3B8;
+            --pnd-white: #F8FAFC;
 
-            --pnd-dark-text:#0F172A;
-            --pnd-dark-muted:#64748B;
+            --pnd-text: #E2E8F0;
+            --pnd-muted: #94A3B8;
 
-            --pnd-border:rgba(148,163,184,.18);
+            --pnd-border: rgba(148,163,184,.15);
 
-            --pnd-gold:#D4AF37;
-
-            --header-height:78px;
+            --pnd-header-height: 74px;
 
         }
 
 
         /* =========================================================
-           GLOBAL
+           GLOBAL RESET
         ========================================================== */
 
         * {
-            box-sizing:border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+
         html {
-            scroll-behavior:smooth;
-            scroll-padding-top:100px;
+            scroll-behavior: smooth;
         }
+
 
         body {
 
-            margin:0;
+            font-family:
+                "DM Sans",
+                sans-serif;
 
-            font-family:"DM Sans",sans-serif;
+            background:
 
-            background:var(--pnd-space);
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(37,99,235,.10),
+                    transparent 28%
+                ),
 
-            color:var(--pnd-text);
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(124,58,237,.08),
+                    transparent 28%
+                ),
 
-            overflow-x:hidden;
+                var(--pnd-space);
+
+            color: var(--pnd-text);
+
+            overflow-x: hidden;
 
         }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .28;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            z-index: -2;
+
+        }
+
 
         img {
-            max-width:100%;
-            height:auto;
+            max-width: 100%;
+            display: block;
         }
 
+
         a {
-            text-decoration:none;
+            text-decoration: none;
         }
+
 
         button,
         input,
         textarea,
         select {
-            font-family:inherit;
+            font-family: inherit;
         }
 
 
@@ -128,20 +183,14 @@
            TOP LED
         ========================================================== */
 
-        .pnd-led {
+        .pnd-top-led {
 
-            position:fixed;
+            height: 2px;
 
-            top:0;
-            left:0;
-
-            width:100%;
-
-            height:3px;
-
-            z-index:9999;
+            width: 100%;
 
             background:
+
                 linear-gradient(
                     90deg,
                     transparent,
@@ -152,88 +201,323 @@
                     transparent
                 );
 
-            background-size:300% 100%;
+            background-size: 250% 100%;
 
-            animation:pndLed 5s linear infinite;
+            animation:
+                pndLed 5s linear infinite;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            z-index: 99999;
+
+            box-shadow:
+                0 0 15px
+                rgba(37,99,235,.8);
 
         }
+
 
         @keyframes pndLed {
 
             0% {
-                background-position:0% 50%;
+                background-position: 0 0;
             }
 
             100% {
-                background-position:300% 50%;
+                background-position: 250% 0;
             }
 
         }
 
 
         /* =========================================================
-           NAVBAR
+           HEADER
         ========================================================== */
 
-        .pnd-navbar {
+        .pnd-header {
 
-            position:sticky;
+            position: sticky;
 
-            top:0;
+            top: 0;
 
-            z-index:5000;
+            z-index: 9999;
 
-            width:100%;
+            width: 100%;
 
-            min-height:var(--header-height);
+            min-height:
+                var(--pnd-header-height);
 
-            background:#ffffff;
+            background:
 
-            border-bottom:1px solid rgba(15,23,42,.08);
+                linear-gradient(
+                    100deg,
+                    #07111f 0%,
+                    #0b172a 50%,
+                    #111c3a 100%
+                );
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
 
             box-shadow:
-                0 5px 25px rgba(15,23,42,.08);
+                0 8px 30px
+                rgba(0,0,0,.18);
+
+            transition:
+                box-shadow .3s ease,
+                background .3s ease;
 
         }
 
-        .pnd-nav-inner {
 
-            min-height:var(--header-height);
+        .pnd-header.scrolled {
 
-            display:flex;
+            box-shadow:
+                0 12px 40px
+                rgba(0,0,0,.35);
 
-            align-items:center;
+        }
 
-            justify-content:space-between;
 
-            gap:30px;
+        .pnd-header::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -100px;
+            left: 12%;
+
+            width: 300px;
+            height: 220px;
+
+            background:
+                rgba(37,99,235,.18);
+
+            filter:
+                blur(80px);
+
+            pointer-events: none;
+
+        }
+
+
+        .pnd-header-inner {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-height:
+                var(--pnd-header-height);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
 
         }
 
 
         /* =========================================================
-           BRAND
+           LOGO
         ========================================================== */
 
-        .pnd-brand {
+        .pnd-logo {
 
-            display:flex;
+            flex: 0 0 auto;
 
-            align-items:center;
+            display: flex;
 
-            flex-shrink:0;
+            align-items: center;
+
+            width: 185px;
+
+            color: white;
+
+            transition:
+                transform .25s ease;
 
         }
 
-        .pnd-brand-logo {
 
-            width:160px;
+        .pnd-logo:hover {
 
-            max-height:55px;
+            color: white;
 
-            object-fit:contain;
+            transform:
+                translateY(-1px);
 
-            display:block;
+        }
+
+
+        .pnd-logo-img {
+
+            display: block;
+
+            width: 175px;
+
+            height: auto;
+
+            max-height: 58px;
+
+            object-fit: contain;
+
+        }
+
+
+        /* =========================================================
+           DESKTOP SEARCH
+        ========================================================== */
+
+        .pnd-search {
+
+            flex:
+                1 1 300px;
+
+            width: 100%;
+
+            max-width: 390px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.055);
+
+            overflow: hidden;
+
+            transition:
+                border-color .25s ease,
+                background .25s ease,
+                box-shadow .25s ease;
+
+        }
+
+
+        .pnd-search:focus-within {
+
+            border-color:
+                rgba(6,182,212,.45);
+
+            background:
+                rgba(255,255,255,.075);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(6,182,212,.08);
+
+        }
+
+
+        .pnd-search-icon {
+
+            width: 40px;
+
+            flex:
+                0 0 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color:
+                #64748b;
+
+        }
+
+
+        .pnd-search input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            height: 100%;
+
+            padding:
+                0 5px;
+
+            border: 0;
+
+            outline: 0;
+
+            color: white;
+
+            background: transparent;
+
+            font-size: 13px;
+
+        }
+
+
+        .pnd-search input::placeholder {
+            color: #64748b;
+        }
+
+
+        .pnd-search button {
+
+            flex:
+                0 0 auto;
+
+            height: 32px;
+
+            margin-right: 5px;
+
+            padding:
+                0 13px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform .2s ease,
+                filter .2s ease;
+
+        }
+
+
+        .pnd-search button:hover {
+
+            transform:
+                translateY(-1px);
+
+            filter:
+                brightness(1.08);
 
         }
 
@@ -244,204 +528,703 @@
 
         .pnd-nav {
 
-            display:flex;
+            flex:
+                0 0 auto;
 
-            align-items:center;
+            display: flex;
 
-            justify-content:flex-end;
+            align-items: center;
 
-            gap:6px;
+            gap: 3px;
+
+            margin-left: auto;
 
         }
 
-        .pnd-nav a {
 
-            color:var(--pnd-gold);
+        .pnd-nav-link {
 
-            font-size:14px;
+            position: relative;
 
-            font-weight:700;
+            display: inline-flex;
 
-            padding:10px 13px;
+            align-items: center;
 
-            border-radius:10px;
+            justify-content: center;
+
+            gap: 5px;
+
+            min-height: 42px;
+
+            padding:
+                0 10px;
+
+            border-radius: 9px;
+
+            color:
+                #cbd5e1;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
 
             transition:
-                background .25s ease,
-                color .25s ease,
-                transform .25s ease;
-
-            white-space:nowrap;
+                color .2s ease,
+                background .2s ease;
 
         }
 
-        .pnd-nav a:hover,
-        .pnd-nav a.active {
 
-            color:#ffffff;
+        .pnd-nav-link:hover,
+        .pnd-nav-link.active {
 
-            background:var(--pnd-space);
+            color: white;
 
-            transform:translateY(-1px);
+            background:
+                rgba(255,255,255,.065);
+
+        }
+
+
+        .pnd-chevron {
+
+            font-size: 10px;
+
+            transition:
+                transform .25s ease;
+
+        }
+
+
+        .pnd-dropdown {
+
+            position: relative;
+
+        }
+
+
+        .pnd-dropdown:hover
+        .pnd-chevron {
+
+            transform:
+                rotate(180deg);
 
         }
 
 
         /* =========================================================
-           CTA
+           DROPDOWN
         ========================================================== */
 
-        .pnd-nav .pnd-nav-cta {
+        .pnd-dropdown-menu {
 
-            color:#ffffff;
+            position: absolute;
+
+            top:
+                calc(100% + 10px);
+
+            left: 50%;
+
+            width: 285px;
+
+            padding: 8px;
+
+            transform:
+                translate(-50%, 8px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 14px;
 
             background:
+
+                linear-gradient(
+                    155deg,
+                    rgba(7,17,31,.98),
+                    rgba(17,28,53,.98)
+                );
+
+            box-shadow:
+                0 20px 55px
+                rgba(0,0,0,.42);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            transition:
+                opacity .2s ease,
+                visibility .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .pnd-dropdown:hover
+        .pnd-dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translate(-50%,0);
+
+        }
+
+
+        .pnd-dropdown-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                10px 11px;
+
+            border-radius: 9px;
+
+            color:
+                #cbd5e1;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition:
+                color .2s ease,
+                background .2s ease,
+                transform .2s ease;
+
+        }
+
+
+        .pnd-dropdown-item i {
+
+            flex:
+                0 0 20px;
+
+            color:
+                #67e8f9;
+
+            font-size: 14px;
+
+        }
+
+
+        .pnd-dropdown-item:hover {
+
+            color: white;
+
+            background:
+                rgba(255,255,255,.07);
+
+            transform:
+                translateX(2px);
+
+        }
+
+
+        /* =========================================================
+           START BUTTON
+        ========================================================== */
+
+        .pnd-start {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            min-height: 42px;
+
+            margin-left: 6px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid
+                rgba(103,232,249,.22);
+
+            border-radius: 10px;
+
+            color: white;
+
+            background:
+
                 linear-gradient(
                     135deg,
                     var(--pnd-blue),
-                    var(--pnd-violet)
+                    var(--pnd-cyan)
                 );
 
-            padding:11px 17px;
+            font-size: 12px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
 
             box-shadow:
-                0 8px 20px rgba(37,99,235,.20);
+                0 7px 22px
+                rgba(37,99,235,.18);
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease,
+                filter .2s ease;
 
         }
 
-        .pnd-nav .pnd-nav-cta:hover {
 
-            color:#ffffff;
+        .pnd-start:hover {
 
-            transform:translateY(-2px);
+            color: white;
+
+            transform:
+                translateY(-1px);
+
+            filter:
+                brightness(1.07);
 
             box-shadow:
-                0 12px 28px rgba(37,99,235,.30);
+                0 10px 28px
+                rgba(37,99,235,.28);
 
         }
 
 
         /* =========================================================
-           MOBILE TOGGLE
+           MOBILE BUTTON
         ========================================================== */
 
-        .pnd-menu-toggle {
+        .pnd-menu-btn {
 
-            width:44px;
+            display: none;
 
-            height:44px;
+            flex:
+                0 0 auto;
 
-            display:none;
+            width: 44px;
 
-            align-items:center;
+            height: 44px;
 
-            justify-content:center;
+            align-items: center;
 
-            border:0;
+            justify-content: center;
 
-            border-radius:10px;
+            margin-left: auto;
 
-            color:#ffffff;
+            border:
+                1px solid
+                rgba(255,255,255,.11);
 
-            background:var(--pnd-space);
+            border-radius: 11px;
 
-            font-size:23px;
+            color: white;
+
+            background:
+                rgba(255,255,255,.055);
+
+            font-size: 23px;
+
+            cursor: pointer;
 
         }
 
 
         /* =========================================================
-           MOBILE NAV
+           MOBILE OVERLAY
+        ========================================================== */
+
+        .pnd-mobile-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10000;
+
+            background:
+                rgba(0,0,0,.68);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity .3s ease,
+                visibility .3s ease;
+
+        }
+
+
+        .pnd-mobile-overlay.active {
+
+            opacity: 1;
+
+            visibility: visible;
+
+        }
+
+
+        /* =========================================================
+           MOBILE SIDE MENU
         ========================================================== */
 
         .pnd-mobile-menu {
 
-            display:none;
+            position: fixed;
 
-            width:100%;
+            top: 0;
+
+            right: 0;
+
+            z-index: 10001;
+
+            width:
+                min(390px,92vw);
+
+            height: 100dvh;
+
+            padding:
+                22px 20px 30px;
+
+            overflow-y: auto;
 
             background:
-                rgba(7,17,31,.98);
 
-            border-top:1px solid rgba(255,255,255,.08);
+                linear-gradient(
+                    155deg,
+                    #07111f 0%,
+                    #0b172a 55%,
+                    #111c35 100%
+                );
+
+            border-left:
+                1px solid
+                rgba(255,255,255,.10);
 
             box-shadow:
-                0 15px 35px rgba(0,0,0,.20);
+                -20px 0 60px
+                rgba(0,0,0,.35);
+
+            transform:
+                translateX(105%);
+
+            transition:
+                transform .35s
+                cubic-bezier(.4,0,.2,1);
 
         }
 
-        .pnd-mobile-menu.open {
-            display:block;
-        }
 
-        .pnd-mobile-menu a {
+        .pnd-mobile-menu.active {
 
-            display:block;
-
-            color:var(--pnd-gold);
-
-            padding:14px 20px;
-
-            font-size:15px;
-
-            font-weight:700;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.07);
+            transform:
+                translateX(0);
 
         }
 
-        .pnd-mobile-menu a:hover,
-        .pnd-mobile-menu a.active {
 
-            color:#ffffff;
+        .pnd-mobile-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .pnd-mobile-top
+        .pnd-logo {
+
+            width: auto;
+
+        }
+
+
+        .pnd-mobile-top
+        .pnd-logo-img {
+
+            width: 155px;
+
+            max-height: 52px;
+
+        }
+
+
+        .pnd-mobile-close {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 10px;
+
+            color: white;
 
             background:
-                rgba(255,255,255,.06);
+                rgba(255,255,255,.055);
+
+            cursor: pointer;
 
         }
 
-        .pnd-mobile-menu .mobile-cta {
 
-            margin:14px 18px;
+        .pnd-mobile-search {
 
-            border-radius:10px;
+            height: 46px;
 
-            text-align:center;
+            display: flex;
 
-            color:#ffffff;
+            align-items: center;
+
+            margin-bottom: 18px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 11px;
 
             background:
+                rgba(255,255,255,.055);
+
+        }
+
+
+        .pnd-mobile-search > i {
+
+            width: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #64748b;
+
+        }
+
+
+        .pnd-mobile-search input {
+
+            flex: 1;
+
+            height: 100%;
+
+            border: 0;
+
+            outline: 0;
+
+            color: white;
+
+            background: transparent;
+
+            padding:
+                0 12px;
+
+        }
+
+
+        .pnd-mobile-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            min-height: 48px;
+
+            padding:
+                0 13px;
+
+            margin-bottom: 3px;
+
+            border-radius: 10px;
+
+            color:
+                #cbd5e1;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+        }
+
+
+        .pnd-mobile-link:hover,
+        .pnd-mobile-link.active {
+
+            color: white;
+
+            background:
+                rgba(255,255,255,.065);
+
+        }
+
+
+        .pnd-mobile-services {
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .pnd-mobile-services-title {
+
+            width: 100%;
+
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 13px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            color:
+                #cbd5e1;
+
+            background: transparent;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .pnd-mobile-services-title
+        span {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .pnd-mobile-service-list {
+
+            display: none;
+
+            padding:
+                4px 0 8px 18px;
+
+        }
+
+
+        .pnd-mobile-services.open
+        .pnd-mobile-service-list {
+
+            display: block;
+
+        }
+
+
+        .pnd-mobile-service-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                11px 10px;
+
+            color:
+                #94a3b8;
+
+            font-size: 12px;
+
+        }
+
+
+        .pnd-mobile-service-item:hover {
+
+            color: white;
+
+        }
+
+
+        .pnd-mobile-start {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            min-height: 48px;
+
+            margin-top: 18px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            background:
+
                 linear-gradient(
                     135deg,
                     var(--pnd-blue),
-                    var(--pnd-violet)
+                    var(--pnd-cyan)
                 );
 
-            border:0;
+            font-size: 13px;
 
-        }
-
-
-        /* =========================================================
-           DARK SECTION
-        ========================================================== */
-
-        .pnd-dark-section {
-
-            position:relative;
-
-            width:100%;
-
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(37,99,235,.14),
-                    transparent 30%
-                ),
-                var(--pnd-space);
-
-            overflow:hidden;
+            font-weight: 800;
 
         }
 
@@ -452,216 +1235,1314 @@
 
         .pnd-hero {
 
+            position: relative;
+
             min-height:
-                calc(100vh - var(--header-height));
+                calc(100vh - 76px);
 
-            display:flex;
+            display: flex;
 
-            align-items:center;
-
-            position:relative;
+            align-items: center;
 
             padding:
-                90px 0
-                80px;
+                90px 0 80px;
+
+            overflow: hidden;
 
         }
 
-        .pnd-hero-grid {
 
-            position:absolute;
+        .pnd-hero::before {
 
-            inset:0;
+            content: "";
 
-            opacity:.18;
+            position: absolute;
 
-            background-image:
-                linear-gradient(
-                    rgba(148,163,184,.08) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(148,163,184,.08) 1px,
-                    transparent 1px
-                );
+            width: 520px;
 
-            background-size:
-                70px 70px;
+            height: 520px;
 
-            pointer-events:none;
+            left: -220px;
 
-        }
-
-        .pnd-hero-glow {
-
-            position:absolute;
-
-            width:500px;
-
-            height:500px;
-
-            right:-180px;
-
-            top:-160px;
-
-            border-radius:50%;
+            top: 10%;
 
             background:
-                radial-gradient(
-                    circle,
-                    rgba(37,99,235,.24),
-                    transparent 68%
-                );
+                rgba(37,99,235,.13);
 
-            filter:blur(10px);
+            filter:
+                blur(100px);
 
-            pointer-events:none;
+            border-radius: 50%;
+
+            pointer-events: none;
 
         }
+
+
+        .pnd-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 480px;
+
+            height: 480px;
+
+            right: -200px;
+
+            bottom: -120px;
+
+            background:
+                rgba(124,58,237,.14);
+
+            filter:
+                blur(100px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+        }
+
 
         .pnd-hero-content {
 
-            position:relative;
+            position: relative;
 
-            z-index:2;
+            z-index: 2;
 
         }
 
-
-        /* =========================================================
-           LABEL
-        ========================================================== */
 
         .pnd-eyebrow {
 
-            display:inline-flex;
+            display: inline-flex;
 
-            align-items:center;
+            align-items: center;
 
-            gap:8px;
+            gap: 9px;
 
-            color:var(--pnd-cyan);
+            margin-bottom: 20px;
 
-            font-size:12px;
+            color:
+                #67e8f9;
 
-            font-weight:800;
+            font-size: 11px;
 
-            letter-spacing:2px;
+            font-weight: 800;
 
-            text-transform:uppercase;
-
-            margin-bottom:20px;
+            letter-spacing:
+                2px;
 
         }
 
+
         .pnd-eyebrow::before {
 
-            content:"";
+            content: "";
 
-            width:28px;
+            width: 34px;
 
-            height:2px;
+            height: 1px;
 
             background:
                 linear-gradient(
                     90deg,
                     var(--pnd-cyan),
-                    var(--pnd-violet)
+                    var(--pnd-blue)
                 );
 
         }
 
 
-        /* =========================================================
-           HERO TITLE
-        ========================================================== */
-
         .pnd-hero h1 {
 
-            max-width:800px;
-
-            margin:0 0 22px;
-
-            color:#ffffff;
+            max-width: 760px;
 
             font-size:
-                clamp(42px,6vw,78px);
+                clamp(48px,6vw,88px);
 
-            line-height:.98;
+            line-height: .98;
 
-            letter-spacing:-3px;
+            letter-spacing:
+                -4px;
 
-            font-weight:900;
+            font-weight: 800;
+
+            color: white;
+
+            margin-bottom: 26px;
 
         }
+
 
         .pnd-gradient-text {
 
             background:
+
                 linear-gradient(
-                    90deg,
+                    100deg,
                     #ffffff,
-                    var(--pnd-cyan),
-                    #ffffff
+                    #67e8f9,
+                    #818cf8
                 );
 
-            -webkit-background-clip:text;
+            -webkit-background-clip:
+                text;
 
-            background-clip:text;
+            background-clip:
+                text;
 
-            color:transparent;
+            color: transparent;
 
         }
 
-        .pnd-hero-description {
 
-            max-width:680px;
+        .pnd-hero-copy {
 
-            color:var(--pnd-muted);
+            max-width: 650px;
 
-            font-size:18px;
+            color:
+                #94a3b8;
 
-            line-height:1.8;
+            font-size: 17px;
 
-            margin-bottom:32px;
+            line-height: 1.85;
+
+            margin-bottom: 34px;
+
+        }
+
+
+        .pnd-hero-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+
+        .pnd-btn {
+
+            min-height: 52px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            padding:
+                0 22px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing:
+                .4px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                filter .25s ease;
+
+        }
+
+
+        .pnd-btn-primary {
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            box-shadow:
+                0 12px 35px
+                rgba(37,99,235,.24);
+
+        }
+
+
+        .pnd-btn-primary:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(37,99,235,.34);
+
+        }
+
+
+        .pnd-btn-secondary {
+
+            color:
+                #e2e8f0;
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            background:
+                rgba(255,255,255,.045);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .pnd-btn-secondary:hover {
+
+            color: white;
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(103,232,249,.30);
+
+            background:
+                rgba(255,255,255,.075);
 
         }
 
 
         /* =========================================================
-           HERO BUTTONS
+           HERO CONTACT VISUAL
         ========================================================== */
 
-        .pnd-hero-actions {
+        .pnd-contact-visual {
 
-            display:flex;
+            position: relative;
 
-            flex-wrap:wrap;
+            min-height: 510px;
 
-            gap:12px;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            perspective: 1200px;
 
         }
 
-        .pnd-btn {
 
-            display:inline-flex;
+        .pnd-contact-glow {
 
-            align-items:center;
+            position: absolute;
 
-            justify-content:center;
+            width: 320px;
 
-            gap:9px;
+            height: 320px;
 
-            min-height:48px;
+            border-radius: 50%;
 
-            padding:12px 19px;
+            background:
 
-            border-radius:11px;
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.30),
+                    rgba(6,182,212,.12),
+                    transparent 70%
+                );
 
-            font-size:14px;
+            filter:
+                blur(10px);
 
-            font-weight:800;
+            animation:
+                contactGlow 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes contactGlow {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(.92);
+
+                opacity: .65;
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.12);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        .pnd-contact-orbit {
+
+            position: absolute;
+
+            width: 390px;
+
+            height: 390px;
+
+            border:
+                1px solid
+                rgba(103,232,249,.18);
+
+            border-radius: 50%;
+
+            transform:
+                rotateX(65deg)
+                rotateZ(-20deg);
+
+            animation:
+                contactOrbit 14s linear infinite;
+
+        }
+
+
+        .pnd-contact-orbit::before,
+        .pnd-contact-orbit::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 11px;
+
+            height: 11px;
+
+            border-radius: 50%;
+
+            background:
+                var(--pnd-cyan);
+
+            box-shadow:
+                0 0 20px
+                rgba(6,182,212,.9);
+
+        }
+
+
+        .pnd-contact-orbit::before {
+
+            top: -5px;
+
+            left: 50%;
+
+        }
+
+
+        .pnd-contact-orbit::after {
+
+            right: 25px;
+
+            bottom: 25px;
+
+            background:
+                var(--pnd-violet);
+
+            box-shadow:
+                0 0 20px
+                rgba(124,58,237,.9);
+
+        }
+
+
+        @keyframes contactOrbit {
+
+            from {
+
+                transform:
+                    rotateX(65deg)
+                    rotateZ(0deg);
+
+            }
+
+            to {
+
+                transform:
+                    rotateX(65deg)
+                    rotateZ(360deg);
+
+            }
+
+        }
+
+
+        .pnd-contact-card {
+
+            position: relative;
+
+            z-index: 4;
+
+            width: 300px;
+
+            height: 350px;
+
+            padding: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.14);
+
+            border-radius: 30px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.10),
+                    rgba(255,255,255,.025)
+                );
+
+            box-shadow:
+
+                0 30px 80px
+                rgba(0,0,0,.40),
+
+                inset 0 1px 0
+                rgba(255,255,255,.12);
+
+            backdrop-filter:
+                blur(25px);
+
+            -webkit-backdrop-filter:
+                blur(25px);
+
+            transform:
+                rotateY(-7deg)
+                rotateX(4deg);
+
+            animation:
+                contactFloat 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes contactFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotateY(-7deg)
+                    rotateX(4deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-15px)
+                    rotateY(5deg)
+                    rotateX(-3deg);
+
+            }
+
+        }
+
+
+        .pnd-contact-icon {
+
+            position: relative;
+
+            width: 125px;
+
+            height: 125px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid
+                rgba(103,232,249,.35);
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 35% 25%,
+                    rgba(255,255,255,.16),
+                    rgba(37,99,235,.12),
+                    rgba(7,17,31,.7)
+                );
+
+            box-shadow:
+
+                0 0 45px
+                rgba(37,99,235,.24),
+
+                inset 0 0 30px
+                rgba(6,182,212,.10);
+
+        }
+
+
+        .pnd-contact-icon::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -12px;
+
+            border:
+                1px solid
+                rgba(103,232,249,.16);
+
+            border-radius: 50%;
+
+            animation:
+                iconRing 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes iconRing {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(.92);
+
+                opacity: .4;
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.08);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        .pnd-contact-icon i {
+
+            font-size: 58px;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #67e8f9,
+                    #818cf8
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color: transparent;
+
+            filter:
+                drop-shadow(
+                    0 0 15px
+                    rgba(6,182,212,.35)
+                );
+
+        }
+
+
+        .pnd-contact-card h3 {
+
+            color: white;
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .pnd-contact-card p {
+
+            max-width: 230px;
+
+            color:
+                #94a3b8;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 0;
+
+        }
+
+
+        .pnd-floating-icon {
+
+            position: absolute;
+
+            z-index: 6;
+
+            width: 50px;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            border-radius: 14px;
+
+            color: white;
+
+            background:
+                rgba(7,17,31,.75);
+
+            backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,.30);
+
+            font-size: 20px;
+
+        }
+
+
+        .pnd-float-phone {
+
+            left: 3%;
+
+            top: 21%;
+
+            color:
+                #67e8f9;
+
+            animation:
+                smallFloat 4s ease-in-out infinite;
+
+        }
+
+
+        .pnd-float-mail {
+
+            right: 4%;
+
+            top: 29%;
+
+            color:
+                #a78bfa;
+
+            animation:
+                smallFloat 4.5s ease-in-out infinite;
+
+        }
+
+
+        .pnd-float-whatsapp {
+
+            left: 12%;
+
+            bottom: 18%;
+
+            color:
+                #4ade80;
+
+            animation:
+                smallFloat 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes smallFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================== */
+
+        .pnd-section {
+
+            position: relative;
+
+            padding:
+                105px 0;
+
+        }
+
+
+        .pnd-section-header {
+
+            max-width: 760px;
+
+            margin:
+                0 auto 50px;
+
+            text-align: center;
+
+        }
+
+
+        .pnd-label {
+
+            margin-bottom: 13px;
+
+            color:
+                #67e8f9;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing:
+                2.2px;
+
+        }
+
+
+        .pnd-section-header h2 {
+
+            color: white;
+
+            font-size:
+                clamp(34px,4vw,54px);
+
+            line-height: 1.05;
+
+            letter-spacing:
+                -2px;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .pnd-section-header p {
+
+            color:
+                #94a3b8;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           CONTACT CARDS
+        ========================================================== */
+
+        .pnd-contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .pnd-info-card {
+
+            position: relative;
+
+            min-height: 205px;
+
+            padding: 25px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            border-radius: 20px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
+                );
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+
+        .pnd-info-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 2px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--pnd-blue),
+                    var(--pnd-cyan),
+                    var(--pnd-violet),
+                    transparent
+                );
+
+            transition:
+                left .5s ease;
+
+        }
+
+
+        .pnd-info-card:hover::before {
+
+            left: 100%;
+
+        }
+
+
+        .pnd-info-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(103,232,249,.20);
+
+            box-shadow:
+                0 25px 55px
+                rgba(0,0,0,.24);
+
+        }
+
+
+        .pnd-info-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid
+                rgba(103,232,249,.15);
+
+            border-radius: 13px;
+
+            color:
+                #67e8f9;
+
+            background:
+                rgba(6,182,212,.07);
+
+            font-size: 20px;
+
+        }
+
+
+        .pnd-info-card h3 {
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .pnd-info-card p {
+
+            color:
+                #94a3b8;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .pnd-info-card a {
+
+            color:
+                #67e8f9;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================================================
+           FORM SECTION
+        ========================================================== */
+
+        .pnd-form-wrap {
+
+            display: grid;
+
+            grid-template-columns:
+                .75fr 1.25fr;
+
+            gap: 25px;
+
+            align-items: stretch;
+
+        }
+
+
+        .pnd-form-intro,
+        .pnd-form-card {
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            border-radius: 24px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.065),
+                    rgba(255,255,255,.025)
+                );
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.20);
+
+        }
+
+
+        .pnd-form-intro {
+
+            position: relative;
+
+            padding: 38px;
+
+            overflow: hidden;
+
+        }
+
+
+        .pnd-form-intro::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+
+            height: 220px;
+
+            right: -100px;
+
+            bottom: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(37,99,235,.15);
+
+            filter:
+                blur(45px);
+
+        }
+
+
+        .pnd-form-intro h3 {
+
+            color: white;
+
+            font-size: 30px;
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .pnd-form-intro > p {
+
+            color:
+                #94a3b8;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .pnd-check {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 11px;
+
+            margin-bottom: 16px;
+
+            color:
+                #cbd5e1;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .pnd-check i {
+
+            flex:
+                0 0 auto;
+
+            color:
+                #4ade80;
+
+            margin-top: 2px;
+
+        }
+
+
+        .pnd-form-card {
+
+            padding: 35px;
+
+        }
+
+
+        .pnd-form-card h3 {
+
+            color: white;
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .pnd-form-group {
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .pnd-form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color:
+                #cbd5e1;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .pnd-form-control {
+
+            width: 100%;
+
+            min-height: 50px;
+
+            padding:
+                12px 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 10px;
+
+            outline: none;
+
+            color: white;
+
+            background:
+                rgba(255,255,255,.045);
+
+            font-size: 13px;
+
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease,
+                background .2s ease;
+
+        }
+
+
+        textarea.pnd-form-control {
+
+            min-height: 125px;
+
+            resize: vertical;
+
+        }
+
+
+        .pnd-form-control::placeholder {
+
+            color:
+                #64748b;
+
+        }
+
+
+        .pnd-form-control:focus {
+
+            border-color:
+                rgba(6,182,212,.48);
+
+            background:
+                rgba(255,255,255,.06);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(6,182,212,.07);
+
+        }
+
+
+        .pnd-submit {
+
+            width: 100%;
+
+            min-height: 53px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 30px
+                rgba(37,99,235,.20);
 
             transition:
                 transform .25s ease,
@@ -669,841 +2550,98 @@
 
         }
 
-        .pnd-btn:hover {
 
-            transform:translateY(-2px);
-
-        }
-
-        .pnd-btn-primary {
-
-            color:#ffffff;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--pnd-blue),
-                    var(--pnd-violet)
-                );
-
-            box-shadow:
-                0 12px 30px rgba(37,99,235,.25);
-
-        }
-
-        .pnd-btn-outline {
-
-            color:#ffffff;
-
-            border:
-                1px solid rgba(255,255,255,.20);
-
-            background:
-                rgba(255,255,255,.05);
-
-        }
-
-
-        /* =========================================================
-           HERO INFO
-        ========================================================== */
-
-        .pnd-hero-info {
-
-            margin-top:55px;
-
-            display:grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            max-width:800px;
-
-            border-top:
-                1px solid rgba(255,255,255,.10);
-
-            padding-top:25px;
-
-        }
-
-        .pnd-hero-stat {
-
-            padding-right:20px;
-
-        }
-
-        .pnd-hero-stat strong {
-
-            display:block;
-
-            color:#ffffff;
-
-            font-size:22px;
-
-            font-weight:900;
-
-        }
-
-        .pnd-hero-stat span {
-
-            color:var(--pnd-muted);
-
-            font-size:12px;
-
-        }
-
-
-        /* =========================================================
-           ORBIT VISUAL
-        ========================================================== */
-
-        .pnd-orbit-stage {
-
-            position:absolute;
-
-            right:5%;
-
-            top:50%;
+        .pnd-submit:hover {
 
             transform:
-                translateY(-50%);
-
-            width:430px;
-
-            height:430px;
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            pointer-events:none;
-
-        }
-
-        .pnd-orbit {
-
-            position:absolute;
-
-            inset:30px;
-
-            border:
-                1px solid rgba(6,182,212,.30);
-
-            border-radius:50%;
-
-            animation:
-                pndRotate 14s linear infinite;
-
-        }
-
-        .pnd-orbit::before {
-
-            content:"";
-
-            position:absolute;
-
-            width:12px;
-
-            height:12px;
-
-            border-radius:50%;
-
-            top:15px;
-
-            left:50%;
-
-            background:var(--pnd-cyan);
+                translateY(-2px);
 
             box-shadow:
-                0 0 25px var(--pnd-cyan);
-
-        }
-
-        .pnd-orbit-two {
-
-            position:absolute;
-
-            inset:80px;
-
-            border:
-                1px solid rgba(124,58,237,.35);
-
-            border-radius:50%;
-
-            animation:
-                pndRotateReverse 10s linear infinite;
-
-        }
-
-        .pnd-orbit-core {
-
-            width:170px;
-
-            height:170px;
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            border-radius:50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(37,99,235,.30),
-                    rgba(7,17,31,.80)
-                );
-
-            border:
-                1px solid rgba(255,255,255,.15);
-
-            box-shadow:
-                0 0 70px rgba(37,99,235,.20);
-
-        }
-
-        .pnd-orbit-core span {
-
-            color:#ffffff;
-
-            font-size:20px;
-
-            font-weight:900;
-
-            letter-spacing:2px;
-
-        }
-
-        @keyframes pndRotate {
-
-            to {
-                transform:rotate(360deg);
-            }
-
-        }
-
-        @keyframes pndRotateReverse {
-
-            to {
-                transform:rotate(-360deg);
-            }
-
-        }
-
-
-        /* =========================================================
-           WHITE SECTION
-        ========================================================== */
-
-        .pnd-white-section {
-
-            width:100%;
-
-            background:#ffffff;
-
-            color:var(--pnd-dark-text);
-
-            padding:
-                90px 0;
-
-        }
-
-        .pnd-section-heading {
-
-            max-width:780px;
-
-            margin-bottom:50px;
-
-        }
-
-        .pnd-section-label {
-
-            color:var(--pnd-blue);
-
-            font-size:12px;
-
-            font-weight:900;
-
-            letter-spacing:2px;
-
-            text-transform:uppercase;
-
-            margin-bottom:12px;
-
-        }
-
-        .pnd-section-heading h2 {
-
-            margin:0 0 15px;
-
-            font-size:
-                clamp(32px,4vw,52px);
-
-            line-height:1.05;
-
-            letter-spacing:-2px;
-
-            font-weight:900;
-
-            color:var(--pnd-dark-text);
-
-        }
-
-        .pnd-section-heading p {
-
-            margin:0;
-
-            color:var(--pnd-dark-muted);
-
-            font-size:16px;
-
-            line-height:1.8;
-
-        }
-
-
-        /* =========================================================
-           QUICK SERVICE CATEGORIES
-        ========================================================== */
-
-        .pnd-category-grid {
-
-            display:grid;
-
-            grid-template-columns:
-                repeat(5,1fr);
-
-            gap:14px;
-
-        }
-
-        .pnd-category-card {
-
-            min-width:0;
-
-            padding:22px 18px;
-
-            border:
-                1px solid #E2E8F0;
-
-            border-radius:15px;
-
-            background:#ffffff;
-
-            box-shadow:
-                0 8px 25px rgba(15,23,42,.05);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease,
-                border-color .25s ease;
-
-        }
-
-        .pnd-category-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
+                0 18px 35px
                 rgba(37,99,235,.30);
 
-            box-shadow:
-                0 18px 35px rgba(15,23,42,.10);
-
         }
 
-        .pnd-category-icon {
 
-            width:46px;
+        /* =========================================================
+           CTA
+        ========================================================== */
 
-            height:46px;
+        .pnd-final-cta {
 
-            display:flex;
+            position: relative;
 
-            align-items:center;
+            overflow: hidden;
 
-            justify-content:center;
+            padding:
+                80px 30px;
 
-            margin-bottom:15px;
+            text-align: center;
 
-            border-radius:12px;
+            border:
+                1px solid
+                rgba(103,232,249,.13);
 
-            color:var(--pnd-blue);
+            border-radius: 28px;
 
             background:
-                rgba(37,99,235,.08);
 
-            font-size:21px;
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(37,99,235,.18),
+                    transparent 35%
+                ),
 
-        }
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(124,58,237,.18),
+                    transparent 35%
+                ),
 
-        .pnd-category-card h3 {
-
-            font-size:15px;
-
-            margin:0 0 8px;
-
-            font-weight:800;
-
-        }
-
-        .pnd-category-card p {
-
-            margin:0 0 13px;
-
-            color:var(--pnd-dark-muted);
-
-            font-size:12px;
-
-            line-height:1.6;
-
-        }
-
-        .pnd-category-link {
-
-            color:var(--pnd-blue);
-
-            font-size:12px;
-
-            font-weight:800;
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.055),
+                    rgba(255,255,255,.018)
+                );
 
         }
 
 
-        /* =========================================================
-           CONTACT AREA
-        ========================================================== */
+        .pnd-final-cta h2 {
 
-        .pnd-contact-section {
-
-            width:100%;
-
-            background:#ffffff;
-
-            padding:
-                90px 0 100px;
-
-        }
-
-        .pnd-contact-grid {
-
-            display:grid;
-
-            grid-template-columns:
-                minmax(0,1.3fr)
-                minmax(0,.7fr);
-
-            gap:28px;
-
-            align-items:start;
-
-        }
-
-
-        /* =========================================================
-           CONTACT FORM CARD
-        ========================================================== */
-
-        .pnd-form-card {
-
-            min-width:0;
-
-            padding:
-                clamp(24px,4vw,40px);
-
-            border:
-                1px solid #E2E8F0;
-
-            border-radius:22px;
-
-            background:#ffffff;
-
-            box-shadow:
-                0 20px 55px rgba(15,23,42,.08);
-
-        }
-
-        .pnd-form-card h3 {
-
-            margin:0 0 8px;
-
-            color:var(--pnd-dark-text);
-
-            font-size:27px;
-
-            font-weight:900;
-
-        }
-
-        .pnd-form-card > p {
-
-            margin:0 0 28px;
-
-            color:var(--pnd-dark-muted);
-
-            line-height:1.7;
-
-            font-size:14px;
-
-        }
-
-        .pnd-form-label {
-
-            display:block;
-
-            margin-bottom:7px;
-
-            color:#334155;
-
-            font-size:12px;
-
-            font-weight:800;
-
-        }
-
-        .pnd-form-control {
-
-            width:100%;
-
-            min-height:48px;
-
-            padding:
-                12px 14px;
-
-            border:
-                1px solid #CBD5E1;
-
-            border-radius:10px;
-
-            outline:none;
-
-            color:#0F172A;
-
-            background:#ffffff;
-
-            font-size:14px;
-
-            transition:
-                border-color .2s ease,
-                box-shadow .2s ease;
-
-        }
-
-        .pnd-form-control:focus {
-
-            border-color:
-                var(--pnd-blue);
-
-            box-shadow:
-                0 0 0 4px rgba(37,99,235,.10);
-
-        }
-
-        textarea.pnd-form-control {
-
-            min-height:140px;
-
-            resize:vertical;
-
-        }
-
-        .pnd-form-group {
-
-            margin-bottom:18px;
-
-        }
-
-
-        /* =========================================================
-           SERVICE CHIPS
-        ========================================================== */
-
-        .pnd-service-title {
-
-            color:#334155;
-
-            font-size:12px;
-
-            font-weight:900;
+            max-width: 800px;
 
             margin:
-                24px 0 12px;
+                0 auto 15px;
 
-        }
-
-        .pnd-service-chips {
-
-            display:flex;
-
-            flex-wrap:wrap;
-
-            gap:8px;
-
-        }
-
-        .pnd-service-chip {
-
-            display:inline-flex;
-
-            align-items:center;
-
-            gap:6px;
-
-            padding:8px 11px;
-
-            border:
-                1px solid #E2E8F0;
-
-            border-radius:999px;
-
-            color:#475569;
-
-            background:#F8FAFC;
-
-            font-size:11px;
-
-            font-weight:700;
-
-            transition:.2s ease;
-
-        }
-
-        .pnd-service-chip:hover {
-
-            color:var(--pnd-blue);
-
-            border-color:
-                rgba(37,99,235,.30);
-
-            background:
-                rgba(37,99,235,.05);
-
-        }
-
-
-        /* =========================================================
-           CONTACT INFO
-        ========================================================== */
-
-        .pnd-info-column {
-
-            display:flex;
-
-            flex-direction:column;
-
-            gap:14px;
-
-        }
-
-        .pnd-info-card {
-
-            padding:22px;
-
-            border:
-                1px solid #E2E8F0;
-
-            border-radius:17px;
-
-            background:#ffffff;
-
-            box-shadow:
-                0 10px 30px rgba(15,23,42,.05);
-
-        }
-
-        .pnd-info-icon {
-
-            width:43px;
-
-            height:43px;
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            margin-bottom:14px;
-
-            border-radius:11px;
-
-            color:var(--pnd-blue);
-
-            background:
-                rgba(37,99,235,.08);
-
-            font-size:19px;
-
-        }
-
-        .pnd-info-card h4 {
-
-            margin:0 0 6px;
-
-            color:var(--pnd-dark-text);
-
-            font-size:16px;
-
-            font-weight:900;
-
-        }
-
-        .pnd-info-card p {
-
-            margin:0;
-
-            color:var(--pnd-dark-muted);
-
-            font-size:13px;
-
-            line-height:1.6;
-
-        }
-
-        .pnd-info-card a {
-
-            color:var(--pnd-blue);
-
-            font-weight:700;
-
-        }
-
-
-        /* =========================================================
-           WHATSAPP CARD
-        ========================================================== */
-
-        .pnd-whatsapp-card {
-
-            padding:24px;
-
-            border:
-                1px solid rgba(34,197,94,.20);
-
-            border-radius:18px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(34,197,94,.08),
-                    rgba(34,197,94,.03)
-                );
-
-        }
-
-        .pnd-whatsapp-card h4 {
-
-            color:#14532D;
-
-            font-size:18px;
-
-            font-weight:900;
-
-            margin:0 0 8px;
-
-        }
-
-        .pnd-whatsapp-card p {
-
-            color:#475569;
-
-            font-size:13px;
-
-            line-height:1.6;
-
-            margin:0 0 17px;
-
-        }
-
-        .pnd-whatsapp-btn {
-
-            display:inline-flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            gap:8px;
-
-            padding:11px 16px;
-
-            border-radius:10px;
-
-            color:#ffffff;
-
-            background:#16A34A;
-
-            font-size:13px;
-
-            font-weight:800;
-
-        }
-
-        .pnd-whatsapp-btn:hover {
-
-            color:#ffffff;
-
-            background:#15803D;
-
-        }
-
-
-        /* =========================================================
-           STATEMENT SECTION
-        ========================================================== */
-
-        .pnd-statement {
-
-            width:100%;
-
-            padding:
-                90px 0;
-
-            background:
-                radial-gradient(
-                    circle at 80% 50%,
-                    rgba(124,58,237,.18),
-                    transparent 30%
-                ),
-                var(--pnd-space);
-
-            text-align:center;
-
-        }
-
-        .pnd-statement h2 {
-
-            max-width:850px;
-
-            margin:0 auto 15px;
-
-            color:#ffffff;
+            color: white;
 
             font-size:
-                clamp(32px,5vw,58px);
+                clamp(34px,5vw,62px);
 
-            line-height:1.05;
+            line-height: 1;
 
-            font-weight:900;
+            letter-spacing:
+                -2.5px;
 
-            letter-spacing:-2px;
+            font-weight: 800;
 
         }
 
-        .pnd-statement p {
 
-            max-width:650px;
+        .pnd-final-cta p {
 
-            margin:0 auto 27px;
+            max-width: 620px;
 
-            color:var(--pnd-muted);
+            margin:
+                0 auto 28px;
 
-            line-height:1.8;
+            color:
+                #94a3b8;
+
+            font-size: 14px;
+
+            line-height: 1.8;
 
         }
 
@@ -1514,79 +2652,90 @@
 
         .pnd-footer {
 
-            width:100%;
-
-            background:#050C17;
-
-            color:var(--pnd-text);
-
             padding:
-                65px 0 25px;
+                70px 0 25px;
 
             border-top:
-                1px solid rgba(255,255,255,.06);
+                1px solid
+                rgba(255,255,255,.07);
+
+            background:
+                rgba(0,0,0,.14);
 
         }
+
 
         .pnd-footer-grid {
 
-            display:grid;
+            display: grid;
 
             grid-template-columns:
-                1.4fr
-                1fr
-                1fr
-                1fr;
+                1.5fr 1fr 1fr 1fr;
 
-            gap:35px;
+            gap: 40px;
+
+            padding-bottom: 50px;
+
+        }
+
+
+        .pnd-footer-logo img {
+
+            width: 190px;
+
+            max-height: 65px;
+
+            object-fit: contain;
+
+            margin-bottom: 18px;
 
         }
 
-        .pnd-footer-brand img {
-
-            width:155px;
-
-            margin-bottom:18px;
-
-        }
 
         .pnd-footer-brand p {
 
-            max-width:330px;
+            max-width: 330px;
 
-            color:var(--pnd-muted);
+            color:
+                #64748b;
 
-            font-size:13px;
+            font-size: 12px;
 
-            line-height:1.8;
+            line-height: 1.8;
+
+        }
+
+
+        .pnd-footer h4 {
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom: 18px;
 
         }
 
-        .pnd-footer h5 {
-
-            color:#ffffff;
-
-            font-size:13px;
-
-            font-weight:900;
-
-            margin-bottom:16px;
-
-            text-transform:uppercase;
-
-            letter-spacing:1px;
-
-        }
 
         .pnd-footer a {
 
-            display:block;
+            display: block;
 
-            color:var(--pnd-muted);
+            width: fit-content;
 
-            font-size:13px;
+            margin-bottom: 10px;
 
-            margin-bottom:10px;
+            color:
+                #64748b;
+
+            font-size: 12px;
 
             transition:
                 color .2s ease,
@@ -1594,361 +2743,128 @@
 
         }
 
+
         .pnd-footer a:hover {
 
-            color:var(--pnd-cyan);
+            color:
+                #67e8f9;
 
-            transform:translateX(3px);
-
-        }
-
-        .pnd-footer-social {
-
-            display:flex;
-
-            gap:8px;
-
-            margin-top:20px;
+            transform:
+                translateX(3px);
 
         }
 
-        .pnd-footer-social a {
-
-            width:38px;
-
-            height:38px;
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            margin:0;
-
-            border:
-                1px solid rgba(255,255,255,.10);
-
-            border-radius:10px;
-
-            color:#ffffff;
-
-            background:
-                rgba(255,255,255,.04);
-
-        }
-
-        .pnd-footer-social a:hover {
-
-            transform:translateY(-2px);
-
-            color:#ffffff;
-
-            background:
-                rgba(37,99,235,.30);
-
-        }
 
         .pnd-footer-bottom {
 
-            margin-top:45px;
-
-            padding-top:20px;
+            padding-top: 22px;
 
             border-top:
-                1px solid rgba(255,255,255,.08);
+                1px solid
+                rgba(255,255,255,.07);
 
-            display:flex;
+            display: flex;
 
-            justify-content:space-between;
+            align-items: center;
 
-            gap:20px;
+            justify-content: space-between;
 
-            color:#64748B;
+            gap: 20px;
 
-            font-size:11px;
+            color:
+                #475569;
+
+            font-size: 10px;
+
+            letter-spacing:
+                .5px;
 
         }
 
 
         /* =========================================================
-           AI ASSISTANT BUTTON
+           FLOATING WHATSAPP
         ========================================================== */
 
-        .pnd-ai-button {
+        .pnd-whatsapp {
 
-            position:fixed;
+            position: fixed;
 
-            right:24px;
+            right: 24px;
 
-            bottom:24px;
+            bottom: 24px;
 
-            z-index:7000;
+            z-index: 9000;
 
-            width:66px;
+            width: 58px;
 
-            height:66px;
+            height: 58px;
 
-            padding:7px;
+            display: flex;
 
-            border:
-                2px solid rgba(6,182,212,.45);
+            align-items: center;
 
-            border-radius:50%;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: white;
 
             background:
-                linear-gradient(
-                    145deg,
-                    #0B172A,
-                    #111C35
-                );
+                #25D366;
+
+            font-size: 27px;
 
             box-shadow:
-                0 15px 40px rgba(0,0,0,.30),
-                0 0 25px rgba(6,182,212,.12);
+                0 12px 35px
+                rgba(37,211,102,.30);
 
-            cursor:pointer;
-
-            animation:
-                pndAiPulse 3s ease-in-out infinite;
-
-        }
-
-        .pnd-ai-button img {
-
-            width:100%;
-
-            height:100%;
-
-            object-fit:cover;
-
-            border-radius:50%;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
 
         }
 
-        @keyframes pndAiPulse {
 
-            0%,
-            100% {
-                transform:scale(1);
-            }
+        .pnd-whatsapp:hover {
 
-            50% {
-                transform:scale(1.05);
-            }
+            color: white;
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            box-shadow:
+                0 18px 45px
+                rgba(37,211,102,.40);
 
         }
 
 
         /* =========================================================
-           AI PANEL
-        ========================================================== */
-
-        .pnd-ai-panel {
-
-            position:fixed;
-
-            right:24px;
-
-            bottom:102px;
-
-            z-index:6999;
-
-            width:365px;
-
-            max-width:
-                calc(100vw - 32px);
-
-            max-height:
-                calc(100vh - 130px);
-
-            overflow:hidden;
-
-            display:none;
-
-            flex-direction:column;
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            border-radius:20px;
-
-            background:
-                rgba(7,17,31,.97);
-
-            box-shadow:
-                0 25px 70px rgba(0,0,0,.40);
-
-            backdrop-filter:blur(20px);
-
-        }
-
-        .pnd-ai-panel.open {
-
-            display:flex;
-
-        }
-
-        .pnd-ai-header {
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:space-between;
-
-            padding:17px 18px;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
-        }
-
-        .pnd-ai-header strong {
-
-            color:#ffffff;
-
-            font-size:14px;
-
-        }
-
-        .pnd-ai-close {
-
-            width:32px;
-
-            height:32px;
-
-            border:0;
-
-            border-radius:8px;
-
-            color:#ffffff;
-
-            background:
-                rgba(255,255,255,.06);
-
-        }
-
-        .pnd-ai-body {
-
-            padding:18px;
-
-            overflow-y:auto;
-
-        }
-
-        .pnd-ai-greeting {
-
-            color:#CBD5E1;
-
-            font-size:13px;
-
-            line-height:1.7;
-
-            margin-bottom:15px;
-
-        }
-
-        .pnd-ai-search {
-
-            width:100%;
-
-            min-height:43px;
-
-            padding:10px 13px;
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            border-radius:10px;
-
-            outline:none;
-
-            color:#ffffff;
-
-            background:
-                rgba(255,255,255,.05);
-
-            margin-bottom:13px;
-
-        }
-
-        .pnd-ai-search::placeholder {
-
-            color:#64748B;
-
-        }
-
-        .pnd-ai-options {
-
-            display:grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap:8px;
-
-        }
-
-        .pnd-ai-option {
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            border-radius:9px;
-
-            padding:10px;
-
-            color:#CBD5E1;
-
-            background:
-                rgba(255,255,255,.035);
-
-            font-size:11px;
-
-            font-weight:700;
-
-            text-align:left;
-
-            cursor:pointer;
-
-        }
-
-        .pnd-ai-option:hover {
-
-            color:#ffffff;
-
-            border-color:
-                rgba(6,182,212,.35);
-
-            background:
-                rgba(6,182,212,.08);
-
-        }
-
-
-        /* =========================================================
-           REVEAL
+           SCROLL REVEAL
         ========================================================== */
 
         .pnd-reveal {
 
-            opacity:0;
+            opacity: 0;
 
             transform:
-                translateY(24px);
+                translateY(35px);
 
             transition:
-                opacity .7s ease,
-                transform .7s ease;
+                opacity .8s ease,
+                transform .8s ease;
 
         }
 
+
         .pnd-reveal.show {
 
-            opacity:1;
+            opacity: 1;
 
-            transform:translateY(0);
+            transform:
+                translateY(0);
 
         }
 
@@ -1957,29 +2873,24 @@
            TABLET
         ========================================================== */
 
-        @media (max-width:1199px) {
+        @media (max-width: 1100px) {
 
-            .pnd-nav {
-                gap:2px;
+            .pnd-search {
+                max-width: 300px;
             }
 
-            .pnd-nav a {
-                padding:9px 9px;
-                font-size:13px;
+            .pnd-nav-link {
+                padding: 0 7px;
+                font-size: 12px;
             }
 
-            .pnd-brand-logo {
-                width:145px;
+            .pnd-start {
+                padding: 0 11px;
             }
 
-            .pnd-orbit-stage {
-                right:-80px;
-                opacity:.55;
-            }
-
-            .pnd-category-grid {
+            .pnd-contact-grid {
                 grid-template-columns:
-                    repeat(3,1fr);
+                    repeat(2,1fr);
             }
 
         }
@@ -1989,102 +2900,55 @@
            MOBILE NAV
         ========================================================== */
 
-        @media (max-width:991px) {
+        @media (max-width: 820px) {
 
-            :root {
-                --header-height:70px;
+            .pnd-header {
+                --pnd-header-height: 68px;
             }
 
+            .pnd-header-inner {
+                min-height: 68px;
+            }
+
+            .pnd-search,
             .pnd-nav {
-                display:none;
+                display: none;
             }
 
-            .pnd-menu-toggle {
-                display:flex;
+            .pnd-menu-btn {
+                display: flex;
             }
 
-            .pnd-nav-inner {
-                min-height:70px;
+            .pnd-logo {
+                width: 170px;
             }
 
-            .pnd-brand-logo {
-                width:140px;
+            .pnd-logo-img {
+                width: 160px;
             }
 
             .pnd-hero {
-                min-height:auto;
+                min-height: auto;
                 padding:
-                    75px 0
-                    70px;
+                    80px 0 65px;
             }
 
             .pnd-hero h1 {
-                letter-spacing:-2px;
+                font-size:
+                    clamp(44px,9vw,65px);
             }
 
-            .pnd-orbit-stage {
-                position:relative;
-                right:auto;
-                top:auto;
-                transform:none;
-                width:310px;
-                height:310px;
-                margin:
-                    55px auto
-                    -20px;
-                opacity:.75;
+            .pnd-contact-visual {
+                min-height: 460px;
             }
 
-            .pnd-contact-grid {
-                grid-template-columns:1fr;
+            .pnd-form-wrap {
+                grid-template-columns: 1fr;
             }
 
             .pnd-footer-grid {
                 grid-template-columns:
                     repeat(2,1fr);
-            }
-
-        }
-
-
-        /* =========================================================
-           SMALL TABLET
-        ========================================================== */
-
-        @media (max-width:767px) {
-
-            .pnd-white-section,
-            .pnd-contact-section {
-                padding:
-                    65px 0;
-            }
-
-            .pnd-category-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-            .pnd-hero-info {
-                grid-template-columns:
-                    repeat(3,1fr);
-
-                gap:15px;
-            }
-
-            .pnd-hero-stat strong {
-                font-size:18px;
-            }
-
-            .pnd-hero-stat span {
-                font-size:10px;
-            }
-
-            .pnd-footer-grid {
-                grid-template-columns:1fr;
-            }
-
-            .pnd-footer-bottom {
-                flex-direction:column;
             }
 
         }
@@ -2094,133 +2958,201 @@
            MOBILE
         ========================================================== */
 
-        @media (max-width:575px) {
+        @media (max-width: 600px) {
 
-            .pnd-brand-logo {
-                width:130px;
-                max-height:48px;
+            .pnd-header {
+                --pnd-header-height: 64px;
+            }
+
+            .pnd-header-inner {
+                min-height: 64px;
+            }
+
+            .pnd-header
+            .container-fluid {
+
+                padding-left:
+                    13px !important;
+
+                padding-right:
+                    13px !important;
+
+            }
+
+            .pnd-logo {
+                width: 155px;
+            }
+
+            .pnd-logo-img {
+                width: 150px;
+                max-height: 48px;
+            }
+
+            .pnd-menu-btn {
+                width: 42px;
+                height: 42px;
             }
 
             .pnd-hero {
                 padding:
-                    60px 0
-                    55px;
+                    65px 0 45px;
             }
 
             .pnd-hero h1 {
                 font-size:
-                    clamp(38px,12vw,52px);
+                    clamp(40px,12vw,56px);
 
-                letter-spacing:-2px;
+                letter-spacing:
+                    -2.5px;
             }
 
-            .pnd-hero-description {
-                font-size:15px;
-                line-height:1.7;
+            .pnd-hero-copy {
+                font-size: 14px;
             }
 
             .pnd-hero-actions {
-                display:grid;
-                grid-template-columns:1fr;
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .pnd-btn {
-                width:100%;
+                width: 100%;
             }
 
-            .pnd-hero-info {
-                grid-template-columns:1fr;
-                gap:15px;
+            .pnd-contact-visual {
+                min-height: 420px;
+                margin-top: 20px;
             }
 
-            .pnd-hero-stat {
+            .pnd-contact-card {
+                width: 270px;
+                height: 320px;
+            }
+
+            .pnd-contact-orbit {
+                width: 330px;
+                height: 330px;
+            }
+
+            .pnd-contact-glow {
+                width: 270px;
+                height: 270px;
+            }
+
+            .pnd-floating-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
+
+            .pnd-float-phone {
+                left: 1%;
+            }
+
+            .pnd-float-mail {
+                right: 1%;
+            }
+
+            .pnd-float-whatsapp {
+                left: 5%;
+            }
+
+            .pnd-section {
                 padding:
-                    0 0 14px;
-
-                border-bottom:
-                    1px solid rgba(255,255,255,.08);
+                    70px 0;
             }
 
-            .pnd-category-grid {
-                grid-template-columns:1fr;
+            .pnd-section-header {
+                margin-bottom: 35px;
             }
 
-            .pnd-section-heading {
-                margin-bottom:35px;
+            .pnd-section-header h2 {
+                font-size: 32px;
             }
 
-            .pnd-section-heading h2 {
-                letter-spacing:-1.5px;
+            .pnd-contact-grid {
+                grid-template-columns: 1fr;
             }
 
+            .pnd-form-intro,
             .pnd-form-card {
-                padding:22px 18px;
-                border-radius:17px;
+                padding: 25px;
             }
 
-            .pnd-info-card,
-            .pnd-whatsapp-card {
-                padding:19px;
+            .pnd-footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .pnd-service-chips {
-                gap:7px;
+            .pnd-footer-bottom {
+                display: block;
+                line-height: 1.9;
             }
 
-            .pnd-service-chip {
-                font-size:10px;
+            .pnd-whatsapp {
+                width: 52px;
+                height: 52px;
+                right: 17px;
+                bottom: 17px;
             }
 
-            .pnd-statement {
-                padding:
-                    65px 0;
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================== */
+
+        @media (max-width: 380px) {
+
+            .pnd-logo {
+                width: 140px;
             }
 
-            .pnd-footer {
-                padding:
-                    50px 0
-                    22px;
+            .pnd-logo-img {
+                width: 138px;
             }
 
-            .pnd-ai-button {
-
-                right:16px;
-
-                bottom:16px;
-
-                width:60px;
-
-                height:60px;
-
+            .pnd-hero h1 {
+                font-size: 38px;
             }
 
-            .pnd-ai-panel {
-
-                right:16px;
-
-                bottom:88px;
-
-                width:
-                    calc(100vw - 32px);
-
+            .pnd-contact-card {
+                width: 245px;
+                height: 300px;
             }
 
-            .pnd-ai-options {
-                grid-template-columns:1fr;
+            .pnd-contact-icon {
+                width: 105px;
+                height: 105px;
             }
 
-            .pnd-orbit-stage {
-                width:260px;
-                height:260px;
+            .pnd-contact-icon i {
+                font-size: 48px;
             }
 
-            .pnd-orbit-core {
-                width:125px;
-                height:125px;
+            .pnd-contact-orbit {
+                width: 290px;
+                height: 290px;
             }
 
-            .pnd-orbit-core span {
-                font-size:15px;
+            .pnd-floating-icon {
+                width: 39px;
+                height: 39px;
+                font-size: 16px;
+            }
+
+            .pnd-float-phone {
+                left: -4px;
+            }
+
+            .pnd-float-mail {
+                right: -4px;
+            }
+
+            .pnd-form-intro,
+            .pnd-form-card {
+                padding: 20px;
             }
 
         }
@@ -2230,20 +3162,25 @@
            REDUCED MOTION
         ========================================================== */
 
-        @media (prefers-reduced-motion:reduce) {
+        @media (prefers-reduced-motion: reduce) {
 
             *,
             *::before,
             *::after {
 
-                animation-duration:.01ms !important;
+                animation: none !important;
 
-                animation-iteration-count:1 !important;
+                transition: none !important;
 
-                scroll-behavior:auto !important;
+            }
 
-                transition-duration:.01ms !important;
+            html {
+                scroll-behavior: auto;
+            }
 
+            .pnd-reveal {
+                opacity: 1;
+                transform: none;
             }
 
         }
@@ -2257,66 +3194,175 @@
 
 
 <!-- =============================================================
-     LED STRIP
-============================================================= -->
+     TOP LED
+============================================================== -->
 
-<div class="pnd-led"></div>
+<div class="pnd-top-led"></div>
 
 
 <!-- =============================================================
-     NAVBAR
-============================================================= -->
+     HEADER
+============================================================== -->
 
-<header class="pnd-navbar"
-        id="pndHeader">
+<header
+    class="pnd-header"
+    id="pndHeader">
 
-    <div class="container-xl">
+    <div class="container-fluid px-3 px-lg-4">
 
-        <div class="pnd-nav-inner">
+        <div class="pnd-header-inner">
 
 
             <!-- LOGO -->
 
-            <a href="index.html"
-               class="pnd-brand">
+            <a
+                href="index.html"
+                class="pnd-logo"
+                aria-label="Pixel Nest Digital Home">
 
                 <img
                     src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
                     alt="Pixel Nest Digital"
-                    class="pnd-brand-logo">
+                    class="pnd-logo-img">
 
             </a>
 
 
-            <!-- DESKTOP NAV -->
+            <!-- DESKTOP SEARCH -->
 
-            <nav class="pnd-nav"
-                 aria-label="Main navigation">
+            <div class="pnd-search">
 
-                <a href="index.html">
+                <div class="pnd-search-icon">
+
+                    <i class="bi bi-search"></i>
+
+                </div>
+
+                <input
+                    type="search"
+                    id="desktopSearch"
+                    placeholder="Search services, solutions, projects..."
+                    aria-label="Search">
+
+                <button
+                    type="button"
+                    id="desktopSearchBtn">
+
+                    Search
+
+                </button>
+
+            </div>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav
+                class="pnd-nav"
+                aria-label="Main navigation">
+
+
+                <a
+                    href="index.html"
+                    class="pnd-nav-link">
+
                     Home
+
                 </a>
 
-                <a href="services.html">
-                    Services
+
+                <!-- SERVICES -->
+
+                <div class="pnd-dropdown">
+
+                    <a
+                        href=""
+                        class="pnd-nav-link">
+
+                        Services
+
+                        <i
+                            class="bi bi-chevron-down pnd-chevron">
+                        </i>
+
+                    </a>
+
+
+                    <div class="pnd-dropdown-menu">
+
+                         <a href="website_development.html" class="pnd-dropdown-item">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Website Development</span>
+                        </a>
+
+                        <a href="web_applications.html" class="pnd-dropdown-item">
+                            <i class="bi bi-window-stack"></i>
+                            <span>Web Applications</span>
+                        </a>
+
+                        
+                        
+
+                        <a href="digital-content.html" class="pnd-dropdown-item">
+                            <i class="bi bi-cloud"></i>
+                            <span>Social Media  &amp; Content Creation</span>
+                        </a>
+
+                        <a href="logo-brand-design.html" class="pnd-dropdown-item">
+                            <i class="bi bi-palette"></i>
+                            <span>Logo &amp; Brand Design</span>
+                        </a>
+
+                        <a href="photography.html" class="pnd-dropdown-item">
+                            <i class="bi bi-camera"></i>
+                            <span>Photography</span>
+                        </a>
+
+                        <a href="videography.html" class="pnd-dropdown-item">
+                            <i class="bi bi-camera-video"></i>
+                            <span>Videography</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="about.html"
+                    class="pnd-nav-link">
+
+                    About
+
                 </a>
 
-                <a href="portfolio.html">
+                <!-- PORTFOLIO -->
+                <a href="Portfolio.html" class="pnd-nav-link">
                     Portfolio
                 </a>
 
-                <a href="about.html">
-                    About
-                </a>
 
-                <a href="team.html">
+                <!-- Team -->
+                <a href="team.html" class="pnd-nav-link">
                     Team
                 </a>
 
-                
+                <a
+                    href="contact.html"
+                    class="pnd-nav-link active">
 
-                <a href="contact.html#contact-form"
-                   class="pnd-nav-cta">
+                    Contact
+
+                </a>
+
+
+                <!-- START -->
+
+                <a
+                    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
+                    class="pnd-start"
+                    target="_blank"
+                    rel="noopener">
 
                     Start a Project
 
@@ -2327,60 +3373,21 @@
             </nav>
 
 
-            <!-- MOBILE BUTTON -->
+            <!-- MOBILE MENU BUTTON -->
 
             <button
-                class="pnd-menu-toggle"
-                id="pndMenuToggle"
                 type="button"
-                aria-label="Open navigation"
+                class="pnd-menu-btn"
+                id="pndMenuBtn"
+                aria-label="Open navigation menu"
                 aria-expanded="false">
 
-                <i class="bi bi-list"></i>
+                <i
+                    class="bi bi-list"
+                    id="pndMenuIcon">
+                </i>
 
             </button>
-
-        </div>
-
-
-        <!-- MOBILE MENU -->
-
-        <div class="pnd-mobile-menu"
-             id="pndMobileMenu">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a href="portfolio.html">
-                Portfolio
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="team.html">
-                Team
-            </a>
-
-            <a href="contact.html"
-               class="active">
-                Contact
-            </a>
-
-            <a href="contact.html#contact-form"
-               class="mobile-cta">
-
-                Start a Project
-
-                <i class="bi bi-arrow-up-right"></i>
-
-            </a>
 
         </div>
 
@@ -2390,50 +3397,312 @@
 
 
 <!-- =============================================================
+     MOBILE OVERLAY
+============================================================== -->
+
+<div
+    class="pnd-mobile-overlay"
+    id="pndMobileOverlay">
+</div>
+
+
+<!-- =============================================================
+     MOBILE SIDE MENU
+============================================================== -->
+
+<aside
+    class="pnd-mobile-menu"
+    id="pndMobileMenu"
+    aria-hidden="true">
+
+
+    <div class="pnd-mobile-top">
+
+        <a
+            href="index.html"
+            class="pnd-logo">
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital"
+                class="pnd-logo-img">
+
+        </a>
+
+
+        <button
+            type="button"
+            class="pnd-mobile-close"
+            id="pndMobileClose"
+            aria-label="Close navigation menu">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE SEARCH -->
+
+    <div class="pnd-mobile-search">
+
+        <i class="bi bi-search"></i>
+
+        <input
+            type="search"
+            id="mobileSearch"
+            placeholder="Search..."
+            aria-label="Search">
+
+    </div>
+
+
+    <!-- HOME -->
+
+    <a
+        href="index.html"
+        class="pnd-mobile-link">
+
+        <i class="bi bi-house"></i>
+
+        <span>
+            Home
+        </span>
+
+    </a>
+
+
+    <!-- SERVICES -->
+
+    <div
+        class="pnd-mobile-services"
+        id="pndMobileServices">
+
+        <button
+            type="button"
+            class="pnd-mobile-services-title"
+            id="pndMobileServicesBtn"
+            aria-expanded="false">
+
+            <span>
+
+                <i class="bi bi-grid"></i>
+
+                Services
+
+            </span>
+
+            <i class="bi bi-chevron-down"></i>
+
+        </button>
+
+
+        <div class="pnd-mobile-service-list">
+
+            <a
+                href="services.html#website-development"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-code-slash"></i>
+
+                Website Development
+
+            </a>
+
+
+            <a
+                href="services.html#web-applications"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-window-stack"></i>
+
+                Web Applications
+
+            </a>
+
+
+            <a
+                href="services.html#ai"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-cpu"></i>
+
+                AI &amp; Machine Learning
+
+            </a>
+
+
+            <a
+                href="services.html#robotics"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-robot"></i>
+
+                Robotics &amp; Automation
+
+            </a>
+
+
+            <a
+                href="services.html#ecommerce"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-cart3"></i>
+
+                E-Commerce
+
+            </a>
+
+
+            <a
+                href="services.html#database"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-database"></i>
+
+                Database Projects
+
+            </a>
+
+
+            <a
+                href="services.html#hosting"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-cloud"></i>
+
+                Hosting &amp; Maintenance
+
+            </a>
+
+
+            <a
+                href="services.html#branding"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-palette"></i>
+
+                Logo &amp; Brand Design
+
+            </a>
+
+
+            <a
+                href="services.html#photography"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-camera"></i>
+
+                Photography
+
+            </a>
+
+
+            <a
+                href="services.html#videography"
+                class="pnd-mobile-service-item">
+
+                <i class="bi bi-camera-reels"></i>
+
+                Videography
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <a
+        href="about.html"
+        class="pnd-mobile-link">
+
+        <i class="bi bi-info-circle"></i>
+
+        <span>
+            About
+        </span>
+
+    </a>
+
+
+    <!-- CONTACT -->
+
+    <a
+        href="contact.html"
+        class="pnd-mobile-link active">
+
+        <i class="bi bi-chat-dots"></i>
+
+        <span>
+            Contact
+        </span>
+
+    </a>
+
+
+    <!-- START -->
+
+    <a
+        href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
+        class="pnd-mobile-start"
+        target="_blank"
+        rel="noopener">
+
+        <i class="bi bi-whatsapp"></i>
+
+        Start a Project
+
+    </a>
+
+</aside>
+
+
+<!-- =============================================================
      HERO
-============================================================= -->
+============================================================== -->
 
-<section class="pnd-dark-section pnd-hero">
+<section class="pnd-hero">
 
-    <div class="pnd-hero-grid"></div>
+    <div class="container">
 
-    <div class="pnd-hero-glow"></div>
+        <div class="row align-items-center g-5">
 
 
-    <div class="container-xl">
+            <!-- LEFT -->
 
-        <div class="row align-items-center">
+            <div class="col-lg-7">
 
-            <div class="col-lg-8">
-
-                <div class="pnd-hero-content pnd-reveal">
+                <div class="pnd-hero-content">
 
                     <div class="pnd-eyebrow">
 
-                        OPEN FOR NEW IDEAS
+                        LET'S CONNECT
 
                     </div>
 
 
                     <h1>
 
-                        Let's build
+                        Let's talk about
 
                         <span class="pnd-gradient-text">
-                            something real.
+                            your project.
                         </span>
 
                     </h1>
 
 
-                    <p class="pnd-hero-description">
+                    <p class="pnd-hero-copy">
 
-                        Tell us what you are planning.
-                        Whether it is a website, brand,
-                        online store, software project or
-                        creative vision, Pixel Nest Digital
-                        can help turn your idea into a
-                        professional digital experience.
+                        Have an idea, business, brand or digital
+                        project in mind? Tell us what you are
+                        planning and let's explore how Pixel Nest
+                        Digital can turn the idea into a meaningful
+                        digital experience.
 
                     </p>
 
@@ -2444,7 +3713,7 @@
                             href="#contact-form"
                             class="pnd-btn pnd-btn-primary">
 
-                            Start a Conversation
+                            Discuss Your Project
 
                             <i class="bi bi-arrow-down"></i>
 
@@ -2452,78 +3721,83 @@
 
 
                         <a
-                            href="services.html"
-                            class="pnd-btn pnd-btn-outline">
+                            href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                            target="_blank"
+                            rel="noopener"
+                            class="pnd-btn pnd-btn-secondary">
 
-                            Explore Services
+                            <i class="bi bi-whatsapp"></i>
 
-                            <i class="bi bi-arrow-up-right"></i>
+                            WhatsApp Us
 
                         </a>
 
                     </div>
 
-
-                    <div class="pnd-hero-info">
-
-                        <div class="pnd-hero-stat">
-
-                            <strong>
-                                10+
-                            </strong>
-
-                            <span>
-                                Digital Services
-                            </span>
-
-                        </div>
-
-
-                        <div class="pnd-hero-stat">
-
-                            <strong>
-                                One Partner
-                            </strong>
-
-                            <span>
-                                Technology + Creativity
-                            </span>
-
-                        </div>
-
-
-                        <div class="pnd-hero-stat">
-
-                            <strong>
-                                Kerala
-                            </strong>
-
-                            <span>
-                                India
-                            </span>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
             </div>
 
 
-            <div class="col-lg-4">
+            <!-- RIGHT CONTACT ICON -->
 
-                <div class="pnd-orbit-stage">
+            <div class="col-lg-5">
 
-                    <div class="pnd-orbit"></div>
+                <div class="pnd-contact-visual">
 
-                    <div class="pnd-orbit-two"></div>
 
-                    <div class="pnd-orbit-core">
+                    <div class="pnd-contact-glow"></div>
 
-                        <span>
-                            PND
-                        </span>
+
+                    <div class="pnd-contact-orbit"></div>
+
+
+                    <!-- FLOATING ICONS -->
+
+                    <div class="pnd-floating-icon pnd-float-phone">
+
+                        <i class="bi bi-telephone"></i>
+
+                    </div>
+
+
+                    <div class="pnd-floating-icon pnd-float-mail">
+
+                        <i class="bi bi-envelope"></i>
+
+                    </div>
+
+
+                    <div class="pnd-floating-icon pnd-float-whatsapp">
+
+                        <i class="bi bi-whatsapp"></i>
+
+                    </div>
+
+
+                    <!-- MAIN CONTACT CARD -->
+
+                    <div class="pnd-contact-card">
+
+                        <div class="pnd-contact-icon">
+
+                            <i class="bi bi-chat-dots"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Start a Conversation
+                        </h3>
+
+
+                        <p>
+
+                            Tell us about your idea,
+                            requirement or project and
+                            let's start building.
+
+                        </p>
 
                     </div>
 
@@ -2539,202 +3813,29 @@
 
 
 <!-- =============================================================
-     SERVICE CATEGORIES
-============================================================= -->
+     CONTACT OPTIONS
+============================================================== -->
 
-<section class="pnd-white-section">
+<section class="pnd-section pnd-reveal">
 
-    <div class="container-xl">
+    <div class="container">
 
-        <div class="pnd-section-heading pnd-reveal">
+        <div class="pnd-section-header">
 
-            <div class="pnd-section-label">
-                EXPLORE OUR SERVICES
+            <div class="pnd-label">
+                CONTACT PIXEL NEST
             </div>
 
             <h2>
-                Everything you need,
-                in one digital partner.
+                Choose how you want to connect.
             </h2>
 
             <p>
-                Choose the service that matches your
-                idea and explore how Pixel Nest Digital
-                can help you build, launch and grow.
-            </p>
 
-        </div>
+                Whether you prefer WhatsApp, email, phone or
+                a project enquiry, you can reach Pixel Nest
+                Digital through the option that works best for you.
 
-
-        <div class="pnd-category-grid">
-
-
-            <div class="pnd-category-card pnd-reveal">
-
-                <div class="pnd-category-icon">
-                    <i class="bi bi-window-stack"></i>
-                </div>
-
-                <h3>
-                    Website Development
-                </h3>
-
-                <p>
-                    Professional responsive websites
-                    for modern businesses.
-                </p>
-
-                <a
-                    href="website-development.html"
-                    class="pnd-category-link">
-
-                    Explore More
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <div class="pnd-category-card pnd-reveal">
-
-                <div class="pnd-category-icon">
-                    <i class="bi bi-code-slash"></i>
-                </div>
-
-                <h3>
-                    Web Applications
-                </h3>
-
-                <p>
-                    Custom web applications designed
-                    around your workflow.
-                </p>
-
-                <a
-                    href="web-applications.html"
-                    class="pnd-category-link">
-
-                    Explore More
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <div class="pnd-category-card pnd-reveal">
-
-                <div class="pnd-category-icon">
-                    <i class="bi bi-cart3"></i>
-                </div>
-
-                <h3>
-                    E-Commerce
-                </h3>
-
-                <p>
-                    Online stores designed for
-                    smooth customer experiences.
-                </p>
-
-                <a
-                    href="e-commerce.html"
-                    class="pnd-category-link">
-
-                    Explore More
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <div class="pnd-category-card pnd-reveal">
-
-                <div class="pnd-category-icon">
-                    <i class="bi bi-database"></i>
-                </div>
-
-                <h3>
-                    Software & Database
-                </h3>
-
-                <p>
-                    Business software and structured
-                    database solutions.
-                </p>
-
-                <a
-                    href="software-database-projects.html"
-                    class="pnd-category-link">
-
-                    Explore More
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <div class="pnd-category-card pnd-reveal">
-
-                <div class="pnd-category-icon">
-                    <i class="bi bi-camera"></i>
-                </div>
-
-                <h3>
-                    Photography
-                </h3>
-
-                <p>
-                    Professional visuals for businesses,
-                    products and brands.
-                </p>
-
-                <a
-                    href="photography.html"
-                    class="pnd-category-link">
-
-                    Explore More
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =============================================================
-     CONTACT SECTION
-============================================================= -->
-
-<section class="pnd-contact-section"
-         id="contact-form">
-
-    <div class="container-xl">
-
-
-        <div class="pnd-section-heading pnd-reveal">
-
-            <div class="pnd-section-label">
-                CONNECTION CENTER
-            </div>
-
-            <h2>
-                Tell us about your idea.
-            </h2>
-
-            <p>
-                Share a few details about your project.
-                We will use your information to understand
-                what you need and start the conversation.
             </p>
 
         </div>
@@ -2743,39 +3844,254 @@
         <div class="pnd-contact-grid">
 
 
-            <!-- =================================================
-                 FORM
-            ================================================== -->
+            <!-- WHATSAPP -->
 
-            <div class="pnd-form-card pnd-reveal">
+            <div class="pnd-info-card">
+
+                <div class="pnd-info-icon">
+
+                    <i class="bi bi-whatsapp"></i>
+
+                </div>
 
                 <h3>
-                    Start Your Project
+                    WhatsApp
                 </h3>
 
                 <p>
-                    Fill in the details below and send
-                    your project enquiry directly to us.
+                    The fastest way to discuss a project,
+                    requirement or quotation.
+                </p>
+
+                <a
+                    href="https://wa.me/917736755820"
+                    target="_blank"
+                    rel="noopener">
+
+                    Chat on WhatsApp
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="pnd-info-card">
+
+                <div class="pnd-info-icon">
+
+                    <i class="bi bi-telephone"></i>
+
+                </div>
+
+                <h3>
+                    Phone
+                </h3>
+
+                <p>
+                    Prefer a direct conversation? Give us
+                    a call to discuss your requirement.
+                </p>
+
+                <a
+                    href="tel:+917736755820">
+
+                    +91 77367 55820
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="pnd-info-card">
+
+                <div class="pnd-info-icon">
+
+                    <i class="bi bi-envelope"></i>
+
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    Send us your project details,
+                    requirements or business enquiry.
+                </p>
+
+                <a
+                    href="mailto:contact@jogeowebstudio.com">
+
+                    Send an Email
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="pnd-info-card">
+
+                <div class="pnd-info-icon">
+
+                    <i class="bi bi-geo-alt"></i>
+
+                </div>
+
+                <h3>
+                    Kerala, India
+                </h3>
+
+                <p>
+                    Pixel Nest Digital operates from Kerala,
+                    India and works with digital projects.
+                </p>
+
+                <a href="#contact-form">
+
+                    Send an Enquiry
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     CONTACT FORM
+============================================================== -->
+
+<section
+    class="pnd-section pnd-reveal"
+    id="contact-form">
+
+    <div class="container">
+
+        <div class="pnd-form-wrap">
+
+
+            <!-- INTRO -->
+
+            <div class="pnd-form-intro">
+
+                <div class="pnd-label">
+                    PROJECT ENQUIRY
+                </div>
+
+
+                <h3>
+                    Have an idea?
+                    Let's build it.
+                </h3>
+
+
+                <p>
+
+                    Share a few details about your project.
+                    You don't need to have everything figured
+                    out. Start with the idea and we can continue
+                    from there.
+
                 </p>
 
 
-                <form id="contactForm">
+                <div class="pnd-check">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Website and web application projects
+                    </span>
+
+                </div>
 
 
-                    <div class="row">
+                <div class="pnd-check">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        E-commerce and digital platforms
+                    </span>
+
+                </div>
+
+
+                <div class="pnd-check">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Branding and creative design
+                    </span>
+
+                </div>
+
+
+                <div class="pnd-check">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Photography and videography
+                    </span>
+
+                </div>
+
+
+                <div class="pnd-check">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <span>
+                        Hosting and maintenance
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="pnd-form-card">
+
+                <h3>
+                    Tell us about your project
+                </h3>
+
+
+                <form id="pndContactForm">
+
+
+                    <div class="row g-3">
 
 
                         <div class="col-md-6">
 
                             <div class="pnd-form-group">
 
-                                <label class="pnd-form-label">
+                                <label for="pndName">
                                     Your Name
                                 </label>
 
                                 <input
                                     type="text"
-                                    id="name"
+                                    id="pndName"
                                     class="pnd-form-control"
                                     placeholder="Enter your name"
                                     required>
@@ -2789,41 +4105,15 @@
 
                             <div class="pnd-form-group">
 
-                                <label class="pnd-form-label">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    class="pnd-form-control"
-                                    placeholder="Enter your email"
-                                    required>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="row">
-
-
-                        <div class="col-md-6">
-
-                            <div class="pnd-form-group">
-
-                                <label class="pnd-form-label">
-                                    Phone
+                                <label for="pndPhone">
+                                    Phone / WhatsApp
                                 </label>
 
                                 <input
                                     type="tel"
-                                    id="phone"
+                                    id="pndPhone"
                                     class="pnd-form-control"
-                                    placeholder="Enter your phone number"
+                                    placeholder="Your phone number"
                                     required>
 
                             </div>
@@ -2831,21 +4121,39 @@
                         </div>
 
 
-                        <div class="col-md-6">
+                        <div class="col-12">
 
                             <div class="pnd-form-group">
 
-                                <label class="pnd-form-label">
-                                    Project Type
+                                <label for="pndEmail">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="pndEmail"
+                                    class="pnd-form-control"
+                                    placeholder="you@example.com">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <div class="pnd-form-group">
+
+                                <label for="pndService">
+                                    What do you need?
                                 </label>
 
                                 <select
-                                    id="project"
-                                    class="pnd-form-control"
-                                    required>
+                                    id="pndService"
+                                    class="pnd-form-control">
 
                                     <option value="">
-                                        Select project type
+                                        Select a service
                                     </option>
 
                                     <option>
@@ -2853,15 +4161,15 @@
                                     </option>
 
                                     <option>
-                                        Web Applications
+                                        Web Application
                                     </option>
 
                                     <option>
-                                        E-commerce
+                                        E-Commerce
                                     </option>
 
                                     <option>
-                                        Software & Database
+                                        Software / Database
                                     </option>
 
                                     <option>
@@ -2881,14 +4189,6 @@
                                     </option>
 
                                     <option>
-                                        Video Editing
-                                    </option>
-
-                                    <option>
-                                        Digital Content
-                                    </option>
-
-                                    <option>
                                         Other
                                     </option>
 
@@ -2899,264 +4199,43 @@
                         </div>
 
 
-                    </div>
+                        <div class="col-12">
+
+                            <div class="pnd-form-group">
+
+                                <label for="pndMessage">
+                                    Project Details
+                                </label>
+
+                                <textarea
+                                    id="pndMessage"
+                                    class="pnd-form-control"
+                                    placeholder="Tell us about your idea, business, requirements or project..."
+                                    required>
+                                </textarea>
+
+                            </div>
+
+                        </div>
 
 
-                    <div class="pnd-form-group">
+                        <div class="col-12">
 
-                        <label class="pnd-form-label">
-                            Tell Us About Your Idea
-                        </label>
+                            <button
+                                type="submit"
+                                class="pnd-submit">
 
-                        <textarea
-                            id="message"
-                            class="pnd-form-control"
-                            placeholder="Tell us about your project, requirements or idea..."
-                            required></textarea>
+                                <i class="bi bi-whatsapp"></i>
 
-                    </div>
+                                Send Project Enquiry on WhatsApp
 
+                            </button>
 
-                    <div class="pnd-service-title">
-
-                        QUICK SERVICE ACCESS
-
-                    </div>
-
-
-                    <div class="pnd-service-chips">
-
-
-                        <a
-                            href="website-development.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-window"></i>
-                            Website
-
-                        </a>
-
-
-                        <a
-                            href="web-applications.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-code-slash"></i>
-                            Web Apps
-
-                        </a>
-
-
-                        <a
-                            href="e-commerce.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-cart"></i>
-                            E-Commerce
-
-                        </a>
-
-
-                        <a
-                            href="software-database-projects.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-database"></i>
-                            Software
-
-                        </a>
-
-
-                        <a
-                            href="logo-brand-design.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-palette"></i>
-                            Branding
-
-                        </a>
-
-
-                        <a
-                            href="photography.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-camera"></i>
-                            Photography
-
-                        </a>
-
-
-                        <a
-                            href="videography.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-camera-video"></i>
-                            Videography
-
-                        </a>
-
-
-                        <a
-                            href="digital-content.html"
-                            class="pnd-service-chip">
-
-                            <i class="bi bi-phone"></i>
-                            Digital Content
-
-                        </a>
-
+                        </div>
 
                     </div>
-
-
-                    <div class="mt-4">
-
-                        <button
-                            type="submit"
-                            class="pnd-btn pnd-btn-primary w-100">
-
-                            Send Project Enquiry
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </button>
-
-                    </div>
-
 
                 </form>
-
-            </div>
-
-
-            <!-- =================================================
-                 INFORMATION
-            ================================================== -->
-
-            <div class="pnd-info-column">
-
-
-                <div class="pnd-info-card pnd-reveal">
-
-                    <div class="pnd-info-icon">
-
-                        <i class="bi bi-envelope"></i>
-
-                    </div>
-
-                    <h4>
-                        Email
-                    </h4>
-
-                    <p>
-
-                        <a href="mailto:contact@jogeowebstudio.com">
-
-                            contact@jogeowebstudio.com
-
-                        </a>
-
-                    </p>
-
-                </div>
-
-
-                <div class="pnd-info-card pnd-reveal">
-
-                    <div class="pnd-info-icon">
-
-                        <i class="bi bi-telephone"></i>
-
-                    </div>
-
-                    <h4>
-                        Phone
-                    </h4>
-
-                    <p>
-
-                        <a href="tel:+919207483873">
-
-                            +91 9207483873
-
-                        </a>
-
-                    </p>
-
-                </div>
-
-
-                <div class="pnd-info-card pnd-reveal">
-
-                    <div class="pnd-info-icon">
-
-                        <i class="bi bi-geo-alt"></i>
-
-                    </div>
-
-                    <h4>
-                        Location
-                    </h4>
-
-                    <p>
-                        Kerala, India
-                    </p>
-
-                </div>
-
-
-                <div class="pnd-info-card pnd-reveal">
-
-                    <div class="pnd-info-icon">
-
-                        <i class="bi bi-briefcase"></i>
-
-                    </div>
-
-                    <h4>
-                        Enquiries
-                    </h4>
-
-                    <p>
-                        Project Discussions
-                    </p>
-
-                </div>
-
-
-                <div class="pnd-whatsapp-card pnd-reveal">
-
-                    <h4>
-
-                        <i class="bi bi-whatsapp"></i>
-
-                        Chat on WhatsApp
-
-                    </h4>
-
-                    <p>
-
-                        Prefer a quick conversation?
-                        Send your project idea directly
-                        through WhatsApp.
-
-                    </p>
-
-                    <a
-                        href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20project."
-                        target="_blank"
-                        rel="noopener"
-                        class="pnd-whatsapp-btn">
-
-                        <i class="bi bi-whatsapp"></i>
-
-                        Start WhatsApp Chat
-
-                    </a>
-
-                </div>
-
 
             </div>
 
@@ -3169,58 +4248,45 @@
 
 <!-- =============================================================
      FINAL CTA
-============================================================= -->
+============================================================== -->
 
-<section class="pnd-statement">
+<section class="pnd-section pnd-reveal">
 
-    <div class="container-xl">
+    <div class="container">
 
-        <div class="pnd-reveal">
+        <div class="pnd-final-cta">
 
-            <div class="pnd-eyebrow justify-content-center">
-
-                PIXEL NEST DIGITAL
-
+            <div class="pnd-label">
+                READY WHEN YOU ARE
             </div>
 
+
             <h2>
-                Your idea is the starting point.
-                Let's build what comes next.
+                Your next digital idea
+                can start here.
             </h2>
+
 
             <p>
 
-                From technology and software to design
-                and digital content, bring your idea to us
-                and let's turn it into something meaningful.
+                From a simple website to a complete digital
+                platform, creative project or business brand,
+                start the conversation with Pixel Nest Digital.
 
             </p>
 
 
-            <div class="pnd-hero-actions justify-content-center">
+            <a
+                href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
+                target="_blank"
+                rel="noopener"
+                class="pnd-btn pnd-btn-primary">
 
-                <a
-                    href="#contact-form"
-                    class="pnd-btn pnd-btn-primary">
+                Start a Project
 
-                    Start a Project
+                <i class="bi bi-arrow-up-right"></i>
 
-                    <i class="bi bi-arrow-up-right"></i>
-
-                </a>
-
-
-                <a
-                    href="services.html"
-                    class="pnd-btn pnd-btn-outline">
-
-                    Explore Services
-
-                    <i class="bi bi-grid"></i>
-
-                </a>
-
-            </div>
+            </a>
 
         </div>
 
@@ -3231,11 +4297,11 @@
 
 <!-- =============================================================
      FOOTER
-============================================================= -->
+============================================================== -->
 
 <footer class="pnd-footer">
 
-    <div class="container-xl">
+    <div class="container">
 
         <div class="pnd-footer-grid">
 
@@ -3244,50 +4310,54 @@
 
             <div class="pnd-footer-brand">
 
-                <img
-                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    alt="Pixel Nest Digital">
+                <a
+                    href="index.html"
+                    class="pnd-footer-logo">
+
+                    <img
+                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                        alt="Pixel Nest Digital">
+
+                </a>
+
 
                 <p>
 
-                    Technology, creativity and digital
-                    solutions designed to help ideas
-                    become professional digital experiences.
+                    A digital destination where technology,
+                    creativity and ideas come together.
 
                 </p>
 
+            </div>
 
-                <div class="pnd-footer-social">
 
-                    <a href="#"
-                       aria-label="Instagram">
+            <!-- EXPLORE -->
 
-                        <i class="bi bi-instagram"></i>
+            <div>
 
-                    </a>
+                <h4>
+                    Explore
+                </h4>
 
-                    <a href="#"
-                       aria-label="Facebook">
 
-                        <i class="bi bi-facebook"></i>
+                <a href="index.html">
+                    Home
+                </a>
 
-                    </a>
 
-                    <a href="#"
-                       aria-label="LinkedIn">
+                <a href="services.html">
+                    Services
+                </a>
 
-                        <i class="bi bi-linkedin"></i>
 
-                    </a>
+                <a href="about.html">
+                    About
+                </a>
 
-                    <a href="#"
-                       aria-label="YouTube">
 
-                        <i class="bi bi-youtube"></i>
-
-                    </a>
-
-                </div>
+                <a href="contact.html">
+                    Contact
+                </a>
 
             </div>
 
@@ -3296,28 +4366,28 @@
 
             <div>
 
-                <h5>
+                <h4>
                     Services
-                </h5>
+                </h4>
 
-                <a href="website-development.html">
+
+                <a href="website_development.html">
                     Website Development
                 </a>
 
-                <a href="web-applications.html">
+
+                <a href="web_applications.html">
                     Web Applications
                 </a>
+
 
                 <a href="e-commerce.html">
                     E-Commerce
                 </a>
 
-                <a href="software-database-projects.html">
-                    Software & Database
-                </a>
 
-                <a href="hosting-maintenance.html">
-                    Hosting & Maintenance
+                <a href="logo-brand-design.html">
+                    Brand Design
                 </a>
 
             </div>
@@ -3327,25 +4397,25 @@
 
             <div>
 
-                <h5>
+                <h4>
                     Creative
-                </h5>
+                </h4>
 
-                <a href="logo-brand-design.html">
-                    Logo & Brand Design
-                </a>
 
                 <a href="photography.html">
                     Photography
                 </a>
 
+
                 <a href="videography.html">
                     Videography
                 </a>
 
+
                 <a href="video-editing.html">
                     Video Editing
                 </a>
+
 
                 <a href="digital-content.html">
                     Digital Content
@@ -3353,57 +4423,27 @@
 
             </div>
 
-
-            <!-- COMPANY -->
-
-            <div>
-
-                <h5>
-                    Company
-                </h5>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="portfolio.html">
-                    Portfolio
-                </a>
-
-                <a href="team.html">
-                    Team
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-                <a href="contact.html#contact-form">
-                    Start a Project
-                </a>
-
-            </div>
-
-
         </div>
 
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="pnd-footer-bottom">
 
             <span>
 
-                © <span id="year"></span>
+                ©
+                <span id="pndYear"></span>
+
                 Pixel Nest Digital.
-                All Rights Reserved.
+                All rights reserved.
 
             </span>
 
+
             <span>
 
-                Created under
-                <strong>
-                    JO-GEO VENTURES
-                </strong>
+                A JO-GEO VENTURES INITIATIVE
 
             </span>
 
@@ -3415,196 +4455,24 @@
 
 
 <!-- =============================================================
-     AI ASSISTANT BUTTON
-============================================================= -->
-
-<button
-    class="pnd-ai-button"
-    id="pndAiButton"
-    aria-label="Open Pixel Nest Digital assistant">
-
-    <img
-        src="img/robot.png"
-        alt="Pixel Nest Digital AI Assistant">
-
-</button>
-
-
-<!-- =============================================================
-     AI ASSISTANT PANEL
-============================================================= -->
-
-<div class="pnd-ai-panel"
-     id="pndAiPanel">
-
-
-    <div class="pnd-ai-header">
-
-        <strong>
-            Pixel Nest Digital Assistant
-        </strong>
-
-        <button
-            class="pnd-ai-close"
-            id="pndAiClose"
-            aria-label="Close assistant">
-
-            <i class="bi bi-x-lg"></i>
-
-        </button>
-
-    </div>
-
-
-    <div class="pnd-ai-body">
-
-        <div class="pnd-ai-greeting">
-
-            I'm your Pixel Nest Digital assistant.
-            What would you like to explore?
-
-        </div>
-
-
-        <input
-            type="search"
-            class="pnd-ai-search"
-            id="pndAiSearch"
-            placeholder="Search services...">
-
-
-        <div
-            class="pnd-ai-options"
-            id="pndAiOptions">
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="services.html">
-
-                All Services
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="website-development.html">
-
-                Website Development
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="web-applications.html">
-
-                Web Applications
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="e-commerce.html">
-
-                E-Commerce
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="software-database-projects.html">
-
-                Software & Database
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="hosting-maintenance.html">
-
-                Hosting & Maintenance
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="logo-brand-design.html">
-
-                Logo & Branding
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="photography.html">
-
-                Photography
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="videography.html">
-
-                Videography
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="video-editing.html">
-
-                Video Editing
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="digital-content.html">
-
-                Digital Content
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="about.html">
-
-                About Pixel Nest
-
-            </button>
-
-
-            <button
-                class="pnd-ai-option"
-                data-url="#contact-form">
-
-                Contact Us
-
-            </button>
-
-
-        </div>
-
-    </div>
-
-</div>
+     FLOATING WHATSAPP
+============================================================== -->
+
+<a
+    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20project."
+    class="pnd-whatsapp"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp">
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
 
 
 <!-- =============================================================
      JAVASCRIPT
-============================================================= -->
+============================================================== -->
 
 <script>
 
@@ -3613,153 +4481,508 @@
        YEAR
     ========================================================== */
 
-    document.getElementById("year").textContent =
+    document.getElementById("pndYear").textContent =
         new Date().getFullYear();
+
+
+
+    /* =========================================================
+       HEADER SCROLL EFFECT
+    ========================================================== */
+
+    const pndHeader =
+        document.getElementById("pndHeader");
+
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            if (
+                window.scrollY > 25
+            ) {
+
+                pndHeader.classList.add(
+                    "scrolled"
+                );
+
+            }
+
+            else {
+
+                pndHeader.classList.remove(
+                    "scrolled"
+                );
+
+            }
+
+        },
+        { passive: true }
+    );
+
 
 
     /* =========================================================
        MOBILE MENU
     ========================================================== */
 
-    const menuToggle =
-        document.getElementById("pndMenuToggle");
+    const pndMenuBtn =
+        document.getElementById(
+            "pndMenuBtn"
+        );
 
-    const mobileMenu =
-        document.getElementById("pndMobileMenu");
+
+    const pndMobileMenu =
+        document.getElementById(
+            "pndMobileMenu"
+        );
 
 
-    function closeMobileMenu() {
+    const pndMobileOverlay =
+        document.getElementById(
+            "pndMobileOverlay"
+        );
 
-        mobileMenu.classList.remove("open");
 
-        menuToggle.setAttribute(
+    const pndMobileClose =
+        document.getElementById(
+            "pndMobileClose"
+        );
+
+
+    const pndMenuIcon =
+        document.getElementById(
+            "pndMenuIcon"
+        );
+
+
+    function openMobileMenu() {
+
+        pndMobileMenu.classList.add(
+            "active"
+        );
+
+        pndMobileOverlay.classList.add(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+        pndMenuBtn.setAttribute(
             "aria-expanded",
+            "true"
+        );
+
+        pndMobileMenu.setAttribute(
+            "aria-hidden",
             "false"
         );
 
-        menuToggle.innerHTML =
-            '<i class="bi bi-list"></i>';
+        pndMenuIcon.className =
+            "bi bi-x-lg";
 
     }
 
 
-    menuToggle.addEventListener(
+    function closeMobileMenu() {
+
+        pndMobileMenu.classList.remove(
+            "active"
+        );
+
+        pndMobileOverlay.classList.remove(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "";
+
+        pndMenuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        pndMobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        pndMenuIcon.className =
+            "bi bi-list";
+
+    }
+
+
+    pndMenuBtn.addEventListener(
         "click",
-        function(event) {
-
-            event.stopPropagation();
-
-            const isOpen =
-                mobileMenu.classList.contains("open");
-
-
-            if (isOpen) {
-
-                closeMobileMenu();
-
-            } else {
-
-                mobileMenu.classList.add("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-                menuToggle.innerHTML =
-                    '<i class="bi bi-x-lg"></i>';
-
-            }
-
-        }
-    );
-
-
-    mobileMenu
-        .querySelectorAll("a")
-        .forEach(function(link) {
-
-            link.addEventListener(
-                "click",
-                closeMobileMenu
-            );
-
-        });
-
-
-    document.addEventListener(
-        "click",
-        function(event) {
+        function () {
 
             if (
-                !mobileMenu.contains(event.target) &&
-                !menuToggle.contains(event.target)
+                pndMobileMenu.classList.contains(
+                    "active"
+                )
             ) {
 
                 closeMobileMenu();
 
             }
 
-        }
-    );
+            else {
 
-
-    window.addEventListener(
-        "resize",
-        function() {
-
-            if (window.innerWidth > 991) {
-
-                closeMobileMenu();
+                openMobileMenu();
 
             }
 
         }
     );
+
+
+    pndMobileClose.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+    pndMobileOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+    document.querySelectorAll(
+        ".pnd-mobile-link, .pnd-mobile-service-item, .pnd-mobile-start"
+    ).forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        }
+    );
+
 
 
     /* =========================================================
-       SCROLL REVEAL
+       MOBILE SERVICES
     ========================================================== */
 
-    const revealItems =
-        document.querySelectorAll(".pnd-reveal");
-
-
-    const revealObserver =
-        new IntersectionObserver(
-            function(entries) {
-
-                entries.forEach(
-                    function(entry) {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("show");
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold:.12
-            }
+    const mobileServices =
+        document.getElementById(
+            "pndMobileServices"
         );
 
 
-    revealItems.forEach(
-        function(item) {
+    const mobileServicesBtn =
+        document.getElementById(
+            "pndMobileServicesBtn"
+        );
 
-            revealObserver.observe(item);
+
+    mobileServicesBtn.addEventListener(
+        "click",
+        function () {
+
+            const isOpen =
+                mobileServices.classList.contains(
+                    "open"
+                );
+
+
+            mobileServices.classList.toggle(
+                "open"
+            );
+
+
+            mobileServicesBtn.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
 
         }
     );
+
+
+
+    /* =========================================================
+       SEARCH
+    ========================================================== */
+
+    function performSearch(
+        inputElement
+    ) {
+
+        if (!inputElement) {
+            return;
+        }
+
+
+        const query =
+            inputElement.value
+                .trim()
+                .toLowerCase();
+
+
+        if (!query) {
+
+            inputElement.focus();
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("website") ||
+            query.includes("web development")
+        ) {
+
+            window.location.href =
+                "services.html#website-development";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("application") ||
+            query.includes("web app")
+        ) {
+
+            window.location.href =
+                "services.html#web-applications";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("ai") ||
+            query.includes("machine learning")
+        ) {
+
+            window.location.href =
+                "services.html#ai";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("robot") ||
+            query.includes("automation")
+        ) {
+
+            window.location.href =
+                "services.html#robotics";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("ecommerce") ||
+            query.includes("e-commerce") ||
+            query.includes("online store")
+        ) {
+
+            window.location.href =
+                "services.html#ecommerce";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("database") ||
+            query.includes("software")
+        ) {
+
+            window.location.href =
+                "services.html#database";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("hosting") ||
+            query.includes("maintenance")
+        ) {
+
+            window.location.href =
+                "services.html#hosting";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("logo") ||
+            query.includes("brand") ||
+            query.includes("branding")
+        ) {
+
+            window.location.href =
+                "services.html#branding";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("photo") ||
+            query.includes("photography")
+        ) {
+
+            window.location.href =
+                "services.html#photography";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("video") ||
+            query.includes("videography")
+        ) {
+
+            window.location.href =
+                "services.html#videography";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("contact") ||
+            query.includes("email") ||
+            query.includes("message")
+        ) {
+
+            window.location.href =
+                "contact.html";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("about") ||
+            query.includes("company") ||
+            query.includes("pixel nest")
+        ) {
+
+            window.location.href =
+                "about.html";
+
+            return;
+
+        }
+
+
+        if (
+            query.includes("project") ||
+            query.includes("quote") ||
+            query.includes("start")
+        ) {
+
+            window.location.href =
+                "start-project.html";
+
+            return;
+
+        }
+
+
+        window.location.href =
+            "services.html";
+
+    }
+
+
+    const desktopSearch =
+        document.getElementById(
+            "desktopSearch"
+        );
+
+
+    const desktopSearchBtn =
+        document.getElementById(
+            "desktopSearchBtn"
+        );
+
+
+    const mobileSearch =
+        document.getElementById(
+            "mobileSearch"
+        );
+
+
+    desktopSearchBtn.addEventListener(
+        "click",
+        function () {
+
+            performSearch(
+                desktopSearch
+            );
+
+        }
+    );
+
+
+    desktopSearch.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                event.preventDefault();
+
+                performSearch(
+                    desktopSearch
+                );
+
+            }
+
+        }
+    );
+
+
+    mobileSearch.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                event.preventDefault();
+
+                performSearch(
+                    mobileSearch
+                );
+
+            }
+
+        }
+    );
+
 
 
     /* =========================================================
@@ -3767,58 +4990,70 @@
     ========================================================== */
 
     const contactForm =
-        document.getElementById("contactForm");
+        document.getElementById(
+            "pndContactForm"
+        );
 
 
     contactForm.addEventListener(
         "submit",
-        function(event) {
+        function (event) {
 
             event.preventDefault();
 
 
             const name =
-                document.getElementById("name").value.trim();
+                document.getElementById(
+                    "pndName"
+                ).value.trim();
 
-            const email =
-                document.getElementById("email").value.trim();
 
             const phone =
-                document.getElementById("phone").value.trim();
+                document.getElementById(
+                    "pndPhone"
+                ).value.trim();
 
-            const project =
-                document.getElementById("project").value;
+
+            const email =
+                document.getElementById(
+                    "pndEmail"
+                ).value.trim();
+
+
+            const service =
+                document.getElementById(
+                    "pndService"
+                ).value.trim();
+
 
             const message =
-                document.getElementById("message").value.trim();
+                document.getElementById(
+                    "pndMessage"
+                ).value.trim();
 
 
             const whatsappMessage =
 
-                "Hello Pixel Nest Digital,%0A%0A" +
+                `Hello Pixel Nest Digital,
 
-                "I would like to discuss a project.%0A%0A" +
+I would like to discuss a project.
 
-                "Name: " +
-                encodeURIComponent(name) +
+Name: ${name}
+Phone / WhatsApp: ${phone}
+Email: ${email || "Not provided"}
+Service: ${service || "Not specified"}
 
-                "%0AEmail: " +
-                encodeURIComponent(email) +
+Project Details:
+${message}
 
-                "%0APhone: " +
-                encodeURIComponent(phone) +
-
-                "%0AProject Type: " +
-                encodeURIComponent(project) +
-
-                "%0A%0AProject Details:%0A" +
-
-                encodeURIComponent(message);
+Thank you.`;
 
 
             const whatsappURL =
                 "https://wa.me/917736755820?text=" +
-                whatsappMessage;
+                encodeURIComponent(
+                    whatsappMessage
+                );
 
 
             window.open(
@@ -3830,132 +5065,74 @@
     );
 
 
-    /* =========================================================
-       AI ASSISTANT
-    ========================================================== */
-
-    const aiButton =
-        document.getElementById("pndAiButton");
-
-    const aiPanel =
-        document.getElementById("pndAiPanel");
-
-    const aiClose =
-        document.getElementById("pndAiClose");
-
-
-    aiButton.addEventListener(
-        "click",
-        function() {
-
-            aiPanel.classList.toggle("open");
-
-        }
-    );
-
-
-    aiClose.addEventListener(
-        "click",
-        function() {
-
-            aiPanel.classList.remove("open");
-
-        }
-    );
-
 
     /* =========================================================
-       AI OPTION NAVIGATION
+       SCROLL REVEAL
     ========================================================== */
 
-    document
-        .querySelectorAll(".pnd-ai-option")
-        .forEach(
-            function(option) {
-
-                option.addEventListener(
-                    "click",
-                    function() {
-
-                        const url =
-                            option.dataset.url;
-
-
-                        if (url === "#contact-form") {
-
-                            aiPanel.classList.remove("open");
-
-                            document
-                                .getElementById("contact-form")
-                                .scrollIntoView({
-                                    behavior:"smooth"
-                                });
-
-                            return;
-
-                        }
-
-
-                        window.location.href = url;
-
-                    }
-                );
-
-            }
+    const revealItems =
+        document.querySelectorAll(
+            ".pnd-reveal"
         );
 
 
-    /* =========================================================
-       AI SEARCH
-    ========================================================== */
+    const revealObserver =
+        new IntersectionObserver(
 
-    const aiSearch =
-        document.getElementById("pndAiSearch");
+            function (entries) {
 
+                entries.forEach(
+                    function (entry) {
 
-    aiSearch.addEventListener(
-        "input",
-        function() {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-            const search =
-                this.value
-                    .toLowerCase()
-                    .trim();
+                            entry.target.classList.add(
+                                "show"
+                            );
 
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
-            document
-                .querySelectorAll(".pnd-ai-option")
-                .forEach(
-                    function(option) {
-
-                        const text =
-                            option.textContent
-                                .toLowerCase();
-
-
-                        option.style.display =
-                            text.includes(search)
-                                ? ""
-                                : "none";
+                        }
 
                     }
                 );
+
+            },
+
+            {
+                threshold: .12
+            }
+
+        );
+
+
+    revealItems.forEach(
+        function (item) {
+
+            revealObserver.observe(
+                item
+            );
 
         }
     );
 
 
+
     /* =========================================================
-       ESCAPE
+       ESCAPE KEY
     ========================================================== */
 
     document.addEventListener(
         "keydown",
-        function(event) {
+        function (event) {
 
-            if (event.key === "Escape") {
-
-                aiPanel.classList.remove("open");
+            if (
+                event.key === "Escape"
+            ) {
 
                 closeMobileMenu();
 
@@ -3965,6 +5142,35 @@
     );
 
 
+
+    /* =========================================================
+       RESET MOBILE MENU ON DESKTOP
+    ========================================================== */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (
+                window.innerWidth > 820
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+<!-- =============================================================
+     BOOTSTRAP JS
+============================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
 

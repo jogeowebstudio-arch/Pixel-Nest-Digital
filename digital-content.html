@@ -1,3060 +1,1165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Digital Content | Pixel Nest Digital</title>
-
-    <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
-
-    <!-- Google Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-        :root{
-            --pnd-space:#07111F;
-            --pnd-space-2:#0B172A;
-            --pnd-space-3:#111C35;
-
-            --pnd-blue:#2563EB;
-            --pnd-blue-dark:#1D4ED8;
-            --pnd-cyan:#06B6D4;
-            --pnd-violet:#7C3AED;
-
-            --pnd-white:#F8FAFC;
-            --pnd-text:#E2E8F0;
-            --pnd-muted:#94A3B8;
-
-            --pnd-border:rgba(148,163,184,.16);
-            --pnd-glass:rgba(255,255,255,.055);
-
-            --radius-xl:28px;
-            --radius-lg:22px;
-        }
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        html{
-            scroll-behavior:smooth;
-        }
-
-        body{
-            font-family:"DM Sans",sans-serif;
-            background:var(--pnd-space);
-            color:var(--pnd-text);
-            overflow-x:hidden;
-        }
-
-        a{
-            text-decoration:none;
-        }
-
-        img{
-            max-width:100%;
-            display:block;
-        }
-
-        /* =====================================================
-           GLOBAL LED STRIP
-        ===================================================== */
-
-        .pnd-led{
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:3px;
-            z-index:9999;
-            overflow:hidden;
-            background:rgba(255,255,255,.06);
-        }
-
-        .pnd-led::before{
-            content:"";
-            position:absolute;
-            width:35%;
-            height:100%;
-            left:-40%;
-            top:0;
-            background:linear-gradient(
-                90deg,
-                transparent,
-                var(--pnd-blue),
-                var(--pnd-cyan),
-                var(--pnd-violet),
-                transparent
-            );
-            filter:blur(.5px);
-            animation:ledMove 4s linear infinite;
-        }
-
-        @keyframes ledMove{
-            0%{
-                left:-40%;
-            }
-
-            100%{
-                left:110%;
-            }
-        }
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-
-        .pnd-navbar{
-            position:fixed;
-            top:3px;
-            left:0;
-            width:100%;
-            z-index:1000;
-            padding:15px 0;
-            background:rgba(7,17,31,.78);
-            backdrop-filter:blur(18px);
-            -webkit-backdrop-filter:blur(18px);
-            border-bottom:1px solid rgba(255,255,255,.07);
-        }
-
-        .pnd-nav-inner{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:20px;
-        }
-
-        .pnd-brand{
-            display:flex;
-            align-items:center;
-            gap:11px;
-            color:#fff;
-            flex-shrink:0;
-        }
-
-        .pnd-brand-mark{
-            width:42px;
-            height:42px;
-            display:grid;
-            place-items:center;
-            border-radius:13px;
-            font-size:16px;
-            font-weight:800;
-            color:#fff;
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--pnd-blue),
-                    var(--pnd-violet)
-                );
-            box-shadow:
-                0 0 25px rgba(37,99,235,.35);
-        }
-
-        .pnd-brand-text{
-            line-height:1;
-        }
-
-        .pnd-brand-text strong{
-            display:block;
-            font-size:15px;
-            letter-spacing:.4px;
-        }
-
-        .pnd-brand-text small{
-            display:block;
-            margin-top:4px;
-            color:var(--pnd-muted);
-            font-size:9px;
-            letter-spacing:2px;
-        }
-
-        .pnd-nav-links{
-            display:flex;
-            align-items:center;
-            gap:5px;
-        }
-
-        .pnd-nav-links a{
-            color:#AEBBCD;
-            font-size:14px;
-            padding:10px 13px;
-            border-radius:10px;
-            transition:.25s ease;
-        }
-
-        .pnd-nav-links a:hover,
-        .pnd-nav-links a.active{
-            color:#fff;
-            background:rgba(255,255,255,.06);
-        }
-
-        .pnd-nav-cta{
-            display:inline-flex !important;
-            align-items:center;
-            gap:8px;
-            color:#fff !important;
-            background:linear-gradient(
-                135deg,
-                var(--pnd-blue),
-                var(--pnd-violet)
-            ) !important;
-            padding:11px 17px !important;
-            box-shadow:0 10px 30px rgba(37,99,235,.2);
-        }
-
-        .pnd-nav-cta:hover{
-            transform:translateY(-2px);
-            box-shadow:0 15px 35px rgba(37,99,235,.3);
-        }
-
-        .pnd-menu{
-            display:none;
-            width:44px;
-            height:44px;
-            border:1px solid var(--pnd-border);
-            border-radius:12px;
-            background:rgba(255,255,255,.05);
-            color:#fff;
-            font-size:22px;
-        }
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .pnd-hero{
-            position:relative;
-            min-height:820px;
-            padding:155px 0 100px;
-            overflow:hidden;
-            background:
-                radial-gradient(
-                    circle at 80% 35%,
-                    rgba(37,99,235,.13),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 20% 80%,
-                    rgba(124,58,237,.09),
-                    transparent 30%
-                ),
-                var(--pnd-space);
-        }
-
-        .hero-grid{
-            position:absolute;
-            inset:0;
-            opacity:.22;
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,.04) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.04) 1px,
-                    transparent 1px
-                );
-            background-size:60px 60px;
-            mask-image:linear-gradient(
-                to bottom,
-                black,
-                transparent
-            );
-        }
-
-        .hero-glow{
-            position:absolute;
-            border-radius:50%;
-            filter:blur(80px);
-            pointer-events:none;
-        }
-
-        .hero-glow.one{
-            width:330px;
-            height:330px;
-            background:rgba(37,99,235,.15);
-            top:120px;
-            right:5%;
-        }
-
-        .hero-glow.two{
-            width:260px;
-            height:260px;
-            background:rgba(124,58,237,.13);
-            bottom:0;
-            left:0;
-        }
-
-        .hero-layout{
-            position:relative;
-            z-index:2;
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:70px;
-            align-items:center;
-        }
-
-        .hero-eyebrow{
-            display:inline-flex;
-            align-items:center;
-            gap:9px;
-            padding:8px 12px;
-            margin-bottom:23px;
-            border:1px solid rgba(6,182,212,.22);
-            border-radius:50px;
-            background:rgba(6,182,212,.06);
-            color:#67E8F9;
-            font-size:11px;
-            font-weight:700;
-            letter-spacing:2px;
-        }
-
-        .eyebrow-dot{
-            width:7px;
-            height:7px;
-            border-radius:50%;
-            background:#22D3EE;
-            box-shadow:0 0 12px #22D3EE;
-            animation:dotPulse 1.7s infinite;
-        }
-
-        @keyframes dotPulse{
-            50%{
-                opacity:.35;
-                transform:scale(.7);
-            }
-        }
-
-        .hero-title{
-            max-width:720px;
-            font-size:clamp(44px,5.5vw,76px);
-            line-height:.98;
-            letter-spacing:-3px;
-            font-weight:800;
-            color:#fff;
-        }
-
-        .hero-title span{
-            background:linear-gradient(
-                100deg,
-                #60A5FA,
-                #22D3EE,
-                #A78BFA
-            );
-            -webkit-background-clip:text;
-            background-clip:text;
-            color:transparent;
-        }
-
-        .hero-description{
-            max-width:610px;
-            margin:27px 0 30px;
-            color:var(--pnd-muted);
-            font-size:17px;
-            line-height:1.8;
-        }
-
-        .hero-actions{
-            display:flex;
-            flex-wrap:wrap;
-            gap:12px;
-        }
-
-        .pnd-btn{
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-            gap:10px;
-            min-height:50px;
-            padding:0 20px;
-            border-radius:13px;
-            font-size:14px;
-            font-weight:700;
-            transition:.3s ease;
-        }
-
-        .pnd-btn-primary{
-            color:#fff;
-            background:linear-gradient(
-                135deg,
-                var(--pnd-blue),
-                var(--pnd-violet)
-            );
-            box-shadow:0 15px 40px rgba(37,99,235,.2);
-        }
-
-        .pnd-btn-primary:hover{
-            color:#fff;
-            transform:translateY(-3px);
-            box-shadow:0 20px 45px rgba(37,99,235,.35);
-        }
-
-        .pnd-btn-outline{
-            color:#DCE7F7;
-            border:1px solid var(--pnd-border);
-            background:rgba(255,255,255,.04);
-        }
-
-        .pnd-btn-outline:hover{
-            color:#fff;
-            border-color:rgba(96,165,250,.4);
-            background:rgba(37,99,235,.08);
-        }
-
-        /* =====================================================
-           CONTENT STUDIO VISUAL
-        ===================================================== */
-
-        .content-studio{
-            position:relative;
-            min-height:510px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-
-        .studio-orbit{
-            position:absolute;
-            width:460px;
-            height:460px;
-            border:1px solid rgba(96,165,250,.13);
-            border-radius:50%;
-            animation:orbitRotate 22s linear infinite;
-        }
-
-        .studio-orbit::before,
-        .studio-orbit::after{
-            content:"";
-            position:absolute;
-            inset:35px;
-            border:1px dashed rgba(34,211,238,.1);
-            border-radius:50%;
-        }
-
-        .studio-orbit::after{
-            inset:85px;
-            border-style:solid;
-            border-color:rgba(124,58,237,.1);
-        }
-
-        @keyframes orbitRotate{
-            to{
-                transform:rotate(360deg);
-            }
-        }
-
-        .studio-dashboard{
-            position:relative;
-            z-index:3;
-            width:min(490px,100%);
-            padding:17px;
-            border:1px solid rgba(255,255,255,.12);
-            border-radius:24px;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.09),
-                    rgba(255,255,255,.025)
-                );
-            box-shadow:
-                0 35px 90px rgba(0,0,0,.45),
-                0 0 60px rgba(37,99,235,.08);
-            backdrop-filter:blur(20px);
-            animation:dashboardFloat 5s ease-in-out infinite;
-        }
-
-        @keyframes dashboardFloat{
-            50%{
-                transform:translateY(-10px);
-            }
-        }
-
-        .dashboard-top{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:4px 5px 14px;
-        }
-
-        .dashboard-title{
-            display:flex;
-            align-items:center;
-            gap:9px;
-            color:#fff;
-            font-size:12px;
-            font-weight:700;
-        }
-
-        .dashboard-title i{
-            color:#38BDF8;
-        }
-
-        .dashboard-status{
-            display:flex;
-            align-items:center;
-            gap:6px;
-            color:#86EFAC;
-            font-size:9px;
-            letter-spacing:1px;
-        }
-
-        .status-dot{
-            width:6px;
-            height:6px;
-            border-radius:50%;
-            background:#22C55E;
-            box-shadow:0 0 10px #22C55E;
-        }
-
-        .content-preview{
-            position:relative;
-            min-height:235px;
-            overflow:hidden;
-            border-radius:17px;
-            border:1px solid rgba(255,255,255,.08);
-            background:
-                linear-gradient(
-                    145deg,
-                    #111D35,
-                    #091321
-                );
-        }
-
-        .preview-gradient{
-            position:absolute;
-            inset:0;
-            background:
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(6,182,212,.3),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 20% 70%,
-                    rgba(124,58,237,.3),
-                    transparent 35%
-                );
-        }
-
-        .preview-content{
-            position:relative;
-            z-index:2;
-            padding:28px;
-        }
-
-        .preview-label{
-            display:inline-block;
-            padding:5px 8px;
-            border-radius:5px;
-            background:rgba(255,255,255,.08);
-            color:#93C5FD;
-            font-size:8px;
-            letter-spacing:1.5px;
-        }
-
-        .preview-heading{
-            max-width:260px;
-            margin-top:15px;
-            color:#fff;
-            font-size:27px;
-            line-height:1.05;
-            font-weight:800;
-        }
-
-        .preview-line{
-            width:145px;
-            height:5px;
-            margin-top:18px;
-            border-radius:10px;
-            background:linear-gradient(
-                90deg,
-                #2563EB,
-                #06B6D4
-            );
-        }
-
-        .preview-small{
-            width:190px;
-            height:5px;
-            margin-top:9px;
-            border-radius:10px;
-            background:rgba(255,255,255,.13);
-        }
-
-        .preview-image{
-            position:absolute;
-            right:25px;
-            bottom:25px;
-            width:110px;
-            height:110px;
-            border-radius:20px;
-            transform:rotate(8deg);
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(37,99,235,.9),
-                    rgba(124,58,237,.75)
-                );
-            box-shadow:0 20px 40px rgba(0,0,0,.3);
-        }
-
-        .preview-image::before{
-            content:"";
-            position:absolute;
-            width:48px;
-            height:48px;
-            top:20px;
-            left:20px;
-            border:2px solid rgba(255,255,255,.6);
-            border-radius:50%;
-        }
-
-        .preview-image::after{
-            content:"";
-            position:absolute;
-            width:30px;
-            height:30px;
-            right:18px;
-            bottom:16px;
-            border-radius:8px;
-            background:rgba(255,255,255,.2);
-        }
-
-        .content-formats{
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:8px;
-            margin-top:12px;
-        }
-
-        .format-box{
-            padding:10px 6px;
-            text-align:center;
-            border:1px solid rgba(255,255,255,.07);
-            border-radius:10px;
-            background:rgba(255,255,255,.035);
-        }
-
-        .format-box i{
-            display:block;
-            margin-bottom:4px;
-            color:#60A5FA;
-            font-size:15px;
-        }
-
-        .format-box span{
-            display:block;
-            color:#94A3B8;
-            font-size:8px;
-        }
-
-        .dashboard-progress{
-            margin-top:12px;
-        }
-
-        .progress-head{
-            display:flex;
-            justify-content:space-between;
-            margin-bottom:6px;
-            color:#64748B;
-            font-size:8px;
-        }
-
-        .progress-bar-custom{
-            height:4px;
-            overflow:hidden;
-            border-radius:20px;
-            background:rgba(255,255,255,.08);
-        }
-
-        .progress-fill{
-            width:78%;
-            height:100%;
-            border-radius:20px;
-            background:linear-gradient(
-                90deg,
-                #2563EB,
-                #06B6D4,
-                #7C3AED
-            );
-            animation:progressMove 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes progressMove{
-            to{
-                width:92%;
-            }
-        }
-
-        .floating-content-card{
-            position:absolute;
-            z-index:5;
-            display:flex;
-            align-items:center;
-            gap:10px;
-            padding:12px 14px;
-            border:1px solid rgba(255,255,255,.1);
-            border-radius:13px;
-            background:rgba(8,18,34,.86);
-            box-shadow:0 20px 40px rgba(0,0,0,.3);
-            backdrop-filter:blur(15px);
-        }
-
-        .floating-content-card i{
-            width:34px;
-            height:34px;
-            display:grid;
-            place-items:center;
-            border-radius:10px;
-            color:#67E8F9;
-            background:rgba(6,182,212,.1);
-        }
-
-        .floating-content-card strong{
-            display:block;
-            color:#fff;
-            font-size:11px;
-        }
-
-        .floating-content-card small{
-            color:#64748B;
-            font-size:8px;
-        }
-
-        .card-social{
-            top:20px;
-            right:-15px;
-            animation:floatOne 4s ease-in-out infinite;
-        }
-
-        .card-campaign{
-            bottom:28px;
-            left:-20px;
-            animation:floatTwo 4.5s ease-in-out infinite;
-        }
-
-        @keyframes floatOne{
-            50%{
-                transform:translateY(-9px);
-            }
-        }
-
-        @keyframes floatTwo{
-            50%{
-                transform:translateY(9px);
-            }
-        }
-
-        /* =====================================================
-           SECTION COMMON
-        ===================================================== */
-
-        .pnd-section{
-            position:relative;
-            padding:110px 0;
-            overflow:hidden;
-        }
-
-        .pnd-section-alt{
-            background:
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(37,99,235,.07),
-                    transparent 25%
-                ),
-                var(--pnd-space-2);
-        }
-
-        .section-head{
-            max-width:760px;
-            margin-bottom:55px;
-        }
-
-        .section-eyebrow{
-            margin-bottom:13px;
-            color:#38BDF8;
-            font-size:10px;
-            font-weight:800;
-            letter-spacing:2.5px;
-        }
-
-        .section-title{
-            color:#fff;
-            font-size:clamp(34px,4vw,54px);
-            line-height:1.05;
-            letter-spacing:-1.8px;
-            font-weight:800;
-        }
-
-        .section-description{
-            max-width:650px;
-            margin-top:17px;
-            color:var(--pnd-muted);
-            line-height:1.8;
-            font-size:15px;
-        }
-
-        /* =====================================================
-           CONTENT SERVICES
-        ===================================================== */
-
-        .content-grid{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:18px;
-        }
-
-        .content-card{
-            position:relative;
-            min-height:260px;
-            padding:28px;
-            overflow:hidden;
-            border:1px solid var(--pnd-border);
-            border-radius:var(--radius-lg);
-            background:var(--pnd-glass);
-            transition:.35s ease;
-        }
-
-        .content-card::before{
-            content:"";
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:2px;
-            background:linear-gradient(
-                90deg,
-                transparent,
-                var(--pnd-blue),
-                var(--pnd-cyan),
-                var(--pnd-violet),
-                transparent
-            );
-            transform:translateX(-100%);
-            transition:.5s ease;
-        }
-
-        .content-card:hover{
-            transform:translateY(-8px);
-            border-color:rgba(96,165,250,.25);
-            background:rgba(255,255,255,.07);
-            box-shadow:0 25px 55px rgba(0,0,0,.2);
-        }
-
-        .content-card:hover::before{
-            transform:translateX(0);
-        }
-
-        .content-number{
-            position:absolute;
-            top:22px;
-            right:24px;
-            color:rgba(148,163,184,.22);
-            font-size:11px;
-            font-weight:800;
-            letter-spacing:1px;
-        }
-
-        .content-icon{
-            width:54px;
-            height:54px;
-            display:grid;
-            place-items:center;
-            margin-bottom:25px;
-            border:1px solid rgba(96,165,250,.16);
-            border-radius:15px;
-            color:#67E8F9;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(37,99,235,.15),
-                    rgba(124,58,237,.1)
-                );
-            font-size:23px;
-            transition:.3s ease;
-        }
-
-        .content-card:hover .content-icon{
-            transform:rotate(-5deg) scale(1.06);
-            box-shadow:0 0 25px rgba(6,182,212,.13);
-        }
-
-        .content-card h3{
-            color:#fff;
-            font-size:19px;
-            margin-bottom:11px;
-            font-weight:700;
-        }
-
-        .content-card p{
-            color:var(--pnd-muted);
-            line-height:1.7;
-            font-size:13px;
-            margin-bottom:0;
-        }
-
-        /* =====================================================
-           CONTENT TYPES
-        ===================================================== */
-
-        .content-type-layout{
-            display:grid;
-            grid-template-columns:.8fr 1.2fr;
-            gap:65px;
-            align-items:center;
-        }
-
-        .type-list{
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-        }
-
-        .type-item{
-            display:flex;
-            align-items:center;
-            gap:14px;
-            padding:16px;
-            border:1px solid var(--pnd-border);
-            border-radius:15px;
-            background:rgba(255,255,255,.035);
-            transition:.3s ease;
-        }
-
-        .type-item:hover{
-            transform:translateX(6px);
-            background:rgba(37,99,235,.07);
-            border-color:rgba(96,165,250,.22);
-        }
-
-        .type-icon{
-            width:42px;
-            height:42px;
-            flex:0 0 42px;
-            display:grid;
-            place-items:center;
-            border-radius:11px;
-            color:#60A5FA;
-            background:rgba(37,99,235,.1);
-        }
-
-        .type-item strong{
-            display:block;
-            color:#fff;
-            font-size:14px;
-        }
-
-        .type-item span{
-            display:block;
-            margin-top:3px;
-            color:#64748B;
-            font-size:11px;
-        }
-
-        /* Content wall */
-
-        .content-wall{
-            display:grid;
-            grid-template-columns:1.15fr .85fr .85fr;
-            grid-template-rows:170px 170px;
-            gap:12px;
-        }
-
-        .wall-card{
-            position:relative;
-            overflow:hidden;
-            border:1px solid rgba(255,255,255,.09);
-            border-radius:18px;
-            background:#0E1B30;
-        }
-
-        .wall-card.large{
-            grid-row:span 2;
-        }
-
-        .wall-art{
-            position:absolute;
-            inset:0;
-            transition:.5s ease;
-        }
-
-        .wall-card:hover .wall-art{
-            transform:scale(1.06);
-        }
-
-        .wall-one{
-            background:
-                radial-gradient(
-                    circle at 70% 25%,
-                    rgba(34,211,238,.7),
-                    transparent 25%
-                ),
-                linear-gradient(
-                    135deg,
-                    #12326B,
-                    #34216C
-                );
-        }
-
-        .wall-two{
-            background:
-                linear-gradient(
-                    135deg,
-                    #0E7490,
-                    #155E75
-                );
-        }
-
-        .wall-three{
-            background:
-                linear-gradient(
-                    135deg,
-                    #312E81,
-                    #7C3AED
-                );
-        }
-
-        .wall-four{
-            background:
-                linear-gradient(
-                    135deg,
-                    #164E63,
-                    #0F172A
-                );
-        }
-
-        .wall-five{
-            background:
-                linear-gradient(
-                    135deg,
-                    #1D4ED8,
-                    #06B6D4
-                );
-        }
-
-        .wall-text{
-            position:absolute;
-            left:17px;
-            bottom:16px;
-            z-index:2;
-        }
-
-        .wall-text small{
-            display:block;
-            color:#BAE6FD;
-            font-size:8px;
-            letter-spacing:1.5px;
-            text-transform:uppercase;
-        }
-
-        .wall-text strong{
-            display:block;
-            margin-top:4px;
-            color:#fff;
-            font-size:14px;
-        }
-
-        .wall-shape{
-            position:absolute;
-            width:100px;
-            height:100px;
-            right:20px;
-            top:25px;
-            border:2px solid rgba(255,255,255,.4);
-            border-radius:25px;
-            transform:rotate(15deg);
-        }
-
-        .wall-shape::before{
-            content:"";
-            position:absolute;
-            inset:17px;
-            border:1px solid rgba(255,255,255,.35);
-            border-radius:15px;
-        }
-
-        /* =====================================================
-           CONTENT WORKFLOW
-        ===================================================== */
-
-        .workflow{
-            position:relative;
-            display:grid;
-            grid-template-columns:repeat(4,1fr);
-            gap:0;
-            margin-top:20px;
-        }
-
-        .workflow::before{
-            content:"";
-            position:absolute;
-            top:31px;
-            left:8%;
-            right:8%;
-            height:1px;
-            background:linear-gradient(
-                90deg,
-                rgba(37,99,235,.1),
-                rgba(6,182,212,.7),
-                rgba(124,58,237,.1)
-            );
-        }
-
-        .workflow-step{
-            position:relative;
-            z-index:2;
-            text-align:center;
-            padding:0 20px;
-        }
-
-        .workflow-icon{
-            width:64px;
-            height:64px;
-            margin:0 auto 20px;
-            display:grid;
-            place-items:center;
-            border:1px solid rgba(96,165,250,.25);
-            border-radius:50%;
-            color:#67E8F9;
-            background:#0B172A;
-            box-shadow:0 0 30px rgba(37,99,235,.08);
-            font-size:20px;
-        }
-
-        .workflow-step h3{
-            color:#fff;
-            font-size:16px;
-            margin-bottom:8px;
-        }
-
-        .workflow-step p{
-            color:var(--pnd-muted);
-            font-size:12px;
-            line-height:1.7;
-        }
-
-        /* =====================================================
-           CONTENT PLATFORMS
-        ===================================================== */
-
-        .platform-grid{
-            display:grid;
-            grid-template-columns:repeat(5,1fr);
-            gap:12px;
-        }
-
-        .platform-card{
-            position:relative;
-            min-height:150px;
-            padding:23px 15px;
-            text-align:center;
-            border:1px solid var(--pnd-border);
-            border-radius:18px;
-            background:rgba(255,255,255,.035);
-            transition:.3s ease;
-        }
-
-        .platform-card:hover{
-            transform:translateY(-6px);
-            border-color:rgba(6,182,212,.25);
-            background:rgba(255,255,255,.06);
-        }
-
-        .platform-card i{
-            display:block;
-            margin-bottom:14px;
-            color:#60A5FA;
-            font-size:28px;
-        }
-
-        .platform-card strong{
-            display:block;
-            color:#fff;
-            font-size:13px;
-        }
-
-        .platform-card span{
-            display:block;
-            margin-top:5px;
-            color:#64748B;
-            font-size:9px;
-        }
-
-        /* =====================================================
-           CONTENT SYSTEM
-        ===================================================== */
-
-        .system-panel{
-            padding:35px;
-            border:1px solid var(--pnd-border);
-            border-radius:var(--radius-xl);
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.065),
-                    rgba(255,255,255,.025)
-                );
-            box-shadow:0 25px 70px rgba(0,0,0,.18);
-        }
-
-        .system-header{
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:20px;
-            padding-bottom:25px;
-            border-bottom:1px solid var(--pnd-border);
-        }
-
-        .system-header h3{
-            margin:0;
-            color:#fff;
-            font-size:20px;
-        }
-
-        .system-header p{
-            margin:6px 0 0;
-            color:#64748B;
-            font-size:11px;
-        }
-
-        .system-badge{
-            display:flex;
-            align-items:center;
-            gap:7px;
-            padding:8px 11px;
-            border:1px solid rgba(34,197,94,.15);
-            border-radius:30px;
-            color:#86EFAC;
-            background:rgba(34,197,94,.05);
-            font-size:9px;
-            letter-spacing:1px;
-        }
-
-        .system-grid{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:14px;
-            margin-top:25px;
-        }
-
-        .system-item{
-            padding:18px;
-            border-radius:14px;
-            background:rgba(255,255,255,.035);
-        }
-
-        .system-item i{
-            color:#38BDF8;
-            font-size:18px;
-        }
-
-        .system-item strong{
-            display:block;
-            margin-top:12px;
-            color:#fff;
-            font-size:13px;
-        }
-
-        .system-item span{
-            display:block;
-            margin-top:6px;
-            color:#64748B;
-            font-size:10px;
-            line-height:1.6;
-        }
-
-        /* =====================================================
-           CTA
-        ===================================================== */
-
-        .pnd-cta{
-            position:relative;
-            padding:100px 0;
-            overflow:hidden;
-            background:
-                radial-gradient(
-                    circle at 50% 50%,
-                    rgba(37,99,235,.14),
-                    transparent 42%
-                ),
-                var(--pnd-space);
-        }
-
-        .cta-box{
-            position:relative;
-            padding:65px 45px;
-            overflow:hidden;
-            text-align:center;
-            border:1px solid rgba(96,165,250,.17);
-            border-radius:30px;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(37,99,235,.09),
-                    rgba(124,58,237,.07)
-                );
-        }
-
-        .cta-box::before,
-        .cta-box::after{
-            content:"";
-            position:absolute;
-            width:170px;
-            height:170px;
-            border:1px solid rgba(96,165,250,.12);
-            border-radius:50%;
-        }
-
-        .cta-box::before{
-            top:-80px;
-            left:-60px;
-        }
-
-        .cta-box::after{
-            right:-70px;
-            bottom:-100px;
-        }
-
-        .cta-label{
-            color:#38BDF8;
-            font-size:10px;
-            font-weight:800;
-            letter-spacing:2.5px;
-        }
-
-        .cta-box h2{
-            position:relative;
-            z-index:2;
-            margin:15px auto;
-            max-width:760px;
-            color:#fff;
-            font-size:clamp(34px,4vw,55px);
-            line-height:1.05;
-            letter-spacing:-1.8px;
-            font-weight:800;
-        }
-
-        .cta-box p{
-            position:relative;
-            z-index:2;
-            max-width:620px;
-            margin:0 auto 27px;
-            color:var(--pnd-muted);
-            line-height:1.8;
-            font-size:14px;
-        }
-
-        .cta-box .pnd-btn{
-            position:relative;
-            z-index:2;
-        }
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .pnd-footer{
-            position:relative;
-            padding:65px 0 25px;
-            background:#050D18;
-            border-top:1px solid rgba(255,255,255,.06);
-        }
-
-        .footer-grid{
-            display:grid;
-            grid-template-columns:1.4fr .8fr .8fr 1fr;
-            gap:45px;
-            padding-bottom:45px;
-        }
-
-        .footer-brand p{
-            max-width:360px;
-            margin-top:18px;
-            color:#64748B;
-            font-size:12px;
-            line-height:1.8;
-        }
-
-        .footer-title{
-            margin-bottom:17px;
-            color:#fff;
-            font-size:12px;
-            font-weight:700;
-            letter-spacing:.5px;
-        }
-
-        .footer-links{
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-        }
-
-        .footer-links a{
-            color:#64748B;
-            font-size:12px;
-            transition:.25s ease;
-        }
-
-        .footer-links a:hover{
-            color:#60A5FA;
-            transform:translateX(3px);
-        }
-
-        .footer-contact{
-            display:flex;
-            flex-direction:column;
-            gap:11px;
-        }
-
-        .footer-contact a,
-        .footer-contact span{
-            display:flex;
-            align-items:center;
-            gap:9px;
-            color:#64748B;
-            font-size:12px;
-        }
-
-        .footer-contact i{
-            color:#38BDF8;
-        }
-
-        .footer-bottom{
-            display:flex;
-            justify-content:space-between;
-            gap:20px;
-            padding-top:22px;
-            border-top:1px solid rgba(255,255,255,.06);
-            color:#475569;
-            font-size:10px;
-        }
-
-        .footer-bottom strong{
-            color:#94A3B8;
-        }
-
-        /* =====================================================
-           REVEAL
-        ===================================================== */
-
-        .reveal{
-            opacity:0;
-            transform:translateY(25px);
-            transition:
-                opacity .8s ease,
-                transform .8s ease;
-        }
-
-        .reveal.show{
-            opacity:1;
-            transform:translateY(0);
-        }
-
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
-
-        @media(max-width:1100px){
-
-            .hero-layout{
-                gap:35px;
-            }
-
-            .hero-title{
-                font-size:58px;
-            }
-
-            .content-grid{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-            .platform-grid{
-                grid-template-columns:repeat(3,1fr);
-            }
-
-            .footer-grid{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-        }
-
-        @media(max-width:991px){
-
-            .pnd-nav-links{
-                position:absolute;
-                top:73px;
-                left:15px;
-                right:15px;
-                display:none;
-                flex-direction:column;
-                align-items:stretch;
-                padding:12px;
-                border:1px solid var(--pnd-border);
-                border-radius:18px;
-                background:rgba(7,17,31,.97);
-                backdrop-filter:blur(20px);
-                box-shadow:0 25px 60px rgba(0,0,0,.35);
-            }
-
-            .pnd-nav-links.show{
-                display:flex;
-            }
-
-            .pnd-nav-links a{
-                width:100%;
-            }
-
-            .pnd-menu{
-                display:block;
-            }
-
-            .hero-layout{
-                grid-template-columns:1fr;
-            }
-
-            .hero-copy{
-                text-align:center;
-            }
-
-            .hero-eyebrow{
-                margin-left:auto;
-                margin-right:auto;
-            }
-
-            .hero-description{
-                margin-left:auto;
-                margin-right:auto;
-            }
-
-            .hero-actions{
-                justify-content:center;
-            }
-
-            .content-studio{
-                max-width:600px;
-                margin:auto;
-            }
-
-            .content-type-layout{
-                grid-template-columns:1fr;
-                gap:45px;
-            }
-
-            .workflow{
-                grid-template-columns:repeat(2,1fr);
-                row-gap:45px;
-            }
-
-            .workflow::before{
-                display:none;
-            }
-
-            .system-grid{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-        }
-
-        @media(max-width:767px){
-
-            .pnd-hero{
-                min-height:auto;
-                padding:130px 0 75px;
-            }
-
-            .hero-title{
-                font-size:43px;
-                letter-spacing:-2px;
-            }
-
-            .hero-description{
-                font-size:14px;
-            }
-
-            .content-studio{
-                min-height:410px;
-                margin-top:20px;
-            }
-
-            .studio-orbit{
-                width:350px;
-                height:350px;
-            }
-
-            .studio-dashboard{
-                width:94%;
-            }
-
-            .card-social{
-                right:0;
-                top:0;
-            }
-
-            .card-campaign{
-                left:0;
-                bottom:5px;
-            }
-
-            .floating-content-card{
-                padding:9px 11px;
-            }
-
-            .floating-content-card i{
-                width:29px;
-                height:29px;
-                font-size:12px;
-            }
-
-            .floating-content-card strong{
-                font-size:9px;
-            }
-
-            .floating-content-card small{
-                font-size:7px;
-            }
-
-            .pnd-section{
-                padding:75px 0;
-            }
-
-            .section-head{
-                margin-bottom:35px;
-            }
-
-            .content-grid{
-                grid-template-columns:1fr;
-            }
-
-            .content-card{
-                min-height:auto;
-            }
-
-            .content-wall{
-                grid-template-columns:1fr 1fr;
-                grid-template-rows:150px 150px 150px;
-            }
-
-            .wall-card.large{
-                grid-column:span 2;
-                grid-row:span 1;
-            }
-
-            .platform-grid{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-            .system-panel{
-                padding:22px;
-            }
-
-            .system-header{
-                align-items:flex-start;
-                flex-direction:column;
-            }
-
-            .system-grid{
-                grid-template-columns:1fr;
-            }
-
-            .cta-box{
-                padding:50px 22px;
-            }
-
-            .footer-grid{
-                grid-template-columns:1fr;
-                gap:30px;
-            }
-
-            .footer-bottom{
-                flex-direction:column;
-            }
-
-        }
-
-        @media(max-width:480px){
-
-            .pnd-brand-text strong{
-                font-size:13px;
-            }
-
-            .pnd-brand-text small{
-                font-size:7px;
-            }
-
-            .pnd-brand-mark{
-                width:38px;
-                height:38px;
-            }
-
-            .hero-title{
-                font-size:38px;
-            }
-
-            .hero-actions{
-                flex-direction:column;
-            }
-
-            .hero-actions .pnd-btn{
-                width:100%;
-            }
-
-            .content-studio{
-                min-height:370px;
-            }
-
-            .studio-orbit{
-                width:290px;
-                height:290px;
-            }
-
-            .content-preview{
-                min-height:200px;
-            }
-
-            .preview-content{
-                padding:20px;
-            }
-
-            .preview-heading{
-                font-size:21px;
-                max-width:190px;
-            }
-
-            .preview-image{
-                width:75px;
-                height:75px;
-                right:15px;
-                bottom:20px;
-            }
-
-            .preview-image::before{
-                width:30px;
-                height:30px;
-                top:15px;
-                left:15px;
-            }
-
-            .preview-image::after{
-                width:20px;
-                height:20px;
-            }
-
-            .content-formats{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-            .card-social{
-                top:-5px;
-                right:5px;
-            }
-
-            .card-campaign{
-                left:5px;
-                bottom:-5px;
-            }
-
-            .workflow{
-                grid-template-columns:1fr;
-            }
-
-            .platform-grid{
-                grid-template-columns:1fr 1fr;
-            }
-
-        }
-
-        @media(prefers-reduced-motion:reduce){
-
-            *,
-            *::before,
-            *::after{
-                animation-duration:.001ms !important;
-                animation-iteration-count:1 !important;
-                scroll-behavior:auto !important;
-                transition-duration:.001ms !important;
-            }
-
-            .reveal{
-                opacity:1;
-                transform:none;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pixel Nest Digital Content Creation — social media content, reels, campaigns, brand storytelling and digital creative assets built to connect with audiences.">
+<title>Content Creation | Pixel Nest Digital</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+:root{
+    --bg:#07111f;
+    --bg2:#0b172a;
+    --paper:#f7f8fa;
+    --white:#fff;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --dark:#111827;
+    --blue:#2563eb;
+    --cyan:#06b6d4;
+    --violet:#7c3aed;
+    --line:rgba(255,255,255,.10);
+    --container:min(1240px,92%);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+img{display:block;width:100%}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.container{width:var(--container);margin:auto}
+
+/* ============================================================
+   PIXEL NEST DIGITAL — HEADER
+   Matched to the updated Videography page
+============================================================ */
+
+:root{
+    --pnd-bg:#06101e;
+    --pnd-bg2:#0b172a;
+    --pnd-white:#ffffff;
+    --pnd-text:#f8fafc;
+    --pnd-muted:#94a3b8;
+    --pnd-blue:#2563eb;
+    --pnd-cyan:#06b6d4;
+    --pnd-violet:#7c3aed;
+    --pnd-line:rgba(255,255,255,.10);
+}
+
+.pnd-top-led{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    z-index:3000;
+    background:linear-gradient(90deg,#2563eb,#06b6d4,#7c3aed,#06b6d4,#2563eb);
+    background-size:300% 100%;
+    animation:pndLedMove 6s linear infinite;
+    box-shadow:0 0 12px rgba(37,99,235,.65),0 0 22px rgba(6,182,212,.35);
+}
+@keyframes pndLedMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.pnd-header{
+    position:fixed;
+    top:3px;
+    left:0;
+    right:0;
+    z-index:2000;
+    min-height:74px;
+    background:linear-gradient(180deg,rgba(7,17,31,.96),rgba(7,17,31,.88));
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.pnd-header.scrolled{
+    background:rgba(5,12,22,.97);
+    border-bottom-color:rgba(96,165,250,.16);
+    box-shadow:0 10px 40px rgba(0,0,0,.28);
+}
+.pnd-header .container{
+    width:min(1440px,100%);
+    margin:auto;
+}
+.pnd-header-inner{
+    min-height:74px;
+    padding-left:55px;
+    padding-right:55px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+.pnd-logo{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+    text-decoration:none;
+    line-height:0;
+}
+.pnd-logo-img{
+    display:block;
+    width:auto;
+    height:52px;
+    max-width:220px;
+    object-fit:contain;
+    transition:transform .3s ease,filter .3s ease;
+}
+.pnd-logo:hover .pnd-logo-img{
+    transform:translateY(-1px) scale(1.025);
+    filter:drop-shadow(0 0 12px rgba(37,99,235,.22));
+}
+
+.pnd-search{
+    flex:1;
+    max-width:400px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:12px;
+    background:rgba(255,255,255,.045);
+}
+.pnd-search-icon{
+    width:43px;height:100%;
+    display:grid;place-items:center;
+    flex-shrink:0;color:#64748b;font-size:14px;
+}
+.pnd-search:focus-within .pnd-search-icon{color:#60a5fa}
+.pnd-search input{
+    flex:1;min-width:0;height:100%;
+    border:0;outline:0;background:transparent;color:#fff;
+    padding:0 8px 0 0;font-size:12px;font-weight:500;
+}
+.pnd-search input::placeholder{color:#64748b}
+.pnd-search button{
+    height:36px;margin:5px;padding:0 17px;flex-shrink:0;
+    border:0;border-radius:8px;color:#fff;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    font-size:11px;font-weight:800;cursor:pointer;
+}
+
+.pnd-nav{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:3px;
+    flex-shrink:0;
+}
+.pnd-nav-link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    min-height:42px;
+    padding:0 11px;
+    border-radius:9px;
+    color:#cbd5e1;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+    text-decoration:none;
+    transition:color .25s ease,background .25s ease,transform .25s ease;
+}
+.pnd-nav-link:hover{color:#fff;background:rgba(255,255,255,.065)}
+.pnd-nav-link.active{color:#fff;background:rgba(37,99,235,.13)}
+.pnd-nav-link.active::after{
+    content:"";
+    position:absolute;left:50%;bottom:4px;
+    width:15px;height:2px;border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+    transform:translateX(-50%);
+}
+.pnd-dropdown{position:relative}
+.pnd-chevron{font-size:9px;transition:transform .25s ease}
+.pnd-dropdown:hover .pnd-chevron{transform:rotate(180deg)}
+.pnd-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;
+    width:270px;padding:8px;
+    opacity:0;visibility:hidden;
+    transform:translate(-50%,8px);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:14px;
+    background:linear-gradient(145deg,rgba(11,23,42,.98),rgba(7,17,31,.98));
+    box-shadow:0 25px 70px rgba(0,0,0,.45),0 0 30px rgba(37,99,235,.08);
+    backdrop-filter:blur(20px);
+    transition:opacity .25s ease,visibility .25s ease,transform .25s ease;
+}
+.pnd-dropdown:hover .pnd-dropdown-menu{
+    opacity:1;visibility:visible;transform:translate(-50%,0);
+}
+.pnd-dropdown-menu::before{
+    content:"";position:absolute;top:0;left:15px;right:15px;height:2px;border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#06b6d4,#7c3aed);
+}
+.pnd-dropdown-item{
+    min-height:42px;display:flex;align-items:center;gap:12px;
+    padding:10px 12px;border-radius:9px;color:#cbd5e1;
+    font-size:11px;font-weight:600;text-decoration:none;
+    transition:color .2s ease,background .2s ease,transform .2s ease;
+}
+.pnd-dropdown-item i{width:25px;display:flex;justify-content:center;color:#60a5fa;font-size:15px}
+.pnd-dropdown-item:hover{
+    color:#fff;
+    background:linear-gradient(90deg,rgba(37,99,235,.14),rgba(6,182,212,.07));
+    transform:translateX(3px);
+}
+
+.pnd-start{
+    min-height:42px;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    margin-left:5px;padding:0 16px;
+    border-radius:9px;color:#fff;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    font-size:11px;font-weight:800;white-space:nowrap;
+    box-shadow:0 8px 25px rgba(37,99,235,.20);
+    transition:transform .25s ease,box-shadow .25s ease;
+}
+.pnd-start:hover{color:#fff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,99,235,.35)}
+
+.pnd-menu-btn{
+    display:none;width:43px;height:43px;margin-left:auto;
+    align-items:center;justify-content:center;
+    border:1px solid rgba(255,255,255,.11);border-radius:10px;
+    color:#fff;background:rgba(255,255,255,.045);cursor:pointer;font-size:20px;
+}
+.pnd-mobile-overlay{
+    position:fixed;inset:0;z-index:2100;background:rgba(0,0,0,.68);
+    backdrop-filter:blur(5px);opacity:0;visibility:hidden;
+    transition:opacity .3s ease,visibility .3s ease;
+}
+.pnd-mobile-overlay.active{opacity:1;visibility:visible}
+.pnd-mobile-menu{
+    position:fixed;top:0;right:0;z-index:2200;
+    width:min(390px,88vw);height:100dvh;
+    padding:20px 20px 30px;overflow-y:auto;
+    display:flex;flex-direction:column;
+    background:linear-gradient(160deg,#07111f 0%,#0b172a 100%);
+    border-left:1px solid rgba(255,255,255,.10);
+    box-shadow:-25px 0 80px rgba(0,0,0,.45);
+    transform:translateX(100%);
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+}
+.pnd-mobile-menu.active{transform:translateX(0)}
+.pnd-mobile-top{
+    min-height:55px;display:flex;align-items:center;justify-content:space-between;
+    gap:15px;margin-bottom:18px;
+}
+.pnd-mobile-top .pnd-logo-img{height:46px;max-width:190px}
+.pnd-mobile-close{
+    width:42px;height:42px;display:grid;place-items:center;flex-shrink:0;
+    border:1px solid rgba(255,255,255,.10);border-radius:10px;
+    color:#fff;background:rgba(255,255,255,.045);cursor:pointer;font-size:16px;
+}
+.pnd-mobile-search{
+    height:46px;display:flex;align-items:center;gap:10px;margin-bottom:15px;padding:0 13px;
+    border:1px solid rgba(255,255,255,.10);border-radius:11px;background:rgba(255,255,255,.045);
+}
+.pnd-mobile-search > i{color:#64748b;font-size:14px}
+.pnd-mobile-search input{
+    flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;color:#fff;font-size:12px;
+}
+.pnd-mobile-search input::placeholder{color:#64748b}
+.pnd-mobile-link{
+    min-height:48px;display:flex;align-items:center;gap:13px;margin-bottom:4px;padding:0 14px;
+    border:1px solid transparent;border-radius:10px;color:#cbd5e1;font-size:13px;font-weight:700;
+    text-decoration:none;transition:.25s ease;
+}
+.pnd-mobile-link > i{width:20px;color:#64748b;text-align:center;font-size:15px}
+.pnd-mobile-link:hover,.pnd-mobile-link.active{color:#fff;background:rgba(255,255,255,.055)}
+.pnd-mobile-services{margin-bottom:4px}
+.pnd-mobile-services > button{
+    width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 14px;border:1px solid transparent;border-radius:10px;color:#cbd5e1;background:transparent;
+    font-size:13px;font-weight:700;cursor:pointer;
+}
+.pnd-mobile-services > button > span{display:flex;align-items:center;gap:13px}
+.pnd-mobile-services > button > i{color:#64748b;font-size:11px;transition:.3s ease}
+.pnd-mobile-services.active > button{color:#fff;background:rgba(37,99,235,.10)}
+.pnd-mobile-services.active > button > i{color:#60a5fa;transform:rotate(180deg)}
+.pnd-mobile-service-list{
+    max-height:0;overflow:hidden;padding:0 8px;opacity:0;
+    transition:max-height .35s ease,opacity .25s ease,padding .35s ease;
+}
+.pnd-mobile-services.active .pnd-mobile-service-list{
+    max-height:650px;padding-top:5px;padding-bottom:6px;opacity:1;
+}
+.pnd-mobile-service-list a{
+    min-height:39px;display:flex;align-items:center;padding:0 12px 0 42px;
+    border-radius:8px;color:#94a3b8;font-size:11px;font-weight:600;text-decoration:none;
+}
+.pnd-mobile-service-list a:hover{color:#fff;background:rgba(255,255,255,.045)}
+.pnd-mobile-service-list a::before{
+    content:"";width:5px;height:5px;margin-right:10px;border-radius:50%;
+    background:#2563eb;box-shadow:0 0 7px rgba(37,99,235,.65);
+}
+.pnd-mobile-actions{margin-top:auto;padding-top:20px}
+.pnd-mobile-action{
+    min-height:50px;display:flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;border-radius:11px;font-size:12px;font-weight:800;text-decoration:none;
+}
+.pnd-mobile-start{
+    color:#fff;background:linear-gradient(135deg,#2563eb,#06b6d4);
+    box-shadow:0 10px 30px rgba(37,99,235,.22);
+}
+body.pnd-menu-open{overflow:hidden}
+
+@media(max-width:1180px){
+    .pnd-header-inner{padding-left:38px;padding-right:38px;gap:15px}
+    .pnd-logo-img{max-width:190px;height:48px}
+    .pnd-search{max-width:300px}
+    .pnd-nav{gap:1px}
+    .pnd-nav-link{padding-left:8px;padding-right:8px;font-size:11px}
+    .pnd-start{padding:0 12px;font-size:10px}
+}
+@media(max-width:1000px){
+    .pnd-search{max-width:240px}
+    .pnd-nav-link{padding-left:7px;padding-right:7px}
+    .pnd-dropdown-menu{width:250px}
+}
+@media(max-width:820px){
+    .pnd-header{min-height:68px}
+    .pnd-header-inner{min-height:68px;padding-left:24px;padding-right:24px}
+    .pnd-logo-img{height:48px;max-width:200px}
+    .pnd-search,.pnd-nav{display:none}
+    .pnd-menu-btn{display:flex}
+}
+@media(max-width:600px){
+    .pnd-header-inner{min-height:65px;padding-left:18px;padding-right:18px}
+    .pnd-logo-img{height:44px;max-width:185px}
+    .pnd-menu-btn{width:41px;height:41px}
+    .pnd-mobile-menu{width:min(390px,91vw);padding-left:17px;padding-right:17px}
+    .pnd-mobile-top .pnd-logo-img{height:43px;max-width:175px}
+}
+@media(max-width:400px){
+    .pnd-header-inner{padding-left:15px;padding-right:15px}
+    .pnd-logo-img{height:40px;max-width:170px}
+    .pnd-menu-btn{width:39px;height:39px;font-size:18px}
+    .pnd-mobile-menu{width:92vw;padding-left:15px;padding-right:15px}
+    .pnd-mobile-top .pnd-logo-img{height:40px;max-width:165px}
+    .pnd-mobile-link,.pnd-mobile-services > button{min-height:46px}
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    min-height:100svh;
+    padding:145px 0 85px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+.hero::before{
+    content:"";position:absolute;width:650px;height:650px;left:-280px;top:0;border-radius:50%;
+    background:radial-gradient(circle,rgba(37,99,235,.20),transparent 68%);
+}
+.hero::after{
+    content:"";position:absolute;width:600px;height:600px;right:-250px;bottom:-250px;border-radius:50%;
+    background:radial-gradient(circle,rgba(124,58,237,.18),transparent 68%);
+}
+.hero-grid{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:65px;align-items:center;
+}
+.eyebrow{
+    display:inline-flex;align-items:center;gap:9px;padding:8px 13px;margin-bottom:22px;
+    border:1px solid rgba(6,182,212,.20);border-radius:30px;background:rgba(6,182,212,.06);
+    color:#67e8f9;font-size:10px;font-weight:800;letter-spacing:1.7px;
+}
+.eyebrow::before{
+    content:"";width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px #22c55e;
+}
+.hero h1{
+    font-size:clamp(48px,6vw,86px);line-height:.98;letter-spacing:-4px;font-weight:800;margin-bottom:25px;
+}
+.hero h1 span{
+    background:linear-gradient(90deg,#60a5fa,#22d3ee,#a78bfa);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy>p{max-width:590px;color:var(--muted);font-size:15px;line-height:1.85;margin-bottom:14px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+    min-height:50px;padding:0 20px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-size:13px;font-weight:800;transition:.3s ease;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{color:#fff;background:linear-gradient(135deg,#2563eb,#7c3aed);box-shadow:0 12px 35px rgba(37,99,235,.25)}
+.btn-secondary{color:#e2e8f0;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+
+.hero-gallery{
+    position:relative;min-height:590px;
+}
+.hero-photo{
+    position:absolute;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:22px;
+    box-shadow:0 30px 80px rgba(0,0,0,.42);transition:.5s ease;
+}
+.hero-photo img{height:100%;object-fit:cover}
+.hero-photo.main{width:63%;height:78%;right:7%;top:8%;transform:rotate(2deg)}
+.hero-photo.small-one{width:35%;height:42%;left:0;top:2%;transform:rotate(-5deg)}
+.hero-photo.small-two{width:34%;height:42%;left:5%;bottom:2%;transform:rotate(4deg)}
+.hero-photo:hover{transform:translateY(-8px) rotate(0)}
+.photo-badge{
+    position:absolute;right:0;bottom:10%;z-index:5;padding:14px 17px;border-radius:13px;
+    border:1px solid rgba(255,255,255,.12);background:rgba(7,17,31,.82);backdrop-filter:blur(15px);
+}
+.photo-badge strong{display:block;font-size:12px}.photo-badge small{color:#64748b;font-size:9px}
+
+/* COMMON */
+.section{padding:100px 0}
+.section-light{background:#f7f8fa;color:#111827}
+.section-head{max-width:780px;margin:0 auto 48px;text-align:center}
+.kicker{font-size:10px;letter-spacing:2px;font-weight:800;color:#22d3ee;margin-bottom:12px}
+.section-light .kicker{color:#2563eb}
+.section-head h2{
+    font-size:clamp(34px,4.5vw,55px);line-height:1.08;letter-spacing:-2px;margin-bottom:14px;font-weight:800;
+}
+.section-head p{color:#94a3b8;font-size:14px;line-height:1.8}
+.section-light .section-head p{color:#64748b}
+
+/* MESSAGE */
+.message-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:65px;align-items:center}
+.message-photo{height:570px;border-radius:24px;overflow:hidden;position:relative}
+.message-photo img{height:100%;object-fit:cover}
+.message-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
+.message-photo-caption{position:absolute;z-index:2;bottom:25px;left:25px}
+.message-photo-caption strong{display:block;font-size:17px}.message-photo-caption span{color:#cbd5e1;font-size:11px}
+.message-content .kicker{text-align:left}
+.message-content h2{font-family:"Playfair Display",serif;font-size:clamp(36px,4.5vw,60px);line-height:1.08;margin-bottom:22px}
+.message-content p{color:#94a3b8;font-size:15px;line-height:1.9;margin-bottom:15px}
+.signature{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.signature strong{display:block;font-family:"Playfair Display",serif;font-size:25px}
+.signature span{color:#64748b;font-size:11px}
+
+/* PORTFOLIO */
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:210px;gap:15px}
+.gallery-item{position:relative;overflow:hidden;border-radius:17px;background:#111827;cursor:pointer}
+.gallery-item img{height:100%;object-fit:cover;transition:.6s ease}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}
+.gallery-info{position:absolute;z-index:2;bottom:18px;left:19px;right:15px}
+.gallery-info span{color:#67e8f9;font-size:9px;letter-spacing:1.5px;font-weight:800}
+.gallery-info h3{font-size:18px;margin-top:4px}
+.g1{grid-column:span 5;grid-row:span 2}.g2{grid-column:span 4}.g3{grid-column:span 3}
+.g4{grid-column:span 3}.g5{grid-column:span 4}.g6{grid-column:span 5;grid-row:span 2}
+
+/* CONTENT CREATION */
+.content-pill{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 11px;margin-top:10px;
+    border:1px solid rgba(37,99,235,.15);border-radius:999px;background:#eff6ff;
+    color:#2563eb;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* SERVICES */
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service-card{
+    min-height:225px;padding:25px;border:1px solid #e5e7eb;border-radius:17px;background:#fff;transition:.35s ease;
+}
+.service-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(15,23,42,.08);border-color:#bfdbfe}
+.service-icon{
+    width:50px;height:50px;display:grid;place-items:center;border-radius:13px;margin-bottom:20px;
+    color:#2563eb;background:#eff6ff;font-size:21px;
+}
+.service-card h3{font-size:17px;margin-bottom:9px}.service-card p{color:#64748b;font-size:12px;line-height:1.7}
+
+/* QUOTE */
+.quote{
+    max-width:930px;margin:auto;text-align:center;padding:65px 30px;border-radius:24px;
+    background:linear-gradient(135deg,#0b172a,#111c35);border:1px solid rgba(96,165,250,.15);
+}
+.quote i{color:#67e8f9;font-size:35px}.quote p{font-family:"Playfair Display",serif;font-size:clamp(25px,3.2vw,42px);line-height:1.35;margin:18px 0}
+.quote small{color:#64748b}
+
+/* CTA */
+.cta{
+    padding:65px;border-radius:24px;position:relative;overflow:hidden;
+    background:radial-gradient(circle at 10% 20%,rgba(37,99,235,.25),transparent 30%),radial-gradient(circle at 90% 70%,rgba(124,58,237,.22),transparent 30%),#0b172a;
+    border:1px solid rgba(96,165,250,.15);
+}
+.cta-content{position:relative;z-index:2;max-width:820px}.cta h2{font-size:clamp(34px,4.5vw,58px);line-height:1.08;margin-bottom:15px}
+.cta h2 span{color:#60a5fa}.cta p{color:#94a3b8;line-height:1.8;font-size:14px;max-width:700px;margin-bottom:25px}
+.whatsapp{background:#16a34a;color:#fff}
+
+/* FOOTER */
+.footer{padding:35px 0;border-top:1px solid rgba(255,255,255,.08);background:#050c16}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer p{color:#64748b;font-size:11px}.social{display:flex;gap:8px}.social a{
+    width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;color:#94a3b8;
+}
+.social a:hover{color:#fff;border-color:#2563eb}
+
+/* MOBILE MENU */
+.mobile-menu,.overlay{display:none}
+
+/* LIGHTBOX */
+.lightbox{
+    position:fixed;inset:0;z-index:2000;display:none;place-items:center;padding:25px;background:rgba(0,0,0,.9);
+}
+.lightbox.active{display:grid}.lightbox img{max-width:min(1100px,94vw);max-height:88vh;object-fit:contain;border-radius:10px}
+.lightbox button{position:absolute;top:20px;right:20px;width:45px;height:45px;border:0;border-radius:50%;background:#fff;color:#111;font-size:22px}
+
+/* TABLET */
+@media(max-width:1100px){
+    .search{max-width:300px}
+    .nav-links a{padding:10px 9px}
+    .hero-grid{gap:35px}
+    .hero-gallery{min-height:520px}
+    .service-grid{grid-template-columns:repeat(2,1fr)}
+    .message-grid{gap:40px}
+}
+
+/* TABLET PORTRAIT */
+@media(max-width:900px){
+    .search{display:none}
+    .nav-links{display:none}
+    .menu-btn{display:grid;place-items:center}
+    .hero{padding-top:125px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-copy{max-width:720px}
+    .hero-gallery{min-height:530px;max-width:700px;width:100%;margin:auto}
+    .message-grid{grid-template-columns:1fr}
+    .message-photo{height:520px;max-width:700px;margin:auto}
+    .message-content{max-width:760px;margin:auto}
+    .gallery-grid{grid-auto-rows:190px}
+    .g1{grid-column:span 6}.g2{grid-column:span 6}.g3{grid-column:span 6}
+    .g4{grid-column:span 6}.g5{grid-column:span 6}.g6{grid-column:span 6}
+}
+
+/* MOBILE */
+@media(max-width:650px){
+    :root{--container:min(100% - 28px,1240px)}
+    .nav{min-height:68px}.logo-mark{width:38px;height:38px}.logo-text strong{font-size:12px}
+    .hero{padding:110px 0 55px;min-height:auto}
+    .hero-grid{gap:25px}
+    .hero h1{font-size:clamp(43px,14vw,66px);letter-spacing:-2.8px}
+    .hero-copy>p{font-size:13px;line-height:1.75}
+    .actions{display:grid;grid-template-columns:1fr;gap:9px}.btn{width:100%}
+    .hero-gallery{min-height:390px}
+    .hero-photo.main{width:61%;height:76%;right:3%}
+    .hero-photo.small-one{width:37%;height:40%;left:0}
+    .hero-photo.small-two{width:37%;height:40%;left:2%;bottom:0}
+    .photo-badge{right:0;bottom:5%;padding:11px 12px}
+    .section{padding:70px 0}
+    .section-head{margin-bottom:32px}
+    .section-head h2{letter-spacing:-1px}
+    .message-photo{height:440px}
+    .message-content h2{font-size:38px}
+    .gallery-grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:10px}
+    .gallery-item,.g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}
+    .g1,.g6{grid-column:span 2}
+    .service-grid{grid-template-columns:1fr;gap:12px}
+    .service-card{min-height:auto}
+    .quote{padding:45px 20px}
+    .cta{padding:42px 24px}
+    .footer-inner{flex-direction:column;text-align:center}
+}
+
+/* SMALL PHONES */
+@media(max-width:400px){
+    .logo-text{display:none}
+    .hero{padding-top:100px}
+    .eyebrow{font-size:8px;letter-spacing:1.2px}
+    .hero h1{font-size:43px}
+    .hero-gallery{min-height:340px}
+    .hero-photo{border-radius:15px}
+    .message-photo{height:370px}
+    .message-content h2{font-size:34px}
+    .gallery-grid{grid-auto-rows:145px}
+    .gallery-info h3{font-size:14px}
+    .gallery-info{left:12px;bottom:12px}
+    .section{padding:58px 0}
+}
+
+/* LANDSCAPE SHORT SCREENS */
+@media(max-width:900px) and (orientation:landscape) and (max-height:520px){
+    .hero{padding:105px 0 40px}
+    .hero-grid{grid-template-columns:1fr 1fr;align-items:center}
+    .hero-gallery{min-height:350px}
+    .hero h1{font-size:48px}
+}
+</style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     GLOBAL LED
-===================================================== -->
+<div class="pnd-top-led"></div>
 
-<div class="pnd-led"></div>
+<header class="pnd-header" id="pndHeader">
+    <div class="container">
+        <div class="pnd-header-inner">
 
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<nav class="pnd-navbar">
-
-    <div class="container-xl">
-
-        <div class="pnd-nav-inner">
-
-            <a href="index.html" class="pnd-brand">
-
-                <div class="pnd-brand-mark">
-                    PN
-                </div>
-
-                <div class="pnd-brand-text">
-                    <strong>Pixel Nest</strong>
-                    <small>DIGITAL</small>
-                </div>
-
+            <a href="index.html" class="pnd-logo" aria-label="Pixel Nest Digital Home">
+                <img src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                     alt="Pixel Nest Digital"
+                     class="pnd-logo-img">
             </a>
 
-
-            <div class="pnd-nav-links" id="pndNav">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="services.html" class="active">
-                    Services
-                </a>
-
-                <a href="portfolio.html">
-                    Portfolio
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-                <a href="contact.html" class="pnd-nav-cta">
-                    Start a Project
-                    <i class="bi bi-arrow-up-right"></i>
-                </a>
-
+            <div class="pnd-search">
+                <i class="bi bi-search pnd-search-icon"></i>
+                <input type="search" id="desktopSearch" placeholder="Search..." aria-label="Search">
+                <button type="button" id="desktopSearchBtn">Search</button>
             </div>
 
+            <nav class="pnd-nav">
 
-            <button
-                class="pnd-menu"
-                id="pndMenu"
-                type="button"
-                aria-label="Open navigation"
-            >
-                <i class="bi bi-list"></i>
+                <a href="index.html" class="pnd-nav-link">Home</a>
+
+                <div class="pnd-dropdown">
+                    <a href="#" class="pnd-nav-link">
+                        Services
+                        <i class="bi bi-chevron-down pnd-chevron"></i>
+                    </a>
+
+                    <div class="pnd-dropdown-menu">
+                        <a href="services.html#website-development" class="pnd-dropdown-item"><i class="bi bi-globe2"></i>Website Development</a>
+                        <a href="services.html#web-applications" class="pnd-dropdown-item"><i class="bi bi-window-stack"></i>Web Applications</a>
+                        <a href="services.html#ai" class="pnd-dropdown-item"><i class="bi bi-stars"></i>AI Solutions</a>
+                        <a href="services.html#robotics" class="pnd-dropdown-item"><i class="bi bi-cpu"></i>Robotics & Automation</a>
+                        <a href="services.html#ecommerce" class="pnd-dropdown-item"><i class="bi bi-cart3"></i>E-commerce</a>
+                        <a href="services.html#database" class="pnd-dropdown-item"><i class="bi bi-database"></i>Software & Database</a>
+                        <a href="services.html#hosting" class="pnd-dropdown-item"><i class="bi bi-cloud"></i>Hosting & Maintenance</a>
+                        <a href="services.html#branding" class="pnd-dropdown-item"><i class="bi bi-palette"></i>Logo & Branding</a>
+                        <a href="content-creation.html" class="pnd-dropdown-item"><i class="bi bi-phone"></i>Content Creation</a>
+                        <a href="videography.html" class="pnd-dropdown-item"><i class="bi bi-camera-reels"></i>Videography</a>
+                    </div>
+                </div>
+
+                <a href="about.html" class="pnd-nav-link">About</a>
+                <a href="team.html" class="pnd-nav-link">Team</a>
+                <a href="Portfolio.html" class="pnd-nav-link">Portfolio</a>
+                <a href="contact.html" class="pnd-nav-link">Contact</a>
+
+                <a href="start-project.html" class="pnd-start">
+                    Start a Project <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+            </nav>
+
+            <button type="button"
+                    class="pnd-menu-btn"
+                    id="pndMenuBtn"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="pndMobileMenu">
+                <i class="bi bi-list" id="pndMenuIcon"></i>
             </button>
 
         </div>
+    </div>
+</header>
 
+<div class="pnd-mobile-overlay" id="pndMobileOverlay"></div>
+
+<aside class="pnd-mobile-menu" id="pndMobileMenu" aria-hidden="true">
+
+    <div class="pnd-mobile-top">
+        <a href="index.html" class="pnd-logo" aria-label="Pixel Nest Digital Home">
+            <img src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                 alt="Pixel Nest Digital"
+                 class="pnd-logo-img">
+        </a>
+
+        <button type="button"
+                class="pnd-mobile-close"
+                id="pndMobileClose"
+                aria-label="Close navigation menu">
+            <i class="bi bi-x-lg"></i>
+        </button>
     </div>
 
-</nav>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="pnd-hero">
-
-    <div class="hero-grid"></div>
-
-    <div class="hero-glow one"></div>
-    <div class="hero-glow two"></div>
-
-
-    <div class="container-xl">
-
-        <div class="hero-layout">
-
-            <!-- LEFT -->
-
-            <div class="hero-copy reveal">
-
-                <div class="hero-eyebrow">
-                    <span class="eyebrow-dot"></span>
-                    DIGITAL CONTENT STUDIO
-                </div>
-
-                <h1 class="hero-title">
-                    Give your brand
-                    <span>something to say.</span>
-                </h1>
-
-                <p class="hero-description">
-                    We create digital content that helps businesses
-                    communicate, connect and stay visible. From social
-                    media creatives and reels to campaigns, promotional
-                    content and branded visuals — we turn ideas into
-                    content people notice.
-                </p>
-
-                <div class="hero-actions">
-
-                    <a
-                        href="contact.html"
-                        class="pnd-btn pnd-btn-primary"
-                    >
-                        Start a Content Project
-                        <i class="bi bi-arrow-up-right"></i>
-                    </a>
-
-                    <a
-                        href="#content-services"
-                        class="pnd-btn pnd-btn-outline"
-                    >
-                        Explore Content
-                        <i class="bi bi-grid"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- RIGHT -->
-
-            <div class="content-studio reveal">
-
-                <div class="studio-orbit"></div>
-
-
-                <div class="floating-content-card card-social">
-
-                    <i class="bi bi-share"></i>
-
-                    <div>
-                        <strong>Social Content</strong>
-                        <small>READY TO PUBLISH</small>
-                    </div>
-
-                </div>
-
-
-                <div class="floating-content-card card-campaign">
-
-                    <i class="bi bi-megaphone"></i>
-
-                    <div>
-                        <strong>Campaign Creative</strong>
-                        <small>CONTENT ACTIVE</small>
-                    </div>
-
-                </div>
-
-
-                <div class="studio-dashboard">
-
-                    <div class="dashboard-top">
-
-                        <div class="dashboard-title">
-                            <i class="bi bi-stars"></i>
-                            PIXEL CONTENT STUDIO
-                        </div>
-
-                        <div class="dashboard-status">
-                            <span class="status-dot"></span>
-                            LIVE
-                        </div>
-
-                    </div>
-
-
-                    <div class="content-preview">
-
-                        <div class="preview-gradient"></div>
-
-                        <div class="preview-content">
-
-                            <span class="preview-label">
-                                BRAND STORY
-                            </span>
-
-                            <div class="preview-heading">
-                                Make every post
-                                worth noticing.
-                            </div>
-
-                            <div class="preview-line"></div>
-                            <div class="preview-small"></div>
-
-                        </div>
-
-                        <div class="preview-image"></div>
-
-                    </div>
-
-
-                    <div class="content-formats">
-
-                        <div class="format-box">
-                            <i class="bi bi-phone"></i>
-                            <span>REELS</span>
-                        </div>
-
-                        <div class="format-box">
-                            <i class="bi bi-image"></i>
-                            <span>POSTS</span>
-                        </div>
-
-                        <div class="format-box">
-                            <i class="bi bi-megaphone"></i>
-                            <span>ADS</span>
-                        </div>
-
-                        <div class="format-box">
-                            <i class="bi bi-play-btn"></i>
-                            <span>VIDEO</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="dashboard-progress">
-
-                        <div class="progress-head">
-                            <span>CONTENT CAMPAIGN</span>
-                            <span>78%</span>
-                        </div>
-
-                        <div class="progress-bar-custom">
-                            <div class="progress-fill"></div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="pnd-mobile-search">
+        <i class="bi bi-search"></i>
+        <input type="search" id="mobileSearch" placeholder="Search..." aria-label="Search">
     </div>
 
-</section>
+    <a href="index.html" class="pnd-mobile-link">
+        <i class="bi bi-house"></i><span>Home</span>
+    </a>
 
+    <div class="pnd-mobile-services" id="pndMobileServices">
+        <button type="button" id="mobileServicesBtn" aria-expanded="false" aria-controls="mobileServicesList">
+            <span><i class="bi bi-grid"></i> Services</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-<!-- =====================================================
-     CONTENT SERVICES
-===================================================== -->
-
-<section
-    class="pnd-section pnd-section-alt"
-    id="content-services"
->
-
-    <div class="container-xl">
-
-        <div class="section-head reveal">
-
-            <div class="section-eyebrow">
-                WHAT WE CREATE
-            </div>
-
-            <h2 class="section-title">
-                Content designed for
-                attention and connection.
-            </h2>
-
-            <p class="section-description">
-                Your audience sees hundreds of pieces of content every
-                day. We help your brand create content that feels
-                intentional, consistent and relevant.
-            </p>
-
+        <div class="pnd-mobile-service-list" id="mobileServicesList">
+            <a href="services.html#website-development">Website Development</a>
+            <a href="services.html#web-applications">Web Applications</a>
+            <a href="services.html#ai">AI Solutions</a>
+            <a href="services.html#robotics">Robotics & Automation</a>
+            <a href="services.html#ecommerce">E-commerce</a>
+            <a href="services.html#database">Software & Database</a>
+            <a href="services.html#hosting">Hosting & Maintenance</a>
+            <a href="services.html#branding">Logo & Branding</a>
+            <a href="content-creation.html">Content Creation</a>
+            <a href="videography.html">Videography</a>
         </div>
-
-
-        <div class="content-grid">
-
-            <!-- 01 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    01
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-lightbulb"></i>
-                </div>
-
-                <h3>Content Strategy</h3>
-
-                <p>
-                    Build a clear content direction around your brand,
-                    audience, goals and communication style.
-                </p>
-
-            </article>
-
-
-            <!-- 02 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    02
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-instagram"></i>
-                </div>
-
-                <h3>Social Media Content</h3>
-
-                <p>
-                    Create engaging social posts, carousels and visual
-                    content that keep your digital presence active.
-                </p>
-
-            </article>
-
-
-            <!-- 03 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    03
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-phone"></i>
-                </div>
-
-                <h3>Reels & Short Content</h3>
-
-                <p>
-                    Short-form content built for mobile-first audiences,
-                    social platforms and fast-moving campaigns.
-                </p>
-
-            </article>
-
-
-            <!-- 04 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    04
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-palette"></i>
-                </div>
-
-                <h3>Posters & Creatives</h3>
-
-                <p>
-                    Promotional posters, announcements, offers and
-                    branded graphics designed around your identity.
-                </p>
-
-            </article>
-
-
-            <!-- 05 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    05
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-megaphone"></i>
-                </div>
-
-                <h3>Campaign Content</h3>
-
-                <p>
-                    Coordinated visual content for launches, promotions,
-                    events, seasonal campaigns and announcements.
-                </p>
-
-            </article>
-
-
-            <!-- 06 -->
-
-            <article class="content-card reveal">
-
-                <span class="content-number">
-                    06
-                </span>
-
-                <div class="content-icon">
-                    <i class="bi bi-building"></i>
-                </div>
-
-                <h3>Business Content</h3>
-
-                <p>
-                    Professional content for businesses, products,
-                    services, events and everyday communication.
-                </p>
-
-            </article>
-
-        </div>
-
     </div>
 
-</section>
-
-
-<!-- =====================================================
-     CONTENT TYPES
-===================================================== -->
-
-<section class="pnd-section">
-
-    <div class="container-xl">
-
-        <div class="content-type-layout">
-
-            <div class="reveal">
-
-                <div class="section-eyebrow">
-                    CONTENT COLLECTION
-                </div>
-
-                <h2 class="section-title">
-                    One brand.
-                    Many ways to communicate.
-                </h2>
-
-                <p class="section-description">
-                    We create different content formats while keeping
-                    your brand identity consistent across every channel.
-                </p>
-
-
-                <div class="type-list mt-4">
-
-                    <div class="type-item">
-
-                        <div class="type-icon">
-                            <i class="bi bi-images"></i>
-                        </div>
-
-                        <div>
-                            <strong>Static Creatives</strong>
-                            <span>Posts, banners, posters and graphics</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="type-item">
-
-                        <div class="type-icon">
-                            <i class="bi bi-collection-play"></i>
-                        </div>
-
-                        <div>
-                            <strong>Short-form Video</strong>
-                            <span>Reels, shorts and promotional clips</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="type-item">
-
-                        <div class="type-icon">
-                            <i class="bi bi-layout-text-window"></i>
-                        </div>
-
-                        <div>
-                            <strong>Digital Campaigns</strong>
-                            <span>Launches, offers and campaign assets</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="type-item">
-
-                        <div class="type-icon">
-                            <i class="bi bi-file-earmark-richtext"></i>
-                        </div>
-
-                        <div>
-                            <strong>Business Content</strong>
-                            <span>Professional information and promotion</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONTENT WALL -->
-
-            <div class="content-wall reveal">
-
-                <div class="wall-card large">
-
-                    <div class="wall-art wall-one">
-
-                        <div class="wall-shape"></div>
-
-                    </div>
-
-                    <div class="wall-text">
-
-                        <small>Creative Direction</small>
-
-                        <strong>Brand Stories</strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="wall-card">
-
-                    <div class="wall-art wall-two"></div>
-
-                    <div class="wall-text">
-
-                        <small>Social</small>
-
-                        <strong>Posts</strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="wall-card">
-
-                    <div class="wall-art wall-three"></div>
-
-                    <div class="wall-text">
-
-                        <small>Short Form</small>
-
-                        <strong>Reels</strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="wall-card">
-
-                    <div class="wall-art wall-four"></div>
-
-                    <div class="wall-text">
-
-                        <small>Promotion</small>
-
-                        <strong>Campaigns</strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="wall-card">
-
-                    <div class="wall-art wall-five"></div>
-
-                    <div class="wall-text">
-
-                        <small>Business</small>
-
-                        <strong>Communication</strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <a href="about.html" class="pnd-mobile-link"><i class="bi bi-info-circle"></i><span>About</span></a>
+    <a href="team.html" class="pnd-mobile-link"><i class="bi bi-people"></i><span>Team</span></a>
+    <a href="Portfolio.html" class="pnd-mobile-link active"><i class="bi bi-briefcase"></i><span>Portfolio</span></a>
+    <a href="contact.html" class="pnd-mobile-link"><i class="bi bi-envelope"></i><span>Contact</span></a>
+
+    <div class="pnd-mobile-actions">
+        <a href="start-project.html" class="pnd-mobile-action pnd-mobile-start">
+            Start a Project <i class="bi bi-arrow-up-right"></i>
+        </a>
     </div>
 
-</section>
+</aside>
 
+<main>
 
-<!-- =====================================================
-     WORKFLOW
-===================================================== -->
+<section class="hero" id="home">
+    <div class="container hero-grid">
 
-<section class="pnd-section pnd-section-alt">
+        <div class="hero-copy">
+            <div class="eyebrow">PIXEL NEST DIGITAL / CONTENT CREATION</div>
 
-    <div class="container-xl">
-
-        <div class="section-head reveal text-center mx-auto">
-
-            <div class="section-eyebrow">
-                OUR CONTENT WORKFLOW
-            </div>
-
-            <h2 class="section-title">
-                From idea to published content.
-            </h2>
-
-            <p class="section-description mx-auto">
-                A simple process keeps the content focused, consistent
-                and aligned with your brand.
-            </p>
-
-        </div>
-
-
-        <div class="workflow">
-
-            <div class="workflow-step reveal">
-
-                <div class="workflow-icon">
-                    <i class="bi bi-lightbulb"></i>
-                </div>
-
-                <h3>Discover</h3>
-
-                <p>
-                    Understand your brand, audience, goals and content
-                    requirements.
-                </p>
-
-            </div>
-
-
-            <div class="workflow-step reveal">
-
-                <div class="workflow-icon">
-                    <i class="bi bi-pencil-square"></i>
-                </div>
-
-                <h3>Create</h3>
-
-                <p>
-                    Develop concepts, visuals, copy and creative
-                    directions.
-                </p>
-
-            </div>
-
-
-            <div class="workflow-step reveal">
-
-                <div class="workflow-icon">
-                    <i class="bi bi-sliders"></i>
-                </div>
-
-                <h3>Refine</h3>
-
-                <p>
-                    Review, polish and align every asset with your
-                    brand identity.
-                </p>
-
-            </div>
-
-
-            <div class="workflow-step reveal">
-
-                <div class="workflow-icon">
-                    <i class="bi bi-send"></i>
-                </div>
-
-                <h3>Deliver</h3>
-
-                <p>
-                    Receive platform-ready content prepared for your
-                    digital channels.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PLATFORMS
-===================================================== -->
-
-<section class="pnd-section">
-
-    <div class="container-xl">
-
-        <div class="section-head reveal">
-
-            <div class="section-eyebrow">
-                PLATFORM READY
-            </div>
-
-            <h2 class="section-title">
-                Content that fits where
-                your audience spends time.
-            </h2>
-
-            <p class="section-description">
-                We prepare content in formats suitable for different
-                digital platforms and communication channels.
-            </p>
-
-        </div>
-
-
-        <div class="platform-grid">
-
-            <div class="platform-card reveal">
-                <i class="bi bi-instagram"></i>
-                <strong>Instagram</strong>
-                <span>POSTS · REELS · STORIES</span>
-            </div>
-
-            <div class="platform-card reveal">
-                <i class="bi bi-facebook"></i>
-                <strong>Facebook</strong>
-                <span>POSTS · CAMPAIGNS</span>
-            </div>
-
-            <div class="platform-card reveal">
-                <i class="bi bi-youtube"></i>
-                <strong>YouTube</strong>
-                <span>VIDEOS · SHORTS</span>
-            </div>
-
-            <div class="platform-card reveal">
-                <i class="bi bi-linkedin"></i>
-                <strong>LinkedIn</strong>
-                <span>BUSINESS CONTENT</span>
-            </div>
-
-            <div class="platform-card reveal">
-                <i class="bi bi-globe2"></i>
-                <strong>Web</strong>
-                <span>BANNERS · GRAPHICS</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTENT SYSTEM
-===================================================== -->
-
-<section class="pnd-section pnd-section-alt">
-
-    <div class="container-xl">
-
-        <div class="system-panel reveal">
-
-            <div class="system-header">
-
-                <div>
-
-                    <h3>
-                        PIXEL CONTENT SYSTEM
-                    </h3>
-
-                    <p>
-                        A flexible content system built around your brand.
-                    </p>
-
-                </div>
-
-                <div class="system-badge">
-                    <span class="status-dot"></span>
-                    CONTENT READY
-                </div>
-
-            </div>
-
-
-            <div class="system-grid">
-
-                <div class="system-item">
-
-                    <i class="bi bi-palette"></i>
-
-                    <strong>Brand Consistency</strong>
-
-                    <span>
-                        Maintain your visual identity across different
-                        content formats.
-                    </span>
-
-                </div>
-
-
-                <div class="system-item">
-
-                    <i class="bi bi-phone"></i>
-
-                    <strong>Mobile First</strong>
-
-                    <span>
-                        Content designed around the way modern audiences
-                        consume digital media.
-                    </span>
-
-                </div>
-
-
-                <div class="system-item">
-
-                    <i class="bi bi-grid"></i>
-
-                    <strong>Multiple Formats</strong>
-
-                    <span>
-                        Static, vertical, horizontal, social and
-                        promotional formats.
-                    </span>
-
-                </div>
-
-
-                <div class="system-item">
-
-                    <i class="bi bi-calendar3"></i>
-
-                    <strong>Content Planning</strong>
-
-                    <span>
-                        Build a structured content flow for campaigns
-                        and regular communication.
-                    </span>
-
-                </div>
-
-
-                <div class="system-item">
-
-                    <i class="bi bi-megaphone"></i>
-
-                    <strong>Promotional Ready</strong>
-
-                    <span>
-                        Create content for offers, launches, events and
-                        business announcements.
-                    </span>
-
-                </div>
-
-
-                <div class="system-item">
-
-                    <i class="bi bi-arrow-repeat"></i>
-
-                    <strong>Reusable Assets</strong>
-
-                    <span>
-                        Create flexible visual assets that can evolve
-                        with your content needs.
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CTA
-===================================================== -->
-
-<section class="pnd-cta">
-
-    <div class="container-xl">
-
-        <div class="cta-box reveal">
-
-            <div class="cta-label">
-                READY TO CREATE?
-            </div>
-
-            <h2>
-                Let's give your brand
-                something worth sharing.
-            </h2>
+            <h1>
+                Ideas<br>
+                worth<br>
+                <span>sharing.</span>
+            </h1>
 
             <p>
-                Tell us about your business, campaign or content idea.
-                We'll help turn it into a clear and creative digital
-                content plan.
+                We create scroll-stopping content that turns ideas, products, people and brands into clear, engaging digital stories.
             </p>
 
-            <a
-                href="contact.html"
-                class="pnd-btn pnd-btn-primary"
-            >
-                Start a Content Project
-                <i class="bi bi-arrow-up-right"></i>
-            </a>
+            <p>
+                From Reels and social posts to campaigns and branded visuals, we combine strategy, creativity and production to make every piece of content purposeful.
+            </p>
 
+            <div class="actions">
+                <a class="btn btn-primary" target="_blank"
+                   href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital,%20I%20would%20like%20to%20discuss%20a%20photography%20project.">
+                    Start a Content Project <i class="bi bi-whatsapp"></i>
+                </a>
+                <a class="btn btn-secondary" href="#portfolio">
+                    Explore Content Work <i class="bi bi-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-gallery">
+            <div class="hero-photo small-one">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85" alt="Content planning and creation">
+            </div>
+            <div class="hero-photo main">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Creative content production">
+            </div>
+            <div class="hero-photo small-two">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=85" alt="Digital content workspace">
+            </div>
+            <div class="photo-badge">
+                <strong>Content That Connects</strong>
+                <small>Reels • Social • Brands • Campaigns</small>
+            </div>
         </div>
 
     </div>
-
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="pnd-footer">
-
-    <div class="container-xl">
-
-        <div class="footer-grid">
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <a href="index.html" class="pnd-brand">
-
-                    <div class="pnd-brand-mark">
-                        PN
-                    </div>
-
-                    <div class="pnd-brand-text">
-                        <strong>Pixel Nest</strong>
-                        <small>DIGITAL</small>
-                    </div>
-
-                </a>
-
-                <p>
-                    Digital solutions and creative services for
-                    businesses, brands and ideas ready to grow.
-                </p>
-
+<section class="section" id="about">
+    <div class="container message-grid">
+        <div class="message-photo">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1100&q=85" alt="Content creation team planning">
+            <div class="message-photo-caption">
+                <strong>Behind every piece of content is a story.</strong>
+                <span>Pixel Nest Digital Content Creation</span>
             </div>
-
-
-            <!-- SERVICES -->
-
-            <div>
-
-                <div class="footer-title">
-                    SERVICES
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="website-development.html">
-                        Website Development
-                    </a>
-
-                    <a href="web-applications.html">
-                        Web Applications
-                    </a>
-
-                    <a href="e-commerce.html">
-                        E-Commerce
-                    </a>
-
-                    <a href="software-database.html">
-                        Software & Database
-                    </a>
-
-                    <a href="digital-content.html">
-                        Digital Content
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- CREATIVE -->
-
-            <div>
-
-                <div class="footer-title">
-                    CREATIVE
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="logo-brand-design.html">
-                        Logo & Brand Design
-                    </a>
-
-                    <a href="photography.html">
-                        Photography
-                    </a>
-
-                    <a href="videography.html">
-                        Videography
-                    </a>
-
-                    <a href="video-editing.html">
-                        Video Editing
-                    </a>
-
-                    <a href="portfolio.html">
-                        Portfolio
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONTACT -->
-
-            <div>
-
-                <div class="footer-title">
-                    CONTACT
-                </div>
-
-                <div class="footer-contact">
-
-                    <a href="mailto:contact@jogeowebstudio.com">
-                        <i class="bi bi-envelope"></i>
-                        contact@jogeowebstudio.com
-                    </a>
-
-                    <a href="tel:+917736755820">
-                        <i class="bi bi-telephone"></i>
-                        +91 77367 55820
-                    </a>
-
-                    <span>
-                        <i class="bi bi-geo-alt"></i>
-                        Kerala, India
-                    </span>
-
-                    <a href="contact.html">
-                        <i class="bi bi-arrow-up-right"></i>
-                        Start a Project
-                    </a>
-
-                </div>
-
-            </div>
-
         </div>
 
+        <div class="message-content">
+            <div class="kicker">A CREATOR'S MESSAGE</div>
+            <h2>Content creation is not just about making a post.</h2>
 
-        <div class="footer-bottom">
+            <p>
+                Great content begins with attention. We look at the audience, the message, the platform and the moment — then turn those ingredients into content that feels natural, useful and memorable.
+            </p>
 
-            <div>
-                © <span id="year"></span>
-                <strong>Pixel Nest Digital</strong>.
-                All rights reserved.
+            <p>
+                Our approach is simple: understand the brand first, build a clear content direction, then create visuals that feel authentic while staying consistent with the brand.
+            </p>
+
+            <p>
+                Whether we are creating a Reel, product campaign, social post or brand story, we focus on the hook, visual language, message and call-to-action. The goal is not simply to publish more, but to publish with purpose.
+            </p>
+
+            <div class="signature">
+                <strong>— Your Content Partner</strong>
+                <span>Pixel Nest Digital</span>
             </div>
-
-            <div>
-                A <strong>JO-GEO VENTURES</strong> initiative.
-            </div>
-
         </div>
-
     </div>
+</section>
 
+<section class="section section-light" id="portfolio">
+    <div class="container">
+        <div class="section-head">
+            <div class="kicker">SELECTED WORK</div>
+            <h2>Ideas turned into content.</h2>
+            <p>
+                A collection of content directions covering social media, Reels, brand campaigns, products, creators and digital storytelling.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item g1" data-image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Creative content production">
+                <div class="gallery-info"><span>01 / SOCIAL MEDIA</span><h3>Scroll-Stopping Reels</h3></div>
+            </div>
+
+            <div class="gallery-item g2" data-image="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=85" alt="Brand content">
+                <div class="gallery-info"><span>02 / BRAND CONTENT</span><h3>People Behind the Brand</h3></div>
+            </div>
+
+            <div class="gallery-item g3" data-image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85" alt="Campaign content">
+                <div class="gallery-info"><span>03 / CAMPAIGNS</span><h3>Campaign Storytelling</h3></div>
+            </div>
+
+            <div class="gallery-item g4" data-image="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1000&q=85" alt="Brand creative content">
+                <div class="gallery-info"><span>04 / CREATIVE</span><h3>Brand Visuals</h3></div>
+            </div>
+
+            <div class="gallery-item g5" data-image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=85" alt="Product content">
+                <div class="gallery-info"><span>05 / PRODUCT CONTENT</span><h3>Content That Converts</h3></div>
+            </div>
+
+            <div class="gallery-item g6" data-image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Social media storytelling">
+                <div class="gallery-info"><span>06 / SOCIAL STORIES</span><h3>Stories That Connect</h3></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-head">
+            <div class="kicker">CONTENT CREATION SERVICES</div>
+            <h2>Content built for real audiences.</h2>
+            <p>Flexible content solutions for brands, creators, businesses, products and digital campaigns.</p>
+        </div>
+
+        <div class="service-grid">
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-phone"></i></div>
+                <h3>Social Media Content</h3>
+                <p>Consistent, platform-ready content for Instagram, Facebook and other digital channels, built around your brand voice.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-play-btn"></i></div>
+                <h3>Reels & Short Videos</h3>
+                <p>Hooks, scripts, shooting direction and edits designed for engaging short-form videos and modern social platforms.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-megaphone"></i></div>
+                <h3>Campaign Content</h3>
+                <p>Creative assets and storytelling concepts for launches, promotions, seasonal campaigns and digital marketing.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-box-seam"></i></div>
+                <h3>Product Content</h3>
+                <p>Product-focused visuals and videos that explain features, communicate value and support online selling.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-palette"></i></div>
+                <h3>Brand Content</h3>
+                <p>A consistent visual direction for your brand across posts, stories, campaigns, website and digital touchpoints.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-lightbulb"></i></div>
+                <h3>Content Strategy</h3>
+                <p>Content pillars, themes, hooks and creative directions that help turn your goals into a practical content plan.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-camera-reels"></i></div>
+                <h3>Creative Production</h3>
+                <p>End-to-end production support from concept and shot planning to filming, editing and final delivery.</p>
+            </article>
+
+            <article class="service-card">
+                <div class="service-icon"><i class="bi bi-stars"></i></div>
+                <h3>Custom Content</h3>
+                <p>Have a different idea? We can shape the concept, format, platform and production approach around your needs.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="container">
+        <div class="quote">
+            <i class="bi bi-quote"></i>
+            <p>
+                “Good content does more than fill a feed — it gives people a reason to stop, understand and remember.”
+            </p>
+            <small>— Pixel Nest Digital Content Creation</small>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+        <div class="cta">
+            <div class="cta-content">
+                <div class="kicker">START YOUR CONTENT PROJECT</div>
+                <h2>Have an idea worth <span>sharing?</span></h2>
+                <p>
+                    Tell us about your content requirement — Reels, social media, product content, brand campaigns or a creative idea. We can discuss the concept, platforms, production and content plan with you.
+                </p>
+                <a class="btn whatsapp" target="_blank"
+                   href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital,%20I%20would%20like%20to%20book%20a%20photography%20session.">
+                    <i class="bi bi-whatsapp"></i> Discuss Your Content Project
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div>
+            <strong>Pixel Nest Digital</strong>
+            <p>Technology • Creativity • Content Solutions</p>
+        </div>
+
+        <div class="social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/917736755820" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+
+        <p>© 2026 Pixel Nest Digital. All Rights Reserved.</p>
+    </div>
 </footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<div class="lightbox" id="lightbox">
+    <button id="closeLightbox" aria-label="Close image"><i class="bi bi-x-lg"></i></button>
+    <img id="lightboxImage" src="" alt="Expanded content visual">
+</div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    /* =====================================================
-       MOBILE NAVIGATION
-    ===================================================== */
+    const header = document.getElementById("pndHeader");
+    const menuBtn = document.getElementById("pndMenuBtn");
+    const menuIcon = document.getElementById("pndMenuIcon");
+    const mobileMenu = document.getElementById("pndMobileMenu");
+    const mobileOverlay = document.getElementById("pndMobileOverlay");
+    const mobileClose = document.getElementById("pndMobileClose");
 
-    const pndMenu = document.getElementById("pndMenu");
-    const pndNav = document.getElementById("pndNav");
+    const servicesContainer = document.getElementById("pndMobileServices");
+    const servicesBtn = document.getElementById("mobileServicesBtn");
+    const servicesList = document.getElementById("mobileServicesList");
 
-    if(pndMenu && pndNav){
+    const desktopSearch = document.getElementById("desktopSearch");
+    const desktopSearchBtn = document.getElementById("desktopSearchBtn");
+    const mobileSearch = document.getElementById("mobileSearch");
 
-        pndMenu.addEventListener("click", function(){
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
 
-            pndNav.classList.toggle("show");
+    function updateHeader() {
+        if (header) header.classList.toggle("scrolled", window.scrollY > 15);
+    }
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, {passive:true});
 
-            const icon = pndMenu.querySelector("i");
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add("active");
+        if (mobileOverlay) mobileOverlay.classList.add("active");
+        document.body.classList.add("pnd-menu-open");
 
-            if(pndNav.classList.contains("show")){
-                icon.className = "bi bi-x-lg";
-            }else{
-                icon.className = "bi bi-list";
-            }
+        if (menuBtn) {
+            menuBtn.setAttribute("aria-expanded","true");
+            menuBtn.setAttribute("aria-label","Close navigation menu");
+        }
+        mobileMenu.setAttribute("aria-hidden","false");
 
-        });
-
-
-        pndNav.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                pndNav.classList.remove("show");
-
-                const icon = pndMenu.querySelector("i");
-
-                icon.className = "bi bi-list";
-
-            });
-
-        });
-
+        if (menuIcon) {
+            menuIcon.classList.remove("bi-list");
+            menuIcon.classList.add("bi-x-lg");
+        }
     }
 
+    function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove("active");
+        if (mobileOverlay) mobileOverlay.classList.remove("active");
+        document.body.classList.remove("pnd-menu-open");
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
+        if (menuBtn) {
+            menuBtn.setAttribute("aria-expanded","false");
+            menuBtn.setAttribute("aria-label","Open navigation menu");
+        }
+        mobileMenu.setAttribute("aria-hidden","true");
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-    const revealObserver =
-        new IntersectionObserver(
-
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if(entry.isIntersecting){
-
-                        entry.target.classList.add("show");
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-
-            {
-                threshold:.12
-            }
-
-        );
-
-
-    revealElements.forEach(element => {
-
-        revealObserver.observe(element);
-
-    });
-
-
-    /* =====================================================
-       DYNAMIC YEAR
-    ===================================================== */
-
-    const yearElement =
-        document.getElementById("year");
-
-    if(yearElement){
-
-        yearElement.textContent =
-            new Date().getFullYear();
-
+        if (menuIcon) {
+            menuIcon.classList.remove("bi-x-lg");
+            menuIcon.classList.add("bi-list");
+        }
     }
 
-
-    /* =====================================================
-       SMOOTH INTERNAL LINKS
-    ===================================================== */
-
-    document.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach(link => {
-
-        link.addEventListener("click", function(event){
-
-            const targetId =
-                this.getAttribute("href");
-
-            if(
-                targetId &&
-                targetId !== "#"
-            ){
-
-                const target =
-                    document.querySelector(targetId);
-
-                if(target){
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior:"smooth",
-                        block:"start"
-                    });
-
-                }
-
+    if (menuBtn) {
+        menuBtn.addEventListener("click", function () {
+            if (mobileMenu && mobileMenu.classList.contains("active")) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
             }
-
         });
+    }
 
+    if (mobileClose) mobileClose.addEventListener("click", closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener("click", closeMobileMenu);
+
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll("a").forEach(function(link) {
+            link.addEventListener("click", closeMobileMenu);
+        });
+    }
+
+    if (servicesBtn && servicesContainer) {
+        servicesBtn.addEventListener("click", function () {
+            const open = servicesContainer.classList.toggle("active");
+            servicesBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+
+    function performSearch(input) {
+        if (!input) return;
+        const query = input.value.trim().toLowerCase();
+        if (!query) {
+            input.focus();
+            return;
+        }
+
+        if (query.includes("content") || query.includes("reel") || query.includes("social") ||
+            query.includes("brand") || query.includes("campaign") || query.includes("product") ||
+            query.includes("video")) {
+            const portfolio = document.getElementById("portfolio");
+            if (portfolio) {
+                closeMobileMenu();
+                portfolio.scrollIntoView({behavior:"smooth", block:"start"});
+                return;
+            }
+        }
+
+        if (query.includes("website") || query.includes("web")) {
+            window.location.href = "services.html#web-applications";
+            return;
+        }
+        if (query.includes("ai")) {
+            window.location.href = "services.html#ai";
+            return;
+        }
+        if (query.includes("robot") || query.includes("automation")) {
+            window.location.href = "services.html#robotics";
+            return;
+        }
+        if (query.includes("ecommerce") || query.includes("e-commerce") || query.includes("shop")) {
+            window.location.href = "services.html#ecommerce";
+            return;
+        }
+        if (query.includes("database") || query.includes("software")) {
+            window.location.href = "services.html#database";
+            return;
+        }
+        if (query.includes("hosting") || query.includes("maintenance")) {
+            window.location.href = "services.html#hosting";
+            return;
+        }
+        if (query.includes("logo") || query.includes("brand") || query.includes("branding")) {
+            window.location.href = "services.html#branding";
+            return;
+        }
+        alert("Searching Pixel Nest Digital for: " + input.value);
+    }
+
+    if (desktopSearch) {
+        desktopSearch.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") performSearch(desktopSearch);
+        });
+    }
+    if (desktopSearchBtn) {
+        desktopSearchBtn.addEventListener("click", function() {
+            performSearch(desktopSearch);
+        });
+    }
+    if (mobileSearch) {
+        mobileSearch.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") performSearch(mobileSearch);
+        });
+    }
+
+    document.querySelectorAll(".gallery-item").forEach(function(card) {
+        card.addEventListener("click", function() {
+            if (!lightbox || !lightboxImage) return;
+            const image = card.getAttribute("data-image");
+            if (!image) return;
+            lightboxImage.src = image;
+            lightbox.classList.add("active");
+        });
     });
 
+    function closeLightbox() {
+        if (lightbox) lightbox.classList.remove("active");
+        if (lightboxImage) lightboxImage.src = "";
+    }
+
+    if (document.getElementById("closeLightbox")) {
+        document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+    }
+    if (lightbox) {
+        lightbox.addEventListener("click", function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeMobileMenu();
+            closeLightbox();
+        }
+    });
+
+});
 </script>
-
-
-<!-- Bootstrap JS -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
 </body>
 </html>
