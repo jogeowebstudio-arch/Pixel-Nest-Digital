@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Joshua & Grace — Holy Matrimony</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+ --ivory:#faf7f2; --paper:#fffdf9; --ink:#28231e; --muted:#756d64;
+ --gold:#c79538; --gold2:#e4c47b; --gold3:#8e641f;
+ --sage:#64745f; --line:rgba(199,149,56,.25);
+ --shadow:0 25px 80px rgba(64,44,17,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Montserrat,sans-serif;overflow-x:hidden}
+img{max-width:100%;display:block}
+button,a{touch-action:manipulation}
+.font-cinzel{font-family:Cinzel,serif}.font-cormorant{font-family:"Cormorant Garamond",serif}.font-script{font-family:"Great Vibes",cursive}
+.text-gold{color:var(--gold3)}
+.gold-line{width:72px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto}
+.section-pad{padding:110px 20px}
+.section-head{text-align:center;max-width:760px;margin:0 auto 55px}
+.section-head .eyebrow{font:400 30px "Great Vibes";color:var(--gold3)}
+.section-head h2{font:700 clamp(30px,4vw,50px) Cinzel,serif;margin:8px 0}
+.section-head p{color:var(--muted);font-size:14px;line-height:1.9}
+.glass{background:rgba(255,253,249,.78);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--shadow)}
+.lace{background-color:var(--ivory);background-image:radial-gradient(rgba(199,149,56,.16) .7px,transparent .7px);background-size:22px 22px}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.float{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes rotate3d{from{transform:rotateY(0) rotateX(8deg)}to{transform:rotateY(360deg) rotateX(8deg)}}
+@keyframes shimmer{0%{background-position:-300% 0}100%{background-position:300% 0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(199,149,56,.25)}50%{box-shadow:0 0 0 18px rgba(199,149,56,0)}}
+
+#navbar{transition:.35s}
+.nav-scrolled{background:rgba(255,253,249,.94)!important;box-shadow:0 10px 40px rgba(30,20,10,.08)}
+.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.mobile-menu.open{max-height:500px}
+.nav-link{position:relative}.nav-link:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--gold);transition:.3s}.nav-link:hover:after{width:100%}
+
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:125px 20px 80px}
+.hero-bg{position:absolute;inset:0;background:
+ linear-gradient(180deg,rgba(250,247,242,.45),rgba(250,247,242,.9) 72%,var(--ivory)),
+ url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85") center/cover}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(1px);opacity:.55;pointer-events:none}
+.orb1{width:330px;height:330px;border:1px solid var(--gold2);top:10%;left:-140px}
+.orb2{width:250px;height:250px;border:1px solid var(--gold2);right:-100px;bottom:14%}
+.hero-content{position:relative;z-index:2;text-align:center;width:min(100%,980px)}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.72);font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold3)}
+.hero h1{font:700 clamp(48px,9vw,110px) Cinzel,serif;letter-spacing:-.03em;margin:22px 0 0;line-height:.95}
+.hero h1 span{font:400 clamp(58px,10vw,125px) "Great Vibes";color:var(--gold)}
+.hero-quote{font:italic clamp(21px,3vw,32px) "Cormorant Garamond";margin:25px auto;color:#51483f;max-width:700px}
+.date-strip{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 20px;margin:10px auto 28px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:min(100%,560px);margin:0 auto}
+.count-box{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:18px;padding:15px 10px;box-shadow:0 12px 30px rgba(50,35,15,.06)}
+.count-box strong{font:700 clamp(24px,4vw,42px) Cinzel;color:var(--gold3);display:block}
+.count-box small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 23px;border-radius:999px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:.3s}
+.btn-gold{background:linear-gradient(135deg,#b98328,#e2bb67);color:white;box-shadow:0 12px 28px rgba(180,125,32,.25)}
+.btn-light{background:rgba(255,255,255,.78);color:var(--gold3);border:1px solid var(--line)}
+.btn:hover{transform:translateY(-3px)}
+
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}
+.intro-photo{position:relative;border-radius:30px;overflow:hidden;min-height:510px;box-shadow:var(--shadow)}
+.intro-photo img{width:100%;height:100%;object-fit:cover}
+.photo-frame{position:absolute;inset:18px;border:1px solid rgba(255,255,255,.65);border-radius:22px;pointer-events:none}
+.intro-copy h3{font:600 clamp(30px,4vw,46px) Cinzel;margin:8px 0 18px}
+.intro-copy p{color:var(--muted);line-height:1.95;font-size:14px}
+.signature{font:400 42px "Great Vibes";color:var(--gold3);margin-top:25px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}
+.pillar{padding:22px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.55);text-align:center}
+.pillar i{color:var(--gold);font-size:21px}.pillar b{display:block;font:600 14px Cinzel;margin-top:10px}.pillar span{font-size:11px;color:var(--muted)}
+
+.scene{perspective:1200px;min-height:460px;display:grid;place-items:center}
+.couple-card{position:relative;width:min(100%,520px);height:420px;transform-style:preserve-3d;transition:transform .15s ease;will-change:transform}
+.couple-card .front,.couple-card .back{position:absolute;inset:0;border-radius:30px;overflow:hidden;backface-visibility:hidden;box-shadow:0 35px 80px rgba(44,28,8,.18)}
+.couple-card .front{transform:translateZ(35px)}
+.couple-card .back{transform:rotateY(180deg) translateZ(35px)}
+.couple-card img{width:100%;height:100%;object-fit:cover}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(20,14,8,.78));display:flex;align-items:flex-end;padding:28px;color:white}
+.ring{position:absolute;width:115px;height:115px;border:1px solid rgba(199,149,56,.5);border-radius:50%;top:8%;right:4%;transform:translateZ(-20px);animation:rotate3d 14s linear infinite}
+
+.events{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.event-card{padding:35px;border-radius:28px;position:relative;overflow:hidden}
+.event-card:before{content:"";position:absolute;width:180px;height:180px;border:1px solid var(--line);border-radius:50%;right:-80px;top:-80px}
+.event-icon{width:55px;height:55px;border-radius:18px;background:#f7ead0;color:var(--gold3);display:grid;place-items:center;font-size:21px;margin-bottom:20px}
+.event-card h3{font:700 25px Cinzel;margin:8px 0 10px}.event-card p{color:var(--muted);font-size:13px;line-height:1.8}.event-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold3);font-weight:700}
+
+.timeline{position:relative;max-width:950px;margin:auto}.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.t-item{display:grid;grid-template-columns:1fr 70px 1fr;align-items:center;min-height:210px}
+.t-dot{width:45px;height:45px;border-radius:50%;background:var(--paper);border:1px solid var(--gold);color:var(--gold3);display:grid;place-items:center;margin:auto;z-index:2;box-shadow:0 0 0 8px var(--ivory)}
+.t-card{padding:25px;border-radius:22px}.t-card h3{font:600 20px Cinzel;margin:5px 0}.t-card p{font-size:12px;line-height:1.8;color:var(--muted)}
+.t-left{margin-right:18px;text-align:right}.t-right{margin-left:18px}
+
+.quote-section{position:relative;overflow:hidden;background:#24201b;color:white;text-align:center;padding:120px 20px}
+.quote-section:before,.quote-section:after{content:"";position:absolute;border:1px solid rgba(228,196,123,.22);border-radius:50%;width:500px;height:500px;top:50%;transform:translateY(-50%);animation:rotate3d 22s linear infinite}
+.quote-section:before{left:-330px}.quote-section:after{right:-330px}
+.quote-inner{position:relative;z-index:2;max-width:850px;margin:auto}
+.quote-inner .mark{font-size:35px;color:var(--gold2)}.quote-inner blockquote{font:italic clamp(28px,4vw,52px) "Cormorant Garamond";line-height:1.2;margin:18px 0}.quote-inner small{letter-spacing:.2em;text-transform:uppercase;color:#d6c6a8}
+
+.gallery-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;grid-auto-rows:260px;gap:15px}
+.gallery-item{border-radius:24px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item:first-child{grid-row:span 2}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.7s}.gallery-item:hover img{transform:scale(1.08) rotate(1deg)}
+.gallery-item:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.45));opacity:.8}
+.gallery-label{position:absolute;z-index:2;bottom:18px;left:20px;color:white;font:500 18px Cinzel}
+
+.rsvp-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:stretch}
+.rsvp-card{padding:35px;border-radius:30px}.rsvp-card h3{font:700 27px Cinzel}.rsvp-card p{color:var(--muted);font-size:13px;line-height:1.8}
+.form{display:grid;gap:15px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:white;outline:none;font:inherit;font-size:12px}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(199,149,56,.10)}
+
+.faq{max-width:850px;margin:auto}.faq-item{border-bottom:1px solid var(--line)}.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 4px;background:none;border:0;font:600 15px Cinzel;text-align:left;color:var(--ink);cursor:pointer}.faq-a{max-height:0;overflow:hidden;transition:.4s;color:var(--muted);font-size:13px;line-height:1.8}.faq-item.open .faq-a{max-height:160px;padding:0 4px 20px}.faq-item.open .faq-q i{transform:rotate(45deg)}
+
+footer{background:#171410;color:#ddd;padding:65px 20px;text-align:center}footer h3{font:700 28px Cinzel;color:#e2c078}footer p{color:#918a81;font-size:11px;letter-spacing:.12em}
+
+.modal{position:fixed;inset:0;background:rgba(12,10,8,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal img{max-width:min(100%,1000px);max-height:85vh;border-radius:20px}.close-modal{position:absolute;right:25px;top:20px;color:white;background:none;border:0;font-size:30px;cursor:pointer}
+
+.music{position:fixed;right:20px;bottom:20px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--gold3);box-shadow:0 15px 35px rgba(0,0,0,.12);cursor:pointer}
+.to-top{position:fixed;right:20px;bottom:78px;z-index:50;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:white;color:var(--gold3);opacity:0;pointer-events:none;transition:.3s}.to-top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:900px){
+ .intro-grid,.rsvp-wrap{grid-template-columns:1fr}
+ .intro-photo{min-height:430px}
+ .events{grid-template-columns:1fr}
+ .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:230px}
+ .gallery-item:first-child{grid-row:span 1;grid-column:span 2}
+ .timeline:before{left:23px}.t-item{grid-template-columns:46px 1fr;min-height:0;margin:22px 0}.t-dot{grid-column:1;grid-row:1}.t-left,.t-right{grid-column:2;grid-row:1;margin:0;text-align:left}.t-left{display:none}.t-item:nth-child(even) .t-left{display:block}.t-item:nth-child(even) .t-right{display:none}
+}
+@media(max-width:640px){
+ .section-pad{padding:78px 16px}.section-head{margin-bottom:38px}.section-head .eyebrow{font-size:25px}
+ .hero{padding:112px 15px 60px}.hero h1{font-size:clamp(42px,14vw,70px)}.hero h1 span{font-size:1.12em}
+ .hero-quote{font-size:21px}.date-strip{font-size:11px;gap:8px 14px}.countdown{gap:6px}.count-box{padding:12px 5px;border-radius:13px}.count-box strong{font-size:24px}.count-box small{font-size:7px}
+ .btn{width:100%;max-width:320px}
+ .pillars{grid-template-columns:1fr}.intro-photo{min-height:360px}.scene{min-height:370px}.couple-card{height:340px}
+ .events{gap:15px}.event-card{padding:25px}
+ .gallery-grid{grid-template-columns:1fr;grid-auto-rows:270px}.gallery-item:first-child{grid-column:auto}
+ .form-grid{grid-template-columns:1fr}.rsvp-card{padding:24px}
+ .nav-brand{font-size:18px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PREMIUM INTRO OVERLAY -->
+<div id="welcome" class="fixed inset-0 z-[200] bg-[#24201b] text-white flex items-center justify-center p-5 transition-all duration-1000">
+  <div class="text-center max-w-xl">
+    <div class="text-[#e4c47b] text-4xl mb-5"><i class="fas fa-cross"></i></div>
+    <div class="font-script text-4xl text-[#e4c47b]">Together in Christ</div>
+    <h1 class="font-cinzel text-3xl sm:text-5xl font-bold mt-2">JOSHUA &amp; GRACE</h1>
+    <p class="font-cormorant italic text-xl text-stone-300 mt-5">A celebration of faith, love and a beautiful beginning.</p>
+    <button onclick="enterSite()" class="btn btn-gold mt-8">Open Invitation <i class="fas fa-arrow-right"></i></button>
+  </div>
+</div>
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-xl border-b border-[#c79538]/20">
+ <div class="max-w-7xl mx-auto px-5 lg:px-10 py-4 flex items-center justify-between">
+  <a href="#hero" class="nav-brand font-cinzel font-bold text-xl text-[#8e641f] tracking-widest">J &amp; G</a>
+  <div class="hidden md:flex items-center gap-7 text-[10px] font-bold uppercase tracking-[.18em]">
+   <a class="nav-link" href="#hero">Home</a><a class="nav-link" href="#story">Our Story</a><a class="nav-link" href="#events">Details</a><a class="nav-link" href="#gallery">Gallery</a><a class="nav-link" href="#rsvp">RSVP</a>
+  </div>
+  <button id="menuBtn" class="md:hidden text-[#8e641f] text-xl p-2" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+ </div>
+ <div id="mobileMenu" class="mobile-menu md:hidden bg-[#fffdf9] border-t border-[#c79538]/20 px-5">
+  <a class="block py-3 text-xs font-bold uppercase tracking-widest" href="#hero">Home</a>
+  <a class="block py-3 text-xs font-bold uppercase tracking-widest" href="#story">Our Story</a>
+  <a class="block py-3 text-xs font-bold uppercase tracking-widest" href="#events">Details</a>
+  <a class="block py-3 text-xs font-bold uppercase tracking-widest" href="#gallery">Gallery</a>
+  <a class="block py-3 text-xs font-bold uppercase tracking-widest" href="#rsvp">RSVP</a>
+ </div>
+</nav>
+
+<main>
+<section id="hero" class="hero">
+ <div class="hero-bg"></div><div class="hero-orb orb1"></div><div class="hero-orb orb2"></div>
+ <div class="hero-content">
+  <div class="hero-kicker"><i class="fas fa-cross"></i> Holy Matrimony &amp; Nuptial Blessing</div>
+  <h1>Joshua <span>&amp;</span> Grace</h1>
+  <p class="hero-quote">“Therefore what God has joined together, let no one separate.”</p>
+  <div class="text-[10px] uppercase tracking-[.25em] text-[#8e641f] font-bold mb-5">— Mark 10:9</div>
+  <div class="date-strip font-cinzel font-semibold text-sm sm:text-base"><span>SATURDAY, NOVEMBER 14, 2026</span><span>•</span><span>10:30 AM</span><span>•</span><span>HOLY TRINITY CATHEDRAL</span></div>
+  <div class="countdown">
+   <div class="count-box"><strong id="days">00</strong><small>Days</small></div><div class="count-box"><strong id="hours">00</strong><small>Hours</small></div><div class="count-box"><strong id="mins">00</strong><small>Minutes</small></div><div class="count-box"><strong id="secs">00</strong><small>Seconds</small></div>
+  </div>
+  <div class="btns"><a href="#events" class="btn btn-gold">Explore Celebration <i class="fas fa-arrow-down"></i></a><a href="#rsvp" class="btn btn-light">RSVP <i class="far fa-envelope"></i></a></div>
+ </div>
+</section>
+
+<section class="section-pad bg-white">
+ <div class="max-w-6xl mx-auto intro-grid reveal">
+  <div class="intro-photo"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85" alt="Wedding couple"><div class="photo-frame"></div></div>
+  <div class="intro-copy">
+   <span class="font-script text-3xl text-[#8e641f]">A beautiful beginning</span>
+   <h3>Two lives. One promise. One journey.</h3>
+   <p>With praises to Almighty God, Joshua and Grace invite you to share in a day of faith, family, friendship and celebration as they begin their life together in the Holy Sacrament of Matrimony.</p>
+   <p>Every detail of this invitation is designed to feel like a keepsake — elegant, warm and timeless.</p>
+   <div class="pillars">
+    <div class="pillar"><i class="fas fa-cross"></i><b>Faith</b><span>Rooted in Christ</span></div>
+    <div class="pillar"><i class="fas fa-heart"></i><b>Love</b><span>Growing together</span></div>
+    <div class="pillar"><i class="fas fa-users"></i><b>Family</b><span>Celebrated together</span></div>
+   </div>
+   <div class="signature">Joshua &amp; Grace</div>
+  </div>
+ </div>
+</section>
+
+<section id="story" class="section-pad lace">
+ <div class="section-head reveal"><span class="eyebrow">God's Grace</span><h2>Our Journey in Faith</h2><div class="gold-line"></div><p>A few meaningful moments that brought two hearts toward one shared future.</p></div>
+ <div class="max-w-6xl mx-auto scene reveal" id="tiltScene">
+  <div class="couple-card" id="coupleCard">
+   <div class="front"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Wedding moment"><div class="card-overlay"><div><div class="text-xs uppercase tracking-[.2em] text-[#e4c47b]">Our Story</div><div class="font-cinzel text-2xl font-bold">From fellowship to forever</div></div></div></div>
+   <div class="back"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=85" alt="Engagement moment"><div class="card-overlay"><div><div class="text-xs uppercase tracking-[.2em] text-[#e4c47b]">The Promise</div><div class="font-cinzel text-2xl font-bold">A prayer answered with love</div></div></div></div>
+   <div class="ring"></div>
+  </div>
+ </div>
+ <div class="timeline mt-12">
+  <div class="t-item reveal"><div class="t-card glass t-left"><span class="text-[10px] font-bold uppercase tracking-widest text-[#8e641f]">Winter 2022</span><h3>First Met at Sunday Fellowship</h3><p>Joshua and Grace met while serving together in the cathedral choir, building a friendship through shared faith and fellowship.</p></div><div class="t-dot"><i class="fas fa-music"></i></div><div></div></div>
+  <div class="t-item reveal"><div></div><div class="t-dot"><i class="fas fa-ring"></i></div><div class="t-card glass t-right"><span class="text-[10px] font-bold uppercase tracking-widest text-[#8e641f]">Spring 2025</span><h3>The Prayer &amp; Proposal</h3><p>After an evening service in the cathedral prayer garden, a lifelong promise began with a heartfelt question.</p></div></div>
+  <div class="t-item reveal"><div class="t-card glass t-left"><span class="text-[10px] font-bold uppercase tracking-widest text-[#8e641f]">November 2026</span><h3>Holy Matrimony</h3><p>Family and friends gather to witness the next chapter and celebrate the couple's sacred commitment.</p></div><div class="t-dot"><i class="fas fa-church"></i></div><div></div></div>
+ </div>
+</section>
+
+<section id="events" class="section-pad bg-white">
+ <div class="section-head reveal"><span class="eyebrow">Sacred Celebration</span><h2>The Wedding Day</h2><div class="gold-line"></div><p>Two beautiful moments, one unforgettable day.</p></div>
+ <div class="max-w-6xl mx-auto events">
+  <article class="event-card glass reveal"><div class="event-icon"><i class="fas fa-church"></i></div><div class="event-meta">Part I • Holy Sacrament</div><h3>Holy Matrimony &amp; Nuptial Mass</h3><p><strong>10:30 AM prompt</strong></p><p><strong>Holy Trinity Cathedral</strong><br>450 Church Street, San Francisco, CA</p><a class="text-xs font-bold text-[#8e641f]" target="_blank" href="https://maps.google.com/?q=Holy+Trinity+Cathedral+San+Francisco">Open in Google Maps →</a></article>
+  <article class="event-card glass reveal"><div class="event-icon"><i class="fas fa-glass-cheers"></i></div><div class="event-meta">Part II • Celebration</div><h3>Reception Gala &amp; Dinner</h3><p><strong>5:30 PM onwards</strong></p><p><strong>The Grand St. Clare Ballroom</strong><br>780 Grace Avenue, San Francisco, CA</p><a class="text-xs font-bold text-[#8e641f]" target="_blank" href="https://maps.google.com/?q=San+Francisco+Grace+Avenue">Open in Google Maps →</a></article>
+ </div>
+</section>
+
+<section class="quote-section">
+ <div class="quote-inner reveal"><div class="mark"><i class="fas fa-cross"></i></div><blockquote>“Love is patient, love is kind. It always protects, always trusts, always hopes, always perseveres.”</blockquote><small>1 Corinthians 13:4–8</small></div>
+</section>
+
+<section id="calendar-section" class="section-pad lace">
+ <div class="section-head reveal"><span class="eyebrow">Mark Your Calendar</span><h2>November 2026</h2><div class="gold-line"></div><p>Save this day and celebrate with us.</p></div>
+ <div class="max-w-3xl mx-auto glass rounded-[30px] p-5 sm:p-10 reveal">
+  <div class="flex items-center justify-between gap-3 border-b border-[#c79538]/20 pb-5 mb-6"><div><div class="font-cinzel font-bold text-lg">NOVEMBER 2026</div><div class="text-xs text-stone-500">Sacred Marriage Ceremony</div></div><span class="text-[9px] uppercase tracking-widest font-bold text-[#8e641f] bg-[#f7ead0] px-3 py-2 rounded-full">Wedding Month</span></div>
+  <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold uppercase text-stone-500 mb-2"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+  <div class="grid grid-cols-7 gap-1 sm:gap-2 text-center text-sm">
+   <span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">1</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">2</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">3</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">4</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">5</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">6</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">7</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">8</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">9</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">10</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">11</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">12</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">13</span><span class="p-2 sm:p-3 rounded-xl bg-gradient-to-br from-[#b98328] to-[#e2bb67] text-white font-bold shadow-lg animate-[pulseGold_3s_infinite]">14</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">15</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">16</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">17</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">18</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">19</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">20</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">21</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">22</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">23</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">24</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">25</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">26</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">27</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">28</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">29</span><span class="p-2 sm:p-3 rounded-xl text-stone-700 hover:bg-[#f7ead0]">30</span>
+  </div>
+  <div class="flex flex-wrap justify-center gap-2 mt-7 pt-6 border-t border-[#c79538]/20">
+   <a class="btn btn-light !rounded-xl" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Joshua+%26+Grace+Holy+Matrimony&dates=20261114T103000Z/20261114T170000Z&details=Holy+Matrimony+and+Nuptial+Mass&location=Holy+Trinity+Cathedral,+San+Francisco"><i class="fab fa-google"></i> Google</a>
+   <button class="btn btn-light !rounded-xl" onclick="downloadICS()"><i class="fab fa-apple"></i> Apple iCal</button>
+   <a class="btn btn-light !rounded-xl" target="_blank" href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=Joshua+%26+Grace+Wedding&startdt=2026-11-14T10:30:00Z"><i class="fab fa-microsoft"></i> Outlook</a>
+  </div>
+ </div>
+</section>
+
+<section id="gallery" class="section-pad bg-white">
+ <div class="section-head reveal"><span class="eyebrow">Treasured Moments</span><h2>Our Gallery</h2><div class="gold-line"></div><p>Tap any image to experience it in full view.</p></div>
+ <div class="max-w-6xl mx-auto gallery-grid reveal">
+  <div class="gallery-item" onclick="openPhoto(0)"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85" alt="Wedding portrait"><div class="gallery-label">A New Beginning</div></div>
+  <div class="gallery-item" onclick="openPhoto(1)"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt="Couple"><div class="gallery-label">Together</div></div>
+  <div class="gallery-item" onclick="openPhoto(2)"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85" alt="Wedding details"><div class="gallery-label">The Details</div></div>
+  <div class="gallery-item" onclick="openPhoto(3)"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=85" alt="Proposal"><div class="gallery-label">The Promise</div></div>
+  <div class="gallery-item" onclick="openPhoto(4)"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Wedding day"><div class="gallery-label">Forever</div></div>
+ </div>
+</section>
+
+<section id="rsvp" class="section-pad lace">
+ <div class="section-head reveal"><span class="eyebrow">Confirmation</span><h2>R.S.V.P.</h2><div class="gold-line"></div><p>Please respond by <strong>October 15, 2026</strong>.</p></div>
+ <div class="max-w-6xl mx-auto rsvp-wrap">
+  <div class="rsvp-card glass reveal"><div class="text-[#c79538] text-3xl mb-5"><i class="fas fa-envelope-open-text"></i></div><h3>Your presence is a blessing.</h3><p>We would be delighted to celebrate this sacred day with you. Please let us know whether you will be joining us.</p><div class="mt-8 p-5 rounded-2xl bg-[#f7ead0]/70"><div class="text-[10px] uppercase tracking-widest font-bold text-[#8e641f]">Wedding Day</div><div class="font-cinzel font-bold mt-2">November 14, 2026</div><div class="text-xs text-stone-500 mt-1">Holy Trinity Cathedral</div></div></div>
+  <div class="rsvp-card glass reveal">
+   <form id="rsvpForm" class="form" onsubmit="submitRSVP(event)">
+    <div class="form-grid"><div class="field"><label>Full Name *</label><input id="name" required placeholder="Your name"></div><div class="field"><label>Email *</label><input id="email" type="email" required placeholder="you@example.com"></div></div>
+    <div class="field"><label>Attendance</label><select id="attendance"><option value="Joyfully Accept">Joyfully Accept</option><option value="Regretfully Decline">Regretfully Decline</option></select></div>
+    <div class="field"><label>Guests</label><select id="guests"><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option></select></div>
+    <div class="field"><label>Message / Dietary Requirements</label><textarea id="message" rows="4" placeholder="Optional message..."></textarea></div>
+    <button class="btn btn-gold w-full border-0 cursor-pointer" type="submit">Submit RSVP <i class="fas fa-check"></i></button>
+   </form>
+  </div>
+ </div>
+</section>
+
+<section class="section-pad bg-white">
+ <div class="section-head reveal"><span class="eyebrow">A Little More</span><h2>Wedding Notes</h2><div class="gold-line"></div></div>
+ <div class="faq reveal">
+  <div class="faq-item"><button class="faq-q">What should I wear? <i class="fas fa-plus"></i></button><div class="faq-a">For the cathedral ceremony, modest formal or formal church attire is requested. Evening celebration attire may be elegant and festive.</div></div>
+  <div class="faq-item"><button class="faq-q">When should I arrive? <i class="fas fa-plus"></i></button><div class="faq-a">Guests are encouraged to arrive a little before the 10:30 AM Nuptial Mass so everyone can be comfortably seated before the ceremony begins.</div></div>
+  <div class="faq-item"><button class="faq-q">Can I add the event to my calendar? <i class="fas fa-plus"></i></button><div class="faq-a">Yes. Use the Google, Apple iCal or Outlook options in the calendar section above.</div></div>
+  <div class="faq-item"><button class="faq-q">How can I RSVP? <i class="fas fa-plus"></i></button><div class="faq-a">Complete the RSVP form on this page. Your response can include your attendance, guest count and any message or dietary requirements.</div></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="max-w-3xl mx-auto">
+  <div class="text-[#e4c47b] text-2xl mb-3"><i class="fas fa-cross"></i></div>
+  <h3>Joshua &amp; Grace</h3>
+  <p class="mt-3">#JoshuaAndGrace2026 • NOVEMBER 14, 2026</p>
+  <p class="mt-5 normal-case tracking-normal text-sm italic">“What God Has Joined Together, Let No One Separate.”</p>
+  <div class="flex justify-center gap-3 mt-7"><a href="#hero" class="btn btn-light !bg-transparent !text-[#e4c47b] !border-[#e4c47b]/30">Back to top <i class="fas fa-arrow-up"></i></a></div>
+ </div>
+</footer>
+
+<button id="musicBtn" class="music" aria-label="Toggle ambient tone"><i class="fas fa-music"></i></button>
+<button id="topBtn" class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<div id="photoModal" class="modal" onclick="closePhoto(event)"><button class="close-modal" onclick="closePhoto(event)"><i class="fas fa-times"></i></button><img id="modalImg" src="" alt="Gallery image"></div>
+
+<script>
+const weddingDate = new Date('November 14, 2026 10:30:00').getTime();
+function countdown(){
+ const d = weddingDate-Date.now();
+ const ids=['days','hours','mins','secs'];
+ if(d<=0){ids.forEach(x=>document.getElementById(x).textContent='00');return}
+ document.getElementById('days').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
+ document.getElementById('hours').textContent=String((Math.floor(d/3600000)%24)).padStart(2,'0');
+ document.getElementById('mins').textContent=String((Math.floor(d/60000)%60)).padStart(2,'0');
+ document.getElementById('secs').textContent=String((Math.floor(d/1000)%60)).padStart(2,'0');
+}
+countdown();setInterval(countdown,1000);
+
+function enterSite(){
+ const w=document.getElementById('welcome');w.style.opacity='0';w.style.transform='scale(1.04)';
+ setTimeout(()=>w.style.display='none',900);
+}
+window.addEventListener('load',()=>setTimeout(()=>{ if(sessionStorage.getItem('jg-opened')) enterSite(); },250));
+document.querySelector('#welcome button').addEventListener('click',()=>sessionStorage.setItem('jg-opened','1'));
+
+const nav=document.getElementById('navbar'),topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>{
+ nav.classList.toggle('nav-scrolled',scrollY>30);topBtn.classList.toggle('show',scrollY>500);
+});
+const menuBtn=document.getElementById('menuBtn'),mobile=document.getElementById('mobileMenu');
+menuBtn.addEventListener('click',()=>{mobile.classList.toggle('open');menuBtn.innerHTML=mobile.classList.contains('open')?'<i class="fas fa-xmark"></i>':'<i class="fas fa-bars"></i>'});
+mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');menuBtn.innerHTML='<i class="fas fa-bars"></i>'}));
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Mouse / touch-friendly 3D tilt card. Disabled for coarse pointer devices.
+const scene=document.getElementById('tiltScene'),card=document.getElementById('coupleCard');
+if(matchMedia('(pointer:fine)').matches){
+ scene.addEventListener('mousemove',e=>{
+  const r=scene.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  card.style.transform=`rotateX(${(-y*10).toFixed(2)}deg) rotateY(${(x*16).toFixed(2)}deg)`;
+ });
+ scene.addEventListener('mouseleave',()=>card.style.transform='rotateX(0) rotateY(0)');
+}
+
+// FAQ
+document.querySelectorAll('.faq-item').forEach(item=>item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open')));
+
+// Gallery
+const photos=[
+'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1600&q=90',
+'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=90',
+'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=90',
+'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1600&q=90',
+'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=90'];
+function openPhoto(i){document.getElementById('modalImg').src=photos[i];document.getElementById('photoModal').classList.add('show');document.body.style.overflow='hidden'}
+function closePhoto(e){if(e.target.id==='photoModal'||e.currentTarget.classList.contains('close-modal')){document.getElementById('photoModal').classList.remove('show');document.body.style.overflow=''}}
+
+// RSVP demo
+function submitRSVP(e){
+ e.preventDefault();
+ const name=document.getElementById('name').value,att=document.getElementById('attendance').value;
+ alert(`Thank you, ${name}! Your RSVP response: ${att}.`);
+ e.target.reset();
+}
+
+// iCal
+function downloadICS(){
+ const ics=`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Joshua Grace Wedding//EN
+BEGIN:VEVENT
+SUMMARY:Joshua & Grace Holy Matrimony
+DTSTART:20261114T103000
+DTEND:20261114T170000
+LOCATION:Holy Trinity Cathedral, San Francisco
+DESCRIPTION:Holy Matrimony and Nuptial Mass celebration of Joshua and Grace
+END:VEVENT
+END:VCALENDAR`;
+ const blob=new Blob([ics],{type:'text/calendar'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Joshua_Grace_Wedding.ics';a.click();URL.revokeObjectURL(a.href);
+}
+
+// Lightweight ambient tone — starts only after user interaction.
+let audioCtx=null,playing=false,timer=null;
+document.getElementById('musicBtn').addEventListener('click',()=>{
+ if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+ if(playing){playing=false;clearInterval(timer);document.querySelector('#musicBtn i').className='fas fa-music';return}
+ playing=true;audioCtx.resume();document.querySelector('#musicBtn i').className='fas fa-volume-up';playTone();timer=setInterval(playTone,4200);
+});
+function playTone(){
+ if(!playing)return;
+ [293.66,369.99,440].forEach((f,i)=>{
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,audioCtx.currentTime+i*.12);g.gain.exponentialRampToValueAtTime(.025,audioCtx.currentTime+.7+i*.12);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+3.7);o.connect(g);g.connect(audioCtx.destination);o.start(audioCtx.currentTime+i*.12);o.stop(audioCtx.currentTime+3.8);
+ });
+}
+</script>
+</body>
+</html>
