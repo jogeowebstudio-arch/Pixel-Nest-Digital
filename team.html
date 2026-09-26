@@ -2065,23 +2065,815 @@
             }
         }
 
-        .pnd-logo-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        /* =========================================================
+           PIXEL NEST DIGITAL — IMAGE LOGO
+           Matches the current HTML structure
+        ========================================================= */
+        .pnd-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            width: auto;
+            min-width: 220px;
+            height: 58px;
+            color: #fff;
+            transition: .25s ease;
+        }
 
-.pnd-logo-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
+        .pnd-logo:hover {
+            color: #fff;
+        }
+
+        .pnd-logo-img {
+            display: block;
+            width: auto;
+            height: 52px;
+            max-width: 220px;
+            object-fit: contain;
+            object-position: left center;
+            transition: transform .25s ease, filter .25s ease;
+        }
+
+        .pnd-logo:hover .pnd-logo-img {
+            transform: scale(1.035);
+            filter: brightness(1.08);
+        }
+
+        @media (max-width: 1200px) {
+            .pnd-logo {
+                min-width: 200px;
+                height: 55px;
+            }
+
+            .pnd-logo-img {
+                height: 49px;
+                max-width: 205px;
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .pnd-logo {
+                min-width: 0;
+                height: 54px;
+            }
+
+            .pnd-logo-img {
+                height: 48px;
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .pnd-logo {
+                min-width: 0;
+                height: 52px;
+            }
+
+            .pnd-logo-img {
+                height: 47px;
+                max-width: 195px;
+            }
+
+            .pnd-mobile-top .pnd-logo {
+                height: 50px;
+            }
+
+            .pnd-mobile-top .pnd-logo-img {
+                height: 46px;
+                max-width: 195px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pnd-logo {
+                height: 50px;
+            }
+
+            .pnd-logo-img {
+                height: 45px;
+                max-width: 185px;
+            }
+
+            .pnd-mobile-top .pnd-logo-img {
+                height: 44px;
+                max-width: 185px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .pnd-logo-img {
+                height: 42px;
+                max-width: 175px;
+            }
+
+            .pnd-mobile-top .pnd-logo-img {
+                height: 41px;
+                max-width: 175px;
+            }
+        }
 
 
+
+        /* =========================================================
+           FINAL RESPONSIVE SYSTEM
+           Mobile • Tablet • Laptop • Large Desktop
+        ========================================================= */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img, svg, video, canvas {
+            max-width: 100%;
+        }
+
+        .container,
+        .container-fluid {
+            width: 100%;
+        }
+
+        .pnd-header .container-fluid {
+            padding-left: clamp(14px, 3.5vw, 55px) !important;
+            padding-right: clamp(14px, 3.5vw, 55px) !important;
+        }
+
+        .pnd-header-inner {
+            width: 100%;
+            min-width: 0;
+        }
+
+        .pnd-logo {
+            min-width: 0;
+            width: auto;
+            max-width: min(220px, 34vw);
+        }
+
+        .pnd-logo-img {
+            width: auto;
+            height: 52px;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        .pnd-search {
+            min-width: 150px;
+        }
+
+        .pnd-nav {
+            flex-shrink: 0;
+        }
+
+        .team-hero-content,
+        .team-cta-content {
+            width: 100%;
+        }
+
+        .team-hero h1,
+        .section-heading h2,
+        .values-heading h2,
+        .team-heading h2,
+        .team-cta-content h2 {
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        .founder-card,
+        .team-grid,
+        .member-info,
+        .footer-bottom {
+            min-width: 0;
+        }
+
+        .founder-content,
+        .member-inner,
+        .value-card,
+        .team-cta-content {
+            min-width: 0;
+        }
+
+        .member-info > div:first-child {
+            min-width: 0;
+        }
+
+        .member-info h3,
+        .member-info p,
+        .footer-links a,
+        .footer-bottom span {
+            overflow-wrap: anywhere;
+        }
+
+        /* Large laptop / desktop */
+        @media (min-width: 1201px) {
+            .pnd-header-inner {
+                gap: 22px;
+            }
+
+            .pnd-logo {
+                max-width: 230px;
+            }
+
+            .pnd-logo-img {
+                height: 52px;
+                max-width: 220px;
+            }
+
+            .team-hero {
+                min-height: min(720px, calc(100vh - var(--pnd-header-height)));
+            }
+        }
+
+        /* Laptop / small desktop */
+        @media (max-width: 1200px) and (min-width: 1001px) {
+            .pnd-header-inner {
+                gap: 12px;
+            }
+
+            .pnd-logo {
+                max-width: 195px;
+            }
+
+            .pnd-logo-img {
+                height: 48px;
+                max-width: 195px;
+            }
+
+            .pnd-search {
+                height: 44px;
+            }
+
+            .pnd-nav {
+                gap: 2px;
+            }
+
+            .pnd-nav-link {
+                padding: 9px 7px;
+                font-size: 12px;
+            }
+
+            .pnd-start {
+                padding: 10px 11px;
+                font-size: 11px;
+            }
+
+            .founder-content {
+                padding: 45px;
+            }
+
+            .founder-visual {
+                min-height: 540px;
+            }
+
+            .team-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Tablet landscape / portrait */
+        @media (max-width: 1000px) {
+            :root {
+                --pnd-header-height: 70px;
+            }
+
+            .pnd-header-inner {
+                min-height: 70px;
+            }
+
+            .pnd-search,
+            .pnd-nav,
+            .pnd-start {
+                display: none;
+            }
+
+            .pnd-menu-btn {
+                display: flex;
+                flex: 0 0 44px;
+                margin-left: auto;
+            }
+
+            .pnd-logo {
+                max-width: 205px;
+            }
+
+            .pnd-logo-img {
+                height: 48px;
+                max-width: 205px;
+            }
+
+            .team-hero {
+                min-height: 590px;
+                padding: 80px 0 95px;
+            }
+
+            .team-hero h1 {
+                font-size: clamp(50px, 8vw, 72px);
+                letter-spacing: -3px;
+            }
+
+            .team-hero p {
+                max-width: 650px;
+            }
+
+            .founder-section,
+            .team-section {
+                padding-top: 85px;
+                padding-bottom: 85px;
+            }
+
+            .founder-card {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-visual {
+                min-height: clamp(430px, 58vw, 560px);
+            }
+
+            .founder-orbit {
+                width: min(430px, 68vw);
+                height: min(430px, 68vw);
+            }
+
+            .founder-image-wrap {
+                width: min(330px, 42vw);
+            }
+
+            .founder-content {
+                padding: 42px;
+            }
+
+            .founder-content h3 {
+                font-size: clamp(34px, 5vw, 48px);
+            }
+
+            .values-section {
+                padding: 85px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .member-inner {
+                min-height: 390px;
+                padding: 20px;
+            }
+
+            .member-photo {
+                height: clamp(220px, 30vw, 260px);
+            }
+
+            .team-cta {
+                padding: 85px 0;
+            }
+        }
+
+        /* Tablet / large phones */
+        @media (max-width: 767px) {
+            :root {
+                --pnd-header-height: 68px;
+            }
+
+            .pnd-header-inner {
+                min-height: 68px;
+            }
+
+            .pnd-header .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .pnd-logo {
+                max-width: calc(100vw - 85px);
+            }
+
+            .pnd-logo-img {
+                height: 45px;
+                max-width: min(190px, calc(100vw - 85px));
+            }
+
+            .pnd-mobile-menu {
+                width: min(390px, 94vw);
+                padding: 20px;
+            }
+
+            .pnd-mobile-top {
+                margin-bottom: 24px;
+            }
+
+            .pnd-mobile-top .pnd-logo {
+                max-width: calc(100% - 55px);
+            }
+
+            .pnd-mobile-top .pnd-logo-img {
+                height: 44px;
+                max-width: 190px;
+            }
+
+            .team-hero {
+                min-height: auto;
+                padding: 82px 0 90px;
+            }
+
+            .team-hero-content {
+                padding: 0 8px;
+            }
+
+            .team-eyebrow {
+                max-width: 100%;
+                padding: 7px 11px;
+                margin-bottom: 18px;
+                font-size: 9px;
+                letter-spacing: 1.2px;
+                text-align: center;
+            }
+
+            .team-hero h1 {
+                margin-bottom: 18px;
+                font-size: clamp(42px, 12vw, 58px);
+                line-height: 1;
+                letter-spacing: -2.6px;
+            }
+
+            .team-hero p {
+                margin-bottom: 25px;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .hero-actions {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-primary-pnd,
+            .btn-secondary-pnd {
+                width: 100%;
+                justify-content: center;
+                min-height: 48px;
+                padding: 13px 18px;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .hero-glow-1 {
+                width: 280px;
+                height: 280px;
+                right: -130px;
+                top: -70px;
+            }
+
+            .hero-glow-2 {
+                width: 230px;
+                height: 230px;
+                left: -120px;
+                bottom: -80px;
+            }
+
+            .founder-section,
+            .team-section,
+            .values-section {
+                padding: 68px 0;
+            }
+
+            .section-heading,
+            .team-heading {
+                margin-bottom: 32px;
+            }
+
+            .section-label {
+                font-size: 9px;
+                letter-spacing: 1.8px;
+            }
+
+            .section-heading h2,
+            .values-heading h2,
+            .team-heading h2 {
+                font-size: clamp(34px, 10vw, 46px);
+                line-height: 1.02;
+                letter-spacing: -2px;
+            }
+
+            .section-heading p,
+            .values-heading p,
+            .team-heading p {
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .founder-visual {
+                min-height: 390px;
+            }
+
+            .founder-orbit {
+                width: min(310px, 82vw);
+                height: min(310px, 82vw);
+            }
+
+            .founder-image-wrap {
+                width: min(245px, 64vw);
+            }
+
+            .founder-badge {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                justify-content: center;
+                padding: 9px 10px;
+                text-align: center;
+            }
+
+            .founder-badge span {
+                font-size: 9px;
+            }
+
+            .founder-content {
+                padding: 32px 22px;
+            }
+
+            .founder-content h3 {
+                font-size: clamp(31px, 9vw, 40px);
+                letter-spacing: -1.8px;
+            }
+
+            .founder-role {
+                margin-bottom: 20px;
+                font-size: 12px;
+            }
+
+            .founder-content > p {
+                font-size: 12px;
+                line-height: 1.8;
+            }
+
+            .founder-quote {
+                margin: 20px 0;
+                padding: 16px 17px;
+            }
+
+            .founder-quote p {
+                font-size: 12px;
+            }
+
+            .values-heading {
+                margin-bottom: 30px;
+            }
+
+            .value-card {
+                padding: 24px;
+            }
+
+            .value-icon {
+                margin-bottom: 22px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .member-inner {
+                min-height: 0;
+                padding: 18px;
+            }
+
+            .member-photo {
+                height: clamp(220px, 67vw, 330px);
+                margin-bottom: 18px;
+            }
+
+            .member-info {
+                align-items: center;
+            }
+
+            .member-info h3 {
+                font-size: 18px;
+            }
+
+            .member-info p {
+                font-size: 9px;
+            }
+
+            .member-social {
+                width: 34px;
+                height: 34px;
+            }
+
+            .team-marquee {
+                margin-top: 45px;
+                padding: 15px 0;
+            }
+
+            .marquee-track {
+                gap: 12px;
+                animation-duration: 24s;
+            }
+
+            .marquee-person {
+                min-width: 195px;
+                padding: 9px 12px;
+            }
+
+            .team-cta {
+                padding: 70px 0;
+            }
+
+            .team-cta-content {
+                padding: 0 8px;
+            }
+
+            .team-cta-content h2 {
+                font-size: clamp(35px, 10vw, 46px);
+                letter-spacing: -2px;
+            }
+
+            .team-cta-content p {
+                font-size: 13px;
+                line-height: 1.75;
+                margin-bottom: 25px;
+            }
+
+            .pnd-footer {
+                padding: 45px 0 22px;
+            }
+
+            .footer-brand {
+                margin-bottom: 13px;
+            }
+
+            .footer-description {
+                max-width: 100%;
+                font-size: 12px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-top: 30px;
+                padding-top: 20px;
+                line-height: 1.6;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .pnd-logo-img {
+                height: 43px;
+                max-width: min(180px, calc(100vw - 82px));
+            }
+
+            .pnd-menu-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 20px;
+            }
+
+            .pnd-mobile-menu {
+                width: 94vw;
+                padding: 18px;
+            }
+
+            .pnd-mobile-link {
+                padding: 13px 10px;
+                font-size: 13px;
+            }
+
+            .team-hero {
+                padding-top: 72px;
+                padding-bottom: 78px;
+            }
+
+            .team-eyebrow {
+                font-size: 8.5px;
+                letter-spacing: 1px;
+            }
+
+            .team-hero h1 {
+                font-size: clamp(38px, 12.5vw, 52px);
+                letter-spacing: -2.2px;
+            }
+
+            .team-hero p {
+                font-size: 13px;
+            }
+
+            .founder-visual {
+                min-height: 340px;
+            }
+
+            .founder-orbit {
+                width: 265px;
+                height: 265px;
+            }
+
+            .founder-image-wrap {
+                width: min(215px, 65vw);
+            }
+
+            .founder-content {
+                padding: 28px 18px;
+            }
+
+            .founder-content h3 {
+                font-size: 31px;
+            }
+
+            .founder-badge {
+                font-size: 9px;
+            }
+
+            .value-card {
+                padding: 21px;
+            }
+
+            .member-inner {
+                padding: 15px;
+            }
+
+            .member-photo {
+                height: 245px;
+            }
+
+            .member-info {
+                gap: 8px;
+            }
+
+            .member-socials {
+                flex-shrink: 0;
+            }
+
+            .team-cta {
+                padding: 62px 0;
+            }
+
+            .team-cta-content h2 {
+                font-size: 36px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 360px) {
+            .pnd-logo-img {
+                height: 40px;
+                max-width: calc(100vw - 78px);
+            }
+
+            .team-hero h1 {
+                font-size: 35px;
+            }
+
+            .team-hero p {
+                font-size: 12px;
+            }
+
+            .founder-visual {
+                min-height: 315px;
+            }
+
+            .founder-orbit {
+                width: 235px;
+                height: 235px;
+            }
+
+            .founder-image-wrap {
+                width: 190px;
+            }
+
+            .founder-badge span {
+                font-size: 8px;
+            }
+
+            .member-photo {
+                height: 220px;
+            }
+
+            .member-info {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .member-socials {
+                margin-top: 4px;
+            }
+
+            .footer-bottom span {
+                font-size: 10px;
+            }
+        }
+
+        /* Touch devices: remove hover movement that can feel jumpy */
+        @media (hover: none) and (pointer: coarse) {
+            .member-card:hover,
+            .btn-primary-pnd:hover,
+            .pnd-start:hover,
+            .founder-social:hover {
+                transform: none;
+            }
+        }
 
     </style>
 </head>
@@ -2097,20 +2889,18 @@
 
         <div class="pnd-header-inner">
 
-           <a
-    href="index.html"
-    class="pnd-logo"
-    aria-label="Pixel Nest Digital Home"
->
-    <div class="pnd-logo-icon">
-        <img src="img/01_PRIMARY_LOGO_TRANSPARENT.png" alt="Pixel Nest Digital Logo">
-    </div>
+      <a
+                href="index.html"
+                class="pnd-logo"
+                aria-label="Pixel Nest Digital Home">
 
-    <div class="pnd-logo-name">
-        <strong>Pixel Nest</strong>
-        <small>DIGITAL</small>
-    </div>
-</a>
+                <img
+                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                    alt="Pixel Nest Digital"
+                    class="pnd-logo-img">
+
+            </a>
+
 
             <form
                 class="pnd-search"
@@ -2139,96 +2929,76 @@
                 aria-label="Primary navigation"
             >
 
-                <a href="index.html" class="pnd-nav-link">
-                    Home
-                </a>
+    <!-- HOME -->
+    <a href="index.html" class="pnd-nav-link active">
+        Home
+    </a>
 
-                <div class="pnd-dropdown">
+    <!-- SERVICES -->
+    <div class="pnd-dropdown">
+        <a
+            href="javascript:void(0)"
+            class="pnd-nav-link"
+            aria-haspopup="true"
+        >
+            Services
+            <i class="bi bi-chevron-down" style="font-size:9px;"></i>
+        </a>
 
-                    <a
-                        href="javascript:void(0)"
-                        class="pnd-nav-link"
-                        aria-haspopup="true"
-                    >
-                        Services
-                        <i
-                            class="bi bi-chevron-down"
-                            style="font-size:9px;"
-                        ></i>
-                    </a>
+        <div class="pnd-dropdown-menu">
 
-                    <div class="pnd-dropdown-menu">
+            <a href="website_development.html" class="pnd-dropdown-item">
+                <i class="bi bi-code-slash"></i>
+                <span>Website Development</span>
+            </a>
 
-                        <a
-                            href="web-development.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-code-slash"></i>
-                            <span>Web Development</span>
-                        </a>
+            <a href="web_applications.html" class="pnd-dropdown-item">
+                <i class="bi bi-window-stack"></i>
+                <span>Web Applications</span>
+            </a>
 
-                        <a
-                            href="software-projects.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-window-stack"></i>
-                            <span>Software &amp; Projects</span>
-                        </a>
+            <a href="digital-content.html" class="pnd-dropdown-item">
+                <i class="bi bi-cloud"></i>
+                <span>Social Media &amp; Content Creation</span>
+            </a>
 
-                        <a
-                            href="branding.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-palette"></i>
-                            <span>Branding &amp; Design</span>
-                        </a>
+            <a href="logo-brand-design.html" class="pnd-dropdown-item">
+                <i class="bi bi-palette"></i>
+                <span>Logo &amp; Brand Design</span>
+            </a>
 
-                        <a
-                            href="photography.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-camera"></i>
-                            <span>Photography</span>
-                        </a>
+            <a href="photography.html" class="pnd-dropdown-item">
+                <i class="bi bi-camera"></i>
+                <span>Photography</span>
+            </a>
 
-                        <a
-                            href="video-production.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-play-btn"></i>
-                            <span>Video Production</span>
-                        </a>
+            <a href="videography.html" class="pnd-dropdown-item">
+                <i class="bi bi-camera-video"></i>
+                <span>Videography</span>
+            </a>
 
-                        <a
-                            href="hosting.html"
-                            class="pnd-dropdown-item"
-                        >
-                            <i class="bi bi-cloud"></i>
-                            <span>Hosting &amp; Maintenance</span>
-                        </a>
+        </div>
+    </div>
 
-                    </div>
-                </div>
+    <!-- ABOUT -->
+    <a href="about.html" class="pnd-nav-link">
+        About
+    </a>
 
-                <a href="about.html" class="pnd-nav-link">
-                    About
-                </a>
+   
 
-                <a
-                    href="team.html"
-                    class="pnd-nav-link active"
-                    aria-current="page"
-                >
-                    Team
-                </a>
+    <!-- PORTFOLIO -->
+    <a href="portfolio.html" class="pnd-nav-link">
+        Portfolio
+    </a>
 
-                <a href="portfolio.html" class="pnd-nav-link">
-                    Portfolio
-                </a>
-
-                <a href="contact.html" class="pnd-nav-link">
-                    Contact
-                </a>
+    <!-- CONTACT -->
+    <a
+        href="contact.html"
+        class="pnd-nav-link"
+    >
+        Contact
+    </a>
 
             </nav>
 
@@ -2273,19 +3043,15 @@
 
     <div class="pnd-mobile-top">
 
-        <a
+          <a
             href="index.html"
-            class="pnd-logo"
-            tabindex="-1"
-        >
-            <div class="pnd-logo-icon">
-                <span>PND</span>
-            </div>
+            class="pnd-logo">
 
-            <div class="pnd-logo-name">
-                <strong>Pixel Nest</strong>
-                <small>DIGITAL</small>
-            </div>
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital"
+                class="pnd-logo-img">
+
         </a>
 
         <button
@@ -2315,102 +3081,97 @@
     </form>
 
     <a
-        href="index.html"
-        class="pnd-mobile-link"
-        tabindex="-1"
+    href="index.html"
+    class="pnd-mobile-link"
+    tabindex="-1"
+>
+    <i class="bi bi-house"></i>
+    Home
+</a>
+
+<a
+    href="about.html"
+    class="pnd-mobile-link"
+    tabindex="-1"
+>
+    <i class="bi bi-info-circle"></i>
+    About
+</a>
+
+<div class="pnd-mobile-services">
+
+    <button
+        type="button"
+        id="servicesToggle"
+        aria-expanded="false"
+        aria-controls="mobileServiceList"
     >
-        <i class="bi bi-house"></i>
-        Home
-    </a>
-        <a
-        href="about.html"
-        class="pnd-mobile-link"
-        tabindex="-1"
+        <span>
+            <i class="bi bi-grid me-2"></i>
+            Services
+        </span>
+
+        <i
+            class="bi bi-chevron-down"
+            id="servicesChevron"
+        ></i>
+    </button>
+
+    <div
+        class="pnd-mobile-service-list"
+        id="mobileServiceList"
     >
-        <i class="bi bi-info-circle"></i>
-        About
-    </a>
+        <a href="website_development.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-code-slash"></i>
+            <span>Website Development</span>
+        </a>
 
-    <div class="pnd-mobile-services">
+        <a href="web_applications.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-window-stack"></i>
+            <span>Web Applications</span>
+        </a>
 
-        <button
-            type="button"
-            id="servicesToggle"
-            aria-expanded="false"
-            aria-controls="mobileServiceList"
-        >
-            <span>
-                <i class="bi bi-grid me-2"></i>
-                Services
-            </span>
+        <a href="digital-content.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-cloud"></i>
+            <span>Social Media &amp; Content Creation</span>
+        </a>
 
-            <i
-                class="bi bi-chevron-down"
-                id="servicesChevron"
-            ></i>
-        </button>
+        <a href="logo-brand-design.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-palette"></i>
+            <span>Logo &amp; Brand Design</span>
+        </a>
 
-        <div
-            class="pnd-mobile-service-list"
-            id="mobileServiceList"
-        >
-            <a href="web-development.html" tabindex="-1">
-                Web Development
-            </a>
+        <a href="photography.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-camera"></i>
+            <span>Photography</span>
+        </a>
 
-            <a href="software-projects.html" tabindex="-1">
-                Software &amp; Projects
-            </a>
-
-            <a href="branding.html" tabindex="-1">
-                Branding &amp; Design
-            </a>
-
-            <a href="photography.html" tabindex="-1">
-                Photography
-            </a>
-
-            <a href="video-production.html" tabindex="-1">
-                Video Production
-            </a>
-
-            <a href="hosting.html" tabindex="-1">
-                Hosting &amp; Maintenance
-            </a>
-        </div>
-
+        <a href="videography.html" tabindex="-1" class="pnd-mobile-service-item">
+            <i class="bi bi-camera-video"></i>
+            <span>Videography</span>
+        </a>
     </div>
 
-    
+</div>
 
-    <a
-        href="team.html"
-        class="pnd-mobile-link active"
-        aria-current="page"
-        tabindex="-1"
-    >
-        <i class="bi bi-people"></i>
-        Team
-    </a>
 
-    <a
-        href="portfolio.html"
-        class="pnd-mobile-link"
-        tabindex="-1"
-    >
-        <i class="bi bi-grid-3x3-gap"></i>
-        Portfolio
-    </a>
+<a
+    href="portfolio.html"
+    class="pnd-mobile-link"
+    tabindex="-1"
+>
+    <i class="bi bi-grid-3x3-gap"></i>
+    Portfolio
+</a>
 
-    <a
-        href="contact.html"
-        class="pnd-mobile-link"
-        tabindex="-1"
-    >
-        <i class="bi bi-envelope"></i>
-        Contact
-    </a>
-
+<a
+    href="contact.html"
+    class="pnd-mobile-link"
+    tabindex="-1"
+>
+    <i class="bi bi-envelope"></i>
+    Contact
+</a>
     <div class="pnd-mobile-actions">
 
       
@@ -3401,7 +4162,7 @@
                     class="footer-brand"
                 >
                     <div class="footer-brand-icon">
-                        PN
+                        PND
                     </div>
 
                     <strong>
@@ -3414,112 +4175,9 @@
                     businesses and ideas that want to move forward.
                 </p>
 
-                <div class="footer-socials">
+               
 
-                    <a
-                        href="#"
-                        class="footer-social"
-                        aria-label="Instagram"
-                    >
-                        <i class="bi bi-instagram"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="footer-social"
-                        aria-label="Facebook"
-                    >
-                        <i class="bi bi-facebook"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="footer-social"
-                        aria-label="LinkedIn"
-                    >
-                        <i class="bi bi-linkedin"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="footer-social"
-                        aria-label="YouTube"
-                    >
-                        <i class="bi bi-youtube"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="col-6 col-lg-2">
-
-                <div class="footer-title">
-                    Company
-                </div>
-
-                <div class="footer-links">
-                    <a href="about.html">About</a>
-                    <a href="team.html">Our Team</a>
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-
-            </div>
-
-            <div class="col-6 col-lg-2">
-
-                <div class="footer-title">
-                    Services
-                </div>
-
-                <div class="footer-links">
-                    <a href="web-development.html">
-                        Web Development
-                    </a>
-
-                    <a href="software-projects.html">
-                        Software Projects
-                    </a>
-
-                    <a href="branding.html">
-                        Branding
-                    </a>
-
-                    <a href="photography.html">
-                        Photography
-                    </a>
-
-                    <a href="video-production.html">
-                        Video
-                    </a>
-
-                    <a href="hosting.html">
-                        Hosting
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col-12 col-lg-3">
-
-                <div class="footer-title">
-                    Let's Talk
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="mailto:hello@pixelnestdigital.com">
-                        hello@pixelnestdigital.com
-                    </a>
-
-                    <a href="start-project.html">
-                        Start a project
-                    </a>
-
-                </div>
-
-            </div>
+            
 
         </div>
 
