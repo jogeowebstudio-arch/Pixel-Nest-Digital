@@ -2957,6 +2957,705 @@ img{
 
 }
 
+
+
+/* =========================================================
+   FINAL 100% RESPONSIVE OVERRIDE
+   Mobile • Tablet • Laptop • Desktop
+   This block intentionally overrides earlier breakpoints.
+========================================================= */
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+*, *::before, *::after {
+    max-width: 100%;
+}
+
+body {
+    min-width: 0 !important;
+}
+
+img, svg, video, canvas, iframe {
+    max-width: 100%;
+}
+
+.pnd-container {
+    width: min(1250px, calc(100% - 40px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------------- HEADER ---------------- */
+.pnd-header .container-fluid {
+    width: 100%;
+    padding-left: clamp(14px, 3vw, 55px) !important;
+    padding-right: clamp(14px, 3vw, 55px) !important;
+}
+
+.pnd-header-inner {
+    width: 100%;
+    min-width: 0;
+    gap: clamp(10px, 1.5vw, 20px);
+}
+
+.pnd-logo {
+    flex: 0 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 220px;
+}
+
+.pnd-logo-img {
+    display: block;
+    width: auto;
+    max-width: 220px;
+    height: 52px;
+    max-height: 58px;
+    object-fit: contain;
+}
+
+.pnd-search {
+    flex: 1 1 220px;
+    min-width: 0;
+    max-width: 390px;
+}
+
+.pnd-search input {
+    min-width: 0;
+}
+
+.pnd-nav {
+    min-width: 0;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+}
+
+.pnd-nav-link,
+.pnd-start {
+    flex-shrink: 0;
+}
+
+/* Large desktop */
+@media (min-width: 1281px) {
+    .pnd-header-inner { gap: 20px; }
+    .pnd-logo-img { height: 52px; }
+}
+
+/* Laptop: reduce header density before anything can overflow */
+@media (max-width: 1280px) and (min-width: 1051px) {
+    .pnd-header-inner { gap: 10px; }
+    .pnd-logo { max-width: 185px; }
+    .pnd-logo-img { width: 185px; height: 48px; }
+    .pnd-search { max-width: 255px; flex-basis: 190px; }
+    .pnd-nav { gap: 0; }
+    .pnd-nav-link { padding-left: 7px; padding-right: 7px; font-size: 11px; }
+    .pnd-start { padding-left: 10px; padding-right: 10px; font-size: 10px; }
+}
+
+/* Tablet + small laptop: ALWAYS use mobile navigation.
+   This is the key fix for tablet header overflow. */
+@media (max-width: 1050px) {
+    :root { --pnd-header-height: 68px; }
+
+    .pnd-header {
+        min-height: 68px;
+    }
+
+    .pnd-header-inner {
+        min-height: 68px;
+    }
+
+    .pnd-search,
+    .pnd-nav {
+        display: none !important;
+    }
+
+    .pnd-menu-btn {
+        display: flex !important;
+        flex: 0 0 44px;
+        margin-left: auto;
+    }
+
+    .pnd-logo {
+        max-width: calc(100% - 58px);
+    }
+
+    .pnd-logo-img {
+        width: auto;
+        max-width: min(205px, calc(100vw - 90px));
+        height: 48px;
+    }
+}
+
+/* ---------------- HERO ---------------- */
+.pnd-portfolio-hero,
+.pnd-light-area,
+.pnd-cta-section,
+.pnd-footer {
+    width: 100%;
+    min-width: 0;
+}
+
+.pnd-portfolio-hero-grid,
+.pnd-featured,
+.pnd-project-grid,
+.pnd-stats,
+.pnd-footer-grid {
+    width: 100%;
+    min-width: 0;
+}
+
+.pnd-hero-content,
+.pnd-hero-visual,
+.pnd-featured-image,
+.pnd-featured-info,
+.pnd-project-card,
+.pnd-stat,
+.pnd-footer-grid > div {
+    min-width: 0;
+}
+
+.pnd-hero-content h1,
+.pnd-section-head h2,
+.pnd-featured-info h3,
+.pnd-cta h2,
+.pnd-project-info h3,
+.pnd-footer p,
+.pnd-footer a {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* Tablet hero */
+@media (max-width: 1050px) {
+    .pnd-portfolio-hero {
+        min-height: auto;
+        padding: 78px 0 72px;
+    }
+
+    .pnd-portfolio-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .pnd-hero-content {
+        max-width: 760px;
+    }
+
+    .pnd-hero-content h1 {
+        font-size: clamp(48px, 8vw, 72px);
+    }
+
+    .pnd-hero-visual {
+        min-height: auto;
+        padding: 5px 0 10px;
+    }
+
+    .pnd-hero-image-frame {
+        width: min(100%, 700px);
+        max-width: 700px;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .pnd-hero-image-frame:hover {
+        transform: translateY(-4px);
+    }
+
+    .pnd-hero-orbit {
+        display: none !important;
+    }
+}
+
+/* ---------------- PORTFOLIO CONTENT ---------------- */
+@media (max-width: 1050px) {
+    .pnd-section { padding: 72px 0; }
+
+    .pnd-featured {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .pnd-featured-image {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .pnd-featured-info {
+        padding: 34px;
+    }
+
+    .pnd-project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .pnd-project-image {
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
+    .pnd-project-info {
+        padding: 18px;
+    }
+
+    .pnd-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pnd-stat {
+        border-right: 1px solid #E2E8F0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    .pnd-stat:nth-child(2n) { border-right: 0; }
+    .pnd-stat:nth-last-child(-n+2) { border-bottom: 0; }
+
+    .pnd-footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------------- TABLET ---------------- */
+@media (max-width: 768px) {
+    .pnd-container {
+        width: min(100% - 30px, 680px);
+    }
+
+    .pnd-portfolio-hero {
+        padding: 65px 0 58px;
+    }
+
+    .pnd-eyebrow {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.5;
+    }
+
+    .pnd-hero-content h1 {
+        font-size: clamp(42px, 11vw, 60px);
+        line-height: 1.02;
+        letter-spacing: -2.4px;
+    }
+
+    .pnd-hero-content p {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .pnd-hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .pnd-hero-stat {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .pnd-filter-wrapper {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .pnd-filter-bar {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .pnd-filter {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+        padding: 10px 8px;
+    }
+
+    .pnd-project-count {
+        width: 100%;
+    }
+
+    .pnd-project-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pnd-project-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .pnd-project-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(7,17,31,.42), transparent 55%);
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 12px;
+    }
+
+    .pnd-view-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .pnd-featured-info {
+        padding: 28px 22px;
+    }
+
+    .pnd-featured-info h3 {
+        font-size: clamp(28px, 8vw, 40px);
+    }
+
+    .pnd-project-tags {
+        gap: 6px;
+    }
+
+    .pnd-project-link,
+    .pnd-btn-primary {
+        max-width: 100%;
+        white-space: normal;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .pnd-cta-section {
+        padding: 35px 0 65px;
+    }
+
+    .pnd-cta {
+        padding: 48px 20px;
+        border-radius: 18px;
+    }
+
+    .pnd-cta h2 {
+        font-size: clamp(32px, 9vw, 44px);
+    }
+
+    .pnd-cta p {
+        font-size: 12px;
+    }
+
+    .pnd-footer {
+        padding: 42px 0 22px;
+    }
+
+    .pnd-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pnd-footer-grid .pnd-logo-img {
+        height: 46px;
+        max-width: 190px;
+    }
+
+    .pnd-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+        line-height: 1.6;
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 576px) {
+    .pnd-container {
+        width: calc(100% - 28px);
+    }
+
+    .pnd-header .container-fluid {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .pnd-logo-img {
+        height: 44px;
+        max-width: min(190px, calc(100vw - 72px));
+    }
+
+    .pnd-menu-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 21px;
+    }
+
+    .pnd-mobile-menu {
+        width: min(390px, 94vw);
+        max-width: 94vw;
+        padding: 18px 16px 28px;
+    }
+
+    .pnd-mobile-top .pnd-logo-img {
+        width: auto;
+        height: 43px;
+        max-width: 190px;
+    }
+
+    .pnd-portfolio-hero {
+        padding: 54px 0 50px;
+    }
+
+    .pnd-portfolio-hero-grid {
+        gap: 30px;
+    }
+
+    .pnd-eyebrow {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 8px;
+        letter-spacing: 1px;
+        padding: 8px 9px;
+    }
+
+    .pnd-hero-content h1 {
+        font-size: clamp(36px, 12vw, 52px);
+        letter-spacing: -2px;
+        margin-bottom: 17px;
+    }
+
+    .pnd-hero-content p {
+        font-size: 12.5px;
+        line-height: 1.75;
+    }
+
+    .pnd-hero-stats {
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+    }
+
+    .pnd-hero-stat {
+        padding: 12px 14px;
+    }
+
+    .pnd-hero-stat strong {
+        font-size: 17px;
+    }
+
+    .pnd-hero-image-frame {
+        aspect-ratio: 4 / 3;
+        border-radius: 16px;
+        box-shadow: 0 20px 45px rgba(0,0,0,.30);
+    }
+
+    .pnd-hero-image-label {
+        left: 10px;
+        bottom: 10px;
+        padding: 7px 10px;
+        font-size: 8px;
+    }
+
+    .pnd-section {
+        padding: 52px 0;
+    }
+
+    .pnd-section-head {
+        margin-bottom: 27px;
+    }
+
+    .pnd-section-head h2 {
+        font-size: clamp(30px, 9vw, 42px);
+        letter-spacing: -1.5px;
+    }
+
+    .pnd-section-head p {
+        font-size: 12.5px;
+        line-height: 1.75;
+    }
+
+    .pnd-filter-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pnd-filter {
+        font-size: 10px;
+        padding: 9px 5px;
+    }
+
+    .pnd-featured {
+        border-radius: 16px;
+    }
+
+    .pnd-featured-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .pnd-featured-label {
+        top: 12px;
+        left: 12px;
+        font-size: 8px;
+        padding: 6px 8px;
+    }
+
+    .pnd-featured-info {
+        padding: 24px 17px;
+    }
+
+    .pnd-featured-info h3 {
+        font-size: 28px;
+        line-height: 1.08;
+    }
+
+    .pnd-featured-info p {
+        font-size: 12px;
+        line-height: 1.75;
+    }
+
+    .pnd-project-tag {
+        font-size: 8px;
+        padding: 5px 8px;
+    }
+
+    .pnd-project-link {
+        width: 100%;
+        padding: 12px 14px;
+    }
+
+    .pnd-project-card {
+        border-radius: 14px;
+    }
+
+    .pnd-project-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .pnd-project-info {
+        padding: 16px;
+    }
+
+    .pnd-project-info-top {
+        align-items: flex-start;
+    }
+
+    .pnd-project-info h3 {
+        font-size: 15px;
+        line-height: 1.25;
+    }
+
+    .pnd-project-info p {
+        font-size: 10.5px;
+        line-height: 1.7;
+    }
+
+    .pnd-stats {
+        grid-template-columns: 1fr;
+        border-radius: 14px;
+    }
+
+    .pnd-stat,
+    .pnd-stat:nth-child(2n),
+    .pnd-stat:nth-last-child(-n+2) {
+        border-right: 0;
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    .pnd-stat:last-child {
+        border-bottom: 0;
+    }
+
+    .pnd-stat {
+        padding: 22px 15px;
+    }
+
+    .pnd-stat strong {
+        font-size: 27px;
+    }
+
+    .pnd-cta-section {
+        padding: 28px 0 52px;
+    }
+
+    .pnd-cta {
+        padding: 40px 17px;
+        border-radius: 16px;
+    }
+
+    .pnd-cta h2 {
+        font-size: 32px;
+        letter-spacing: -1.4px;
+    }
+
+    .pnd-cta p {
+        font-size: 12px;
+        line-height: 1.75;
+    }
+
+    .pnd-btn-primary {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 15px;
+    }
+
+    .pnd-footer-grid .pnd-logo-img {
+        height: 43px;
+        max-width: 180px;
+    }
+}
+
+/* ---------------- VERY SMALL PHONES ---------------- */
+@media (max-width: 380px) {
+    .pnd-container {
+        width: calc(100% - 22px);
+    }
+
+    .pnd-logo-img {
+        height: 40px;
+        max-width: calc(100vw - 68px);
+    }
+
+    .pnd-mobile-menu {
+        width: 96vw;
+        max-width: 96vw;
+    }
+
+    .pnd-filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .pnd-filter {
+        min-height: 40px;
+    }
+
+    .pnd-hero-content h1 {
+        font-size: 35px;
+    }
+
+    .pnd-featured-info h3 {
+        font-size: 26px;
+    }
+
+    .pnd-project-info-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Touch devices: don't depend on hover to expose controls. */
+@media (hover:none) and (pointer:coarse) {
+    .pnd-project-card:hover,
+    .pnd-featured-image:hover img,
+    .pnd-hero-image-frame:hover {
+        transform: none;
+    }
+
+    .pnd-project-card:hover .pnd-project-image img,
+    .pnd-featured:hover .pnd-featured-image img,
+    .pnd-hero-image-frame:hover img {
+        transform: none;
+    }
+}
+
+/* Accessibility / motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
 </style>
 
 </head>
@@ -3276,46 +3975,38 @@ img{
             id="mobileServicesList"
         >
 
-            <a href="services.html#website-development">
-                Website Development
-            </a>
+             <a href="website_development.html" class="pnd-dropdown-item">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Website Development</span>
+                        </a>
 
-            <a href="services.html#web-applications">
-                Web Applications
-            </a>
+                        <a href="web_applications.html" class="pnd-dropdown-item">
+                            <i class="bi bi-window-stack"></i>
+                            <span>Web Applications</span>
+                        </a>
 
-            <a href="services.html#ai">
-                AI &amp; Machine Learning
-            </a>
+                        
+                        
 
-            <a href="services.html#robotics">
-                Robotics &amp; Automation
-            </a>
+                        <a href="digital-content.html" class="pnd-dropdown-item">
+                            <i class="bi bi-cloud"></i>
+                            <span>Social Media  &amp; Content Creation</span>
+                        </a>
 
-            <a href="services.html#ecommerce">
-                E-Commerce
-            </a>
+                        <a href="logo-brand-design.html" class="pnd-dropdown-item">
+                            <i class="bi bi-palette"></i>
+                            <span>Logo &amp; Brand Design</span>
+                        </a>
 
-            <a href="services.html#database">
-                Database Projects
-            </a>
+                        <a href="photography.html" class="pnd-dropdown-item">
+                            <i class="bi bi-camera"></i>
+                            <span>Photography</span>
+                        </a>
 
-            <a href="services.html#hosting">
-                Hosting &amp; Maintenance
-            </a>
-
-            <a href="services.html#branding">
-                Logo &amp; Brand Design
-            </a>
-
-            <a href="services.html#photography">
-                Photography
-            </a>
-
-            <a href="services.html#videography">
-                Videography
-            </a>
-
+                        <a href="videography.html" class="pnd-dropdown-item">
+                            <i class="bi bi-camera-video"></i>
+                            <span>Videography</span>
+                        </a>
         </div>
 
     </div>
@@ -3343,7 +4034,7 @@ img{
         <span>Contact</span>
 
     </a>
-a
+    <a
         href="team.html"
         class="pnd-mobile-link"
     >
@@ -4337,89 +5028,7 @@ a
             </div>
 
 
-            <!-- EXPLORE -->
-
-            <div>
-
-                <h4>
-                    Explore
-                </h4>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="portfolio.html">
-                    Portfolio
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <!-- SERVICES -->
-
-            <div>
-
-                <h4>
-                    Services
-                </h4>
-
-                <a href="services.html#website-development">
-                    Website Development
-                </a>
-
-                <a href="services.html#web-applications">
-                    Web Applications
-                </a>
-
-                <a href="services.html#ecommerce">
-                    E-Commerce
-                </a>
-
-                <a href="services.html#database">
-                    Software &amp; Database
-                </a>
-
-            </div>
-
-
-            <!-- CREATIVE -->
-
-            <div>
-
-                <h4>
-                    Creative
-                </h4>
-
-                <a href="services.html#branding">
-                    Logo &amp; Brand Design
-                </a>
-
-                <a href="services.html#photography">
-                    Photography
-                </a>
-
-                <a href="services.html#videography">
-                    Videography
-                </a>
-
-                <a href="services.html">
-                    Digital Content
-                </a>
-
-            </div>
+           
 
 
         </div>
