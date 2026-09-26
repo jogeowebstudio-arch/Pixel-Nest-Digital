@@ -485,113 +485,343 @@ img{
         transform .25s ease;
 }
 
+/* ============================================================
+   SERVICES DROPDOWN
+============================================================ */
+
+.pnd-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Invisible hover bridge.
+   This prevents the dropdown from disappearing
+   while the mouse travels from Services to the menu. */
+.pnd-dropdown::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -15px;
+    right: -15px;
+
+    top: 100%;
+
+    height: 14px;
+
+    background: transparent;
+
+    pointer-events: auto;
+
+    z-index: 10040;
+}
+
+
+/* SERVICES LINK */
+
+.pnd-dropdown > .pnd-nav-link {
+
+    position: relative;
+
+    z-index: 10060;
+
+    cursor: pointer;
+}
+
+
+/* CHEVRON */
+
+.pnd-chevron {
+
+    font-size: 10px;
+
+    transition:
+        transform .25s ease;
+}
+
+.pnd-dropdown:hover .pnd-chevron,
+.pnd-dropdown.open .pnd-chevron {
+
+    transform: rotate(180deg);
+}
+
 
 /* =========================================================
-   SERVICES DROPDOWN
+   DROPDOWN PANEL
 ========================================================= */
 
-.pnd-dropdown{
-    position:relative;
-}
+.pnd-dropdown-menu {
 
-.pnd-dropdown:hover .pnd-chevron{
-    transform:rotate(180deg);
-}
+    position: absolute;
 
-.pnd-dropdown-menu{
+    top: calc(100% + 10px);
 
-    position:absolute;
+    left: 50%;
 
-    top:calc(100% + 10px);
+    width: 300px;
 
-    left:50%;
+    max-width: 300px;
 
-    width:285px;
-
-    padding:8px;
+    padding: 9px;
 
     transform:
-        translate(-50%,8px);
+        translate(-50%, 8px);
 
-    opacity:0;
+    opacity: 0;
 
-    visibility:hidden;
+    visibility: hidden;
 
-    border:1px solid rgba(255,255,255,.10);
+    pointer-events: none;
 
-    border-radius:14px;
+    z-index: 10050;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 15px;
 
     background:
         linear-gradient(
             155deg,
-            rgba(7,17,31,.98),
-            rgba(17,28,53,.98)
+            rgba(7,17,31,.99),
+            rgba(17,28,53,.99)
         );
 
     box-shadow:
-        0 20px 55px rgba(0,0,0,.42);
+        0 25px 70px rgba(0,0,0,.55),
+        0 0 35px rgba(37,99,235,.10);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(22px);
 
-    -webkit-backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:
+        blur(22px);
 
     transition:
-        opacity .2s ease,
-        visibility .2s ease,
-        transform .2s ease;
+        opacity .22s ease,
+        visibility .22s ease,
+        transform .22s ease;
+
+    /* IMPORTANT:
+       The menu itself must not be clipped */
+    overflow: visible;
 }
 
-.pnd-dropdown:hover .pnd-dropdown-menu{
 
-    opacity:1;
+/* Small glowing top line */
 
-    visibility:visible;
+.pnd-dropdown-menu::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    top: -1px;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--pnd-blue),
+            var(--pnd-cyan),
+            var(--pnd-violet)
+        );
+
+    box-shadow:
+        0 0 12px rgba(6,182,212,.45);
+}
+
+
+/* Small arrow */
+
+.pnd-dropdown-menu::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -7px;
+
+    left: 50%;
+
+    width: 13px;
+
+    height: 13px;
 
     transform:
-        translate(-50%,0);
+        translateX(-50%)
+        rotate(45deg);
+
+    background:
+        #0b172a;
+
+    border-left:
+        1px solid rgba(255,255,255,.12);
+
+    border-top:
+        1px solid rgba(255,255,255,.12);
+
+    z-index: -1;
 }
 
-.pnd-dropdown-item{
 
-    display:flex;
+/* =========================================================
+   SHOW DROPDOWN — HOVER
+========================================================= */
 
-    align-items:center;
+.pnd-dropdown:hover .pnd-dropdown-menu {
 
-    gap:11px;
+    opacity: 1;
 
-    padding:10px 11px;
+    visibility: visible;
 
-    border-radius:9px;
+    pointer-events: auto;
 
-    color:#CBD5E1;
+    transform:
+        translate(-50%, 0);
+}
 
-    font-size:12px;
 
-    font-weight:600;
+/* =========================================================
+   SHOW DROPDOWN — CLICK
+========================================================= */
+
+.pnd-dropdown.open .pnd-dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================================================
+   DROPDOWN ITEMS
+========================================================= */
+
+.pnd-dropdown-item {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    min-height: 43px;
+
+    padding:
+        10px 12px;
+
+    border-radius: 10px;
+
+    color: #CBD5E1;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
 
     transition:
         color .2s ease,
         background .2s ease,
-        transform .2s ease;
+        transform .2s ease,
+        border-color .2s ease;
 }
 
-.pnd-dropdown-item i{
 
-    flex:0 0 20px;
+/* ICON */
 
-    color:#67E8F9;
+.pnd-dropdown-item i {
 
-    font-size:14px;
+    flex:
+        0 0 21px;
+
+    width: 21px;
+
+    text-align: center;
+
+    color: #67E8F9;
+
+    font-size: 15px;
+
+    transition:
+        transform .2s ease,
+        color .2s ease;
 }
 
-.pnd-dropdown-item:hover{
 
-    color:#fff;
+/* TEXT */
 
-    background:rgba(255,255,255,.07);
+.pnd-dropdown-item span {
 
-    transform:translateX(2px);
+    min-width: 0;
+
+    flex: 1;
 }
+
+
+/* HOVER */
+
+.pnd-dropdown-item:hover {
+
+    color: #FFFFFF;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,.16),
+            rgba(6,182,212,.08)
+        );
+
+    transform:
+        translateX(3px);
+}
+
+.pnd-dropdown-item:hover i {
+
+    color: #FFFFFF;
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   DESKTOP DROPDOWN RESPONSIVE POSITION
+========================================================= */
+
+@media (max-width: 1280px) and (min-width: 1051px) {
+
+    .pnd-dropdown-menu {
+
+        width: 285px;
+
+        max-width: 285px;
+
+    }
+
+}
+
 
 
 /* =========================================================
@@ -3722,24 +3952,23 @@ img, svg, video, canvas, iframe {
 
             <!-- DESKTOP NAV -->
 
-            <nav
+               <nav
                 class="pnd-nav"
                 aria-label="Main navigation"
-            >   
-            <a
+            >
+
+
+                <!-- ABOUT -->
+
+                <a
                     href="index.html"
-                    class="pnd-nav-link"
+                    class="pnd-nav-link active"
                 >
                     Home
                 </a>
 
-                <a
-                    href="about.html"
-                    class="pnd-nav-link"
-                >
-                    About
-                </a>
 
+                <!-- SERVICES -->
 
                 <div class="pnd-dropdown">
 
@@ -3758,6 +3987,7 @@ img, svg, video, canvas, iframe {
 
 
                     <div class="pnd-dropdown-menu">
+
 
                          <a href="website_development.html" class="pnd-dropdown-item">
                             <i class="bi bi-code-slash"></i>
@@ -3797,6 +4027,10 @@ img, svg, video, canvas, iframe {
                 </div>
 
 
+                <!-- PORTFOLIO -->
+                <a href="Portfolio.html" class="pnd-nav-link">
+                    Portfolio
+                </a>
 
 
                 <!-- Team -->
@@ -3805,27 +4039,34 @@ img, svg, video, canvas, iframe {
                 </a>
 
 
+                <!-- CONTACT -->
+
                 <a
                     href="contact.html"
                     class="pnd-nav-link"
                 >
                     Contact
                 </a>
-                    
-
+<!-- CONTACT -->
 
                 
 
+
+                <!-- GET STARTED -->
 
                 <a
                     href="start-project.html"
                     class="pnd-start"
                 >
+
                     Get Started
+
                     <i class="bi bi-arrow-up-right"></i>
+
                 </a>
 
             </nav>
+
 
 
             <!-- MOBILE MENU BUTTON -->
