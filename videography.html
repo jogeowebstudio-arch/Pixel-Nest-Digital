@@ -1,2385 +1,4316 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Pixel Nest Digital Videography — cinematic films, brand stories, events, promotional videos and social content.">
-<title>Videography | Pixel Nest Digital</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-<style>
-:root{
-    --bg:#06101e;
-    --bg2:#0b172a;
-    --white:#fff;
-    --text:#f8fafc;
-    --muted:#94a3b8;
-    --dark:#111827;
-    --blue:#2563eb;
-    --cyan:#06b6d4;
-    --violet:#7c3aed;
-    --green:#22c55e;
-    --line:rgba(255,255,255,.10);
-    --container:min(1240px,92%);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-    margin:0;
-    font-family:"DM Sans",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
-}
-body.menu-open{overflow:hidden}
-img{display:block;width:100%}
-a{text-decoration:none;color:inherit}
-button,input{font:inherit}
-.container{width:var(--container);margin:auto}
-
-/* ============================================================
-   PIXEL NEST DIGITAL — HEADER
-   CSS MATCHING EXISTING pnd-* HTML
-============================================================ */
-
-:root{
-    --pnd-bg:#06101e;
-    --pnd-bg2:#0b172a;
-    --pnd-white:#ffffff;
-    --pnd-text:#f8fafc;
-    --pnd-muted:#94a3b8;
-    --pnd-blue:#2563eb;
-    --pnd-cyan:#06b6d4;
-    --pnd-violet:#7c3aed;
-    --pnd-green:#22c55e;
-    --pnd-line:rgba(255,255,255,.10);
-}
-
-
-/* ============================================================
-   TOP LED
-============================================================ */
-
-.pnd-top-led{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:3px;
-    z-index:3000;
-
-    background:
-        linear-gradient(
-            90deg,
-            #2563eb,
-            #06b6d4,
-            #7c3aed,
-            #06b6d4,
-            #2563eb
-        );
-
-    background-size:300% 100%;
-
-    animation:pndLedMove 6s linear infinite;
-
-    box-shadow:
-        0 0 12px rgba(37,99,235,.65),
-        0 0 22px rgba(6,182,212,.35);
-}
-
-@keyframes pndLedMove{
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-}
 
+    <meta charset="UTF-8">
 
-/* ============================================================
-   MAIN HEADER
-============================================================ */
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
 
-.pnd-header{
-    position:fixed;
-    top:3px;
-    left:0;
-    right:0;
+    <meta
+        name="description"
+        content="Pixel Nest Digital Videography — cinematic films, brand stories, events, promotional videos and social media content."
+    >
 
-    z-index:2000;
+    <title>Videography | Pixel Nest Digital</title>
 
-    min-height:74px;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,17,31,.96),
-            rgba(7,17,31,.88)
-        );
+    <!-- =========================================================
+         GOOGLE FONT
+    ========================================================== -->
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-    transition:
-        background .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-}
 
+    <!-- =========================================================
+         BOOTSTRAP
+    ========================================================== -->
 
-/* Header when page scrolls */
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
-.pnd-header.scrolled{
-    background:rgba(5,12,22,.97);
 
-    border-bottom-color:rgba(96,165,250,.16);
+    <!-- =========================================================
+         BOOTSTRAP ICONS
+    ========================================================== -->
 
-    box-shadow:
-        0 10px 40px rgba(0,0,0,.28);
-}
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
 
-/* ============================================================
-   HEADER INNER
-============================================================ */
+    <style>
 
-.pnd-header-inner{
-    min-height:74px;
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
 
-    display:flex;
-    align-items:center;
+        :root {
 
-    gap:22px;
-}
+            --pnd-bg: #07111f;
+            --pnd-bg-2: #0b172a;
+            --pnd-bg-3: #111c35;
 
+            --pnd-blue: #2563eb;
+            --pnd-cyan: #06b6d4;
+            --pnd-violet: #7c3aed;
 
-/* ============================================================
-   LOGO
-============================================================ */
+            --pnd-white: #ffffff;
+            --pnd-text: #cbd5e1;
+            --pnd-muted: #94a3b8;
 
-.pnd-logo{
-    display:flex;
-    align-items:center;
+            --pnd-border: rgba(255,255,255,.09);
 
-    flex-shrink:0;
+            --header-height: 78px;
+        }
 
-    text-decoration:none;
 
-    line-height:0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.pnd-logo-img{
-    display:block;
 
-    width:auto;
-    height:52px;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    max-width:220px;
 
-    object-fit:contain;
+        body {
 
-    transition:
-        transform .3s ease,
-        filter .3s ease;
-}
+            font-family: "DM Sans", sans-serif;
 
-.pnd-logo:hover .pnd-logo-img{
-    transform:translateY(-1px) scale(1.025);
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(37,99,235,.10),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 40%,
+                    rgba(6,182,212,.08),
+                    transparent 30%
+                ),
+                var(--pnd-bg);
 
-    filter:
-        drop-shadow(0 0 12px rgba(37,99,235,.22));
-}
+            color: var(--pnd-white);
 
+            overflow-x: hidden;
+        }
 
-/* ============================================================
-   DESKTOP SEARCH
-============================================================ */
 
-.pnd-search{
-    flex:1;
+        a {
+            text-decoration: none;
+        }
 
-    max-width:400px;
 
-    height:46px;
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-    display:flex;
-    align-items:center;
 
-    overflow:hidden;
+        button,
+        input {
+            font-family: inherit;
+        }
 
-    border:1px solid rgba(255,255,255,.10);
 
-    border-radius:12px;
+        ::selection {
 
-    background:rgba(255,255,255,.045);
+            background:
+                rgba(37,99,235,.65);
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.025);
+            color: #fff;
+        }
 
-    transition:
-        border-color .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
-}
 
-.pnd-search:focus-within{
-    border-color:rgba(37,99,235,.55);
 
-    background:rgba(255,255,255,.065);
+        /* =====================================================
+           TOP LED
+        ====================================================== */
 
-    box-shadow:
-        0 0 0 3px rgba(37,99,235,.08);
-}
+        .pnd-top-led {
 
+            position: fixed;
 
-/* Search icon */
+            top: 0;
+            left: 0;
 
-.pnd-search-icon{
-    width:43px;
-    height:100%;
+            width: 100%;
+            height: 3px;
 
-    display:grid;
-    place-items:center;
+            z-index: 3000;
 
-    flex-shrink:0;
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #06b6d4,
+                    #7c3aed,
+                    #2563eb
+                );
 
-    color:#64748b;
+            background-size: 300% 100%;
 
-    font-size:14px;
-}
+            animation:
+                ledMove 5s linear infinite;
 
-.pnd-search:focus-within .pnd-search-icon{
-    color:#60a5fa;
-}
+            box-shadow:
+                0 0 12px rgba(37,99,235,.9),
+                0 0 28px rgba(6,182,212,.45);
+        }
 
 
-/* Search input */
+        @keyframes ledMove {
 
-.pnd-search input{
-    flex:1;
+            0% {
+                background-position: 0% 50%;
+            }
 
-    min-width:0;
+            100% {
+                background-position: 300% 50%;
+            }
 
-    height:100%;
+        }
 
-    border:0;
-    outline:0;
 
-    background:transparent;
 
-    color:#ffffff;
+        /* =====================================================
+           HEADER
+        ====================================================== */
 
-    padding:0 8px 0 0;
+        .pnd-header {
 
-    font-size:12px;
-    font-weight:500;
-}
+            position: fixed;
 
-.pnd-search input::placeholder{
-    color:#64748b;
-}
+            top: 3px;
+            left: 0;
 
+            width: 100%;
 
-/* Search button */
+            height: var(--header-height);
 
-.pnd-search button{
-    height:36px;
+            z-index: 2500;
 
-    margin:5px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,17,31,.97),
+                    rgba(11,23,42,.91)
+                );
 
-    padding:0 17px;
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
 
-    flex-shrink:0;
+            backdrop-filter:
+                blur(20px);
 
-    border:0;
+            -webkit-backdrop-filter:
+                blur(20px);
 
-    border-radius:8px;
+            transition:
+                background .3s ease,
+                box-shadow .3s ease,
+                height .3s ease;
+        }
 
-    color:#ffffff;
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #06b6d4
-        );
+        .pnd-header.scrolled {
 
-    font-size:11px;
-    font-weight:800;
+            background:
+                rgba(5,12,23,.97);
 
-    cursor:pointer;
+            box-shadow:
+                0 12px 35px rgba(0,0,0,.30);
+        }
 
-    box-shadow:
-        0 5px 15px rgba(37,99,235,.22);
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
+        .pnd-header-inner {
 
-.pnd-search button:hover{
-    transform:translateY(-1px);
+            max-width: 1440px;
 
-    box-shadow:
-        0 8px 20px rgba(37,99,235,.35);
-}
+            height: 100%;
 
+            margin: auto;
 
-/* ============================================================
-   DESKTOP NAVIGATION
-============================================================ */
+            padding:
+                0 55px;
 
-.pnd-nav{
-    margin-left:auto;
+            display: flex;
 
-    display:flex;
-    align-items:center;
+            align-items: center;
 
-    gap:3px;
+            justify-content: space-between;
 
-    flex-shrink:0;
-}
+            gap: 25px;
+        }
 
 
-/* Main nav links */
 
-.pnd-nav-link{
-    position:relative;
+        /* =====================================================
+           LOGO
+        ====================================================== */
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+        .pnd-logo-img {
 
-    gap:7px;
+            width: auto;
 
-    min-height:42px;
+            height: 52px;
 
-    padding:0 11px;
+            max-width: 220px;
 
-    border-radius:9px;
+            object-fit: contain;
 
-    color:#cbd5e1;
+            transition:
+                transform .35s ease,
+                filter .35s ease;
+        }
 
-    font-size:12px;
-    font-weight:700;
 
-    white-space:nowrap;
+        .pnd-logo-img:hover {
 
-    text-decoration:none;
+            transform:
+                scale(1.04);
 
-    transition:
-        color .25s ease,
-        background .25s ease,
-        transform .25s ease;
-}
+            filter:
+                drop-shadow(
+                    0 0 12px
+                    rgba(37,99,235,.35)
+                );
+        }
 
-.pnd-nav-link:hover{
-    color:#ffffff;
 
-    background:rgba(255,255,255,.065);
-}
 
-.pnd-nav-link.active{
-    color:#ffffff;
+        /* =====================================================
+           DESKTOP SEARCH
+        ====================================================== */
 
-    background:rgba(37,99,235,.13);
-}
+        .pnd-search {
 
+            position: relative;
 
-/* Small active indicator */
+            flex: 1;
 
-.pnd-nav-link.active::after{
-    content:"";
+            max-width: 400px;
 
-    position:absolute;
+            height: 46px;
+        }
 
-    left:50%;
-    bottom:4px;
 
-    width:15px;
-    height:2px;
+        .pnd-search input {
 
-    border-radius:20px;
+            width: 100%;
+            height: 100%;
 
-    background:
-        linear-gradient(
-            90deg,
-            #2563eb,
-            #06b6d4
-        );
+            border-radius: 14px;
 
-    transform:translateX(-50%);
-}
+            border:
+                1px solid rgba(255,255,255,.09);
 
+            background:
+                rgba(255,255,255,.045);
 
-/* ============================================================
-   SERVICES DROPDOWN
-============================================================ */
+            color: #fff;
 
-.pnd-dropdown{
-    position:relative;
-}
+            padding:
+                0 48px 0 18px;
 
-.pnd-dropdown > .pnd-nav-link{
-    cursor:pointer;
-}
+            outline: none;
 
-.pnd-chevron{
-    font-size:9px;
+            transition: .3s ease;
+        }
 
-    transition:
-        transform .25s ease;
-}
 
-.pnd-dropdown:hover .pnd-chevron{
-    transform:rotate(180deg);
-}
+        .pnd-search input::placeholder {
+            color: #64748b;
+        }
 
 
-/* Dropdown panel */
+        .pnd-search input:focus {
 
-.pnd-dropdown-menu{
-    position:absolute;
+            border-color:
+                rgba(37,99,235,.65);
 
-    top:calc(100% + 10px);
-    left:50%;
+            background:
+                rgba(255,255,255,.065);
 
-    width:270px;
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,.10);
+        }
 
-    padding:8px;
 
-    opacity:0;
-    visibility:hidden;
+        .pnd-search i {
 
-    transform:
-        translate(-50%,8px);
+            position: absolute;
 
-    border:1px solid rgba(255,255,255,.10);
+            right: 17px;
+            top: 50%;
 
-    border-radius:14px;
+            transform:
+                translateY(-50%);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(11,23,42,.98),
-            rgba(7,17,31,.98)
-        );
+            color: #64748b;
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.45),
-        0 0 30px rgba(37,99,235,.08);
+            pointer-events: none;
+        }
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
 
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
-}
 
+        /* =====================================================
+           DESKTOP NAV
+        ====================================================== */
 
-/* Dropdown top glow */
+        .pnd-nav {
 
-.pnd-dropdown-menu::before{
-    content:"";
+            display: flex;
 
-    position:absolute;
+            align-items: center;
 
-    top:0;
-    left:15px;
-    right:15px;
+            gap: 5px;
+        }
 
-    height:2px;
 
-    border-radius:20px;
+        .pnd-nav a {
 
-    background:
-        linear-gradient(
-            90deg,
-            #2563eb,
-            #06b6d4,
-            #7c3aed
-        );
-}
+            position: relative;
 
+            color: #cbd5e1;
 
-/* Show dropdown */
+            padding:
+                11px 13px;
 
-.pnd-dropdown:hover .pnd-dropdown-menu{
-    opacity:1;
+            font-size: 14px;
 
-    visibility:visible;
+            font-weight: 500;
 
-    transform:
-        translate(-50%,0);
-}
+            border-radius: 10px;
 
+            transition:
+                color .3s ease,
+                background .3s ease;
+        }
 
-/* Dropdown item */
 
-.pnd-dropdown-item{
-    min-height:42px;
+        .pnd-nav a::after {
 
-    display:flex;
-    align-items:center;
+            content: "";
 
-    gap:12px;
+            position: absolute;
 
-    padding:10px 12px;
+            left: 50%;
+            bottom: 4px;
 
-    border-radius:9px;
+            width: 0;
+            height: 2px;
 
-    color:#cbd5e1;
+            transform:
+                translateX(-50%);
 
-    font-size:11px;
-    font-weight:600;
+            border-radius: 10px;
 
-    text-decoration:none;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--pnd-blue),
+                    var(--pnd-cyan)
+                );
 
-    transition:
-        color .2s ease,
-        background .2s ease,
-        transform .2s ease;
-}
+            transition:
+                width .3s ease;
+        }
 
-.pnd-dropdown-item i{
-    width:25px;
 
-    display:flex;
-    justify-content:center;
+        .pnd-nav a:hover,
+        .pnd-nav a.active {
 
-    color:#60a5fa;
+            color: #fff;
 
-    font-size:15px;
-}
+            background:
+                rgba(37,99,235,.08);
+        }
 
-.pnd-dropdown-item:hover{
-    color:#ffffff;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(37,99,235,.14),
-            rgba(6,182,212,.07)
-        );
+        .pnd-nav a:hover::after,
+        .pnd-nav a.active::after {
 
-    transform:translateX(3px);
-}
+            width: 24px;
+        }
 
-.pnd-dropdown-item:hover i{
-    color:#67e8f9;
-}
 
 
-/* ============================================================
-   GET STARTED
-============================================================ */
+        /* =====================================================
+           HEADER CTA
+        ====================================================== */
 
-.pnd-start{
-    min-height:42px;
+        .pnd-start {
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+            display: inline-flex;
 
-    gap:8px;
+            align-items: center;
 
-    margin-left:5px;
+            justify-content: center;
 
-    padding:0 16px;
+            gap: 8px;
 
-    border-radius:9px;
+            min-height: 45px;
 
-    color:#ffffff;
+            padding:
+                0 18px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #06b6d4
-        );
+            border-radius: 12px;
 
-    font-size:11px;
-    font-weight:800;
+            color: #fff;
 
-    white-space:nowrap;
+            font-size: 14px;
 
-    box-shadow:
-        0 8px 25px rgba(37,99,235,.20);
+            font-weight: 700;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
 
-.pnd-start i{
-    font-size:11px;
-}
+            box-shadow:
+                0 10px 25px
+                rgba(37,99,235,.22);
 
-.pnd-start:hover{
-    color:#ffffff;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
 
-    transform:translateY(-2px);
 
-    box-shadow:
-        0 12px 30px rgba(37,99,235,.35);
-}
+        .pnd-start:hover {
 
+            color: #fff;
 
-/* ============================================================
-   MOBILE MENU BUTTON
-============================================================ */
+            transform:
+                translateY(-2px);
 
-.pnd-menu-btn{
-    display:none;
+            box-shadow:
+                0 15px 35px
+                rgba(37,99,235,.34);
+        }
 
-    width:43px;
-    height:43px;
 
-    margin-left:auto;
 
-    align-items:center;
-    justify-content:center;
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ====================================================== */
 
-    border:1px solid rgba(255,255,255,.11);
+        .pnd-mobile-toggle {
 
-    border-radius:10px;
+            width: 46px;
+            height: 46px;
 
-    color:#ffffff;
+            border:
+                1px solid rgba(255,255,255,.10);
 
-    background:rgba(255,255,255,.045);
+            border-radius: 13px;
 
-    cursor:pointer;
+            background:
+                rgba(255,255,255,.05);
 
-    font-size:20px;
+            color: #fff;
 
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease;
-}
+            display: none;
 
-.pnd-menu-btn:hover{
-    background:rgba(37,99,235,.12);
+            align-items: center;
+            justify-content: center;
 
-    border-color:rgba(37,99,235,.4);
+            font-size: 23px;
 
-    transform:translateY(-1px);
-}
+            cursor: pointer;
 
+            transition: .3s ease;
+        }
 
-/* ============================================================
-   MOBILE OVERLAY
-============================================================ */
 
-.pnd-mobile-overlay{
-    position:fixed;
+        .pnd-mobile-toggle:hover {
 
-    inset:0;
+            background:
+                rgba(37,99,235,.16);
 
-    z-index:2100;
+            border-color:
+                rgba(37,99,235,.4);
+        }
 
-    background:rgba(0,0,0,.68);
 
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
 
-    opacity:0;
-    visibility:hidden;
+        /* =====================================================
+           MOBILE MENU OVERLAY
+        ====================================================== */
 
-    transition:
-        opacity .3s ease,
-        visibility .3s ease;
-}
+        .pnd-mobile-overlay {
 
-.pnd-mobile-overlay.active{
-    opacity:1;
+            position: fixed;
 
-    visibility:visible;
-}
+            inset: 0;
 
+            z-index: 2600;
 
-/* ============================================================
-   MOBILE SIDE MENU
-============================================================ */
+            background:
+                rgba(0,0,0,.60);
 
-.pnd-mobile-menu{
-    position:fixed;
+            opacity: 0;
 
-    top:0;
-    right:0;
+            visibility: hidden;
 
-    z-index:2200;
+            transition:
+                opacity .35s ease,
+                visibility .35s ease;
+        }
 
-    width:min(390px,88vw);
 
-    height:100dvh;
+        .pnd-mobile-overlay.active {
 
-    padding:20px 20px 30px;
+            opacity: 1;
 
-    overflow-y:auto;
+            visibility: visible;
+        }
 
-    display:flex;
-    flex-direction:column;
 
-    background:
-        linear-gradient(
-            160deg,
-            #07111f 0%,
-            #0b172a 100%
-        );
 
-    border-left:1px solid rgba(255,255,255,.10);
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
 
-    box-shadow:
-        -25px 0 80px rgba(0,0,0,.45);
+        .pnd-mobile-menu {
 
-    transform:translateX(100%);
+            position: fixed;
 
-    transition:
-        transform .35s cubic-bezier(.4,0,.2,1);
-}
+            top: 0;
+            right: 0;
 
-.pnd-mobile-menu.active{
-    transform:translateX(0);
-}
+            z-index: 2700;
 
+            width:
+                min(390px, 91vw);
 
-/* Mobile scrollbar */
+            height: 100vh;
 
-.pnd-mobile-menu::-webkit-scrollbar{
-    width:4px;
-}
+            padding:
+                25px;
 
-.pnd-mobile-menu::-webkit-scrollbar-track{
-    background:transparent;
-}
+            background:
+                linear-gradient(
+                    180deg,
+                    #081426,
+                    #07111f
+                );
 
-.pnd-mobile-menu::-webkit-scrollbar-thumb{
-    background:rgba(96,165,250,.25);
-    border-radius:10px;
-}
+            border-left:
+                1px solid rgba(255,255,255,.09);
 
+            box-shadow:
+                -20px 0 60px
+                rgba(0,0,0,.45);
 
-/* ============================================================
-   MOBILE TOP
-============================================================ */
+            transform:
+                translateX(105%);
 
-.pnd-mobile-top{
-    min-height:55px;
+            transition:
+                transform .4s
+                cubic-bezier(.22,.61,.36,1);
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+            overflow-y: auto;
+        }
 
-    gap:15px;
 
-    margin-bottom:18px;
-}
+        .pnd-mobile-menu.active {
 
-.pnd-mobile-top .pnd-logo-img{
-    height:46px;
+            transform:
+                translateX(0);
+        }
 
-    max-width:190px;
-}
 
+        .pnd-mobile-top {
 
-/* ============================================================
-   MOBILE CLOSE
-============================================================ */
+            display: flex;
 
-.pnd-mobile-close{
-    width:42px;
-    height:42px;
+            align-items: center;
 
-    display:grid;
-    place-items:center;
+            justify-content: space-between;
 
-    flex-shrink:0;
+            margin-bottom: 25px;
+        }
 
-    border:1px solid rgba(255,255,255,.10);
 
-    border-radius:10px;
+        .pnd-mobile-logo {
 
-    color:#ffffff;
+            height: 43px;
 
-    background:rgba(255,255,255,.045);
+            width: auto;
+        }
 
-    cursor:pointer;
 
-    font-size:16px;
+        .pnd-mobile-close {
 
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease;
-}
+            width: 42px;
+            height: 42px;
 
-.pnd-mobile-close:hover{
-    background:rgba(239,68,68,.12);
+            border-radius: 12px;
 
-    border-color:rgba(239,68,68,.35);
+            border:
+                1px solid rgba(255,255,255,.09);
 
-    transform:rotate(4deg);
-}
+            background:
+                rgba(255,255,255,.045);
 
+            color: #fff;
 
-/* ============================================================
-   MOBILE SEARCH
-============================================================ */
+            font-size: 22px;
 
-.pnd-mobile-search{
-    height:46px;
+            display: flex;
 
-    display:flex;
-    align-items:center;
+            align-items: center;
 
-    gap:10px;
+            justify-content: center;
 
-    margin-bottom:15px;
+            cursor: pointer;
+        }
 
-    padding:0 13px;
 
-    border:1px solid rgba(255,255,255,.10);
 
-    border-radius:11px;
+        /* =====================================================
+           MOBILE SEARCH
+        ====================================================== */
 
-    background:rgba(255,255,255,.045);
-}
+        .pnd-mobile-search {
 
-.pnd-mobile-search > i{
-    color:#64748b;
+            position: relative;
 
-    font-size:14px;
-}
+            margin-bottom: 25px;
+        }
 
-.pnd-mobile-search input{
-    flex:1;
 
-    min-width:0;
+        .pnd-mobile-search input {
 
-    height:100%;
+            width: 100%;
 
-    border:0;
-    outline:0;
+            height: 48px;
 
-    background:transparent;
+            border-radius: 13px;
 
-    color:#ffffff;
+            border:
+                1px solid rgba(255,255,255,.09);
 
-    font-size:12px;
-}
+            background:
+                rgba(255,255,255,.045);
 
-.pnd-mobile-search input::placeholder{
-    color:#64748b;
-}
+            color: #fff;
 
+            outline: none;
 
-/* ============================================================
-   MOBILE NAV LINKS
-============================================================ */
+            padding-left: 17px;
 
-.pnd-mobile-link{
-    min-height:48px;
+            padding-right: 45px;
+        }
 
-    display:flex;
-    align-items:center;
 
-    gap:13px;
+        .pnd-mobile-search i {
 
-    margin-bottom:4px;
+            position: absolute;
 
-    padding:0 14px;
+            right: 16px;
+            top: 50%;
 
-    border:1px solid transparent;
+            transform:
+                translateY(-50%);
 
-    border-radius:10px;
+            color: #64748b;
+        }
 
-    color:#cbd5e1;
 
-    font-size:13px;
-    font-weight:700;
 
-    text-decoration:none;
+        /* =====================================================
+           MOBILE LINKS
+        ====================================================== */
 
-    transition:
-        color .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease;
-}
+        .pnd-mobile-links {
 
-.pnd-mobile-link > i{
-    width:20px;
+            display: flex;
 
-    color:#64748b;
+            flex-direction: column;
 
-    text-align:center;
+            gap: 8px;
+        }
 
-    font-size:15px;
 
-    transition:color .25s ease;
-}
+        .pnd-mobile-link {
 
-.pnd-mobile-link:hover{
-    color:#ffffff;
+            min-height: 52px;
 
-    background:rgba(255,255,255,.055);
+            padding:
+                0 15px;
 
-    border-color:rgba(255,255,255,.06);
+            display: flex;
 
-    transform:translateX(3px);
-}
+            align-items: center;
 
-.pnd-mobile-link:hover > i{
-    color:#60a5fa;
-}
+            justify-content: space-between;
 
+            border-radius: 13px;
 
-/* Active mobile link */
+            color: #cbd5e1;
 
-.pnd-mobile-link.active{
-    color:#ffffff;
+            border:
+                1px solid transparent;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(37,99,235,.16),
-            rgba(6,182,212,.05)
-        );
+            transition: .3s ease;
+        }
 
-    border-color:rgba(37,99,235,.18);
-}
 
-.pnd-mobile-link.active > i{
-    color:#60a5fa;
-}
+        .pnd-mobile-link span {
 
+            display: flex;
 
-/* ============================================================
-   MOBILE SERVICES
-============================================================ */
+            align-items: center;
 
-.pnd-mobile-services{
-    margin-bottom:4px;
-}
+            gap: 12px;
+        }
 
 
-/* Services button */
+        .pnd-mobile-link span i {
 
-.pnd-mobile-services > button{
-    width:100%;
+            width: 22px;
 
-    min-height:48px;
+            color: #60a5fa;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+            font-size: 17px;
+        }
 
-    padding:0 14px;
 
-    border:1px solid transparent;
+        .pnd-mobile-link:hover,
+        .pnd-mobile-link.active {
 
-    border-radius:10px;
+            color: #fff;
 
-    color:#cbd5e1;
+            background:
+                rgba(37,99,235,.10);
 
-    background:transparent;
+            border-color:
+                rgba(37,99,235,.15);
 
-    font-size:13px;
-    font-weight:700;
+            transform:
+                translateX(3px);
+        }
 
-    cursor:pointer;
 
-    transition:
-        color .25s ease,
-        background .25s ease,
-        border-color .25s ease;
-}
+        .pnd-mobile-cta {
 
-.pnd-mobile-services > button > span{
-    display:flex;
-    align-items:center;
-}
+            margin-top: 20px;
 
-.pnd-mobile-services > button > span i{
-    color:#64748b;
-}
+            width: 100%;
 
-.pnd-mobile-services > button > i{
-    color:#64748b;
+            min-height: 52px;
 
-    font-size:11px;
+            border-radius: 13px;
 
-    transition:
-        transform .3s ease,
-        color .25s ease;
-}
+            display: flex;
 
-.pnd-mobile-services > button:hover{
-    color:#ffffff;
+            align-items: center;
 
-    background:rgba(255,255,255,.055);
+            justify-content: center;
 
-    border-color:rgba(255,255,255,.06);
-}
+            gap: 8px;
 
-.pnd-mobile-services > button:hover > i{
-    color:#60a5fa;
-}
+            color: #fff;
 
+            font-weight: 700;
 
-/* Services open */
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+        }
 
-.pnd-mobile-services.active > button{
-    color:#ffffff;
 
-    background:rgba(37,99,235,.10);
 
-    border-color:rgba(37,99,235,.16);
-}
+        /* ============================================================
+           DESKTOP SERVICES DROPDOWN
+        ============================================================ */
 
-.pnd-mobile-services.active > button > i{
-    color:#60a5fa;
+        .pnd-dropdown {
 
-    transform:rotate(180deg);
-}
+            position: relative;
 
+            display: flex;
 
-/* ============================================================
-   MOBILE SERVICES LIST
-============================================================ */
+            align-items: center;
+        }
 
-.pnd-mobile-service-list{
-    max-height:0;
 
-    overflow:hidden;
+        .pnd-dropdown > .pnd-nav-link {
 
-    padding:0 8px;
+            display: inline-flex;
 
-    opacity:0;
+            align-items: center;
 
-    transition:
-        max-height .35s ease,
-        opacity .25s ease,
-        padding .35s ease;
-}
+            justify-content: center;
 
-.pnd-mobile-services.active .pnd-mobile-service-list{
-    max-height:650px;
+            gap: 7px;
 
-    padding-top:5px;
-    padding-bottom:6px;
+            white-space: nowrap;
 
-    opacity:1;
-}
+            position: relative;
+        }
 
 
-/* Individual service */
+        .pnd-chevron {
 
-.pnd-mobile-service-list a{
-    min-height:39px;
+            font-size: 11px;
 
-    display:flex;
-    align-items:center;
+            line-height: 1;
 
-    padding:0 12px 0 42px;
+            transition:
+                transform .3s ease,
+                color .3s ease;
+        }
 
-    border-radius:8px;
 
-    color:#94a3b8;
+        .pnd-dropdown:hover .pnd-chevron {
 
-    font-size:11px;
-    font-weight:600;
+            transform:
+                rotate(180deg);
 
-    text-decoration:none;
+            color: #60a5fa;
+        }
 
-    transition:
-        color .2s ease,
-        background .2s ease,
-        transform .2s ease;
-}
 
-.pnd-mobile-service-list a:hover{
-    color:#ffffff;
+        /* ============================================================
+           DESKTOP DROPDOWN PANEL
+        ============================================================ */
 
-    background:rgba(255,255,255,.045);
+        .pnd-dropdown-menu {
 
-    transform:translateX(3px);
-}
+            position: absolute;
 
-.pnd-mobile-service-list a::before{
-    content:"";
+            top:
+                calc(100% + 15px);
 
-    width:5px;
-    height:5px;
+            left: 50%;
 
-    margin-right:10px;
+            width: 310px;
 
-    border-radius:50%;
+            padding: 10px;
 
-    background:#2563eb;
+            display: flex;
 
-    box-shadow:
-        0 0 7px rgba(37,99,235,.65);
-}
+            flex-direction: column;
 
+            gap: 5px;
 
-/* ============================================================
-   MOBILE ACTION
-============================================================ */
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11,23,42,.98),
+                    rgba(7,17,31,.98)
+                );
 
-.pnd-mobile-actions{
-    margin-top:auto;
+            border:
+                1px solid rgba(255,255,255,.10);
 
-    padding-top:20px;
-}
+            border-radius: 18px;
 
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.45),
+                0 0 35px rgba(37,99,235,.08);
 
-.pnd-mobile-action{
-    min-height:50px;
+            backdrop-filter:
+                blur(22px);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            -webkit-backdrop-filter:
+                blur(22px);
 
-    gap:9px;
+            opacity: 0;
 
-    width:100%;
+            visibility: hidden;
 
-    border-radius:11px;
+            pointer-events: none;
 
-    font-size:12px;
-    font-weight:800;
+            transform:
+                translateX(-50%)
+                translateY(12px);
 
-    text-decoration:none;
-}
+            transition:
+                opacity .25s ease,
+                visibility .25s ease,
+                transform .25s ease;
 
+            z-index: 3000;
+        }
 
-/* Start project */
 
-.pnd-mobile-start{
-    color:#ffffff;
+        .pnd-dropdown-menu::before {
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #06b6d4
-        );
+            content: "";
 
-    box-shadow:
-        0 10px 30px rgba(37,99,235,.22);
+            position: absolute;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
+            top: 0;
 
-.pnd-mobile-start:hover{
-    color:#ffffff;
+            left: 24px;
+            right: 24px;
 
-    transform:translateY(-2px);
+            height: 1px;
 
-    box-shadow:
-        0 15px 35px rgba(37,99,235,.35);
-}
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(37,99,235,.8),
+                    rgba(6,182,212,.8),
+                    transparent
+                );
 
+            opacity: .8;
+        }
 
-/* ============================================================
-   BODY WHEN MOBILE MENU IS OPEN
-============================================================ */
 
-body.pnd-menu-open{
-    overflow:hidden;
-}
+        .pnd-dropdown-menu::after {
 
+            content: "";
 
-/* ============================================================
-   HEADER RESPONSIVE — LARGE TABLET
-============================================================ */
+            position: absolute;
 
-@media(max-width:1180px){
+            top: -7px;
 
-    .pnd-header-inner{
-        gap:15px;
-    }
+            left: 50%;
 
-    .pnd-logo-img{
-        max-width:190px;
-        height:48px;
-    }
+            width: 14px;
+            height: 14px;
 
-    .pnd-search{
-        max-width:300px;
-    }
+            background:
+                #0b172a;
 
-    .pnd-nav{
-        gap:1px;
-    }
+            border-left:
+                1px solid rgba(255,255,255,.10);
 
-    .pnd-nav-link{
-        padding-left:8px;
-        padding-right:8px;
+            border-top:
+                1px solid rgba(255,255,255,.10);
 
-        font-size:11px;
-    }
+            transform:
+                translateX(-50%)
+                rotate(45deg);
+        }
 
-    .pnd-start{
-        padding:0 12px;
 
-        font-size:10px;
-    }
-}
+        .pnd-dropdown:hover .pnd-dropdown-menu,
+        .pnd-dropdown:focus-within .pnd-dropdown-menu {
 
+            opacity: 1;
 
-/* ============================================================
-   TABLET
-============================================================ */
+            visibility: visible;
 
-@media(max-width:1000px){
+            pointer-events: auto;
 
-    .pnd-search{
-        max-width:240px;
-    }
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
 
-    .pnd-nav-link{
-        padding-left:7px;
-        padding-right:7px;
-    }
 
-    .pnd-dropdown-menu{
-        width:250px;
-    }
-}
 
+        /* ============================================================
+           DROPDOWN ITEMS
+        ============================================================ */
 
-/* ============================================================
-   MOBILE / TABLET MENU
-============================================================ */
+        .pnd-dropdown-item {
 
-@media(max-width:820px){
+            position: relative;
 
-    .pnd-header{
-        min-height:68px;
-    }
+            width: 100%;
 
-    .pnd-header-inner{
-        min-height:68px;
-    }
+            display: flex;
 
-    .pnd-logo-img{
-        height:48px;
-        max-width:200px;
-    }
+            align-items: center;
 
-    .pnd-search,
-    .pnd-nav{
-        display:none;
-    }
+            gap: 12px;
 
-    .pnd-menu-btn{
-        display:flex;
-    }
-}
+            padding:
+                11px 12px;
 
+            border-radius: 12px;
 
-/* ============================================================
-   MOBILE
-============================================================ */
+            color: #cbd5e1;
 
-@media(max-width:600px){
+            text-decoration: none;
 
-    .pnd-header{
-        top:3px;
-    }
+            font-size: 13px;
 
-    .pnd-header-inner{
-        min-height:65px;
-    }
+            font-weight: 500;
 
-    .pnd-logo-img{
-        height:44px;
-        max-width:185px;
-    }
+            line-height: 1.3;
 
-    .pnd-menu-btn{
-        width:41px;
-        height:41px;
-    }
+            background: transparent;
 
-    .pnd-mobile-menu{
-        width:min(390px,91vw);
+            transition:
+                background .25s ease,
+                color .25s ease,
+                transform .25s ease;
+        }
 
-        padding-left:17px;
-        padding-right:17px;
-    }
 
-    .pnd-mobile-top .pnd-logo-img{
-        height:43px;
-        max-width:175px;
-    }
-}
+        .pnd-dropdown-menu .pnd-dropdown-item::after {
 
+            display: none !important;
+        }
 
-/* ============================================================
-   SMALL PHONES
-============================================================ */
 
-@media(max-width:400px){
+        .pnd-dropdown-item > i {
 
-    .pnd-logo-img{
-        height:40px;
-        max-width:170px;
-    }
+            width: 34px;
+            height: 34px;
 
-    .pnd-menu-btn{
-        width:39px;
-        height:39px;
+            flex: 0 0 34px;
 
-        font-size:18px;
-    }
+            display: flex;
 
-    .pnd-mobile-menu{
-        width:92vw;
+            align-items: center;
 
-        padding-left:15px;
-        padding-right:15px;
-    }
+            justify-content: center;
 
-    .pnd-mobile-top .pnd-logo-img{
-        height:40px;
-        max-width:165px;
-    }
+            border-radius: 10px;
 
-    .pnd-mobile-link,
-    .pnd-mobile-services > button{
-        min-height:46px;
-    }
-}
+            color: #60a5fa;
 
-/* ================= HERO ================= */
-.hero{
-    position:relative;
-    min-height:100svh;
-    padding:145px 0 80px;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-}
-.hero:before{
-    content:"";
-    position:absolute;
-    width:720px;height:720px;
-    left:-330px;top:-170px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(37,99,235,.20),transparent 68%);
-}
-.hero:after{
-    content:"";
-    position:absolute;
-    width:650px;height:650px;
-    right:-300px;bottom:-280px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(124,58,237,.20),transparent 68%);
-}
-.hero-grid{
-    position:relative;
-    z-index:2;
-    display:grid;
-    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-    align-items:center;
-    gap:65px;
-}
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    padding:8px 13px;
-    margin-bottom:22px;
-    border:1px solid rgba(6,182,212,.20);
-    border-radius:30px;
-    background:rgba(6,182,212,.055);
-    color:#67e8f9;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1.7px;
-}
-.eyebrow:before{
-    content:"";
-    width:7px;height:7px;
-    border-radius:50%;
-    background:#22c55e;
-    box-shadow:0 0 12px #22c55e;
-}
-.hero h1{
-    margin-bottom:25px;
-    font-size:clamp(48px,6vw,84px);
-    line-height:.98;
-    letter-spacing:-4px;
-    font-weight:800;
-}
-.hero h1 span{
-    color:transparent;
-    background:linear-gradient(90deg,#60a5fa,#22d3ee,#a78bfa);
-    -webkit-background-clip:text;
-    background-clip:text;
-}
-.hero-copy>p{
-    max-width:600px;
-    margin-bottom:14px;
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.85;
-}
-.actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:28px;
-}
-.btn{
-    min-height:50px;
-    padding:0 20px;
-    border-radius:11px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    font-size:13px;
-    font-weight:800;
-    transition:.3s ease;
-}
-.btn:hover{transform:translateY(-3px)}
-.btn-primary{
-    color:#fff;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    box-shadow:0 12px 35px rgba(37,99,235,.25);
-}
-.btn-secondary{
-    color:#e2e8f0;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.04);
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,.16),
+                    rgba(6,182,212,.10)
+                );
 
-/* HERO VIDEO COLLAGE */
-.hero-visual{
-    position:relative;
-    min-height:590px;
-}
-.hero-frame{
-    position:absolute;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:22px;
-    box-shadow:0 30px 80px rgba(0,0,0,.45);
-    transition:.5s ease;
-}
-.hero-frame img{
-    width:100%;height:100%;
-    object-fit:cover;
-}
-.hero-frame:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.55));
-}
-.hero-frame.main{
-    width:62%;height:78%;
-    right:6%;top:8%;
-    transform:rotate(2deg);
-}
-.hero-frame.left{
-    width:36%;height:42%;
-    left:0;top:3%;
-    transform:rotate(-5deg);
-}
-.hero-frame.bottom{
-    width:36%;height:42%;
-    left:4%;bottom:1%;
-    transform:rotate(4deg);
-}
-.hero-frame:hover{
-    transform:translateY(-8px) rotate(0);
-}
-.play-button{
-    position:absolute;
-    z-index:4;
-    left:50%;top:50%;
-    transform:translate(-50%,-50%);
-    width:74px;height:74px;
-    display:grid;place-items:center;
-    border-radius:50%;
-    color:#fff;
-    background:rgba(37,99,235,.85);
-    border:1px solid rgba(255,255,255,.35);
-    box-shadow:0 0 0 10px rgba(37,99,235,.12),0 15px 40px rgba(0,0,0,.4);
-    font-size:25px;
-    animation:pulse 2.4s infinite;
-}
-@keyframes pulse{
-    0%,100%{box-shadow:0 0 0 10px rgba(37,99,235,.10),0 15px 40px rgba(0,0,0,.4)}
-    50%{box-shadow:0 0 0 17px rgba(37,99,235,.03),0 15px 40px rgba(0,0,0,.4)}
-}
-.visual-badge{
-    position:absolute;
-    z-index:5;
-    right:0;bottom:9%;
-    padding:14px 17px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:13px;
-    background:rgba(7,17,31,.84);
-    backdrop-filter:blur(15px);
-}
-.visual-badge strong{display:block;font-size:12px}
-.visual-badge small{color:#64748b;font-size:9px}
+            border:
+                1px solid rgba(96,165,250,.12);
 
-/* ================= COMMON ================= */
-.section{padding:100px 0}
-.section-light{
-    color:#111827;
-    background:#f7f8fa;
-}
-.section-head{
-    max-width:780px;
-    margin:0 auto 48px;
-    text-align:center;
-}
-.kicker{
-    margin-bottom:12px;
-    color:#22d3ee;
-    font-size:10px;
-    letter-spacing:2px;
-    font-weight:800;
-}
-.section-light .kicker{color:#2563eb}
-.section-head h2{
-    margin-bottom:14px;
-    font-size:clamp(34px,4.5vw,55px);
-    line-height:1.08;
-    letter-spacing:-2px;
-}
-.section-head p{
-    color:#94a3b8;
-    font-size:14px;
-    line-height:1.8;
-}
-.section-light .section-head p{color:#64748b}
+            font-size: 15px;
 
-/* ================= FOUNDER MESSAGE ================= */
-.founder-grid{
-    display:grid;
-    grid-template-columns:.92fr 1.08fr;
-    gap:65px;
-    align-items:center;
-}
-.founder-photo{
-    position:relative;
-    height:570px;
-    overflow:hidden;
-    border-radius:24px;
-    border:1px solid rgba(255,255,255,.12);
-}
-.founder-photo img{
-    width:100%;height:100%;
-    object-fit:cover;
-}
-.founder-photo:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72));
-}
-.founder-caption{
-    position:absolute;
-    z-index:2;
-    left:25px;bottom:25px;
-}
-.founder-caption strong{display:block;font-size:18px}
-.founder-caption span{color:#cbd5e1;font-size:11px}
-.founder-content .kicker{text-align:left}
-.founder-content h2{
-    margin-bottom:23px;
-    font-family:"Playfair Display",serif;
-    font-size:clamp(36px,4.5vw,60px);
-    line-height:1.08;
-}
-.founder-content p{
-    margin-bottom:15px;
-    color:#94a3b8;
-    font-size:15px;
-    line-height:1.9;
-}
-.signature{
-    margin-top:28px;
-    padding-top:22px;
-    border-top:1px solid var(--line);
-}
-.signature strong{
-    display:block;
-    font-family:"Playfair Display",serif;
-    font-size:25px;
-}
-.signature span{color:#64748b;font-size:11px}
+            transition:
+                background .25s ease,
+                color .25s ease,
+                transform .25s ease;
+        }
 
-/* ================= VIDEO GALLERY ================= */
-.video-grid{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    grid-auto-rows:215px;
-    gap:15px;
-}
-.video-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:17px;
-    background:#111827;
-    cursor:pointer;
-}
-.video-card img{
-    width:100%;height:100%;
-    object-fit:cover;
-    transition:.6s ease;
-}
-.video-card:hover img{transform:scale(1.08)}
-.video-card:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.82));
-}
-.video-info{
-    position:absolute;
-    z-index:2;
-    left:19px;right:15px;bottom:18px;
-}
-.video-info span{
-    color:#67e8f9;
-    font-size:9px;
-    letter-spacing:1.5px;
-    font-weight:800;
-}
-.video-info h3{margin-top:4px;font-size:18px}
-.video-play{
-    position:absolute;
-    z-index:3;
-    top:18px;right:18px;
-    width:40px;height:40px;
-    display:grid;place-items:center;
-    border-radius:50%;
-    color:#fff;
-    background:rgba(37,99,235,.88);
-    border:1px solid rgba(255,255,255,.3);
-}
-.v1{grid-column:span 5;grid-row:span 2}
-.v2{grid-column:span 4}
-.v3{grid-column:span 3}
-.v4{grid-column:span 3}
-.v5{grid-column:span 4}
-.v6{grid-column:span 5;grid-row:span 2}
 
-/* ================= SERVICES ================= */
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-.service-card{
-    min-height:225px;
-    padding:25px;
-    border:1px solid #e5e7eb;
-    border-radius:17px;
-    background:#fff;
-    transition:.35s ease;
-}
-.service-card:hover{
-    transform:translateY(-7px);
-    border-color:#bfdbfe;
-    box-shadow:0 20px 50px rgba(15,23,42,.08);
-}
-.service-icon{
-    width:50px;height:50px;
-    display:grid;place-items:center;
-    margin-bottom:20px;
-    border-radius:13px;
-    color:#2563eb;
-    background:#eff6ff;
-    font-size:21px;
-}
-.service-card h3{margin-bottom:9px;font-size:17px}
-.service-card p{color:#64748b;font-size:12px;line-height:1.7}
+        .pnd-dropdown-item span {
 
-/* ================= APPROACH ================= */
-.approach-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-.approach-card{
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:rgba(255,255,255,.035);
-}
-.approach-number{
-    color:#60a5fa;
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:800;
-}
-.approach-card h3{margin:14px 0 9px;font-size:20px}
-.approach-card p{color:#94a3b8;font-size:13px;line-height:1.8}
+            flex: 1;
 
-/* ================= QUOTE ================= */
-.quote{
-    max-width:930px;
-    margin:auto;
-    padding:65px 30px;
-    text-align:center;
-    border:1px solid rgba(96,165,250,.15);
-    border-radius:24px;
-    background:linear-gradient(135deg,#0b172a,#111c35);
-}
-.quote i{color:#67e8f9;font-size:35px}
-.quote p{
-    margin:18px 0;
-    font-family:"Playfair Display",serif;
-    font-size:clamp(25px,3.2vw,42px);
-    line-height:1.35;
-}
-.quote small{color:#64748b}
+            min-width: 0;
 
-/* ================= CTA ================= */
-.cta{
-    position:relative;
-    overflow:hidden;
-    padding:65px;
-    border:1px solid rgba(96,165,250,.15);
-    border-radius:24px;
-    background:
-        radial-gradient(circle at 10% 20%,rgba(37,99,235,.25),transparent 30%),
-        radial-gradient(circle at 90% 70%,rgba(124,58,237,.22),transparent 30%),
-        #0b172a;
-}
-.cta h2{
-    margin-bottom:15px;
-    font-size:clamp(34px,4.5vw,58px);
-    line-height:1.08;
-}
-.cta h2 span{color:#60a5fa}
-.cta p{
-    max-width:730px;
-    margin-bottom:25px;
-    color:#94a3b8;
-    font-size:14px;
-    line-height:1.8;
-}
-.whatsapp{background:#16a34a;color:#fff}
+            color: inherit;
+        }
 
-/* ================= FOOTER ================= */
-.footer{
-    padding:35px 0;
-    border-top:1px solid rgba(255,255,255,.08);
-    background:#050c16;
-}
-.footer-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-.footer p{color:#64748b;font-size:11px}
-.social{display:flex;gap:8px}
-.social a{
-    width:36px;height:36px;
-    display:grid;place-items:center;
-    border:1px solid var(--line);
-    border-radius:10px;
-    color:#94a3b8;
-}
-.social a:hover{color:#fff;border-color:#2563eb}
-
-/* ================= MOBILE MENU ================= */
-.mobile-menu{
-    position:fixed;
-    z-index:1500;
-    top:0;right:-100%;
-    width:min(390px,88vw);
-    height:100vh;
-    padding:85px 25px 30px;
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-    background:#07111f;
-    border-left:1px solid rgba(255,255,255,.10);
-    box-shadow:-20px 0 70px rgba(0,0,0,.35);
-    transition:.35s ease;
-}
-.mobile-menu.active{right:0}
-.mobile-menu>button{
-    position:absolute;
-    top:20px;right:20px;
-    width:42px;height:42px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    color:#fff;
-    background:rgba(255,255,255,.05);
-}
-.mobile-logo{
-    margin-bottom:12px;
-    color:#67e8f9;
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:800;
-}
-.mobile-menu a:not(.btn){
-    padding:15px;
-    border-radius:10px;
-    color:#cbd5e1;
-    font-weight:700;
-}
-.mobile-menu a:not(.btn):hover{
-    color:#fff;
-    background:rgba(255,255,255,.06);
-}
-.overlay{
-    position:fixed;
-    z-index:1400;
-    inset:0;
-    display:none;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(4px);
-}
-.overlay.active{display:block}
-
-/* ================= LIGHTBOX ================= */
-.lightbox{
-    position:fixed;
-    z-index:2000;
-    inset:0;
-    display:none;
-    place-items:center;
-    padding:25px;
-    background:rgba(0,0,0,.92);
-}
-.lightbox.active{display:grid}
-.lightbox img{
-    max-width:min(1100px,94vw);
-    max-height:88vh;
-    object-fit:contain;
-    border-radius:10px;
-}
-.lightbox button{
-    position:absolute;
-    top:20px;right:20px;
-    width:45px;height:45px;
-    border:0;border-radius:50%;
-    color:#111;
-    background:#fff;
-    font-size:22px;
-}
-
-/* ================= TABLET ================= */
-@media(max-width:1100px){
-    .search{max-width:300px}
-    .nav-links a{padding:10px 9px}
-    .hero-grid{gap:35px}
-    .hero-visual{min-height:520px}
-    .service-grid{grid-template-columns:repeat(2,1fr)}
-    .founder-grid{gap:40px}
-}
-
-/* ================= TABLET PORTRAIT ================= */
-@media(max-width:900px){
-    .search{display:none}
-    .nav-links{display:none}
-    .menu-btn{display:grid;place-items:center}
-
-    .hero{
-        padding-top:125px;
-    }
-    .hero-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-    .hero-copy{max-width:720px}
-    .hero-visual{
-        min-height:530px;
-        max-width:700px;
-        width:100%;
-        margin:auto;
-    }
-
-    .founder-grid{
-        grid-template-columns:1fr;
-    }
-    .founder-photo{
-        height:520px;
-        max-width:700px;
-        width:100%;
-        margin:auto;
-    }
-    .founder-content{max-width:760px;margin:auto}
-
-    .video-grid{grid-auto-rows:190px}
-    .v1,.v2,.v3,.v4,.v5,.v6{
-        grid-column:span 6;
-        grid-row:span 1;
-    }
-    .approach-grid{grid-template-columns:1fr 1fr}
-}
-
-/* ================= MOBILE ================= */
-@media(max-width:650px){
-    :root{--container:min(100% - 28px,1240px)}
-
-    .nav{min-height:68px}
-    .logo-mark{width:38px;height:38px}
-    .logo-text strong{font-size:12px}
-
-    .hero{
-        min-height:auto;
-        padding:110px 0 55px;
-    }
-    .hero-grid{gap:25px}
-    .hero h1{
-        font-size:clamp(43px,14vw,66px);
-        letter-spacing:-2.8px;
-    }
-    .hero-copy>p{
-        font-size:13px;
-        line-height:1.75;
-    }
-    .actions{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:9px;
-    }
-    .btn{width:100%}
-
-    .hero-visual{min-height:390px}
-    .hero-frame.main{width:61%;height:76%;right:3%}
-    .hero-frame.left{width:37%;height:40%;left:0}
-    .hero-frame.bottom{width:37%;height:40%;left:2%;bottom:0}
-    .play-button{
-        width:58px;height:58px;
-        font-size:20px;
-    }
-    .visual-badge{
-        right:0;bottom:5%;
-        padding:11px 12px;
-    }
-
-    .section{padding:70px 0}
-    .section-head{margin-bottom:32px}
-    .section-head h2{letter-spacing:-1px}
-
-    .founder-photo{height:440px}
-    .founder-content h2{font-size:38px}
-
-    .video-grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        grid-auto-rows:180px;
-        gap:10px;
-    }
-    .video-card,.v1,.v2,.v3,.v4,.v5,.v6{
-        grid-column:span 1;
-        grid-row:span 1;
-    }
-    .v1,.v6{grid-column:span 2}
-    .video-info{left:12px;bottom:12px}
-    .video-info h3{font-size:14px}
-    .video-play{width:34px;height:34px;top:12px;right:12px}
-
-    .service-grid{grid-template-columns:1fr;gap:12px}
-    .service-card{min-height:auto}
-    .approach-grid{grid-template-columns:1fr;gap:12px}
-
-    .quote{padding:45px 20px}
-    .cta{padding:42px 24px}
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-}
-
-/* ================= SMALL PHONES ================= */
-@media(max-width:400px){
-    .logo-text{display:none}
-    .hero{padding-top:100px}
-    .eyebrow{
-        font-size:8px;
-        letter-spacing:1.2px;
-    }
-    .hero h1{font-size:43px}
-    .hero-visual{min-height:340px}
-    .hero-frame{border-radius:15px}
-    .founder-photo{height:370px}
-    .founder-content h2{font-size:34px}
-    .video-grid{grid-auto-rows:145px}
-    .video-info h3{font-size:12px}
-    .section{padding:58px 0}
-}
-
-/* ================= LANDSCAPE MOBILE ================= */
-@media(max-width:900px) and (orientation:landscape) and (max-height:520px){
-    .hero{
-        padding:105px 0 40px;
-    }
-    .hero-grid{
-        grid-template-columns:1fr 1fr;
-        align-items:center;
-    }
-    .hero-visual{min-height:350px}
-    .hero h1{font-size:48px}
-}
-
-
-/* =========================================================
-   HEADER INNER SPACING
-========================================================= */
-
-.pnd-header-inner {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding-left: 32px;
-    padding-right: 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-/* Larger screens */
-
-@media (min-width: 1200px) {
-
-    .pnd-header-inner {
-        padding-left: 55px;
-        padding-right: 55px;
-    }
-
-}
-
-
-/* Extra-large screens */
-
-@media (min-width: 1600px) {
-
-    .pnd-header-inner {
-        padding-left: 70px;
-        padding-right: 70px;
-    }
-
-}
-
-
-/* Tablet */
-
-@media (max-width: 991px) {
-
-    .pnd-header-inner {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 575px) {
-
-    .pnd-header-inner {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-}
-
-
-</style>
+
+        .pnd-dropdown-item:hover {
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.14),
+                    rgba(6,182,212,.07)
+                );
+
+            transform:
+                translateX(3px);
+        }
+
+
+        .pnd-dropdown-item:hover > i {
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            transform:
+                scale(1.05);
+        }
+
+
+
+        /* ============================================================
+           MOBILE SERVICES CONTAINER
+        ============================================================ */
+
+        .pnd-mobile-services {
+
+            width: 100%;
+
+            margin:
+                4px 0;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            transition:
+                border-color .25s ease,
+                background .25s ease;
+        }
+
+
+        .pnd-mobile-services:hover {
+
+            border-color:
+                rgba(96,165,250,.20);
+
+            background:
+                rgba(37,99,235,.035);
+        }
+
+
+
+        /* ============================================================
+           MOBILE SERVICES BUTTON
+        ============================================================ */
+
+        .pnd-mobile-services > button {
+
+            width: 100%;
+
+            min-height: 54px;
+
+            padding:
+                0 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 12px;
+
+            border: 0;
+
+            border-radius: 13px;
+
+            outline: none;
+
+            background: transparent;
+
+            color: #cbd5e1;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            transition:
+                background .25s ease,
+                color .25s ease;
+        }
+
+
+        .pnd-mobile-services > button > span {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+            min-width: 0;
+        }
+
+
+        .pnd-mobile-services > button > span > i {
+
+            width: 24px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #60a5fa;
+
+            font-size: 16px;
+
+            margin-right: 5px !important;
+
+            transition:
+                color .25s ease,
+                transform .25s ease;
+        }
+
+
+        .pnd-mobile-services > button > i {
+
+            flex: 0 0 auto;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            transition:
+                transform .3s ease,
+                color .3s ease;
+        }
+
+
+        .pnd-mobile-services > button:hover {
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.12),
+                    rgba(6,182,212,.05)
+                );
+        }
+
+
+        .pnd-mobile-services > button:hover > span > i {
+
+            color: #38bdf8;
+
+            transform:
+                scale(1.08);
+        }
+
+
+
+        /* ============================================================
+           MOBILE SERVICES LIST
+           
+           IMPORTANT:
+           HIDDEN BY DEFAULT.
+           
+           It will ONLY appear when JavaScript adds
+           the "active" class after clicking Services.
+        ============================================================ */
+
+        .pnd-mobile-service-list {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            padding:
+                0 8px;
+
+            background:
+                rgba(0,0,0,.12);
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+
+            /* HIDDEN DEFAULT */
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                max-height .35s ease,
+                opacity .25s ease,
+                visibility .25s ease,
+                padding .35s ease;
+        }
+
+
+        /* ============================================================
+           SHOW ONLY WHEN ACTIVE
+        ============================================================ */
+
+        .pnd-mobile-service-list.active {
+
+            max-height: 500px;
+
+            opacity: 1;
+
+            visibility: visible;
+
+            padding:
+                5px 8px 9px;
+        }
+
+
+
+        /* ============================================================
+           MOBILE SERVICE ITEM
+        ============================================================ */
+
+        .pnd-mobile-service-list
+        .pnd-dropdown-item {
+
+            min-height: 47px;
+
+            padding:
+                7px 9px;
+
+            border-radius: 11px;
+
+            font-size: 12.5px;
+
+            gap: 10px;
+        }
+
+
+        .pnd-mobile-service-list
+        .pnd-dropdown-item > i {
+
+            width: 30px;
+            height: 30px;
+
+            flex: 0 0 30px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .pnd-mobile-service-list
+        .pnd-dropdown-item:hover {
+
+            transform:
+                translateX(2px);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.15),
+                    rgba(6,182,212,.06)
+                );
+        }
+
+
+
+        /* ============================================================
+           ACTIVE SERVICES BUTTON
+        ============================================================ */
+
+        .pnd-mobile-services
+        > button[aria-expanded="true"] {
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(37,99,235,.14),
+                    rgba(6,182,212,.06)
+                );
+        }
+
+
+        .pnd-mobile-services
+        > button[aria-expanded="true"]
+        > span > i {
+
+            color: #38bdf8;
+        }
+
+
+        .pnd-mobile-services
+        > button[aria-expanded="true"]
+        > i {
+
+            color: #60a5fa;
+
+            transform:
+                rotate(180deg);
+        }
+
+
+
+        /* ============================================================
+           TABLET
+        ============================================================ */
+
+        @media (max-width: 1250px) {
+
+            .pnd-header-inner {
+
+                padding:
+                    0 30px;
+            }
+
+
+            .pnd-nav a {
+
+                padding-left: 9px;
+
+                padding-right: 9px;
+            }
+
+
+            .pnd-search {
+
+                max-width: 260px;
+            }
+
+
+        }
+
+
+        @media (max-width: 1050px) {
+
+            :root {
+
+                --header-height: 72px;
+            }
+
+
+            .pnd-search,
+            .pnd-nav,
+            .pnd-start {
+
+                display: none;
+            }
+
+
+            .pnd-mobile-toggle {
+
+                display: flex;
+            }
+
+
+            .pnd-header-inner {
+
+                padding:
+                    0 25px;
+            }
+
+        }
+
+
+
+        /* ============================================================
+           MOBILE
+        ============================================================ */
+
+        @media (max-width: 820px) {
+
+            .pnd-mobile-services {
+
+                margin:
+                    3px 0 6px;
+            }
+
+
+            .pnd-mobile-services > button {
+
+                min-height: 52px;
+
+                padding:
+                    0 14px;
+
+                font-size: 14px;
+            }
+
+
+            .pnd-mobile-service-list {
+
+                padding:
+                    0 7px;
+            }
+
+
+            .pnd-mobile-service-list.active {
+
+                padding:
+                    5px 7px 8px;
+            }
+
+
+            .pnd-mobile-service-list
+            .pnd-dropdown-item {
+
+                min-height: 46px;
+
+                font-size: 12px;
+            }
+
+        }
+
+
+
+        /* ============================================================
+           SMALL MOBILE
+        ============================================================ */
+
+        @media (max-width: 700px) {
+
+            :root {
+
+                --header-height: 67px;
+            }
+
+
+            .pnd-header-inner {
+
+                padding:
+                    0 17px;
+            }
+
+
+            .pnd-logo-img {
+
+                height: 45px;
+
+                max-width: 190px;
+            }
+
+
+            .video-hero {
+
+                min-height: auto;
+
+                padding:
+                    125px 18px 60px;
+            }
+
+
+            .hero-title {
+
+                font-size:
+                    clamp(42px,13vw,62px);
+            }
+
+
+            .hero-description {
+
+                font-size: 15px;
+
+                line-height: 1.7;
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .hero-primary,
+            .hero-secondary {
+
+                width: 100%;
+            }
+
+
+            .hero-visual {
+
+                min-height: 410px;
+
+                margin-top: 15px;
+            }
+
+
+            .camera-card {
+
+                width: 100%;
+
+                transform: none;
+            }
+
+
+            .camera-orbit {
+
+                width: 340px;
+
+                height: 340px;
+            }
+
+
+            .floating-camera-card {
+
+                padding:
+                    10px 12px;
+            }
+
+
+            .floating-camera-card i {
+
+                width: 34px;
+
+                height: 34px;
+            }
+
+
+            .float-one {
+
+                top: 4%;
+
+                left: -4%;
+            }
+
+
+            .float-two {
+
+                right: -3%;
+
+                bottom: 4%;
+            }
+
+
+            .video-section,
+            .showcase-section,
+            .process-section,
+            .video-cta {
+
+                padding:
+                    75px 18px;
+            }
+
+
+            .section-heading {
+
+                margin-bottom: 35px;
+            }
+
+
+            .services-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+            }
+
+
+            .service-card {
+
+                min-height: 350px;
+            }
+
+
+            .showcase-main {
+
+                min-height: 390px;
+            }
+
+
+            .showcase-side {
+
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    260px
+                    260px;
+            }
+
+
+            .why-visual {
+
+                min-height: 340px;
+            }
+
+
+            .lens {
+
+                width: 250px;
+
+                height: 250px;
+
+                border-width: 9px;
+            }
+
+
+            .lens::before {
+
+                inset: 25px;
+            }
+
+
+            .lens::after {
+
+                width: 75px;
+
+                height: 75px;
+            }
+
+
+            .process-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+            }
+
+
+            .process-card {
+
+                min-height: auto;
+            }
+
+
+            .stats-section {
+
+                padding:
+                    50px 18px;
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .stat {
+
+                padding:
+                    18px 5px;
+            }
+
+
+            .cta-content h2 {
+
+                font-size:
+                    clamp(36px,12vw,54px);
+            }
+
+
+            footer {
+
+                padding:
+                    25px 18px;
+            }
+
+        }
+
+
+
+        /* ============================================================
+           VERY SMALL MOBILE
+        ============================================================ */
+
+        @media (max-width: 480px) {
+
+            .pnd-mobile-services > button {
+
+                min-height: 50px;
+
+                padding:
+                    0 12px;
+
+                font-size: 13px;
+            }
+
+
+            .pnd-mobile-services > button > span > i {
+
+                font-size: 15px;
+            }
+
+
+            .pnd-mobile-service-list {
+
+                gap: 4px;
+
+                padding:
+                    0 6px;
+            }
+
+
+            .pnd-mobile-service-list.active {
+
+                padding:
+                    4px 6px 7px;
+            }
+
+
+            .pnd-mobile-service-list
+            .pnd-dropdown-item {
+
+                min-height: 44px;
+
+                padding:
+                    6px 8px;
+
+                font-size: 11.5px;
+
+                gap: 9px;
+            }
+
+
+            .pnd-mobile-service-list
+            .pnd-dropdown-item > i {
+
+                width: 28px;
+
+                height: 28px;
+
+                flex-basis: 28px;
+
+                font-size: 12px;
+            }
+
+        }
+
+
+
+        /* ============================================================
+           VERY SMALL DEVICES
+        ============================================================ */
+
+        @media (max-width: 380px) {
+
+            .pnd-logo-img {
+
+                height: 41px;
+
+                max-width: 175px;
+            }
+
+
+            .pnd-mobile-toggle {
+
+                width: 42px;
+
+                height: 42px;
+            }
+
+
+            .hero-title {
+
+                font-size: 40px;
+            }
+
+
+            .hero-visual {
+
+                min-height: 350px;
+            }
+
+
+            .camera-orbit {
+
+                width: 285px;
+
+                height: 285px;
+            }
+
+
+            .camera-title {
+
+                font-size: 18px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .video-hero {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            padding:
+                150px 6% 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        .hero-grid {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 85%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .hero-glow {
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.19),
+                    transparent 68%
+                );
+
+            top: 10%;
+            right: -15%;
+
+            filter: blur(10px);
+
+            animation:
+                heroGlow 7s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes heroGlow {
+
+            from {
+                transform: scale(.9);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 5;
+
+            max-width: 1400px;
+
+            width: 100%;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0,1fr)
+                minmax(420px,.95fr);
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+
+        .hero-text {
+
+            animation:
+                heroTextIn 1s ease both;
+        }
+
+
+        @keyframes heroTextIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        .hero-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                8px 13px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(37,99,235,.10);
+
+            border:
+                1px solid rgba(37,99,235,.20);
+
+            color: #93c5fd;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero-label span {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #22d3ee;
+
+            box-shadow:
+                0 0 12px #22d3ee;
+
+            animation:
+                pulseDot 1.6s infinite;
+        }
+
+
+        @keyframes pulseDot {
+
+            50% {
+
+                transform: scale(1.5);
+
+                opacity: .5;
+            }
+
+        }
+
+
+        .hero-title {
+
+            font-size:
+                clamp(46px,6vw,86px);
+
+            line-height: .98;
+
+            font-weight: 700;
+
+            letter-spacing: -.055em;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero-title .gradient {
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #60a5fa,
+                    #22d3ee,
+                    #a78bfa
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .hero-description {
+
+            max-width: 650px;
+
+            color: #94a3b8;
+
+            font-size:
+                clamp(16px,1.5vw,19px);
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 13px;
+        }
+
+
+        .hero-primary {
+
+            min-height: 52px;
+
+            padding:
+                0 23px;
+
+            border-radius: 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            color: #fff;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            box-shadow:
+                0 15px 35px
+                rgba(37,99,235,.22);
+
+            transition: .3s ease;
+        }
+
+
+        .hero-primary:hover {
+
+            color: #fff;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 20px 45px
+                rgba(37,99,235,.32);
+        }
+
+
+        .hero-secondary {
+
+            min-height: 52px;
+
+            padding:
+                0 23px;
+
+            border-radius: 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            color: #cbd5e1;
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            background:
+                rgba(255,255,255,.035);
+
+            transition: .3s ease;
+        }
+
+
+        .hero-secondary:hover {
+
+            color: #fff;
+
+            background:
+                rgba(255,255,255,.07);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+
+        /* =====================================================
+           HERO VISUAL
+        ====================================================== */
+
+        .hero-visual {
+
+            position: relative;
+
+            min-height: 580px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            perspective: 1200px;
+        }
+
+
+        .camera-orbit {
+
+            position: absolute;
+
+            width: 470px;
+
+            height: 470px;
+
+            border:
+                1px solid rgba(96,165,250,.18);
+
+            border-radius: 50%;
+
+            transform:
+                rotateX(67deg)
+                rotateZ(-20deg);
+
+            box-shadow:
+                0 0 70px
+                rgba(37,99,235,.08);
+
+            animation:
+                orbitRotate 15s linear infinite;
+        }
+
+
+        .camera-orbit::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 14px;
+
+            height: 14px;
+
+            border-radius: 50%;
+
+            background:
+                #22d3ee;
+
+            box-shadow:
+                0 0 18px #22d3ee,
+                0 0 40px
+                rgba(34,211,238,.7);
+
+            top: 15%;
+            left: 18%;
+        }
+
+
+        @keyframes orbitRotate {
+
+            to {
+
+                transform:
+                    rotateX(67deg)
+                    rotateZ(340deg);
+            }
+
+        }
+
+
+        .camera-card {
+
+            position: relative;
+
+            width:
+                min(500px,90%);
+
+            aspect-ratio: 16 / 11;
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255,255,255,.15);
+
+            background:
+                #111c35;
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,.55),
+                0 0 80px
+                rgba(37,99,235,.12);
+
+            transform:
+                rotateY(-9deg)
+                rotateX(4deg);
+
+            transition:
+                transform .5s ease;
+
+            z-index: 5;
+        }
+
+
+        .camera-card:hover {
+
+            transform:
+                rotateY(0deg)
+                rotateX(0deg)
+                translateY(-8px);
+        }
+
+
+        .camera-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            filter:
+                brightness(.76)
+                saturate(1.12);
+
+            transition:
+                transform .8s ease;
+        }
+
+
+        .camera-card:hover img {
+
+            transform:
+                scale(1.07);
+        }
+
+
+        .camera-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 35%,
+                    rgba(0,0,0,.78)
+                );
+        }
+
+
+        .camera-ui {
+
+            position: absolute;
+
+            inset: 0;
+
+            padding: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+        }
+
+
+        .camera-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .rec {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .08em;
+        }
+
+
+        .rec-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #ef4444;
+
+            box-shadow:
+                0 0 12px #ef4444;
+
+            animation:
+                recBlink 1s infinite;
+        }
+
+
+        @keyframes recBlink {
+
+            50% {
+                opacity: .35;
+            }
+
+        }
+
+
+        .camera-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+        }
+
+
+        .camera-title {
+
+            font-size: 23px;
+
+            font-weight: 700;
+        }
+
+
+        .camera-sub {
+
+            color: #cbd5e1;
+
+            font-size: 12px;
+
+            margin-top: 4px;
+        }
+
+
+        .play-button {
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #fff;
+
+            font-size: 22px;
+
+            background:
+                rgba(255,255,255,.12);
+
+            border:
+                1px solid rgba(255,255,255,.25);
+
+            backdrop-filter:
+                blur(10px);
+
+            transition: .3s ease;
+        }
+
+
+        .play-button:hover {
+
+            background:
+                rgba(37,99,235,.75);
+
+            transform:
+                scale(1.08);
+        }
+
+
+        .floating-camera-card {
+
+            position: absolute;
+
+            z-index: 8;
+
+            padding:
+                15px 17px;
+
+            border-radius: 17px;
+
+            border:
+                1px solid rgba(255,255,255,.11);
+
+            background:
+                rgba(8,20,38,.78);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.35);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            animation:
+                floatingCard 4s ease-in-out infinite;
+        }
+
+
+        .floating-camera-card i {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(37,99,235,.15);
+
+            color: #60a5fa;
+
+            font-size: 19px;
+        }
+
+
+        .floating-camera-card strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+
+        .floating-camera-card small {
+
+            color: #64748b;
+
+            font-size: 10px;
+        }
+
+
+        .float-one {
+
+            top: 13%;
+
+            left: 2%;
+        }
+
+
+        .float-two {
+
+            bottom: 14%;
+
+            right: 0;
+
+            animation-delay: -2s;
+        }
+
+
+        @keyframes floatingCard {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-14px);
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MARQUEE
+        ====================================================== */
+
+        .video-marquee {
+
+            overflow: hidden;
+
+            border-top:
+                1px solid rgba(255,255,255,.07);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.018);
+
+            padding:
+                18px 0;
+        }
+
+
+        .marquee-track {
+
+            display: flex;
+
+            width: max-content;
+
+            animation:
+                marquee 25s linear infinite;
+        }
+
+
+        .marquee-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            padding:
+                0 25px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: .14em;
+
+            white-space: nowrap;
+        }
+
+
+        .marquee-item i {
+
+            color: #22d3ee;
+        }
+
+
+        @keyframes marquee {
+
+            to {
+
+                transform:
+                    translateX(-50%);
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SECTION COMMON
+        ====================================================== */
+
+        .video-section {
+
+            padding:
+                110px 6%;
+        }
+
+
+        .section-inner {
+
+            max-width: 1300px;
+
+            margin: auto;
+        }
+
+
+        .section-heading {
+
+            max-width: 760px;
+
+            margin-bottom: 55px;
+        }
+
+
+        .section-kicker {
+
+            color: #60a5fa;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: .16em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 13px;
+        }
+
+
+        .section-title {
+
+            font-size:
+                clamp(34px,4vw,56px);
+
+            line-height: 1.08;
+
+            letter-spacing: -.045em;
+
+            margin-bottom: 18px;
+        }
+
+
+        .section-description {
+
+            color: #94a3b8;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =====================================================
+           SERVICES
+        ====================================================== */
+
+        .services-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+
+        .service-card {
+
+            position: relative;
+
+            min-height: 360px;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                #0b172a;
+
+            transform-style:
+                preserve-3d;
+
+            transition:
+                transform .45s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+
+        .service-card:hover {
+
+            transform:
+                translateY(-10px)
+                rotateX(2deg)
+                rotateY(-2deg);
+
+            border-color:
+                rgba(37,99,235,.30);
+
+            box-shadow:
+                0 25px 65px
+                rgba(0,0,0,.35);
+        }
+
+
+        .service-image {
+
+            height: 220px;
+
+            overflow: hidden;
+        }
+
+
+        .service-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            filter:
+                brightness(.72);
+
+            transition:
+                transform .8s ease,
+                filter .5s ease;
+        }
+
+
+        .service-card:hover
+        .service-image img {
+
+            transform:
+                scale(1.10);
+
+            filter:
+                brightness(.88);
+        }
+
+
+        .service-gradient {
+
+            position: absolute;
+
+            top: 100px;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 160px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    #0b172a
+                );
+        }
+
+
+        .service-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            padding:
+                0 22px 25px;
+        }
+
+
+        .service-icon {
+
+            width: 50px;
+
+            height: 50px;
+
+            margin-top: -25px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            color: #fff;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(37,99,235,.30);
+
+            position: relative;
+        }
+
+
+        .service-content h3 {
+
+            margin-top: 17px;
+
+            font-size: 21px;
+
+            letter-spacing: -.02em;
+        }
+
+
+        .service-content p {
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-top: 8px;
+
+            margin-bottom: 0;
+        }
+
+
+
+        /* =====================================================
+           SHOWCASE
+        ====================================================== */
+
+        .showcase-section {
+
+            position: relative;
+
+            padding:
+                120px 6%;
+
+            background:
+                #f8fafc;
+
+            color:
+                #07111f;
+        }
+
+
+        .showcase-section
+        .section-kicker {
+
+            color:
+                #2563eb;
+        }
+
+
+        .showcase-section
+        .section-description {
+
+            color:
+                #64748b;
+        }
+
+
+        .showcase-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.2fr .8fr;
+
+            gap: 22px;
+        }
+
+
+        .showcase-main {
+
+            position: relative;
+
+            min-height: 550px;
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            background:
+                #111827;
+
+            box-shadow:
+                0 25px 70px
+                rgba(15,23,42,.18);
+        }
+
+
+        .showcase-main img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .9s ease;
+        }
+
+
+        .showcase-main:hover img {
+
+            transform:
+                scale(1.06);
+        }
+
+
+        .showcase-main::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 30%,
+                    rgba(0,0,0,.82)
+                );
+        }
+
+
+        .showcase-info {
+
+            position: absolute;
+
+            z-index: 2;
+
+            left: 30px;
+
+            right: 30px;
+
+            bottom: 28px;
+        }
+
+
+        .showcase-info span {
+
+            font-size: 11px;
+
+            letter-spacing: .14em;
+
+            color: #93c5fd;
+
+            text-transform: uppercase;
+        }
+
+
+        .showcase-info h3 {
+
+            color: #fff;
+
+            font-size:
+                clamp(26px,3vw,42px);
+
+            margin-top: 7px;
+        }
+
+
+        .showcase-info p {
+
+            max-width: 600px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-top: 8px;
+        }
+
+
+        .showcase-side {
+
+            display: grid;
+
+            grid-template-rows:
+                1fr 1fr;
+
+            gap: 22px;
+        }
+
+
+        .mini-showcase {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            min-height: 260px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(15,23,42,.12);
+        }
+
+
+        .mini-showcase img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s ease;
+        }
+
+
+        .mini-showcase:hover img {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        .mini-showcase::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(0,0,0,.75)
+                );
+        }
+
+
+        .mini-text {
+
+            position: absolute;
+
+            z-index: 2;
+
+            left: 20px;
+
+            right: 20px;
+
+            bottom: 18px;
+
+            color: #fff;
+        }
+
+
+        .mini-text h4 {
+
+            font-size: 20px;
+
+            margin:
+                0 0 4px;
+        }
+
+
+        .mini-text p {
+
+            color: #cbd5e1;
+
+            font-size: 12px;
+
+            margin: 0;
+        }
+
+
+
+        /* =====================================================
+           WHY VIDEO
+        ====================================================== */
+
+        .why-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        .why-visual {
+
+            position: relative;
+
+            min-height: 520px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .lens {
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #334155,
+                    #111827 38%,
+                    #020617 70%
+                );
+
+            border:
+                12px solid #1e293b;
+
+            box-shadow:
+                inset 0 0 45px rgba(0,0,0,.9),
+                0 30px 80px rgba(0,0,0,.45),
+                0 0 70px
+                rgba(37,99,235,.14);
+
+            position: relative;
+
+            animation:
+                lensFloat 5s ease-in-out infinite;
+        }
+
+
+        .lens::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 35px;
+
+            border-radius: 50%;
+
+            border:
+                2px solid rgba(96,165,250,.35);
+
+            box-shadow:
+                0 0 30px
+                rgba(37,99,235,.15);
+        }
+
+
+        .lens::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+
+            height: 110px;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    #1e40af,
+                    #020617 70%
+                );
+
+            box-shadow:
+                inset 0 0 25px rgba(0,0,0,.9),
+                0 0 30px
+                rgba(37,99,235,.25);
+        }
+
+
+        @keyframes lensFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-13px)
+                    rotate(3deg);
+            }
+
+        }
+
+
+        .why-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+
+        .why-item {
+
+            display: flex;
+
+            gap: 17px;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition: .35s ease;
+        }
+
+
+        .why-item:hover {
+
+            transform:
+                translateX(8px);
+
+            background:
+                rgba(37,99,235,.06);
+
+            border-color:
+                rgba(37,99,235,.18);
+        }
+
+
+        .why-icon {
+
+            flex:
+                0 0 45px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 13px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #60a5fa;
+
+            background:
+                rgba(37,99,235,.12);
+        }
+
+
+        .why-item h4 {
+
+            font-size: 17px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .why-item p {
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+
+        /* =====================================================
+           PROCESS
+        ====================================================== */
+
+        .process-section {
+
+            background:
+                #f8fafc;
+
+            color:
+                #07111f;
+
+            padding:
+                110px 6%;
+        }
+
+
+        .process-section
+        .section-description {
+
+            color:
+                #64748b;
+        }
+
+
+        .process-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 18px;
+        }
+
+
+        .process-card {
+
+            position: relative;
+
+            padding: 28px;
+
+            min-height: 250px;
+
+            border-radius: 22px;
+
+            background:
+                #fff;
+
+            border:
+                1px solid #e2e8f0;
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+        }
+
+
+        .process-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 25px 55px
+                rgba(15,23,42,.12);
+        }
+
+
+        .process-number {
+
+            font-size: 50px;
+
+            line-height: 1;
+
+            font-weight: 700;
+
+            color: #dbeafe;
+
+            margin-bottom: 20px;
+        }
+
+
+        .process-card h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .process-card p {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+
+        /* =====================================================
+           STATS
+        ====================================================== */
+
+        .stats-section {
+
+            padding:
+                75px 6%;
+
+            background:
+                #050c17;
+        }
+
+
+        .stats-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 15px;
+        }
+
+
+        .stat {
+
+            text-align: center;
+
+            padding:
+                25px 10px;
+
+            border-right:
+                1px solid rgba(255,255,255,.08);
+        }
+
+
+        .stat:last-child {
+
+            border-right: 0;
+        }
+
+
+        .stat strong {
+
+            display: block;
+
+            font-size:
+                clamp(30px,4vw,48px);
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #60a5fa,
+                    #22d3ee
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .stat span {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            letter-spacing: .08em;
+
+            text-transform: uppercase;
+        }
+
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .video-cta {
+
+            padding:
+                120px 6%;
+
+            position: relative;
+
+            overflow: hidden;
+
+            text-align: center;
+        }
+
+
+        .cta-glow {
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(37,99,235,.16),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .cta-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .cta-content h2 {
+
+            font-size:
+                clamp(38px,5vw,68px);
+
+            line-height: 1.02;
+
+            letter-spacing: -.05em;
+
+            margin-bottom: 20px;
+        }
+
+
+        .cta-content p {
+
+            color: #94a3b8;
+
+            max-width: 650px;
+
+            margin:
+                0 auto 30px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding:
+                30px 6%;
+
+            border-top:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                #050c17;
+
+            text-align: center;
+        }
+
+
+        footer p {
+
+            margin: 0;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        footer strong {
+
+            color: #94a3b8;
+        }
+
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(45px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s
+                cubic-bezier(.22,.61,.36,1);
+        }
+
+
+        .reveal-left {
+
+            opacity: 0;
+
+            transform:
+                translateX(-50px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s
+                cubic-bezier(.22,.61,.36,1);
+        }
+
+
+        .reveal-right {
+
+            opacity: 0;
+
+            transform:
+                translateX(50px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s
+                cubic-bezier(.22,.61,.36,1);
+        }
+
+
+        .reveal.show,
+        .reveal-left.show,
+        .reveal-right.show {
+
+            opacity: 1;
+
+            transform:
+                translate(0);
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE — LAPTOP
+        ====================================================== */
+
+        @media (max-width: 1250px) {
+
+            .hero-content {
+
+                gap: 35px;
+            }
+
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE — TABLET
+        ====================================================== */
+
+        @media (max-width: 1050px) {
+
+            .video-hero {
+
+                padding-top:
+                    135px;
+            }
+
+
+            .hero-content {
+
+                grid-template-columns:
+                    1fr;
+
+                text-align: center;
+            }
+
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+
+            .hero-visual {
+
+                min-height: 520px;
+            }
+
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .showcase-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .showcase-main {
+
+                min-height: 500px;
+            }
+
+
+            .showcase-side {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                grid-template-rows:
+                    280px;
+            }
+
+
+            .why-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 30px;
+            }
+
+
+            .why-visual {
+
+                min-height: 430px;
+            }
+
+
+            .process-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .stat {
+
+                border-right: 0;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .pnd-dropdown-menu,
+            .pnd-dropdown-item,
+            .pnd-chevron,
+            .pnd-mobile-services *,
+            .pnd-mobile-service-list
+            .pnd-dropdown-item {
+
+                transition:
+                    none !important;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =============================================================
+
+<!-- =========================================================
      TOP LED
-============================================================== -->
+========================================================== -->
 
 <div class="pnd-top-led"></div>
 
 
-<!-- ============================================================
-     PIXEL NEST DIGITAL — RESPONSIVE HEADER
-============================================================ -->
+
+<!-- =========================================================
+     HEADER
+========================================================== -->
 
 <header
     class="pnd-header"
     id="pndHeader"
 >
 
-    <div class="container-fluid px-3 px-lg-4">
-
-        <div class="pnd-header-inner">
+    <div class="pnd-header-inner">
 
 
-            <!-- ==================================================
-                 LOGO
-            =================================================== -->
+        <!-- LOGO -->
 
-            <a
-                href="index.html"
-                class="pnd-logo"
-                aria-label="Pixel Nest Digital Home"
+        <a
+            href="index.html"
+            aria-label="Pixel Nest Digital Home"
+        >
+
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-logo-img"
             >
 
-                <img
-                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    alt="Pixel Nest Digital"
-                    class="pnd-logo-img"
-                >
+        </a>
 
+
+
+        <!-- DESKTOP SEARCH -->
+
+        <div class="pnd-search">
+
+            <input
+                type="search"
+                placeholder="Search Pixel Nest Digital..."
+                aria-label="Search"
+            >
+
+            <i class="bi bi-search"></i>
+
+        </div>
+
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="pnd-nav">
+
+
+            <a href="index.html">
+                Home
             </a>
 
 
-            <!-- ==================================================
-                 DESKTOP SEARCH
-            =================================================== -->
-
-            <div class="pnd-search">
-
-                <div class="pnd-search-icon">
-
-                    <i class="bi bi-search"></i>
-
-                </div>
+            <a href="about.html">
+                About
+            </a>
 
 
-                <input
-                    type="search"
-                    id="desktopSearch"
-                    placeholder="Search services, solutions, projects..."
-                    aria-label="Search"
-                >
 
+            <!-- SERVICES -->
 
-                <button
-                    type="button"
-                    id="desktopSearchBtn"
-                >
-                    Search
-                </button>
-
-            </div>
-
-
-            <!-- ==================================================
-                 DESKTOP NAVIGATION
-            =================================================== -->
-
-            <nav
-                class="pnd-nav"
-                aria-label="Main navigation"
-            >
-
-
-                <!-- ABOUT -->
+            <div class="pnd-dropdown">
 
                 <a
-                    href="index.html"
-                    class="pnd-nav-link active"
+                    href="#"
+                    class="pnd-nav-link"
+                    onclick="return false;"
                 >
-                    Home
+
+                    Services
+
+                    <i
+                        class="bi bi-chevron-down pnd-chevron"
+                    ></i>
+
                 </a>
 
 
-                <!-- SERVICES -->
+                <div class="pnd-dropdown-menu">
 
-                <div class="pnd-dropdown">
 
                     <a
-                        href="services.html"
-                        class="pnd-nav-link"
+                        href="website_development.html"
+                        class="pnd-dropdown-item"
                     >
 
-                        Services
+                        <i class="bi bi-code-slash"></i>
 
-                        <i
-                            class="bi bi-chevron-down pnd-chevron"
-                        ></i>
+                        <span>
+                            Website Development
+                        </span>
 
                     </a>
 
 
-                    <div class="pnd-dropdown-menu">
+                    <a
+                        href="web_applications.html"
+                        class="pnd-dropdown-item"
+                    >
+
+                        <i class="bi bi-window-stack"></i>
+
+                        <span>
+                            Web Applications
+                        </span>
+
+                    </a>
 
 
-                         <a href="website_development.html" class="pnd-dropdown-item">
-                            <i class="bi bi-code-slash"></i>
-                            <span>Website Development</span>
-                        </a>
+                    <a
+                        href="digital-content.html"
+                        class="pnd-dropdown-item"
+                    >
 
-                        <a href="web_applications.html" class="pnd-dropdown-item">
-                            <i class="bi bi-window-stack"></i>
-                            <span>Web Applications</span>
-                        </a>
+                        <i class="bi bi-cloud"></i>
 
-                        
-                        
+                        <span>
+                            Social Media &amp; Content Creation
+                        </span>
 
-                        <a href="digital-content.html" class="pnd-dropdown-item">
-                            <i class="bi bi-cloud"></i>
-                            <span>Social Media  &amp; Content Creation</span>
-                        </a>
+                    </a>
 
-                        <a href="logo-brand-design.html" class="pnd-dropdown-item">
-                            <i class="bi bi-palette"></i>
-                            <span>Logo &amp; Brand Design</span>
-                        </a>
 
-                        <a href="photography.html" class="pnd-dropdown-item">
-                            <i class="bi bi-camera"></i>
-                            <span>Photography</span>
-                        </a>
+                    <a
+                        href="logo-brand-design.html"
+                        class="pnd-dropdown-item"
+                    >
 
-                        <a href="videography.html" class="pnd-dropdown-item">
-                            <i class="bi bi-camera-video"></i>
-                            <span>Videography</span>
-                        </a>
+                        <i class="bi bi-palette"></i>
 
-                    </div>
+                        <span>
+                            Logo &amp; Brand Design
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="photography.html"
+                        class="pnd-dropdown-item"
+                    >
+
+                        <i class="bi bi-camera"></i>
+
+                        <span>
+                            Photography
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="videography.html"
+                        class="pnd-dropdown-item"
+                    >
+
+                        <i class="bi bi-camera-video"></i>
+
+                        <span>
+                            Videography
+                        </span>
+
+                    </a>
+
 
                 </div>
 
-
-                <!-- PORTFOLIO -->
-
-                <a
-                    href="Portfolio.html"
-                    class="pnd-nav-link"
-                >
-                    Portfolio
-                </a>
+            </div>
 
 
-                <!-- CONTACT -->
 
-                <a
-                    href="contact.html"
-                    class="pnd-nav-link"
-                >
-                    Contact
-                </a>
-<!-- CONTACT -->
-
-                <a
-                    href="team.html"
-                    class="pnd-nav-link"
-                >
-                    Team
-                </a>
+            <a href="team.html">
+                Team
+            </a>
 
 
-                <!-- GET STARTED -->
-
-                <a
-                    href="start-project.html"
-                    class="pnd-start"
-                >
-
-                    Get Started
-
-                    <i class="bi bi-arrow-up-right"></i>
-
-                </a>
-
-            </nav>
+            <a href="portfolio.html">
+                Portfolio
+            </a>
 
 
-            <!-- ==================================================
-                 MOBILE MENU BUTTON
-            =================================================== -->
+            <a href="contact.html">
+                Contact
+            </a>
 
-            <button
-                type="button"
-                class="pnd-menu-btn"
-                id="pndMenuBtn"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="pndMobileMenu"
-            >
 
-                <i
-                    class="bi bi-list"
-                    id="pndMenuIcon"
-                ></i>
+        </nav>
 
-            </button>
 
-        </div>
+
+        <!-- DESKTOP CTA -->
+
+        <a
+            href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20videography%20project."
+            class="pnd-start"
+            target="_blank"
+            rel="noopener"
+        >
+
+            Discuss Project
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a>
+
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+            type="button"
+            class="pnd-mobile-toggle"
+            id="mobileMenuBtn"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+
+            <i class="bi bi-three-dots-vertical"></i>
+
+        </button>
+
 
     </div>
 
 </header>
 
 
-<!-- ============================================================
+
+<!-- =========================================================
      MOBILE OVERLAY
-============================================================ -->
+========================================================== -->
 
 <div
     class="pnd-mobile-overlay"
-    id="pndMobileOverlay"
+    id="mobileOverlay"
 ></div>
 
 
-<!-- ============================================================
-     MOBILE SIDE MENU
-============================================================ -->
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================== -->
 
 <aside
     class="pnd-mobile-menu"
-    id="pndMobileMenu"
+    id="mobileMenu"
     aria-hidden="true"
 >
 
 
-    <!-- ========================================================
-         MOBILE HEADER
-    ========================================================= -->
-
     <div class="pnd-mobile-top">
 
 
-        <a
-            href="index.html"
-            class="pnd-logo"
-            aria-label="Pixel Nest Digital Home"
-        >
+        <a href="index.html">
 
             <img
                 src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                alt="Pixel Nest Digital"
-                class="pnd-logo-img"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-mobile-logo"
             >
 
         </a>
@@ -2388,8 +4319,8 @@ body.pnd-menu-open{
         <button
             type="button"
             class="pnd-mobile-close"
-            id="pndMobileClose"
-            aria-label="Close navigation menu"
+            id="mobileCloseBtn"
+            aria-label="Close menu"
         >
 
             <i class="bi bi-x-lg"></i>
@@ -2400,576 +4331,1007 @@ body.pnd-menu-open{
     </div>
 
 
-    <!-- ========================================================
-         MOBILE SEARCH
-    ========================================================= -->
+
+    <!-- MOBILE SEARCH -->
 
     <div class="pnd-mobile-search">
 
-        <i class="bi bi-search"></i>
-
         <input
             type="search"
-            id="mobileSearch"
             placeholder="Search..."
-            aria-label="Search"
+            aria-label="Mobile search"
         >
+
+        <i class="bi bi-search"></i>
 
     </div>
 
 
-    <!-- ========================================================
-         ABOUT
-    ========================================================= -->
 
-    <a
-        href="index.html"
-        class="pnd-mobile-link active"
-    >
+    <!-- MOBILE LINKS -->
 
-        <i class="bi bi-info-circle"></i>
-
-        <span>Home</span>
-
-    </a>
+    <nav class="pnd-mobile-links">
 
 
-    <!-- ========================================================
-         SERVICES
-    ========================================================= -->
+        <!-- HOME -->
 
-    <div
-        class="pnd-mobile-services"
-        id="pndMobileServices"
-    >
-
-
-        <button
-            type="button"
-            id="mobileServicesBtn"
-            aria-expanded="false"
-            aria-controls="mobileServicesList"
+        <a
+            href="index.html"
+            class="pnd-mobile-link"
         >
 
             <span>
 
-                <i class="bi bi-grid me-2"></i>
+                <i class="bi bi-house-door"></i>
 
-                Services
+                Home
 
             </span>
 
-
-            <i class="bi bi-chevron-down"></i>
-
-        </button>
-
-
-        <div
-            class="pnd-mobile-service-list"
-            id="mobileServicesList"
-        >
-
-
-            <a
-                href="services.html#website-development"
-            >
-                Website Development
-            </a>
-
-
-            <a
-                href="services.html#web-applications"
-            >
-                Web Applications
-            </a>
-
-
-            <a
-                href="services.html#ai"
-            >
-                AI &amp; Machine Learning
-            </a>
-
-
-            <a
-                href="services.html#robotics"
-            >
-                Robotics &amp; Automation
-            </a>
-
-
-            <a
-                href="services.html#ecommerce"
-            >
-                E-Commerce
-            </a>
-
-
-            <a
-                href="services.html#database"
-            >
-                Database Projects
-            </a>
-
-
-            <a
-                href="services.html#hosting"
-            >
-                Hosting &amp; Maintenance
-            </a>
-
-
-            <a
-                href="services.html#branding"
-            >
-                Logo &amp; Brand Design
-            </a>
-
-
-            <a
-                href="services.html#photography"
-            >
-                Photography
-            </a>
-
-
-            <a
-                href="services.html#videography"
-            >
-                Videography
-            </a>
-
-
-        </div>
-
-    </div>
-
-
-    <!-- ========================================================
-         PORTFOLIO
-    ========================================================= -->
-
-    <a
-        href="Portfolio.html"
-        class="pnd-mobile-link"
-    >
-
-        <i class="bi bi-briefcase"></i>
-
-        <span>Portfolio</span>
-
-    </a>
-    <!-- ========================================================
-         Team
-    ========================================================= -->
-
-    <a
-        href="team.html"
-        class="pnd-mobile-link"
-    >
-
-        <i class="bi bi-briefcase"></i>
-
-        <span>Team</span>
-
-    </a>
-
-
-
-    <!-- ========================================================
-         CONTACT
-    ========================================================= -->
-
-    <a
-        href="contact.html"
-        class="pnd-mobile-link"
-    >
-
-        <i class="bi bi-envelope"></i>
-
-        <span>Contact</span>
-
-    </a>
-
-
-    <!-- ========================================================
-         MOBILE ACTION
-    ========================================================= -->
-
-    <div class="pnd-mobile-actions">
-
-        <a
-            href="start-project.html"
-            class="pnd-mobile-action pnd-mobile-start"
-        >
-
-            Start a Project
-
-            <i class="bi bi-arrow-up-right"></i>
+            <i class="bi bi-arrow-right"></i>
 
         </a>
 
-    </div>
+
+
+        <!-- ABOUT -->
+
+        <a
+            href="about.html"
+            class="pnd-mobile-link"
+        >
+
+            <span>
+
+                <i class="bi bi-info-circle"></i>
+
+                About
+
+            </span>
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+
+
+        <!-- =====================================================
+             MOBILE SERVICES
+             
+             CLOSED BY DEFAULT
+             OPENS ONLY AFTER CLICKING SERVICES BUTTON
+        ====================================================== -->
+
+        <div
+            class="pnd-mobile-services"
+            id="pndMobileServices"
+        >
+
+
+            <!-- SERVICES BUTTON -->
+
+            <button
+                type="button"
+                id="mobileServicesBtn"
+                aria-expanded="false"
+                aria-controls="mobileServicesList"
+            >
+
+                <span>
+
+                    <i class="bi bi-grid"></i>
+
+                    Services
+
+                </span>
+
+
+                <i
+                    class="bi bi-chevron-down"
+                    id="mobileServicesIcon"
+                ></i>
+
+            </button>
+
+
+
+            <!-- SERVICES LIST -->
+
+            <div
+                class="pnd-mobile-service-list"
+                id="mobileServicesList"
+            >
+
+
+                <a
+                    href="website_development.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <span>
+                        Website Development
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="web_applications.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-window-stack"></i>
+
+                    <span>
+                        Web Applications
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="digital-content.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-cloud"></i>
+
+                    <span>
+                        Social Media &amp; Content Creation
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="logo-brand-design.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-palette"></i>
+
+                    <span>
+                        Logo &amp; Brand Design
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="photography.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-camera"></i>
+
+                    <span>
+                        Photography
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="videography.html"
+                    class="pnd-dropdown-item"
+                >
+
+                    <i class="bi bi-camera-video"></i>
+
+                    <span>
+                        Videography
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEAM -->
+
+        <a
+            href="team.html"
+            class="pnd-mobile-link"
+        >
+
+            <span>
+
+                <i class="bi bi-people"></i>
+
+                Team
+
+            </span>
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+
+
+        <!-- PORTFOLIO -->
+
+        <a
+            href="portfolio.html"
+            class="pnd-mobile-link"
+        >
+
+            <span>
+
+                <i class="bi bi-grid"></i>
+
+                Portfolio
+
+            </span>
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+
+
+        <!-- CONTACT -->
+
+        <a
+            href="contact.html"
+            class="pnd-mobile-link"
+        >
+
+            <span>
+
+                <i class="bi bi-envelope"></i>
+
+                Contact
+
+            </span>
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- MOBILE CTA -->
+
+    <a
+        href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20videography%20project."
+        target="_blank"
+        rel="noopener"
+        class="pnd-mobile-cta"
+    >
+
+        Discuss Your Project
+
+        <i class="bi bi-whatsapp"></i>
+
+    </a>
 
 
 </aside>
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-    <div class="container hero-grid">
 
-        <div class="hero-copy">
 
-            <div class="eyebrow">
-                PIXEL NEST DIGITAL / VIDEOGRAPHY
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section class="video-hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-glow"></div>
+
+
+    <div class="hero-content">
+
+
+        <div class="hero-text">
+
+
+            <div class="hero-label">
+
+                <span></span>
+
+                Pixel Nest Digital / Videography
+
             </div>
 
-            <h1>
-                Stories<br>
-                that<br>
-                <span>move.</span>
+
+            <h1 class="hero-title">
+
+                Stories that
+
+                <span class="gradient">
+                    move.
+                </span>
+
             </h1>
 
-            <p>
-                We create engaging video experiences that capture moments,
-                communicate ideas and bring brands, people and stories to life.
+
+            <p class="hero-description">
+
+                We turn ideas, people and moments into cinematic
+                visual experiences. From brand films and events to
+                promotional videos and social content, we create
+                videos designed to capture attention and tell your story.
+
             </p>
 
-            <p>
-                From events and corporate films to promotional videos,
-                product visuals and social media content, we create purposeful
-                visual stories for modern digital platforms.
-            </p>
 
-            <div class="actions">
-                <a class="btn btn-primary" target="_blank"
-                   href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital,%20I%20would%20like%20to%20discuss%20a%20videography%20project.">
-                    Discuss Your Video <i class="bi bi-whatsapp"></i>
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#services"
+                    class="hero-primary"
+                >
+
+                    Explore Video Services
+
+                    <i class="bi bi-arrow-down"></i>
+
                 </a>
 
-                <a class="btn btn-secondary" href="#portfolio">
-                    Explore Our Work <i class="bi bi-arrow-down"></i>
+
+                <a
+                    href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20want%20to%20create%20a%20video."
+                    target="_blank"
+                    rel="noopener"
+                    class="hero-secondary"
+                >
+
+                    <i class="bi bi-whatsapp"></i>
+
+                    Start a Video Project
+
                 </a>
+
+
             </div>
 
         </div>
+
+
+
+        <!-- HERO VISUAL -->
 
         <div class="hero-visual">
 
-            <div class="hero-frame left">
-                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=900&q=85" alt="Videographer filming">
-            </div>
 
-            <div class="hero-frame main">
-                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=90" alt="Cinema camera and filmmaking">
-                <div class="play-button">
-                    <i class="bi bi-play-fill"></i>
+            <div class="camera-orbit"></div>
+
+
+            <div class="floating-camera-card float-one">
+
+                <i class="bi bi-camera-reels"></i>
+
+                <div>
+
+                    <strong>
+                        Cinematic Production
+                    </strong>
+
+                    <small>
+                        Concept → Shoot → Edit
+                    </small>
+
                 </div>
+
             </div>
 
-            <div class="hero-frame bottom">
-                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=85" alt="Video production">
+
+            <div class="camera-card">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=85"
+                    alt="Cinematic video production"
+                >
+
+
+                <div class="camera-overlay"></div>
+
+
+                <div class="camera-ui">
+
+
+                    <div class="camera-top">
+
+                        <div class="rec">
+
+                            <span class="rec-dot"></span>
+
+                            REC
+
+                        </div>
+
+
+                        <span>
+                            4K / 24 FPS
+                        </span>
+
+                    </div>
+
+
+                    <div class="camera-bottom">
+
+
+                        <div>
+
+                            <div class="camera-title">
+                                CREATE THE FRAME
+                            </div>
+
+                            <div class="camera-sub">
+                                Pixel Nest Digital
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="#showcase"
+                            class="play-button"
+                            aria-label="View video work"
+                        >
+
+                            <i class="bi bi-play-fill"></i>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="visual-badge">
-                <strong>Cinematic Storytelling</strong>
-                <small>Films • Events • Brands • Social</small>
+
+            <div class="floating-camera-card float-two">
+
+                <i class="bi bi-film"></i>
+
+                <div>
+
+                    <strong>
+                        Visual Storytelling
+                    </strong>
+
+                    <small>
+                        Every frame matters
+                    </small>
+
+                </div>
+
             </div>
+
 
         </div>
 
     </div>
+
 </section>
 
-<!-- ================= FOUNDER MESSAGE ================= -->
-<section class="section" id="founder">
-    <div class="container founder-grid">
 
-        <div class="founder-photo">
-            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" alt="Creative team working together">
-            <div class="founder-caption">
-                <strong>Creating with purpose.</strong>
-                <span>Founder • Pixel Nest Digital</span>
-            </div>
+
+<!-- =========================================================
+     MARQUEE
+========================================================== -->
+
+<section class="video-marquee">
+
+    <div class="marquee-track">
+
+
+        <div class="marquee-item">
+            BRAND FILMS
+            <i class="bi bi-stars"></i>
         </div>
 
-        <div class="founder-content">
 
-            <div class="kicker">A MESSAGE FROM THE FOUNDER</div>
+        <div class="marquee-item">
+            EVENT VIDEOS
+            <i class="bi bi-stars"></i>
+        </div>
 
-            <h2>
-                We don't just record moments.
-                We build stories around them.
+
+        <div class="marquee-item">
+            PROMOTIONAL VIDEOS
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            SOCIAL MEDIA CONTENT
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            CINEMATIC STORIES
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            VIDEO EDITING
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            BRAND FILMS
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            EVENT VIDEOS
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            PROMOTIONAL VIDEOS
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+        <div class="marquee-item">
+            SOCIAL MEDIA CONTENT
+            <i class="bi bi-stars"></i>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================== -->
+
+<section
+    class="video-section"
+    id="services"
+>
+
+    <div class="section-inner">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="section-kicker">
+                WHAT WE CREATE
+            </div>
+
+
+            <h2 class="section-title">
+                Video services built around your story.
             </h2>
 
-            <p>
-                At Pixel Nest Digital, we believe a good video should do more
-                than look beautiful. It should make people feel something,
-                understand something or remember something.
+
+            <p class="section-description">
+
+                From the first concept to the final frame, our video
+                services combine creative direction, production and
+                post-production to create content that feels intentional.
+
             </p>
 
-            <p>
-                Every project begins with a conversation. We take time to
-                understand the person, brand, event or idea behind the camera.
-                From the first concept to the final frame, our focus is on
-                creating visual content that feels authentic and purposeful.
-            </p>
-
-            <p>
-                Whether it is a celebration, a business film, a product launch,
-                a promotional campaign or a simple social media story, we bring
-                together creative direction, thoughtful cinematography and
-                careful editing to give every story its own identity.
-            </p>
-
-            <p>
-                Our goal is simple: when someone watches your film, they should
-                not only see what happened — they should feel why it mattered.
-            </p>
-
-            <div class="signature">
-                <strong>— Founder, Pixel Nest Digital</strong>
-                <span>Technology • Creativity • Digital Storytelling</span>
-            </div>
 
         </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=85"
+                        alt="Brand video production"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-camera-reels"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Brand Films
+                    </h3>
+
+
+                    <p>
+
+                        Cinematic brand stories that communicate your
+                        identity, values and vision.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1000&q=85"
+                        alt="Event videography"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-calendar-event"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Event Videography
+                    </h3>
+
+
+                    <p>
+
+                        Capture conferences, celebrations, launches,
+                        cultural events and memorable moments.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1586899028174-e7098604235b?auto=format&fit=crop&w=1000&q=85"
+                        alt="Promotional video"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-megaphone"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Promotional Videos
+                    </h3>
+
+
+                    <p>
+
+                        High-impact promotional videos created to
+                        showcase products, services and campaigns.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1000&q=85"
+                        alt="Social media video content"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-phone"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Social Media Videos
+                    </h3>
+
+
+                    <p>
+
+                        Short-form content, reels and vertical videos
+                        designed for today's social platforms.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Video editing"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-scissors"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+
+                    <p>
+
+                        Professional editing, transitions, pacing,
+                        colour treatment, sound and motion graphics.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="service-card reveal">
+
+                <div class="service-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1000&q=85"
+                        alt="Creative video production"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="service-gradient"></div>
+
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+
+                        <i class="bi bi-lightbulb"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Creative Production
+                    </h3>
+
+
+                    <p>
+
+                        Creative concepts, visual direction and production
+                        planning that turn ideas into moving stories.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
     </div>
+
 </section>
 
-<!-- ================= PORTFOLIO ================= -->
-<section class="section section-light" id="portfolio">
 
-    <div class="container">
 
-        <div class="section-head">
-            <div class="kicker">SELECTED VIDEO WORK</div>
-            <h2>Stories designed to be watched.</h2>
-            <p>
-                A visual collection of cinematic directions for events,
-                brands, products, people and digital campaigns.
-            </p>
-        </div>
+<!-- =========================================================
+     SHOWCASE
+========================================================== -->
 
-        <div class="video-grid">
+<section
+    class="showcase-section"
+    id="showcase"
+>
 
-            <div class="video-card v1" data-image="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1300&q=85" alt="Film production">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>01 / CINEMATIC</span>
-                    <h3>Visual Storytelling</h3>
-                </div>
+    <div class="section-inner">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="section-kicker">
+                VISUAL STORIES
             </div>
 
-            <div class="video-card v2" data-image="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1100&q=85" alt="Camera filming">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>02 / PRODUCTION</span>
-                    <h3>Behind The Frame</h3>
-                </div>
-            </div>
 
-            <div class="video-card v3" data-image="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=85" alt="Professional camera">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>03 / CINEMATOGRAPHY</span>
-                    <h3>Every Frame Matters</h3>
-                </div>
-            </div>
-
-            <div class="video-card v4" data-image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=85" alt="Corporate video">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>04 / CORPORATE</span>
-                    <h3>Brand Stories</h3>
-                </div>
-            </div>
-
-            <div class="video-card v5" data-image="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=85" alt="Business portrait">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>05 / BRAND FILM</span>
-                    <h3>People Behind Brands</h3>
-                </div>
-            </div>
-
-            <div class="video-card v6" data-image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=90">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=85" alt="Creative workspace">
-                <div class="video-play"><i class="bi bi-play-fill"></i></div>
-                <div class="video-info">
-                    <span>06 / DIGITAL CONTENT</span>
-                    <h3>Stories For Modern Platforms</h3>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="section" id="services">
-
-    <div class="container">
-
-        <div class="section-head">
-            <div class="kicker">VIDEOGRAPHY SERVICES</div>
-            <h2>From concept to final frame.</h2>
-            <p>
-                Flexible video production for businesses, people, events,
-                products and digital platforms.
-            </p>
-        </div>
-
-        <div class="service-grid">
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-camera-reels"></i></div>
-                <h3>Cinematic Films</h3>
-                <p>Story-driven films with thoughtful composition, movement, lighting and cinematic editing.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-building"></i></div>
-                <h3>Corporate Videos</h3>
-                <p>Professional films for businesses, teams, offices, company stories and internal communication.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-megaphone"></i></div>
-                <h3>Promotional Videos</h3>
-                <p>Purposeful promotional content designed to introduce products, services and campaigns.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-calendar-event"></i></div>
-                <h3>Event Coverage</h3>
-                <p>Capture the people, atmosphere, highlights and important moments that define an event.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-box-seam"></i></div>
-                <h3>Product Videos</h3>
-                <p>Clean and engaging product visuals for websites, advertisements, catalogues and social platforms.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-phone"></i></div>
-                <h3>Social Media Video</h3>
-                <p>Short-form video content created for modern social platforms, campaigns and digital storytelling.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-person-video3"></i></div>
-                <h3>Interviews</h3>
-                <p>Professional interview production for founders, teams, experts, testimonials and brand stories.</p>
-            </article>
-
-            <article class="service-card">
-                <div class="service-icon"><i class="bi bi-stars"></i></div>
-                <h3>Custom Production</h3>
-                <p>Have a unique idea? We can develop the concept, visual direction, production and post-production around it.</p>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<!-- ================= APPROACH ================= -->
-<section class="section section-light">
-
-    <div class="container">
-
-        <div class="section-head">
-            <div class="kicker">OUR APPROACH</div>
-            <h2>Every story starts with an idea.</h2>
-            <p>
-                We keep the production process clear, collaborative and focused
-                on the purpose behind your video.
-            </p>
-        </div>
-
-        <div class="approach-grid">
-
-            <article class="approach-card">
-                <div class="approach-number">01 / DISCOVER</div>
-                <h3>Understand the Story</h3>
-                <p>
-                    We learn about your goal, audience, message, location,
-                    style and the feeling you want the finished video to create.
-                </p>
-            </article>
-
-            <article class="approach-card">
-                <div class="approach-number">02 / CREATE</div>
-                <h3>Shape the Visuals</h3>
-                <p>
-                    We develop the visual direction, framing, movement and
-                    production plan around the story we want to tell.
-                </p>
-            </article>
-
-            <article class="approach-card">
-                <div class="approach-number">03 / DELIVER</div>
-                <h3>Polish Every Frame</h3>
-                <p>
-                    From editing and sound to colour and final exports,
-                    we refine the film so it is ready for its intended platform.
-                </p>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<!-- ================= QUOTE ================= -->
-<section class="section">
-
-    <div class="container">
-
-        <div class="quote">
-            <i class="bi bi-quote"></i>
-
-            <p>
-                “The best videos don't simply show people what happened.
-                They help people feel like they were there.”
-            </p>
-
-            <small>— Pixel Nest Digital</small>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="section" id="contact">
-
-    <div class="container">
-
-        <div class="cta">
-
-            <div class="kicker">START YOUR PROJECT</div>
-
-            <h2>
-                Have a story that deserves to
-                <span>move?</span>
+            <h2 class="section-title">
+                Every frame has a purpose.
             </h2>
 
-            <p>
-                Tell us about your video requirement — a brand film, event,
-                promotional campaign, product video, interview or social media
-                project. We can discuss your idea and build the right visual direction.
+
+            <p class="section-description">
+
+                We combine composition, movement, lighting, sound and
+                editing to create videos that feel natural, cinematic
+                and connected to the brand.
+
             </p>
 
-            <a class="btn whatsapp" target="_blank"
-               href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital,%20I%20would%20like%20to%20discuss%20a%20videography%20project.">
-                <i class="bi bi-whatsapp"></i>
-                Discuss Your Videography Project
-            </a>
+
+        </div>
+
+
+        <div class="showcase-grid">
+
+
+            <div class="showcase-main reveal-left">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=1500&q=85"
+                    alt="Cinematic filmmaking"
+                    loading="lazy"
+                >
+
+
+                <div class="showcase-info">
+
+                    <span>
+                        FEATURED VISUAL
+                    </span>
+
+
+                    <h3>
+                        Cinematic Brand Story
+                    </h3>
+
+
+                    <p>
+
+                        Visual storytelling built to make your audience
+                        stop, watch and remember.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="showcase-side">
+
+
+                <div class="mini-showcase reveal-right">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85"
+                        alt="Video camera production"
+                        loading="lazy"
+                    >
+
+
+                    <div class="mini-text">
+
+                        <h4>
+                            Behind the Frame
+                        </h4>
+
+                        <p>
+                            Production • Direction • Camera
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="mini-showcase reveal-right">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=85"
+                        alt="Film production"
+                        loading="lazy"
+                    >
+
+
+                    <div class="mini-text">
+
+                        <h4>
+                            Crafted in Motion
+                        </h4>
+
+                        <p>
+                            Editing • Colour • Sound • Motion
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
 
         </div>
 
@@ -2977,256 +5339,656 @@ body.pnd-menu-open{
 
 </section>
 
-</main>
 
-<footer class="footer">
 
-    <div class="container footer-inner">
+<!-- =========================================================
+     WHY VIDEO
+========================================================== -->
 
-        <div>
-            <strong>Pixel Nest Digital</strong>
-            <p>Technology • Creativity • Digital Storytelling</p>
+<section class="video-section">
+
+    <div class="section-inner">
+
+
+        <div class="why-grid">
+
+
+            <div class="why-visual reveal-left">
+
+                <div class="lens"></div>
+
+            </div>
+
+
+
+            <div class="reveal-right">
+
+
+                <div class="section-kicker">
+                    THE PIXEL NEST APPROACH
+                </div>
+
+
+                <h2 class="section-title">
+
+                    More than recording.
+                    We create an experience.
+
+                </h2>
+
+
+                <p class="section-description mb-4">
+
+                    Great video isn't only about having a camera.
+                    It is about understanding the story, audience,
+                    atmosphere and purpose behind every shot.
+
+                </p>
+
+
+                <div class="why-list">
+
+
+                    <div class="why-item">
+
+                        <div class="why-icon">
+
+                            <i class="bi bi-stars"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Creative Direction
+                            </h4>
+
+
+                            <p>
+
+                                We shape the visual idea before the
+                                camera starts rolling.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="why-item">
+
+                        <div class="why-icon">
+
+                            <i class="bi bi-camera"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Intentional Cinematography
+                            </h4>
+
+
+                            <p>
+
+                                Composition, movement, lighting and
+                                framing are planned around the story.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="why-item">
+
+                        <div class="why-icon">
+
+                            <i class="bi bi-soundwave"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Complete Post Production
+                            </h4>
+
+
+                            <p>
+
+                                Editing, sound design, colour and
+                                motion graphics bring the final piece together.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="why-item">
+
+                        <div class="why-icon">
+
+                            <i class="bi bi-phone"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h4>
+                                Platform Ready
+                            </h4>
+
+
+                            <p>
+
+                                Content can be prepared for websites,
+                                YouTube, Instagram, reels and campaigns.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
         </div>
-
-        <div class="social">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="https://wa.me/917736755820" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-        </div>
-
-        <p>© 2026 Pixel Nest Digital. All Rights Reserved.</p>
 
     </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROCESS
+========================================================== -->
+
+<section class="process-section">
+
+    <div class="section-inner">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="section-kicker">
+                OUR PROCESS
+            </div>
+
+
+            <h2 class="section-title">
+                From idea to final cut.
+            </h2>
+
+
+            <p class="section-description">
+
+                A clear creative process keeps the production focused,
+                efficient and aligned with your goals.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card reveal">
+
+                <div class="process-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Discover
+                </h3>
+
+
+                <p>
+
+                    We understand your brand, audience, objective and
+                    the story you want to communicate.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-card reveal">
+
+                <div class="process-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Plan
+                </h3>
+
+
+                <p>
+
+                    Concepts, scripts, shot lists, locations and
+                    production requirements are planned.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-card reveal">
+
+                <div class="process-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Produce
+                </h3>
+
+
+                <p>
+
+                    We capture the footage with attention to framing,
+                    movement, lighting and detail.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-card reveal">
+
+                <div class="process-number">
+                    04
+                </div>
+
+
+                <h3>
+                    Refine
+                </h3>
+
+
+                <p>
+
+                    Editing, sound, colour and motion bring the
+                    finished story together.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STATS
+========================================================== -->
+
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+
+        <div class="stat reveal">
+
+            <strong>
+                4K
+            </strong>
+
+            <span>
+                Production Ready
+            </span>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <strong>
+                24+
+            </strong>
+
+            <span>
+                Cinematic FPS
+            </span>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <strong>
+                360°
+            </strong>
+
+            <span>
+                Creative Approach
+            </span>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <strong>
+                ∞
+            </strong>
+
+            <span>
+                Ideas in Motion
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================== -->
+
+<section class="video-cta">
+
+    <div class="cta-glow"></div>
+
+
+    <div class="cta-content reveal">
+
+
+        <div class="section-kicker">
+            LET'S CREATE
+        </div>
+
+
+        <h2>
+            Your next story deserves to move.
+        </h2>
+
+
+        <p>
+
+            Tell us what you want to create and let's turn your idea
+            into a visual experience with Pixel Nest Digital.
+
+        </p>
+
+
+        <a
+            href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20videography%20project."
+            target="_blank"
+            rel="noopener"
+            class="hero-primary"
+        >
+
+            Start Your Video Project
+
+            <i class="bi bi-whatsapp"></i>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer>
+
+
+    <p>
+        © 2026 Pixel Nest Digital. All rights reserved.
+    </p>
+
+
+    <p>
+
+        <strong>
+            Technology • Creativity • Digital Solutions
+        </strong>
+
+    </p>
+
 
 </footer>
 
-<div class="lightbox" id="lightbox">
-    <button id="closeLightbox" aria-label="Close image">
-        <i class="bi bi-x-lg"></i>
-    </button>
-    <img id="lightboxImage" src="" alt="Expanded video production image">
-</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =========================================================
-       PIXEL NEST DIGITAL — HEADER / MOBILE MENU
-       Uses the current pnd-* IDs from the HTML.
-    ========================================================= */
-
-    const header = document.getElementById("pndHeader");
-
-    const menuBtn = document.getElementById("pndMenuBtn");
-    const menuIcon = document.getElementById("pndMenuIcon");
-
-    const mobileMenu = document.getElementById("pndMobileMenu");
-    const mobileOverlay = document.getElementById("pndMobileOverlay");
-    const mobileClose = document.getElementById("pndMobileClose");
-
-    const servicesContainer = document.getElementById("pndMobileServices");
-    const servicesBtn = document.getElementById("mobileServicesBtn");
-    const servicesList = document.getElementById("mobileServicesList");
-
-    const desktopSearch = document.getElementById("desktopSearch");
-    const desktopSearchBtn = document.getElementById("desktopSearchBtn");
-    const mobileSearch = document.getElementById("mobileSearch");
 
 
-    /* =========================================================
+    /* =====================================================
        HEADER SCROLL EFFECT
-    ========================================================= */
+    ====================================================== */
 
-    function updateHeader() {
+    const pndHeader =
+        document.getElementById("pndHeader");
 
-        if (!header) {
-            return;
-        }
-
-        if (window.scrollY > 15) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-
-    }
-
-    updateHeader();
 
     window.addEventListener(
         "scroll",
-        updateHeader,
-        { passive: true }
+        function () {
+
+            if (window.scrollY > 30) {
+
+                pndHeader.classList.add("scrolled");
+
+            } else {
+
+                pndHeader.classList.remove("scrolled");
+
+            }
+
+        }
     );
 
 
-    /* =========================================================
-       OPEN MOBILE MENU
-    ========================================================= */
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+
+    const mobileCloseBtn =
+        document.getElementById("mobileCloseBtn");
+
+
+    const mobileOverlay =
+        document.getElementById("mobileOverlay");
+
+
 
     function openMobileMenu() {
 
-        if (!mobileMenu) {
-            return;
-        }
-
         mobileMenu.classList.add("active");
 
-        if (mobileOverlay) {
-            mobileOverlay.classList.add("active");
-        }
+        mobileOverlay.classList.add("active");
 
-        document.body.classList.add("pnd-menu-open");
-
-        if (menuBtn) {
-            menuBtn.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            menuBtn.setAttribute(
-                "aria-label",
-                "Close navigation menu"
-            );
-        }
 
         mobileMenu.setAttribute(
             "aria-hidden",
             "false"
         );
 
-        if (menuIcon) {
-            menuIcon.classList.remove("bi-list");
-            menuIcon.classList.add("bi-x-lg");
-        }
+
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
 
     }
 
 
-    /* =========================================================
-       CLOSE MOBILE MENU
-    ========================================================= */
 
     function closeMobileMenu() {
 
-        if (!mobileMenu) {
-            return;
-        }
-
         mobileMenu.classList.remove("active");
 
-        if (mobileOverlay) {
-            mobileOverlay.classList.remove("active");
-        }
+        mobileOverlay.classList.remove("active");
 
-        document.body.classList.remove("pnd-menu-open");
-
-        if (menuBtn) {
-            menuBtn.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuBtn.setAttribute(
-                "aria-label",
-                "Open navigation menu"
-            );
-        }
 
         mobileMenu.setAttribute(
             "aria-hidden",
             "true"
         );
 
-        if (menuIcon) {
-            menuIcon.classList.remove("bi-x-lg");
-            menuIcon.classList.add("bi-list");
-        }
 
-    }
-
-
-    /* =========================================================
-       MOBILE MENU BUTTON
-    ========================================================= */
-
-    if (menuBtn) {
-
-        menuBtn.addEventListener(
-            "click",
-            function () {
-
-                if (
-                    mobileMenu &&
-                    mobileMenu.classList.contains("active")
-                ) {
-                    closeMobileMenu();
-                } else {
-                    openMobileMenu();
-                }
-
-            }
+        mobileMenuBtn.setAttribute(
+            "aria-expanded",
+            "false"
         );
 
-    }
 
-
-    /* =========================================================
-       MOBILE CLOSE BUTTON
-    ========================================================= */
-
-    if (mobileClose) {
-
-        mobileClose.addEventListener(
-            "click",
-            closeMobileMenu
-        );
+        document.body.style.overflow =
+            "";
 
     }
 
 
-    /* =========================================================
-       MOBILE OVERLAY
-    ========================================================= */
 
-    if (mobileOverlay) {
-
-        mobileOverlay.addEventListener(
-            "click",
-            closeMobileMenu
-        );
-
-    }
+    mobileMenuBtn.addEventListener(
+        "click",
+        openMobileMenu
+    );
 
 
-    /* =========================================================
-       CLOSE MENU WHEN A MOBILE LINK IS CLICKED
-    ========================================================= */
+    mobileCloseBtn.addEventListener(
+        "click",
+        closeMobileMenu
+    );
 
-    if (mobileMenu) {
 
-        mobileMenu
-            .querySelectorAll("a")
-            .forEach(function (link) {
+    mobileOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU WHEN NORMAL LINK IS CLICKED
+    ====================================================== */
+
+    document
+        .querySelectorAll(
+            ".pnd-mobile-link"
+        )
+        .forEach(
+            function (link) {
 
                 link.addEventListener(
                     "click",
                     closeMobileMenu
                 );
 
-            });
+            }
+        );
 
-    }
 
 
-    /* =========================================================
-       MOBILE SERVICES ACCORDION
-    ========================================================= */
+    /* =====================================================
+       CLOSE WITH ESCAPE
+    ====================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                mobileMenu.classList.contains("active")
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       MOBILE SERVICES DROPDOWN
+
+       IMPORTANT:
+       SERVICES ARE CLOSED BY DEFAULT.
+
+       CLICK SERVICES:
+       OPEN
+
+       CLICK SERVICES AGAIN:
+       CLOSE
+    ====================================================== */
+
+    const servicesBtn =
+        document.getElementById(
+            "mobileServicesBtn"
+        );
+
+
+    const servicesList =
+        document.getElementById(
+            "mobileServicesList"
+        );
+
 
     if (
         servicesBtn &&
-        servicesContainer &&
         servicesList
     ) {
 
@@ -3234,34 +5996,28 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             function () {
 
+
                 const isOpen =
-                    servicesContainer.classList.contains(
-                        "active"
-                    );
+                    servicesBtn.getAttribute(
+                        "aria-expanded"
+                    ) === "true";
 
-                if (isOpen) {
 
-                    servicesContainer.classList.remove(
-                        "active"
-                    );
+                const newState =
+                    !isOpen;
 
-                    servicesBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
 
-                } else {
+                servicesBtn.setAttribute(
+                    "aria-expanded",
+                    String(newState)
+                );
 
-                    servicesContainer.classList.add(
-                        "active"
-                    );
 
-                    servicesBtn.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
+                servicesList.classList.toggle(
+                    "active",
+                    newState
+                );
 
-                }
 
             }
         );
@@ -3269,332 +6025,339 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================================
-       SEARCH
-       Search terms are routed to relevant sections/pages.
-    ========================================================= */
 
-    function performSearch(inputElement) {
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
 
-        if (!inputElement) {
-            return;
-        }
-
-        const query =
-            inputElement.value
-                .trim()
-                .toLowerCase();
-
-        if (!query) {
-            inputElement.focus();
-            return;
-        }
-
-
-        /* Current-page videography sections */
-
-        if (
-            query.includes("video") ||
-            query.includes("videography") ||
-            query.includes("film") ||
-            query.includes("cinematic") ||
-            query.includes("production") ||
-            query.includes("event") ||
-            query.includes("corporate") ||
-            query.includes("product") ||
-            query.includes("social") ||
-            query.includes("interview")
-        ) {
-
-            const servicesSection =
-                document.getElementById("services");
-
-            if (servicesSection) {
-
-                closeMobileMenu();
-
-                servicesSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-                return;
-            }
-
-        }
-
-
-        /* General Pixel Nest Digital services */
-
-        if (
-            query.includes("website") ||
-            query.includes("web") ||
-            query.includes("application")
-        ) {
-            window.location.href =
-                "services.html#web-applications";
-            return;
-        }
-
-
-        if (
-            query.includes("ai") ||
-            query.includes("machine learning")
-        ) {
-            window.location.href =
-                "services.html#ai";
-            return;
-        }
-
-
-        if (
-            query.includes("robot") ||
-            query.includes("automation")
-        ) {
-            window.location.href =
-                "services.html#robotics";
-            return;
-        }
-
-
-        if (
-            query.includes("ecommerce") ||
-            query.includes("e-commerce") ||
-            query.includes("shop")
-        ) {
-            window.location.href =
-                "services.html#ecommerce";
-            return;
-        }
-
-
-        if (
-            query.includes("database") ||
-            query.includes("software")
-        ) {
-            window.location.href =
-                "services.html#database";
-            return;
-        }
-
-
-        if (
-            query.includes("hosting") ||
-            query.includes("maintenance")
-        ) {
-            window.location.href =
-                "services.html#hosting";
-            return;
-        }
-
-
-        if (
-            query.includes("logo") ||
-            query.includes("brand") ||
-            query.includes("branding")
-        ) {
-            window.location.href =
-                "services.html#branding";
-            return;
-        }
-
-
-        if (
-            query.includes("photo") ||
-            query.includes("photography")
-        ) {
-            window.location.href =
-                "services.html#photography";
-            return;
-        }
-
-
-        /* No exact result */
-
-        alert(
-            "Searching Pixel Nest Digital for: " +
-            inputElement.value
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal, .reveal-left, .reveal-right"
         );
 
-    }
+
+    const revealObserver =
+        new IntersectionObserver(
+            function (
+                entries,
+                observer
+            ) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
 
 
-    if (desktopSearch) {
+                            observer.unobserve(
+                                entry.target
+                            );
 
-        desktopSearch.addEventListener(
-            "keydown",
-            function (event) {
+                        }
 
-                if (event.key === "Enter") {
-                    performSearch(desktopSearch);
-                }
+                    }
+                );
 
+            },
+            {
+                threshold: 0.12
             }
         );
 
-    }
 
+    revealElements.forEach(
+        function (element) {
 
-    if (desktopSearchBtn) {
-
-        desktopSearchBtn.addEventListener(
-            "click",
-            function () {
-                performSearch(desktopSearch);
-            }
-        );
-
-    }
-
-
-    if (mobileSearch) {
-
-        mobileSearch.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (event.key === "Enter") {
-
-                    performSearch(
-                        mobileSearch
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================================
-       ESC KEY
-       Close mobile menu and lightbox.
-    ========================================================= */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (event.key === "Escape") {
-
-                closeMobileMenu();
-
-                if (lightbox) {
-                    lightbox.classList.remove(
-                        "active"
-                    );
-                }
-
-                if (lightboxImage) {
-                    lightboxImage.src = "";
-                }
-
-            }
+            revealObserver.observe(
+                element
+            );
 
         }
     );
 
 
-    /* =========================================================
-       LIGHTBOX
-    ========================================================= */
 
-    const lightbox =
-        document.getElementById("lightbox");
+    /* =====================================================
+       3D CARD EFFECT — DESKTOP
+    ====================================================== */
 
-    const lightboxImage =
-        document.getElementById("lightboxImage");
-
-    const closeLightbox =
-        document.getElementById("closeLightbox");
+    const cards =
+        document.querySelectorAll(
+            ".service-card"
+        );
 
 
-    document
-        .querySelectorAll(".video-card")
-        .forEach(function (card) {
+    cards.forEach(
+        function (card) {
+
 
             card.addEventListener(
-                "click",
-                function () {
+                "mousemove",
+                function (event) {
+
 
                     if (
-                        !lightbox ||
-                        !lightboxImage
+                        window.innerWidth <= 1050
                     ) {
+
                         return;
+
                     }
 
-                    const image =
-                        card.getAttribute(
-                            "data-image"
-                        );
 
-                    if (!image) {
-                        return;
-                    }
+                    const rect =
+                        card.getBoundingClientRect();
 
-                    lightboxImage.src = image;
 
-                    lightbox.classList.add(
-                        "active"
-                    );
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const centerX =
+                        rect.width / 2;
+
+
+                    const centerY =
+                        rect.height / 2;
+
+
+                    const rotateY =
+                        (
+                            (x - centerX) /
+                            centerX
+                        ) * 4;
+
+
+                    const rotateX =
+                        (
+                            (centerY - y) /
+                            centerY
+                        ) * 4;
+
+
+                    card.style.transform =
+                        `perspective(900px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)
+                         translateY(-10px)`;
 
                 }
             );
 
-        });
 
+            card.addEventListener(
+                "mouseleave",
+                function () {
 
-    if (closeLightbox) {
+                    card.style.transform =
+                        "";
 
-        closeLightbox.addEventListener(
-            "click",
-            function () {
-
-                if (lightbox) {
-                    lightbox.classList.remove(
-                        "active"
-                    );
                 }
+            );
 
-                if (lightboxImage) {
-                    lightboxImage.src = "";
-                }
 
-            }
+        }
+    );
+
+
+
+    /* =====================================================
+       HERO CAMERA PARALLAX
+    ====================================================== */
+
+    const heroVisual =
+        document.querySelector(
+            ".hero-visual"
         );
 
-    }
+
+    const cameraCard =
+        document.querySelector(
+            ".camera-card"
+        );
 
 
-    if (lightbox) {
+    if (
+        heroVisual &&
+        cameraCard
+    ) {
 
-        lightbox.addEventListener(
-            "click",
+
+        heroVisual.addEventListener(
+            "mousemove",
             function (event) {
 
+
                 if (
-                    event.target === lightbox
+                    window.innerWidth <= 1050
                 ) {
 
-                    lightbox.classList.remove(
-                        "active"
-                    );
-
-                    if (lightboxImage) {
-                        lightboxImage.src = "";
-                    }
+                    return;
 
                 }
+
+
+                const rect =
+                    heroVisual.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const moveX =
+                    (x - centerX) / 35;
+
+
+                const moveY =
+                    (y - centerY) / 35;
+
+
+                cameraCard.style.transform =
+                    `rotateY(${-9 + moveX}deg)
+                     rotateX(${4 - moveY}deg)
+                     translateY(-4px)`;
+
+            }
+        );
+
+
+        heroVisual.addEventListener(
+            "mouseleave",
+            function () {
+
+                cameraCard.style.transform =
+                    "rotateY(-9deg) rotateX(4deg)";
 
             }
         );
 
     }
 
-});
+
+
+    /* =====================================================
+       SMOOTH ANCHOR SCROLL
+    ====================================================== */
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            function (anchor) {
+
+
+                anchor.addEventListener(
+                    "click",
+                    function (event) {
+
+
+                        const targetId =
+                            this.getAttribute(
+                                "href"
+                            );
+
+
+                        if (
+                            targetId === "#" ||
+                            !targetId
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
+
+
+                        if (!target) {
+
+                            return;
+
+                        }
+
+
+                        event.preventDefault();
+
+
+                        const headerHeight =
+                            pndHeader.offsetHeight;
+
+
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.scrollY -
+                            headerHeight -
+                            15;
+
+
+                        window.scrollTo({
+
+                            top:
+                                targetPosition,
+
+                            behavior:
+                                "smooth"
+
+                        });
+
+                    }
+                );
+
+            }
+        );
+
+
+
+    /* =====================================================
+       PREVENT HORIZONTAL DRAGGING
+    ====================================================== */
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            document.body.style.overflowX =
+                "hidden";
+
+        }
+    );
+
+
 </script>
 
+
 </body>
+
 </html>
