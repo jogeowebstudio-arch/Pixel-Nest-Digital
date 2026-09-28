@@ -3003,7 +3003,845 @@
     }
 }
 
-    </style>
+    
+
+/* =========================================================
+   FINAL RESPONSIVE SYSTEM — MOBILE / TABLET / LAPTOP
+   Added as the final override so it safely fixes the
+   existing responsive rules without changing the design.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+    max-width: 100%;
+}
+
+.pnd-header,
+.pnd-header-inner,
+.pnd-hero,
+.pnd-hero-inner,
+.pnd-white-section,
+.pnd-featured,
+.pnd-gallery-section,
+.pnd-services,
+.pnd-process,
+.pnd-cta,
+.pnd-footer {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pnd-header-inner,
+.pnd-hero-inner,
+.pnd-container {
+    min-width: 0;
+}
+
+.pnd-header-inner {
+    width: min(1440px, 100%);
+}
+
+/* Prevent long text, buttons and links from forcing width */
+.pnd-hero h1,
+.pnd-section-title,
+.pnd-cta h2,
+.pnd-hero-text,
+.pnd-section-description,
+.pnd-service-card,
+.pnd-process-card,
+.pnd-feature-point,
+.pnd-capture-card {
+    overflow-wrap: anywhere;
+}
+
+.pnd-hero-buttons {
+    min-width: 0;
+}
+
+.pnd-hero-buttons a {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+}
+
+/* =========================================================
+   LAPTOP — 1200px and below
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .pnd-header-inner {
+        padding-left: 28px;
+        padding-right: 28px;
+        gap: 16px;
+    }
+
+    .pnd-logo-img {
+        max-width: 190px;
+    }
+
+    .pnd-search {
+        max-width: 220px;
+    }
+
+    .pnd-nav-link {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .pnd-hero {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+
+    .pnd-hero-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    .pnd-photo-stage {
+        width: 100%;
+        max-width: 560px;
+        height: 540px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pnd-card-main {
+        width: 300px;
+        height: 400px;
+        right: 8%;
+    }
+
+    .pnd-card-left,
+    .pnd-card-right {
+        width: 170px;
+        height: 235px;
+    }
+
+    .pnd-card-left {
+        left: 0;
+    }
+
+    .pnd-card-right {
+        right: 0;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-gallery-section,
+    .pnd-services,
+    .pnd-process {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+}
+
+/* =========================================================
+   TABLET — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .pnd-nav,
+    .pnd-search,
+    .pnd-start {
+        display: none !important;
+    }
+
+    .pnd-mobile-toggle {
+        display: flex !important;
+        flex: 0 0 44px;
+    }
+
+    .pnd-header-inner {
+        padding-left: 22px;
+        padding-right: 22px;
+        justify-content: space-between;
+    }
+
+    .pnd-hero {
+        min-height: auto;
+        padding-top: 125px;
+        padding-bottom: 70px;
+    }
+
+    .pnd-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
+        min-height: auto;
+    }
+
+    .pnd-hero-content {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .pnd-hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pnd-hero-buttons {
+        justify-content: center;
+    }
+
+    .pnd-photo-stage {
+        width: min(100%, 680px);
+        height: 520px;
+        margin: 0 auto;
+    }
+
+    .pnd-featured-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .pnd-featured-image {
+        width: min(100%, 700px);
+        min-height: 520px;
+        margin: 0 auto;
+    }
+
+    .pnd-capture-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pnd-service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pnd-process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================================
+   TABLET PORTRAIT — 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pnd-header-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .pnd-hero {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .pnd-hero h1 {
+        font-size: clamp(48px, 9vw, 72px);
+        letter-spacing: -3px;
+    }
+
+    .pnd-photo-stage {
+        height: 500px;
+    }
+
+    .pnd-card-main {
+        width: 280px;
+        height: 375px;
+        right: 14%;
+    }
+
+    .pnd-card-left {
+        width: 160px;
+        height: 220px;
+        left: 4%;
+    }
+
+    .pnd-card-right {
+        width: 160px;
+        height: 220px;
+        right: 3%;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-gallery-section,
+    .pnd-services,
+    .pnd-process {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .pnd-gallery {
+        columns: 2 240px;
+    }
+}
+
+/* =========================================================
+   MOBILE — 700px
+========================================================= */
+
+@media (max-width: 700px) {
+
+    :root {
+        --header-height: 70px;
+    }
+
+    .pnd-header {
+        top: 3px;
+        height: var(--header-height);
+    }
+
+    .pnd-header-inner {
+        height: 100%;
+        padding: 0 14px;
+        gap: 10px;
+    }
+
+    .pnd-logo {
+        min-width: 0;
+        max-width: calc(100% - 54px);
+    }
+
+    .pnd-logo-img {
+        width: auto;
+        max-width: 100%;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    .pnd-mobile-toggle {
+        width: 42px !important;
+        height: 42px !important;
+        flex: 0 0 42px !important;
+    }
+
+    .pnd-mobile-menu {
+        width: min(390px, 92vw);
+        max-width: 92vw;
+        padding: 20px 16px;
+    }
+
+    .pnd-mobile-top {
+        gap: 12px;
+    }
+
+    .pnd-mobile-logo {
+        max-width: calc(100% - 52px);
+    }
+
+    .pnd-hero {
+        width: 100%;
+        min-height: auto;
+        padding: 112px 16px 55px;
+    }
+
+    .pnd-hero-inner {
+        width: 100%;
+        gap: 35px;
+    }
+
+    .pnd-hero-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pnd-eyebrow {
+        max-width: 100%;
+        font-size: 10px;
+        padding: 7px 11px;
+        margin-bottom: 17px;
+    }
+
+    .pnd-hero h1 {
+        width: 100%;
+        font-size: clamp(42px, 13vw, 58px);
+        line-height: .98;
+        letter-spacing: -2.5px;
+        margin-bottom: 20px;
+    }
+
+    .pnd-hero-text {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    .pnd-hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .pnd-hero-buttons a {
+        width: 100%;
+        max-width: 100%;
+        padding: 13px 16px;
+    }
+
+    /* Compact 3D image stage */
+    .pnd-photo-stage {
+        width: 100%;
+        max-width: 430px;
+        height: 390px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    .pnd-photo-card {
+        border-radius: 18px;
+    }
+
+    .pnd-card-main {
+        width: 210px;
+        height: 285px;
+        right: 50%;
+        top: 38px;
+        margin-right: -105px;
+        transform: rotateY(-8deg) rotateX(3deg) rotateZ(1deg);
+    }
+
+    .pnd-card-left {
+        width: 105px;
+        height: 150px;
+        left: 2%;
+        top: 105px;
+        transform: rotateY(10deg) rotateX(-3deg) rotateZ(-5deg);
+    }
+
+    .pnd-card-right {
+        width: 105px;
+        height: 150px;
+        right: 2%;
+        bottom: 32px;
+        transform: rotateY(-10deg) rotateX(3deg) rotateZ(5deg);
+    }
+
+    .pnd-floating-tag {
+        max-width: 130px;
+        padding: 8px 10px;
+        font-size: 9px;
+        white-space: normal;
+    }
+
+    .tag-one {
+        left: 0;
+        top: 45px;
+    }
+
+    .tag-two {
+        right: 0;
+        top: 8px;
+    }
+
+    .tag-three {
+        left: 4%;
+        bottom: 10px;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-gallery-section,
+    .pnd-services,
+    .pnd-process {
+        width: 100%;
+        padding: 65px 16px;
+    }
+
+    .pnd-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pnd-section-title {
+        font-size: clamp(34px, 10vw, 44px);
+        line-height: 1.05;
+        letter-spacing: -1.7px;
+    }
+
+    .pnd-section-description {
+        width: 100%;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .pnd-capture-grid,
+    .pnd-service-grid,
+    .pnd-process-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 35px;
+    }
+
+    .pnd-capture-card {
+        width: 100%;
+        min-height: 330px;
+        border-radius: 20px;
+    }
+
+    .pnd-capture-overlay {
+        padding: 20px;
+    }
+
+    .pnd-capture-overlay h3 {
+        font-size: 20px;
+    }
+
+    .pnd-featured-grid {
+        width: 100%;
+        gap: 32px;
+        margin-top: 35px;
+    }
+
+    .pnd-featured-image {
+        width: 100%;
+        min-height: 390px;
+        border-radius: 22px;
+        transform: none;
+    }
+
+    .pnd-featured-image:hover {
+        transform: translateY(-4px);
+    }
+
+    .pnd-featured-content h3 {
+        font-size: clamp(30px, 8vw, 42px);
+    }
+
+    .pnd-feature-points {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .pnd-feature-point {
+        padding: 15px;
+    }
+
+    .pnd-dark-parallax {
+        width: 100%;
+        min-height: 440px;
+        background-attachment: scroll;
+    }
+
+    .pnd-parallax-content {
+        width: 100%;
+        padding: 70px 16px;
+    }
+
+    .pnd-parallax-content h2 {
+        font-size: clamp(38px, 11vw, 52px);
+        line-height: 1;
+        letter-spacing: -2px;
+    }
+
+    .pnd-parallax-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .pnd-gallery-head {
+        width: 100%;
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .pnd-gallery {
+        width: 100%;
+        columns: 1;
+        column-gap: 0;
+    }
+
+    .pnd-gallery-item {
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 17px;
+    }
+
+    .pnd-gallery-number {
+        opacity: 1;
+    }
+
+    .pnd-service-card {
+        width: 100%;
+        min-height: auto;
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    .pnd-service-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 18px;
+    }
+
+    .pnd-process-card {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .pnd-process-number {
+        font-size: 36px;
+    }
+
+    .pnd-cta {
+        width: 100%;
+        padding: 65px 16px;
+    }
+
+    .pnd-cta-inner {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pnd-cta h2 {
+        font-size: clamp(36px, 10vw, 48px);
+        line-height: 1.02;
+        letter-spacing: -2px;
+    }
+
+    .pnd-cta p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .pnd-cta .pnd-hero-primary {
+        display: inline-flex;
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .pnd-footer {
+        width: 100%;
+        padding: 24px 16px;
+    }
+
+    .pnd-footer p {
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   SMALL PHONES — 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .pnd-header-inner {
+        padding: 0 12px;
+    }
+
+    .pnd-logo-img {
+        height: 39px;
+        max-width: 170px;
+    }
+
+    .pnd-mobile-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        flex-basis: 40px !important;
+    }
+
+    .pnd-hero {
+        padding-left: 13px;
+        padding-right: 13px;
+        padding-top: 108px;
+    }
+
+    .pnd-hero h1 {
+        font-size: clamp(39px, 12.5vw, 50px);
+        letter-spacing: -2px;
+    }
+
+    .pnd-hero-text {
+        font-size: 13.5px;
+    }
+
+    .pnd-photo-stage {
+        height: 350px;
+        max-width: 360px;
+    }
+
+    .pnd-card-main {
+        width: 185px;
+        height: 250px;
+        margin-right: -92.5px;
+        top: 35px;
+    }
+
+    .pnd-card-left {
+        width: 92px;
+        height: 132px;
+        left: 0;
+        top: 100px;
+    }
+
+    .pnd-card-right {
+        width: 92px;
+        height: 132px;
+        right: 0;
+        bottom: 28px;
+    }
+
+    .pnd-floating-tag {
+        max-width: 105px;
+        font-size: 8px;
+        padding: 7px 8px;
+    }
+
+    .tag-one {
+        left: 0;
+    }
+
+    .tag-two {
+        right: 0;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-gallery-section,
+    .pnd-services,
+    .pnd-process,
+    .pnd-cta {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .pnd-section-title {
+        font-size: 34px;
+    }
+
+    .pnd-capture-card {
+        min-height: 300px;
+    }
+
+    .pnd-featured-image {
+        min-height: 340px;
+    }
+
+    .pnd-dark-parallax {
+        min-height: 400px;
+    }
+
+    .pnd-parallax-content h2 {
+        font-size: 39px;
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES — 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .pnd-logo-img {
+        height: 36px;
+        max-width: 150px;
+    }
+
+    .pnd-mobile-toggle {
+        width: 38px !important;
+        height: 38px !important;
+        flex-basis: 38px !important;
+    }
+
+    .pnd-hero {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .pnd-hero h1 {
+        font-size: 37px;
+    }
+
+    .pnd-photo-stage {
+        height: 320px;
+    }
+
+    .pnd-card-main {
+        width: 165px;
+        height: 225px;
+        margin-right: -82.5px;
+    }
+
+    .pnd-card-left,
+    .pnd-card-right {
+        width: 82px;
+        height: 118px;
+    }
+
+    .pnd-floating-tag {
+        display: none;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-gallery-section,
+    .pnd-services,
+    .pnd-process,
+    .pnd-cta {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+   Disable hover-heavy transforms on touch screens.
+========================================================= */
+
+@media (hover: none), (pointer: coarse) {
+
+    .pnd-photo-card:hover img,
+    .pnd-capture-card:hover img,
+    .pnd-gallery-item:hover img {
+        transform: none;
+    }
+
+    .pnd-service-card:hover,
+    .pnd-feature-point:hover,
+    .pnd-capture-card:hover {
+        transform: none;
+    }
+
+    .pnd-featured-image:hover {
+        transform: none;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+</style>
 
 </head>
 
@@ -4936,6 +5774,22 @@
         }
     );
 
+
+
+    /* =========================================================
+       RESPONSIVE VIEWPORT SAFETY
+    ========================================================== */
+
+    function pndCloseMenuOnResize() {
+        if (window.innerWidth > 1100) {
+            closeMobileMenu();
+        }
+    }
+
+    window.addEventListener("resize", pndCloseMenuOnResize);
+    window.addEventListener("orientationchange", () => {
+        setTimeout(pndCloseMenuOnResize, 150);
+    });
 
 </script>
 
