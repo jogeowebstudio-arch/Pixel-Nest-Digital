@@ -2120,6 +2120,816 @@ input{
     }
 }
 
+
+/* =========================================================
+   FINAL RESPONSIVE SYSTEM — MOBILE / TABLET / LAPTOP
+========================================================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    min-width:0;
+}
+
+.pnd-header,
+.pnd-header-inner,
+.pnd-logo,
+.pnd-nav,
+.pnd-search,
+.pnd-hero,
+.pnd-hero-inner,
+.pnd-code-stage,
+.pnd-white-section,
+.pnd-featured,
+.pnd-showcase,
+.pnd-services,
+.pnd-process,
+.pnd-focus,
+.pnd-cta,
+.pnd-container{
+    min-width:0;
+}
+
+.pnd-header-inner{
+    width:100%;
+}
+
+.pnd-logo-img{
+    height:52px;
+    max-width:min(220px,24vw);
+    width:auto;
+}
+
+.pnd-search{
+    flex:1 1 260px;
+    min-width:180px;
+    max-width:400px;
+}
+
+.pnd-nav{
+    flex:0 0 auto;
+    min-width:0;
+}
+
+.pnd-nav-link{
+    white-space:nowrap;
+}
+
+.pnd-start{
+    flex:0 0 auto;
+}
+
+.pnd-mobile-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.58);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .3s ease, visibility .3s ease;
+    z-index:10010;
+}
+
+.pnd-mobile-overlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.pnd-mobile-menu{
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+}
+
+.pnd-hero-inner > *,
+.pnd-featured-grid > *{
+    min-width:0;
+}
+
+.pnd-hero-content,
+.pnd-featured-content{
+    overflow-wrap:anywhere;
+}
+
+.pnd-browser,
+.pnd-featured-visual,
+.pnd-device-stack{
+    max-width:100%;
+}
+
+.pnd-browser{
+    transform:
+        perspective(1200px)
+        rotateY(-5deg)
+        rotateX(2deg)
+        rotateZ(.5deg);
+}
+
+.pnd-build-card,
+.pnd-service-card,
+.pnd-process-card{
+    min-width:0;
+}
+
+.pnd-build-overlay p,
+.pnd-service-card p,
+.pnd-process-card p,
+.pnd-feature-point p{
+    overflow-wrap:anywhere;
+}
+
+/* Laptop */
+@media (min-width:1101px) and (max-width:1280px){
+
+    .pnd-header-inner{
+        padding-left:28px;
+        padding-right:28px;
+        gap:14px;
+    }
+
+    .pnd-logo-img{
+        max-width:175px;
+        height:48px;
+    }
+
+    .pnd-search{
+        max-width:260px;
+    }
+
+    .pnd-nav{
+        gap:2px;
+    }
+
+    .pnd-nav-link{
+        padding-left:7px;
+        padding-right:7px;
+        font-size:13px;
+    }
+
+    .pnd-start{
+        padding:11px 13px;
+        font-size:12px;
+    }
+
+    .pnd-hero{
+        padding-left:4vw;
+        padding-right:4vw;
+    }
+
+    .pnd-hero-inner{
+        gap:35px;
+    }
+
+    .pnd-hero h1{
+        font-size:clamp(50px,5.5vw,74px);
+    }
+
+    .pnd-code-stage{
+        min-height:510px;
+    }
+}
+
+/* Tablet + small laptop */
+@media (max-width:1100px){
+
+    .pnd-nav,
+    .pnd-search,
+    .pnd-start{
+        display:none !important;
+    }
+
+    .pnd-mobile-toggle{
+        display:flex !important;
+        margin-left:auto;
+        flex:0 0 44px;
+    }
+
+    .pnd-header-inner{
+        padding-left:24px;
+        padding-right:24px;
+        gap:16px;
+    }
+
+    .pnd-logo-img{
+        max-width:210px;
+        height:50px;
+    }
+
+    .pnd-hero{
+        min-height:auto;
+        padding:125px 32px 75px;
+    }
+
+    .pnd-hero-inner{
+        grid-template-columns:1fr;
+        gap:40px;
+        min-height:auto;
+    }
+
+    .pnd-hero-content{
+        width:100%;
+        max-width:820px;
+        margin:auto;
+        text-align:center;
+    }
+
+    .pnd-eyebrow{
+        max-width:100%;
+        justify-content:center;
+    }
+
+    .pnd-hero-text{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .pnd-hero-buttons{
+        justify-content:center;
+    }
+
+    .pnd-code-stage{
+        width:min(100%,760px);
+        min-height:500px;
+        margin:auto;
+    }
+
+    .pnd-browser{
+        width:min(650px,100%);
+    }
+
+    .pnd-featured-grid{
+        grid-template-columns:1fr;
+        gap:42px;
+    }
+
+    .pnd-featured-visual{
+        width:min(100%,760px);
+        margin:auto;
+    }
+
+    .pnd-build-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .pnd-service-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .pnd-process-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+/* Tablet portrait */
+@media (min-width:601px) and (max-width:900px){
+
+    .pnd-header-inner{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .pnd-logo-img{
+        max-width:195px;
+        height:48px;
+    }
+
+    .pnd-hero{
+        padding-left:28px;
+        padding-right:28px;
+    }
+
+    .pnd-hero h1{
+        font-size:clamp(48px,8vw,68px);
+        letter-spacing:-3px;
+    }
+
+    .pnd-code-stage{
+        min-height:450px;
+    }
+
+    .pnd-browser{
+        transform:none;
+    }
+
+    .pnd-browser-body{
+        padding:22px;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-showcase,
+    .pnd-services,
+    .pnd-process{
+        padding-left:28px;
+        padding-right:28px;
+    }
+
+    .pnd-section-title{
+        font-size:clamp(36px,6vw,52px);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    :root{
+        --header-height:70px;
+    }
+
+    .pnd-header{
+        height:var(--header-height);
+    }
+
+    .pnd-header-inner{
+        height:100%;
+        padding:0 14px;
+    }
+
+    .pnd-logo-img{
+        height:43px;
+        max-width:min(185px,calc(100vw - 82px));
+    }
+
+    .pnd-mobile-toggle{
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+        border-radius:12px;
+    }
+
+    .pnd-mobile-menu{
+        width:min(390px,94vw);
+        padding:20px 16px 30px;
+    }
+
+    .pnd-mobile-logo{
+        height:41px;
+        max-width:185px;
+    }
+
+    .pnd-mobile-top{
+        margin-bottom:20px;
+    }
+
+    .pnd-mobile-search{
+        margin-bottom:18px;
+    }
+
+    .pnd-mobile-link{
+        min-height:50px;
+    }
+
+    .pnd-hero{
+        padding:115px 17px 55px;
+    }
+
+    .pnd-hero-inner{
+        gap:30px;
+    }
+
+    .pnd-eyebrow{
+        width:100%;
+        padding:8px 10px;
+        font-size:10px;
+        letter-spacing:.5px;
+        text-align:center;
+    }
+
+    .pnd-hero h1{
+        font-size:clamp(43px,13vw,56px);
+        line-height:.98;
+        letter-spacing:-2.5px;
+        margin-bottom:20px;
+    }
+
+    .pnd-hero-text{
+        font-size:14px;
+        line-height:1.7;
+        margin-bottom:25px;
+    }
+
+    .pnd-hero-buttons{
+        width:100%;
+        gap:10px;
+    }
+
+    .pnd-hero-buttons a{
+        width:100%;
+        min-height:50px;
+        padding:13px 15px;
+        font-size:13px;
+    }
+
+    .pnd-code-stage{
+        min-height:330px;
+        width:100%;
+        overflow:visible;
+    }
+
+    .pnd-glow{
+        width:250px;
+        height:250px;
+    }
+
+    .pnd-browser{
+        width:100%;
+        min-height:0;
+        height:auto;
+        border-radius:17px;
+        transform:none;
+    }
+
+    .pnd-browser-top{
+        height:38px;
+        padding:0 11px;
+    }
+
+    .pnd-dot{
+        width:7px;
+        height:7px;
+    }
+
+    .pnd-address{
+        height:23px;
+        margin-left:6px;
+        font-size:7px;
+        padding:0 7px;
+    }
+
+    .pnd-browser-body{
+        min-height:0;
+        padding:13px;
+    }
+
+    .pnd-mini-nav{
+        height:18px;
+        margin-bottom:17px;
+    }
+
+    .pnd-mini-logo{
+        width:55px;
+        height:6px;
+    }
+
+    .pnd-mini-links{
+        gap:5px;
+    }
+
+    .pnd-mini-links span{
+        width:18px;
+        height:4px;
+    }
+
+    .pnd-mini-hero{
+        grid-template-columns:1fr .78fr;
+        gap:10px;
+    }
+
+    .pnd-mini-title .line{
+        height:10px;
+        margin-bottom:6px;
+    }
+
+    .pnd-mini-copy{
+        width:92%;
+        height:5px;
+        margin:10px 0;
+    }
+
+    .pnd-mini-button{
+        width:70px;
+        height:22px;
+    }
+
+    .pnd-mini-screen{
+        height:115px;
+        border-radius:12px;
+    }
+
+    .pnd-mini-screen::before{
+        inset:14px;
+    }
+
+    .pnd-mini-screen::after{
+        inset:31px;
+    }
+
+    .pnd-code-float{
+        font-size:7px;
+        padding:7px 8px;
+        border-radius:9px;
+    }
+
+    .pnd-code-one{
+        left:-4px;
+        top:30px;
+    }
+
+    .pnd-code-two{
+        right:-4px;
+        top:8px;
+    }
+
+    .pnd-code-three{
+        right:5px;
+        bottom:18px;
+    }
+
+    .pnd-marquee{
+        padding:13px 0;
+    }
+
+    .pnd-marquee-item{
+        gap:14px;
+        padding-right:14px;
+        font-size:10px;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-showcase,
+    .pnd-services,
+    .pnd-process{
+        padding:65px 17px;
+    }
+
+    .pnd-section-label{
+        font-size:10px;
+        letter-spacing:1.2px;
+    }
+
+    .pnd-section-title{
+        font-size:clamp(32px,10vw,42px);
+        line-height:1.08;
+        letter-spacing:-1.5px;
+    }
+
+    .pnd-section-description{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .pnd-build-grid,
+    .pnd-service-grid,
+    .pnd-process-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+        margin-top:35px;
+    }
+
+    .pnd-build-card{
+        min-height:0;
+    }
+
+    .pnd-build-visual{
+        height:190px;
+        padding:17px;
+    }
+
+    .pnd-build-overlay{
+        padding:18px;
+    }
+
+    .pnd-build-overlay h3{
+        font-size:19px;
+    }
+
+    .pnd-build-overlay p{
+        font-size:12px;
+    }
+
+    .pnd-featured-grid{
+        gap:32px;
+    }
+
+    .pnd-featured-visual{
+        min-height:360px;
+        padding:17px;
+        border-radius:22px;
+    }
+
+    .pnd-device.desktop{
+        height:220px;
+    }
+
+    .pnd-device-tablet{
+        width:120px;
+        height:155px;
+        right:-3px;
+        bottom:-25px;
+    }
+
+    .pnd-device-screen{
+        padding:12px;
+    }
+
+    .pnd-device-screen .hero-block{
+        height:65px;
+    }
+
+    .pnd-device-screen .content-box{
+        height:50px;
+    }
+
+    .pnd-featured-content h3{
+        font-size:30px;
+    }
+
+    .pnd-feature-points{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .pnd-feature-point{
+        padding:15px;
+    }
+
+    .pnd-focus{
+        padding:65px 17px;
+    }
+
+    .pnd-focus h2{
+        font-size:clamp(38px,11vw,50px);
+        letter-spacing:-2px;
+    }
+
+    .pnd-focus p{
+        font-size:14px;
+    }
+
+    .pnd-tech-row{
+        gap:8px;
+    }
+
+    .pnd-tech{
+        padding:9px 11px;
+        font-size:11px;
+    }
+
+    .pnd-service-card{
+        min-height:0;
+        padding:25px 22px;
+    }
+
+    .pnd-process-card{
+        padding:23px 20px;
+    }
+
+    .pnd-process-number{
+        font-size:36px;
+    }
+
+    .pnd-cta{
+        padding:65px 17px;
+    }
+
+    .pnd-cta h2{
+        font-size:clamp(36px,11vw,48px);
+        letter-spacing:-2px;
+    }
+
+    .pnd-cta p{
+        font-size:14px;
+    }
+
+    .pnd-footer{
+        padding:24px 17px;
+    }
+}
+
+/* Very small phones */
+@media (max-width:380px){
+
+    .pnd-logo-img{
+        height:40px;
+        max-width:calc(100vw - 78px);
+    }
+
+    .pnd-mobile-toggle{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+    }
+
+    .pnd-hero{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .pnd-hero h1{
+        font-size:42px;
+    }
+
+    .pnd-code-stage{
+        min-height:300px;
+    }
+
+    .pnd-mini-screen{
+        height:98px;
+    }
+
+    .pnd-code-float{
+        font-size:6.5px;
+        padding:6px 7px;
+    }
+
+    .pnd-white-section,
+    .pnd-featured,
+    .pnd-showcase,
+    .pnd-services,
+    .pnd-process,
+    .pnd-focus,
+    .pnd-cta{
+        padding-left:14px;
+        padding-right:14px;
+    }
+}
+
+/* Prevent animation transforms from creating horizontal scroll */
+@media (max-width:600px){
+
+    .pnd-reveal-left,
+    .pnd-reveal-right{
+        transform:translateY(25px);
+    }
+
+    .pnd-reveal.show,
+    .pnd-reveal-left.show,
+    .pnd-reveal-right.show{
+        transform:translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+
+    .pnd-top-led,
+    .pnd-glow,
+    .pnd-marquee-track{
+        animation:none !important;
+    }
+
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE IMAGE SYSTEM
+========================================================= */
+.pnd-build-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.72;
+    transition:transform .6s ease,opacity .4s ease;
+}
+.pnd-build-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(7,17,31,.08),rgba(7,17,31,.72));
+    pointer-events:none;
+}
+.pnd-build-card:hover .pnd-build-image{
+    transform:scale(1.06);
+    opacity:.88;
+}
+.pnd-browser-mini{position:relative;z-index:2;}
+.pnd-feature-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+}
+.pnd-device-screen{position:relative;overflow:hidden;}
+.pnd-device-screen::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(7,17,31,.08),rgba(7,17,31,.18));
+    pointer-events:none;
+}
+@media(max-width:900px){
+    .pnd-build-image{opacity:.78;}
+}
+@media(max-width:600px){
+    .pnd-build-image{opacity:.82;}
+    .pnd-build-visual{height:190px;}
+}
+
 </style>
 
 </head>
@@ -2159,70 +2969,59 @@ input{
 
             <a href="about.html" class="pnd-nav-link">About</a>
 
+            <!-- SERVICES DROPDOWN -->
             <div class="pnd-dropdown">
-
                 <a
                     href="services.html"
                     class="pnd-nav-link active"
-                    aria-haspopup="true">
+                    aria-haspopup="true"
+                >
                     Services
                     <i class="bi bi-chevron-down pnd-chevron"></i>
                 </a>
 
-                <div class="pnd-dropdown-menu">
-
-                    <a href="website_development.html" class="pnd-dropdown-item">
-                        <i class="bi bi-code-slash"></i>
+                <div class="pnd-dropdown-menu" role="menu">
+                    <a href="website_development.html" class="pnd-dropdown-item" role="menuitem">
+                        <i class="bi bi-window-stack"></i>
                         <span>Website Development</span>
                     </a>
-
-                    <a href="web_applications.html" class="pnd-dropdown-item">
-                        <i class="bi bi-window-stack"></i>
+                    <a href="web_applications.html" class="pnd-dropdown-item" role="menuitem">
+                        <i class="bi bi-grid-1x2"></i>
                         <span>Web Applications</span>
                     </a>
-
-                    <a href="e-commerce.html" class="pnd-dropdown-item">
+                    <a href="e-commerce.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-cart3"></i>
                         <span>E-Commerce</span>
                     </a>
-
-                    <a href="software-database.html" class="pnd-dropdown-item">
+                    <a href="software-database-projects.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-database"></i>
                         <span>Software &amp; Database Projects</span>
                     </a>
-
-                    <a href="hosting-maintenance.html" class="pnd-dropdown-item">
+                    <a href="hosting-maintenance.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-cloud-check"></i>
                         <span>Hosting &amp; Maintenance</span>
                     </a>
-
-                    <a href="logo-brand-design.html" class="pnd-dropdown-item">
-                        <i class="bi bi-palette"></i>
+                    <a href="logo-brand-design.html" class="pnd-dropdown-item" role="menuitem">
+                        <i class="bi bi-vector-pen"></i>
                         <span>Logo &amp; Brand Design</span>
                     </a>
-
-                    <a href="photography.html" class="pnd-dropdown-item">
+                    <a href="photography.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-camera"></i>
                         <span>Photography</span>
                     </a>
-
-                    <a href="videography.html" class="pnd-dropdown-item">
+                    <a href="videography.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-camera-reels"></i>
                         <span>Videography</span>
                     </a>
-
-                    <a href="video-editing.html" class="pnd-dropdown-item">
+                    <a href="video-editing.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-film"></i>
                         <span>Video Editing</span>
                     </a>
-
-                    <a href="digital-content.html" class="pnd-dropdown-item">
+                    <a href="digital-content.html" class="pnd-dropdown-item" role="menuitem">
                         <i class="bi bi-phone"></i>
                         <span>Digital Content</span>
                     </a>
-
                 </div>
-
             </div>
 
             <a href="team.html" class="pnd-nav-link">Team</a>
@@ -2310,89 +3109,69 @@ input{
             </span>
         </a>
 
+        <!-- MOBILE SERVICES DROPDOWN -->
         <div class="pnd-mobile-services">
-
             <button
                 type="button"
-                id="mobileServicesBtn"
                 class="pnd-mobile-services-btn"
+                id="mobileServicesBtn"
                 aria-expanded="false"
-                aria-controls="mobileServicesList">
-
+                aria-controls="mobileServicesList"
+            >
                 <span>
                     <i class="bi bi-grid"></i>
                     Services
                 </span>
-
                 <i class="bi bi-chevron-down mobile-services-chevron"></i>
-
             </button>
 
             <div
                 class="pnd-mobile-services-list"
-                id="mobileServicesList">
-
+                id="mobileServicesList"
+            >
                 <div class="pnd-mobile-services-list-inner">
-
-                    <a href="services.html">
-                        <i class="bi bi-grid"></i>
-                        All Services
-                    </a>
-
                     <a href="website_development.html">
-                        <i class="bi bi-code-slash"></i>
+                        <i class="bi bi-window-stack"></i>
                         Website Development
                     </a>
-
                     <a href="web_applications.html">
-                        <i class="bi bi-window-stack"></i>
+                        <i class="bi bi-grid-1x2"></i>
                         Web Applications
                     </a>
-
                     <a href="e-commerce.html">
                         <i class="bi bi-cart3"></i>
                         E-Commerce
                     </a>
-
-                    <a href="software-database.html">
+                    <a href="software-database-projects.html">
                         <i class="bi bi-database"></i>
                         Software &amp; Database Projects
                     </a>
-
                     <a href="hosting-maintenance.html">
                         <i class="bi bi-cloud-check"></i>
                         Hosting &amp; Maintenance
                     </a>
-
                     <a href="logo-brand-design.html">
-                        <i class="bi bi-palette"></i>
+                        <i class="bi bi-vector-pen"></i>
                         Logo &amp; Brand Design
                     </a>
-
                     <a href="photography.html">
                         <i class="bi bi-camera"></i>
                         Photography
                     </a>
-
                     <a href="videography.html">
                         <i class="bi bi-camera-reels"></i>
                         Videography
                     </a>
-
                     <a href="video-editing.html">
                         <i class="bi bi-film"></i>
                         Video Editing
                     </a>
-
                     <a href="digital-content.html">
                         <i class="bi bi-phone"></i>
                         Digital Content
                     </a>
-
                 </div>
-
             </div>
-
         </div>
 
         <a href="team.html" class="pnd-mobile-link">
@@ -2647,6 +3426,16 @@ input{
 
                 <div class="pnd-build-visual">
 
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1000&q=85" alt="Responsive website design" class="pnd-build-image" loading="lazy">
+
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85" alt="Responsive website design" class="pnd-build-image" loading="lazy">
+
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=85" alt="Responsive website design" class="pnd-build-image" loading="lazy">
+
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85" alt="Responsive website design" class="pnd-build-image" loading="lazy">
+
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85" alt="Responsive website design" class="pnd-build-image" loading="lazy">
+
                     <div class="pnd-browser-mini">
 
                         <div class="pnd-browser-mini-top">
@@ -2884,6 +3673,8 @@ input{
 
                         <div class="pnd-device-screen">
 
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="Modern website workspace" class="pnd-feature-image" loading="lazy">
+
                             <div class="hero-block"></div>
 
                             <div class="content-row">
@@ -2905,6 +3696,8 @@ input{
                         </div>
 
                         <div class="pnd-device-screen">
+
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="Modern website workspace" class="pnd-feature-image" loading="lazy">
 
                             <div class="hero-block"></div>
 
@@ -3390,8 +4183,8 @@ const pndMobileOverlay =
 
 function openMobileMenu(){
 
-    pndMobileMenu.classList.add("show");
-    pndMobileOverlay.classList.add("show");
+    pndMobileMenu?.classList.add("show");
+    pndMobileOverlay?.classList.add("show");
     document.body.style.overflow="hidden";
 
 }
@@ -3399,8 +4192,8 @@ function openMobileMenu(){
 
 function closeMobileMenu(){
 
-    pndMobileMenu.classList.remove("show");
-    pndMobileOverlay.classList.remove("show");
+    pndMobileMenu?.classList.remove("show");
+    pndMobileOverlay?.classList.remove("show");
     document.body.style.overflow="";
 
 }
@@ -3416,27 +4209,15 @@ pndMobileClose.addEventListener(
     closeMobileMenu
 );
 
-pndMobileOverlay.addEventListener(
-    "click",
-    closeMobileMenu
-);
+if(pndMobileOverlay){
+    pndMobileOverlay.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+}
 
 
-document
-    .querySelectorAll(
-        ".pnd-mobile-link, .pnd-mobile-services-list a"
-    )
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            closeMobileMenu
-        );
-
-    });
-
-
-/* MOBILE SERVICES DROPDOWN */
+/* MOBILE SERVICES ACCORDION */
 
 const mobileServicesBtn =
     document.getElementById("mobileServicesBtn");
@@ -3450,25 +4231,47 @@ if(mobileServicesBtn && mobileServicesList){
         "click",
         () => {
 
-            const isOpen =
-                mobileServicesBtn.getAttribute(
-                    "aria-expanded"
-                ) === "true";
+            const expanded =
+                mobileServicesBtn.getAttribute("aria-expanded") === "true";
 
             mobileServicesBtn.setAttribute(
                 "aria-expanded",
-                String(!isOpen)
+                String(!expanded)
             );
 
             mobileServicesList.classList.toggle(
                 "active",
-                !isOpen
+                !expanded
             );
 
         }
     );
 
+    mobileServicesList
+        .querySelectorAll("a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        });
 }
+
+
+document
+    .querySelectorAll(
+        ".pnd-mobile-link"
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+
+    });
 
 
 /* SCROLL REVEAL */
