@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,143 +5,382 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Start a Project | Pixel Nest Digital</title>
+    <title>
+        Start a Project | Pixel Nest Digital
+    </title>
+
+    <meta
+        name="description"
+        content="Start your digital project with Pixel Nest Digital. Tell us about your website, web application, branding, photography, videography or digital content requirements."
+    >
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 
-    <!-- =========================
+    <!-- =====================================================
          BOOTSTRAP
-    ========================== -->
+    ====================================================== -->
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
 
-    <!-- =========================
+    <!-- =====================================================
          BOOTSTRAP ICONS
-    ========================== -->
+    ====================================================== -->
 
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet">
-
-
-    <!-- =========================
-         GOOGLE FONTS
-    ========================== -->
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-
-    <!-- =========================
-         EMAILJS
-    ========================== -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
 
     <style>
 
-        /* =========================================
-           ROOT
-        ========================================= */
-
-        :root {
-
-            --pnd-red: #e63946;
-            --pnd-green: #16a34a;
-
-            --pnd-dark: #0b0f14;
-            --pnd-dark-2: #121820;
-
-            --pnd-text: #111827;
-            --pnd-muted: #6b7280;
-
-            --pnd-light: #f7f8fa;
-
-            --pnd-border: #e5e7eb;
-
-        }
-
-
-        /* =========================================
-           RESET
-        ========================================= */
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
 
         * {
-
             margin: 0;
             padding: 0;
-
             box-sizing: border-box;
-
         }
 
 
         html {
-
             scroll-behavior: smooth;
-
         }
 
 
         body {
 
-            font-family: "DM Sans", sans-serif;
+            font-family:
+                "DM Sans",
+                sans-serif;
 
             background: #ffffff;
 
-            color: var(--pnd-text);
+            color: #0f172a;
 
             overflow-x: hidden;
 
         }
 
 
-        a {
+        body.menu-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           TOP LED
+        ====================================================== */
+
+        .pnd-top-led {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 3px;
+
+            z-index: 99999;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563EB,
+                    #06B6D4,
+                    #7C3AED,
+                    #2563EB
+                );
+
+            background-size: 300% 100%;
+
+            animation:
+                pndLedMove 6s linear infinite;
+
+        }
+
+
+        @keyframes pndLedMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .pnd-header {
+
+            position: fixed;
+
+            top: 3px;
+            left: 0;
+
+            width: 100%;
+
+            height: 82px;
+
+            z-index: 9990;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(7,17,31,.97),
+                    rgba(11,23,42,.94)
+                );
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.08);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            transition:
+                background .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+
+        .pnd-header.scrolled {
+
+            background:
+                rgba(7,17,31,.98);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.28);
+
+        }
+
+
+        .pnd-header-inner {
+
+            width: 100%;
+
+            max-width: 1440px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding:
+                0 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        /* =====================================================
+           LOGO
+        ====================================================== */
+
+        .pnd-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-shrink: 0;
 
             text-decoration: none;
 
         }
 
 
-        /* =========================================
-           NAVBAR
-        ========================================= */
+        .pnd-logo-img {
 
-        .pnd-navbar {
+            width: auto;
 
-            width: 100%;
+            height: 52px;
 
-            padding: 18px 0;
+            max-width: 220px;
 
-            background:
-                rgba(255,255,255,.94);
+            object-fit: contain;
 
-            backdrop-filter:
-                blur(18px);
-
-            border-bottom:
-                1px solid rgba(0,0,0,.06);
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            z-index: 1000;
+            transition:
+                transform .3s ease,
+                filter .3s ease;
 
         }
 
 
-        .pnd-brand {
+        .pnd-logo:hover .pnd-logo-img {
+
+            transform: scale(1.04);
+
+            filter:
+                drop-shadow(
+                    0 0 12px
+                    rgba(37,99,235,.35)
+                );
+
+        }
+
+
+        /* =====================================================
+           DESKTOP SEARCH
+        ====================================================== */
+
+        .pnd-search {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 400px;
+
+            height: 46px;
+
+            margin-left: auto;
+
+        }
+
+
+        .pnd-search > i {
+
+            position: absolute;
+
+            left: 16px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #94a3b8;
+
+            font-size: 16px;
+
+            pointer-events: none;
+
+        }
+
+
+        .pnd-search input {
+
+            width: 100%;
+
+            height: 100%;
+
+            padding:
+                0 18px 0 45px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            background:
+                rgba(255,255,255,.055);
+
+            color: #fff;
+
+            outline: none;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            transition: .3s ease;
+
+        }
+
+
+        .pnd-search input::placeholder {
+
+            color: #64748b;
+
+        }
+
+
+        .pnd-search input:focus {
+
+            border-color:
+                rgba(37,99,235,.65);
+
+            background:
+                rgba(255,255,255,.075);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(37,99,235,.10);
+
+        }
+
+
+        /* =====================================================
+           DESKTOP NAVIGATION
+        ====================================================== */
+
+        .pnd-desktop-nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+        }
+
+
+        .pnd-nav-link {
+
+            position: relative;
 
             display: flex;
 
@@ -150,195 +388,1052 @@
 
             gap: 7px;
 
-            color: #111827;
+            padding:
+                10px 13px;
+
+            border: 0;
+
+            background: transparent;
+
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            white-space: nowrap;
+
+            transition:
+                color .25s ease;
+
+        }
+
+
+        .pnd-nav-link::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 13px;
+
+            right: 13px;
+
+            bottom: 2px;
+
+            height: 2px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563EB,
+                    #06B6D4
+                );
+
+            transform:
+                scaleX(0);
+
+            transform-origin: center;
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .pnd-nav-link:hover {
+
+            color: #fff;
+
+        }
+
+
+        .pnd-nav-link:hover::after {
+
+            transform:
+                scaleX(1);
+
+        }
+
+
+        /* ACTIVE PAGE */
+
+        .pnd-nav-link.active {
+
+            color: #fff;
+
+        }
+
+
+        .pnd-nav-link.active::after {
+
+            transform:
+                scaleX(1);
+
+        }
+
+
+        /* =====================================================
+           SERVICES DROPDOWN
+        ====================================================== */
+
+        .pnd-dropdown {
+
+            position: relative;
+
+        }
+
+
+        .pnd-services-btn {
+
+            cursor: pointer;
 
             font-family:
-                "Space Grotesk",
+                "DM Sans",
                 sans-serif;
 
-            font-size: 1.5rem;
+        }
 
-            font-weight: 800;
 
-            letter-spacing: -.7px;
+        .pnd-services-btn i {
+
+            font-size: 11px;
+
+            transition:
+                transform .3s ease;
 
         }
 
 
-        .pnd-brand:hover {
+        .pnd-dropdown.active
+        .pnd-services-btn i {
 
-            color: #111827;
-
-        }
-
-
-        .brand-pixel {
-
-            color: var(--pnd-red);
+            transform:
+                rotate(180deg);
 
         }
 
 
-        .brand-nest {
+        .pnd-dropdown-menu {
 
-            color: var(--pnd-green);
+            position: absolute;
+
+            top:
+                calc(100% + 16px);
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(10px);
+
+            width: 300px;
+
+            max-height: 70vh;
+
+            overflow-y: auto;
+
+            padding: 10px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(7,17,31,.98);
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.45);
+
+            backdrop-filter:
+                blur(22px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition:
+                opacity .25s ease,
+                transform .25s ease,
+                visibility .25s ease;
 
         }
 
 
-        .pnd-nav {
+        .pnd-dropdown.active
+        .pnd-dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+
+        }
+
+
+        .pnd-dropdown-menu::-webkit-scrollbar {
+
+            width: 5px;
+
+        }
+
+
+        .pnd-dropdown-menu::-webkit-scrollbar-thumb {
+
+            background:
+                rgba(37,99,235,.5);
+
+            border-radius: 20px;
+
+        }
+
+
+        .pnd-dropdown-menu a {
 
             display: flex;
 
             align-items: center;
 
-            gap: 30px;
+            gap: 12px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 11px;
+
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition:
+                background .25s ease,
+                color .25s ease,
+                transform .25s ease;
 
         }
 
 
-        .pnd-nav a {
+        .pnd-dropdown-menu a i {
 
-            color: #4b5563;
+            width: 20px;
 
-            font-size: .94rem;
+            color: #06B6D4;
+
+        }
+
+
+        .pnd-dropdown-menu a:hover {
+
+            color: #fff;
+
+            background:
+                rgba(37,99,235,.12);
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        /* =====================================================
+           START PROJECT BUTTON
+        ====================================================== */
+
+        .pnd-start-project {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            min-width: 150px;
+
+            height: 46px;
+
+            padding:
+                0 18px;
+
+            border-radius: 13px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 13px;
 
             font-weight: 600;
 
-            transition: .3s ease;
-
-        }
-
-
-        .pnd-nav a:hover {
-
-            color: var(--pnd-red);
-
-        }
-
-
-        .pnd-nav-cta {
+            white-space: nowrap;
 
             background:
-                #111827 !important;
+                linear-gradient(
+                    135deg,
+                    #2563EB,
+                    #06B6D4
+                );
 
-            color:
-                #ffffff !important;
+            box-shadow:
+                0 8px 25px
+                rgba(37,99,235,.25);
 
-            padding:
-                11px 20px;
-
-            border-radius:
-                50px;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
 
         }
 
 
-        .pnd-nav-cta:hover {
+        .pnd-start-project i {
 
-            background:
-                var(--pnd-green) !important;
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .pnd-start-project:hover {
+
+            color: #fff;
 
             transform:
                 translateY(-2px);
 
+            box-shadow:
+                0 12px 32px
+                rgba(37,99,235,.38);
+
         }
 
 
-        .mobile-toggle {
+        .pnd-start-project:hover i {
 
-            border: 0;
+            transform:
+                translate(3px,-3px);
+
+        }
+
+
+        /* =====================================================
+           MOBILE TOGGLE
+        ====================================================== */
+
+        .pnd-mobile-toggle {
+
+            width: 48px;
+
+            height: 48px;
+
+            padding: 0;
+
+            border-radius: 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
 
             background:
-                transparent;
+                rgba(255,255,255,.055);
 
-            font-size:
-                1.7rem;
+            display: none;
 
-            color:
-                #111827;
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            cursor: pointer;
+
+            transition:
+                background .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
 
         }
 
 
-        /* =========================================
-           HERO
-        ========================================= */
+        .pnd-mobile-toggle:hover {
 
-        .project-hero {
+            background:
+                rgba(37,99,235,.12);
 
-            min-height: 650px;
+            border-color:
+                rgba(37,99,235,.35);
+
+        }
+
+
+        .pnd-mobile-toggle span {
+
+            display: block;
+
+            width: 20px;
+
+            height: 2px;
+
+            border-radius: 20px;
+
+            background: #fff;
+
+            transition:
+                transform .3s ease,
+                opacity .3s ease,
+                width .3s ease;
+
+        }
+
+
+        /* =====================================================
+           HAMBURGER ACTIVE
+        ====================================================== */
+
+        .pnd-mobile-toggle.active
+        span:nth-child(1) {
+
+            transform:
+                translateY(7px)
+                rotate(45deg);
+
+        }
+
+
+        .pnd-mobile-toggle.active
+        span:nth-child(2) {
+
+            opacity: 0;
+
+            width: 0;
+
+        }
+
+
+        .pnd-mobile-toggle.active
+        span:nth-child(3) {
+
+            transform:
+                translateY(-7px)
+                rotate(-45deg);
+
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        .pnd-mobile-menu {
+
+            position: fixed;
+
+            top: 3px;
+
+            right: 0;
+
+            width:
+                min(390px, 92vw);
+
+            height:
+                calc(100vh - 3px);
+
+            z-index: 10000;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07111F,
+                    #0B172A
+                );
+
+            border-left:
+                1px solid
+                rgba(255,255,255,.08);
+
+            box-shadow:
+                -25px 0 70px
+                rgba(0,0,0,.45);
+
+            transform:
+                translateX(105%);
+
+            transition:
+                transform .4s
+                cubic-bezier(.77,0,.18,1);
+
+            overflow-y: auto;
+
+        }
+
+
+        .pnd-mobile-menu.active {
+
+            transform:
+                translateX(0);
+
+        }
+
+
+        .pnd-mobile-menu-inner {
+
+            min-height: 100%;
 
             padding:
-                170px 0 90px;
+                25px 20px 30px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE MENU HEADER
+        ====================================================== */
+
+        .pnd-mobile-menu-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .pnd-mobile-logo {
+
+            height: 43px;
+
+            width: auto;
+
+            max-width: 190px;
+
+            object-fit: contain;
+
+        }
+
+
+        .pnd-mobile-close {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
 
             background:
+                rgba(255,255,255,.05);
 
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(230,57,70,.10),
-                    transparent 28%
-                ),
+            color: #fff;
 
-                radial-gradient(
-                    circle at 90% 30%,
-                    rgba(22,163,74,.12),
-                    transparent 30%
-                ),
+            font-size: 17px;
 
-                #f7f8fa;
+            cursor: pointer;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-mobile-close:hover {
+
+            background:
+                rgba(37,99,235,.15);
+
+            border-color:
+                rgba(37,99,235,.3);
+
+        }
+
+
+        /* =====================================================
+           MOBILE SEARCH
+        ====================================================== */
+
+        .pnd-mobile-search {
 
             position: relative;
 
-            overflow: hidden;
+            height: 46px;
+
+            margin-bottom: 25px;
 
         }
 
 
-        .hero-grid {
+        .pnd-mobile-search i {
 
             position: absolute;
 
-            inset: 0;
+            left: 15px;
 
-            opacity: .4;
+            top: 50%;
 
-            background-image:
+            transform:
+                translateY(-50%);
 
+            color: #64748b;
+
+        }
+
+
+        .pnd-mobile-search input {
+
+            width: 100%;
+
+            height: 100%;
+
+            padding:
+                0 15px 0 43px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: #fff;
+
+            outline: none;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+        }
+
+
+        .pnd-mobile-search input::placeholder {
+
+            color: #64748b;
+
+        }
+
+
+        /* =====================================================
+           MOBILE NAV
+        ====================================================== */
+
+        .pnd-mobile-nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+        }
+
+
+        .pnd-mobile-nav > a,
+        .pnd-mobile-services > button {
+
+            width: 100%;
+
+            min-height: 56px;
+
+            padding:
+                0 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-radius: 14px;
+
+            border:
+                1px solid transparent;
+
+            background:
+                rgba(255,255,255,.025);
+
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            transition:
+                background .25s ease,
+                border-color .25s ease,
+                color .25s ease,
+                transform .25s ease;
+
+        }
+
+
+        .pnd-mobile-nav > a:hover,
+        .pnd-mobile-services > button:hover {
+
+            background:
+                rgba(37,99,235,.10);
+
+            border-color:
+                rgba(37,99,235,.20);
+
+            color: #fff;
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .pnd-mobile-nav a span,
+        .pnd-mobile-services button span {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+        }
+
+
+        .pnd-mobile-nav a span i,
+        .pnd-mobile-services button span i {
+
+            width: 22px;
+
+            color: #06B6D4;
+
+            font-size: 17px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE SERVICES
+        ====================================================== */
+
+        .pnd-mobile-services {
+
+            width: 100%;
+
+        }
+
+
+        .pnd-mobile-services > button {
+
+            cursor: pointer;
+
+        }
+
+
+        .pnd-mobile-services > button > i {
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .pnd-mobile-services.active
+        > button > i {
+
+            transform:
+                rotate(180deg);
+
+        }
+
+
+        .pnd-mobile-services-list {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            transition:
+                max-height .4s ease,
+                opacity .3s ease;
+
+        }
+
+
+        .pnd-mobile-services.active
+        .pnd-mobile-services-list {
+
+            max-height: 800px;
+
+            opacity: 1;
+
+            padding:
+                7px 0 5px 14px;
+
+        }
+
+
+        .pnd-mobile-services-list a {
+
+            min-height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                8px 12px;
+
+            border-radius: 10px;
+
+            color: #94a3b8;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-mobile-services-list a:hover {
+
+            color: #fff;
+
+            background:
+                rgba(37,99,235,.08);
+
+        }
+
+
+        .pnd-mobile-services-list a i {
+
+            color: #06B6D4;
+
+            width: 19px;
+
+        }
+
+
+        /* =====================================================
+           MOBILE START PROJECT
+        ====================================================== */
+
+        .pnd-mobile-start {
+
+            margin-top: 14px !important;
+
+            min-height: 58px !important;
+
+            color: #fff !important;
+
+            background:
                 linear-gradient(
-                    rgba(0,0,0,.035) 1px,
-                    transparent 1px
+                    135deg,
+                    #2563EB,
+                    #06B6D4
+                ) !important;
+
+            border:
+                none !important;
+
+            box-shadow:
+                0 10px 30px
+                rgba(37,99,235,.22);
+
+        }
+
+
+        .pnd-mobile-start span i {
+
+            color: #fff !important;
+
+        }
+
+
+        /* =====================================================
+           MOBILE FOOTER
+        ====================================================== */
+
+        .pnd-mobile-menu-footer {
+
+            margin-top: 35px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            flex-wrap: wrap;
+
+            color: #64748b;
+
+            font-size: 10px;
+
+            text-align: center;
+
+        }
+
+
+        .pnd-mobile-menu-footer b {
+
+            color: #06B6D4;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .pnd-project-hero {
+
+            position: relative;
+
+            min-height: 620px;
+
+            padding:
+                170px 20px 90px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(37,99,235,.22),
+                    transparent 35%
                 ),
-
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(6,182,212,.14),
+                    transparent 32%
+                ),
                 linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.035) 1px,
-                    transparent 1px
-                );
-
-            background-size:
-                55px 55px;
-
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent
+                    135deg,
+                    #07111F,
+                    #0B172A 55%,
+                    #111C35
                 );
 
         }
 
 
-        .hero-content {
+        .pnd-project-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.06);
+
+            top: 50%;
+
+            left: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+        }
+
+
+        .pnd-project-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+
+            height: 700px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(6,182,212,.05);
+
+            top: 50%;
+
+            left: 50%;
+
+            transform:
+                translate(-50%,-50%);
+
+        }
+
+
+        .pnd-hero-content {
 
             position: relative;
 
             z-index: 2;
 
+            max-width: 900px;
+
+            margin: auto;
+
         }
 
 
-        .eyebrow {
+        .pnd-hero-badge {
 
             display: inline-flex;
 
@@ -349,629 +1444,718 @@
             padding:
                 8px 15px;
 
-            background:
-                #ffffff;
-
-            border:
-                1px solid var(--pnd-border);
-
-            border-radius:
-                50px;
-
-            font-size:
-                .8rem;
-
-            font-weight:
-                800;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1.4px;
-
-            margin-bottom:
-                22px;
-
-        }
-
-
-        .eyebrow span {
-
-            width: 8px;
-
-            height: 8px;
-
-            border-radius: 50%;
+            border-radius: 50px;
 
             background:
-                var(--pnd-green);
-
-            animation:
-                pulse 1.8s infinite;
-
-        }
-
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-
-                box-shadow:
-                    0 0 0 0
-                    rgba(22,163,74,.4);
-
-            }
-
-            50% {
-
-                box-shadow:
-                    0 0 0 8px
-                    rgba(22,163,74,0);
-
-            }
-
-        }
-
-
-        .project-title {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-size:
-                clamp(3rem, 7vw, 6.5rem);
-
-            line-height:
-                .96;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -4px;
-
-            max-width:
-                850px;
-
-            margin-bottom:
-                28px;
-
-        }
-
-
-        .project-title .red {
-
-            color:
-                var(--pnd-red);
-
-        }
-
-
-        .project-title .green {
-
-            color:
-                var(--pnd-green);
-
-        }
-
-
-        .hero-description {
-
-            max-width:
-                680px;
-
-            color:
-                #5f6875;
-
-            font-size:
-                1.12rem;
-
-            line-height:
-                1.8;
-
-        }
-
-
-        /* =========================================
-           FLOATING SHAPES
-        ========================================= */
-
-        .shape {
-
-            position: absolute;
-
-            border-radius:
-                50%;
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .shape-one {
-
-            width:
-                180px;
-
-            height:
-                180px;
+                rgba(37,99,235,.10);
 
             border:
                 1px solid
-                rgba(230,57,70,.25);
+                rgba(37,99,235,.25);
 
-            right:
-                10%;
+            color: #67e8f9;
 
-            top:
-                25%;
+            font-size: 12px;
 
-            animation:
-                floatOne 7s ease-in-out infinite;
+            font-weight: 600;
 
-        }
+            letter-spacing: .5px;
 
-
-        .shape-two {
-
-            width:
-                100px;
-
-            height:
-                100px;
-
-            border:
-                1px solid
-                rgba(22,163,74,.3);
-
-            right:
-                25%;
-
-            bottom:
-                10%;
-
-            animation:
-                floatTwo 5s ease-in-out infinite;
+            margin-bottom: 25px;
 
         }
 
 
-        @keyframes floatOne {
+        .pnd-hero-badge i {
 
-            0%,
-            100% {
-
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-
-            }
-
-            50% {
-
-                transform:
-                    translateY(-25px)
-                    rotate(12deg);
-
-            }
+            color: #06B6D4;
 
         }
 
 
-        @keyframes floatTwo {
+        .pnd-project-hero h1 {
 
-            0%,
-            100% {
+            color: #fff;
 
-                transform:
-                    translateY(0);
+            font-size:
+                clamp(42px, 6vw, 76px);
 
-            }
+            line-height: 1.03;
 
-            50% {
+            font-weight: 800;
 
-                transform:
-                    translateY(20px);
+            letter-spacing: -2px;
 
-            }
+            margin-bottom: 25px;
 
         }
 
 
-        /* =========================================
-           PROJECT SECTION
-        ========================================= */
+        .pnd-gradient-text {
 
-        .project-section {
+            background:
+                linear-gradient(
+                    90deg,
+                    #60A5FA,
+                    #22D3EE,
+                    #A78BFA
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+        }
+
+
+        .pnd-project-hero p {
+
+            max-width: 720px;
+
+            margin:
+                0 auto 35px;
+
+            color: #94a3b8;
+
+            font-size:
+                clamp(15px, 2vw, 18px);
+
+            line-height: 1.8;
+
+        }
+
+
+        .pnd-hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .pnd-hero-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            min-height: 50px;
 
             padding:
-                100px 0;
+                0 23px;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .pnd-hero-btn-primary {
+
+            color: #fff;
 
             background:
-                #ffffff;
-
-        }
-
-
-        .section-heading {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-size:
-                clamp(2rem, 4vw, 3.5rem);
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -1.5px;
-
-            margin-bottom:
-                12px;
-
-        }
-
-
-        .section-description {
-
-            color:
-                var(--pnd-muted);
-
-            max-width:
-                650px;
-
-            line-height:
-                1.7;
-
-            margin-bottom:
-                50px;
-
-        }
-
-
-        /* =========================================
-           FORM CARD
-        ========================================= */
-
-        .project-form-card {
-
-            background:
-                #ffffff;
-
-            border:
-                1px solid
-                var(--pnd-border);
-
-            border-radius:
-                28px;
-
-            padding:
-                45px;
+                linear-gradient(
+                    135deg,
+                    #2563EB,
+                    #06B6D4
+                );
 
             box-shadow:
-                0 25px 70px
-                rgba(15,23,42,.08);
+                0 10px 30px
+                rgba(37,99,235,.25);
 
         }
 
 
-        .form-label {
+        .pnd-hero-btn-primary:hover {
 
-            font-weight:
-                700;
+            color: #fff;
 
-            font-size:
-                .9rem;
-
-            margin-bottom:
-                9px;
+            transform:
+                translateY(-3px);
 
         }
 
 
-        .form-control,
-        .form-select {
+        .pnd-hero-btn-outline {
+
+            color: #cbd5e1;
 
             border:
-                1px solid #dfe3e8;
+                1px solid
+                rgba(255,255,255,.12);
 
-            min-height:
-                54px;
+            background:
+                rgba(255,255,255,.04);
 
-            border-radius:
-                13px;
+        }
+
+
+        .pnd-hero-btn-outline:hover {
+
+            color: #fff;
+
+            border-color:
+                rgba(6,182,212,.4);
+
+            background:
+                rgba(6,182,212,.07);
+
+        }
+
+
+        /* =====================================================
+           FORM SECTION
+        ====================================================== */
+
+        .pnd-form-section {
+
+            position: relative;
+
+            background: #fff;
 
             padding:
-                13px 16px;
+                100px 20px;
+
+        }
+
+
+        .pnd-section-heading {
+
+            max-width: 760px;
+
+            margin:
+                0 auto 55px;
+
+            text-align: center;
+
+        }
+
+
+        .pnd-section-label {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: #2563EB;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .pnd-section-heading h2 {
+
+            color: #07111F;
+
+            font-size:
+                clamp(32px, 5vw, 50px);
+
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .pnd-section-heading p {
+
+            color: #64748b;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ====================================================== */
+
+        .pnd-form-card {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                clamp(25px, 5vw, 50px);
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07111F,
+                    #0B172A 55%,
+                    #111C35
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            box-shadow:
+                0 30px 80px
+                rgba(7,17,31,.18);
+
+        }
+
+
+        .pnd-form-title {
+
+            color: #fff;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .pnd-form-subtitle {
+
+            color: #64748b;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ====================================================== */
+
+        .pnd-field {
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .pnd-field label {
+
+            display: block;
+
+            color: #cbd5e1;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .pnd-field label span {
+
+            color: #06B6D4;
+
+        }
+
+
+        .pnd-input,
+        .pnd-select,
+        .pnd-textarea {
+
+            width: 100%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.10);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            color: #fff;
+
+            outline: none;
 
             font-family:
                 "DM Sans",
                 sans-serif;
 
-            box-shadow:
-                none !important;
+            font-size: 13px;
 
             transition:
-                .25s ease;
+                border-color .25s ease,
+                background .25s ease,
+                box-shadow .25s ease;
 
         }
 
 
-        textarea.form-control {
+        .pnd-input,
+        .pnd-select {
 
-            min-height:
-                150px;
+            height: 50px;
 
-            resize:
-                vertical;
-
-        }
-
-
-        .form-control:focus,
-        .form-select:focus {
-
-            border-color:
-                var(--pnd-green);
-
-            box-shadow:
-                0 0 0 4px
-                rgba(22,163,74,.08)
-                !important;
+            padding:
+                0 15px;
 
         }
 
 
-        /* =========================================
-           SERVICE OPTIONS
-        ========================================= */
+        .pnd-textarea {
 
-        .service-options {
+            min-height: 125px;
 
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                12px;
-
-        }
-
-
-        .service-option {
-
-            position:
-                relative;
-
-        }
-
-
-        .service-option input {
-
-            position:
-                absolute;
-
-            opacity:
-                0;
-
-            pointer-events:
-                none;
-
-        }
-
-
-        .service-option label {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
+            resize: vertical;
 
             padding:
                 14px 15px;
 
-            border:
-                1px solid #e2e6eb;
+        }
 
-            border-radius:
-                12px;
 
-            cursor:
-                pointer;
+        .pnd-input::placeholder,
+        .pnd-textarea::placeholder {
 
-            font-size:
-                .9rem;
-
-            font-weight:
-                600;
-
-            transition:
-                .25s ease;
+            color: #64748b;
 
         }
 
 
-        .service-option label i {
-
-            color:
-                #6b7280;
-
-            font-size:
-                1.05rem;
-
-        }
-
-
-        .service-option input:checked + label {
+        .pnd-input:focus,
+        .pnd-select:focus,
+        .pnd-textarea:focus {
 
             border-color:
-                var(--pnd-green);
+                rgba(37,99,235,.65);
 
             background:
-                rgba(22,163,74,.06);
+                rgba(255,255,255,.06);
 
-            color:
-                #166534;
-
-        }
-
-
-        .service-option input:checked + label i {
-
-            color:
-                var(--pnd-green);
+            box-shadow:
+                0 0 0 4px
+                rgba(37,99,235,.08);
 
         }
 
 
-        /* =========================================
-           BUDGET
-        ========================================= */
+        .pnd-select option {
 
-        .budget-options {
+            background: #07111F;
 
-            display:
-                flex;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                10px;
+            color: #fff;
 
         }
 
 
-        .budget-option {
+        /* =====================================================
+           SERVICE CHECKBOXES
+        ====================================================== */
 
-            position:
-                relative;
+        .pnd-service-grid {
 
-        }
-
-
-        .budget-option input {
-
-            position:
-                absolute;
-
-            opacity:
-                0;
-
-        }
-
-
-        .budget-option label {
-
-            display:
-                block;
-
-            padding:
-                11px 16px;
-
-            border:
-                1px solid #e1e5e9;
-
-            border-radius:
-                50px;
-
-            cursor:
-                pointer;
-
-            font-size:
-                .86rem;
-
-            font-weight:
-                600;
-
-            transition:
-                .25s ease;
-
-        }
-
-
-        .budget-option input:checked + label {
-
-            background:
-                #111827;
-
-            color:
-                white;
-
-            border-color:
-                #111827;
-
-        }
-
-
-        /* =========================================
-           ACTION BUTTONS
-        ========================================= */
-
-        .project-actions {
-
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
-                1fr 1fr;
+                repeat(2, 1fr);
 
-            gap:
-                14px;
-
-            margin-top:
-                15px;
+            gap: 10px;
 
         }
 
 
-        .project-action-btn {
+        .pnd-service-option {
 
-            min-height:
-                70px;
+            position: relative;
 
-            border:
-                1px solid #e2e6eb;
+        }
 
-            border-radius:
-                15px;
+
+        .pnd-service-option input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .pnd-service-option label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            min-height: 48px;
 
             padding:
-                13px 17px;
+                0 13px;
 
-            display:
-                flex;
+            margin: 0;
 
-            align-items:
-                center;
+            border-radius: 11px;
 
-            gap:
-                14px;
+            border:
+                1px solid
+                rgba(255,255,255,.08);
 
-            text-align:
-                left;
+            background:
+                rgba(255,255,255,.03);
 
-            cursor:
-                pointer;
+            color: #94a3b8;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-service-option label i {
+
+            color: #64748b;
+
+            font-size: 16px;
+
+            transition:
+                .25s ease;
+
+        }
+
+
+        .pnd-service-option input:checked
+        + label {
+
+            color: #fff;
+
+            background:
+                rgba(37,99,235,.12);
+
+            border-color:
+                rgba(37,99,235,.45);
+
+        }
+
+
+        .pnd-service-option input:checked
+        + label i {
+
+            color: #06B6D4;
+
+        }
+
+
+        /* =====================================================
+           FORM ACTIONS
+        ====================================================== */
+
+        .pnd-form-actions {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .pnd-submit-btn {
+
+            min-height: 55px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
 
             font-family:
                 "DM Sans",
                 sans-serif;
 
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+
+        .pnd-submit-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .pnd-whatsapp-btn {
+
+            color: #fff;
+
             background:
-                #ffffff;
+                linear-gradient(
+                    135deg,
+                    #2563EB,
+                    #06B6D4
+                );
+
+            box-shadow:
+                0 10px 25px
+                rgba(37,99,235,.20);
+
+        }
+
+
+        .pnd-email-btn {
+
+            color: #fff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7C3AED,
+                    #2563EB
+                );
+
+            box-shadow:
+                0 10px 25px
+                rgba(124,58,237,.18);
+
+        }
+
+
+        .pnd-form-note {
+
+            margin-top: 18px;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================================
+           CONTACT SECTION
+        ====================================================== */
+
+        .pnd-contact-section {
+
+            position: relative;
+
+            padding:
+                100px 20px;
+
+            background:
+                #f8fafc;
+
+        }
+
+
+        .pnd-contact-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .pnd-contact-card {
+
+            min-height: 190px;
+
+            padding: 25px 18px;
+
+            border-radius: 20px;
+
+            background: #fff;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            text-decoration: none;
 
             transition:
                 transform .3s ease,
@@ -981,596 +2165,236 @@
         }
 
 
-        .project-action-btn i {
-
-            width:
-                43px;
-
-            height:
-                43px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                12px;
-
-            flex-shrink:
-                0;
-
-            font-size:
-                1.15rem;
-
-        }
-
-
-        .project-action-btn span {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                2px;
-
-        }
-
-
-        .project-action-btn strong {
-
-            font-size:
-                .95rem;
-
-            font-weight:
-                800;
-
-        }
-
-
-        .project-action-btn small {
-
-            font-size:
-                .75rem;
-
-            color:
-                #6b7280;
-
-        }
-
-
-        /* EMAIL */
-
-        .email-btn {
-
-            color:
-                #111827;
-
-        }
-
-
-        .email-btn i {
-
-            background:
-                rgba(230,57,70,.10);
-
-            color:
-                var(--pnd-red);
-
-        }
-
-
-        .email-btn:hover {
+        .pnd-contact-card:hover {
 
             transform:
-                translateY(-3px);
+                translateY(-6px);
 
             border-color:
-                var(--pnd-red);
+                rgba(37,99,235,.25);
 
             box-shadow:
-                0 12px 30px
-                rgba(230,57,70,.12);
+                0 18px 45px
+                rgba(15,23,42,.10);
 
         }
 
 
-        /* WHATSAPP */
+        .pnd-contact-icon {
 
-        .whatsapp-btn i {
+            width: 52px;
+
+            height: 52px;
+
+            margin-bottom: 16px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
 
             background:
-                rgba(22,163,74,.10);
+                rgba(37,99,235,.08);
 
-            color:
-                var(--pnd-green);
+            color: #2563EB;
 
-        }
-
-
-        .whatsapp-btn:hover {
-
-            transform:
-                translateY(-3px);
-
-            border-color:
-                var(--pnd-green);
-
-            box-shadow:
-                0 12px 30px
-                rgba(22,163,74,.12);
+            font-size: 21px;
 
         }
 
 
-        .project-action-btn:disabled {
+        .pnd-contact-card h3 {
 
-            opacity:
-                .6;
+            color: #07111F;
 
-            cursor:
-                not-allowed;
+            font-size: 14px;
 
-            transform:
-                none;
+            font-weight: 700;
+
+            margin-bottom: 7px;
 
         }
 
 
-        /* =========================================
-           STATUS
-        ========================================= */
+        .pnd-contact-card p {
 
-        .form-status {
+            color: #64748b;
 
-            display:
-                none;
+            font-size: 11px;
 
-            margin-top:
-                15px;
+            line-height: 1.5;
+
+            margin: 0;
+
+            word-break: break-word;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .pnd-footer {
 
             padding:
-                13px 16px;
-
-            border-radius:
-                12px;
-
-            font-size:
-                .88rem;
-
-            font-weight:
-                600;
-
-            text-align:
-                center;
-
-        }
-
-
-        /* =========================================
-           SIDE INFO
-        ========================================= */
-
-        .project-info {
-
-            position:
-                sticky;
-
-            top:
-                100px;
-
-        }
-
-
-        .info-card {
-
-            padding:
-                30px;
-
-            border-radius:
-                24px;
+                35px 20px;
 
             background:
-                #f7f8fa;
+                #07111F;
 
-            border:
+            border-top:
                 1px solid
-                var(--pnd-border);
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .info-icon {
-
-            width:
-                48px;
-
-            height:
-                48px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                14px;
-
-            background:
-                #111827;
-
-            color:
-                #ffffff;
-
-            font-size:
-                1.2rem;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .info-card:nth-child(2)
-        .info-icon {
-
-            background:
-                var(--pnd-red);
-
-        }
-
-
-        .info-card:nth-child(3)
-        .info-icon {
-
-            background:
-                var(--pnd-green);
-
-        }
-
-
-        .info-card h4 {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-size:
-                1.15rem;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                8px;
-
-        }
-
-
-        .info-card p {
-
-            color:
-                var(--pnd-muted);
-
-            font-size:
-                .92rem;
-
-            line-height:
-                1.65;
-
-            margin-bottom:
-                0;
-
-        }
-
-
-        /* =========================================
-           PROCESS
-        ========================================= */
-
-        .process-section {
-
-            padding:
-                100px 0;
-
-            background:
-                var(--pnd-dark);
-
-            color:
-                #ffffff;
-
-        }
-
-
-        .process-section
-        .section-description {
-
-            color:
-                #9ca3af;
-
-        }
-
-
-        .process-card {
-
-            height:
-                100%;
-
-            padding:
-                30px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.1);
-
-            border-radius:
-                22px;
-
-            background:
-                rgba(255,255,255,.035);
-
-            transition:
-                .35s ease;
-
-        }
-
-
-        .process-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(255,255,255,.22);
-
-            background:
                 rgba(255,255,255,.06);
 
-        }
-
-
-        .process-number {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-size:
-                3rem;
-
-            font-weight:
-                800;
-
-            color:
-                var(--pnd-red);
-
-            line-height:
-                1;
-
-            margin-bottom:
-                25px;
+            text-align: center;
 
         }
 
 
-        .process-card:nth-child(2)
-        .process-number {
+        .pnd-footer-copy {
 
-            color:
-                var(--pnd-green);
+            color: #64748b;
 
-        }
+            font-size: 12px;
 
-
-        .process-card h4 {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-weight:
-                700;
-
-            margin-bottom:
-                12px;
+            margin-bottom: 7px;
 
         }
 
 
-        .process-card p {
+        .pnd-footer-tagline {
 
-            color:
-                #9ca3af;
+            color: #94a3b8;
 
-            font-size:
-                .92rem;
-
-            line-height:
-                1.7;
-
-            margin-bottom:
-                0;
+            font-size: 11px;
 
         }
 
 
-        /* =========================================
-           CTA
-        ========================================= */
-
-        .final-cta {
-
-            padding:
-                90px 0;
-
-            background:
-                #ffffff;
-
-            text-align:
-                center;
-
-        }
-
-
-        .final-cta h2 {
-
-            font-family:
-                "Space Grotesk",
-                sans-serif;
-
-            font-size:
-                clamp(2.3rem, 5vw, 4.5rem);
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -2px;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .final-cta p {
-
-            max-width:
-                600px;
-
-            margin:
-                auto auto 30px;
-
-            color:
-                var(--pnd-muted);
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .back-home {
-
-            display:
-                inline-flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            padding:
-                13px 22px;
-
-            border-radius:
-                50px;
-
-            background:
-                #111827;
-
-            color:
-                #ffffff;
-
-            font-weight:
-                700;
-
-            transition:
-                .3s ease;
-
-        }
-
-
-        .back-home:hover {
-
-            background:
-                var(--pnd-red);
-
-            color:
-                #ffffff;
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        footer {
-
-            padding:
-                28px 0;
-
-            background:
-                #0b0f14;
-
-            color:
-                #9ca3af;
-
-            font-size:
-                .88rem;
-
-            text-align:
-                center;
-
-        }
-
-
-        footer strong {
-
-            color:
-                #ffffff;
-
-        }
-
-
-        /* =========================================
+        /* =====================================================
            RESPONSIVE
-        ========================================= */
+        ====================================================== */
 
-        @media (max-width: 991px) {
+        @media (max-width: 1100px) {
 
-            .pnd-nav {
+            .pnd-header-inner {
 
-                display:
-                    none;
-
-            }
-
-
-            .project-hero {
-
-                padding-top:
-                    145px;
+                padding:
+                    0 30px;
 
             }
 
 
-            .project-info {
+            .pnd-search {
 
-                position:
-                    static;
+                max-width: 260px;
 
-                margin-top:
-                    35px;
+            }
+
+
+            .pnd-desktop-nav {
+
+                gap: 0;
+
+            }
+
+
+            .pnd-nav-link {
+
+                padding:
+                    10px 9px;
+
+                font-size: 13px;
+
+            }
+
+
+            .pnd-start-project {
+
+                min-width: 130px;
+
+                padding:
+                    0 14px;
+
+            }
+
+
+            .pnd-contact-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .pnd-header {
+
+                height: 72px;
+
+            }
+
+
+            .pnd-header-inner {
+
+                padding:
+                    0 20px;
+
+                gap: 0;
+
+                justify-content:
+                    space-between;
+
+            }
+
+
+            .pnd-search,
+            .pnd-desktop-nav,
+            .pnd-start-project {
+
+                display: none;
+
+            }
+
+
+            .pnd-mobile-toggle {
+
+                display: flex;
+
+            }
+
+
+            .pnd-logo-img {
+
+                height: 46px;
+
+                max-width: 195px;
+
+            }
+
+
+            .pnd-project-hero {
+
+                min-height: 570px;
+
+                padding:
+                    145px 20px 75px;
+
+            }
+
+
+            .pnd-form-section,
+            .pnd-contact-section {
+
+                padding:
+                    75px 18px;
 
             }
 
@@ -1579,73 +2403,15 @@
 
         @media (max-width: 767px) {
 
-            .pnd-navbar {
-
-                padding:
-                    15px 0;
-
-            }
-
-
-            .pnd-brand {
-
-                font-size:
-                    1.25rem;
-
-            }
-
-
-            .project-hero {
-
-                min-height:
-                    auto;
-
-                padding:
-                    125px 0 70px;
-
-            }
-
-
-            .project-title {
-
-                font-size:
-                    clamp(3rem,15vw,5rem);
+            .pnd-project-hero h1 {
 
                 letter-spacing:
-                    -2.5px;
+                    -1.2px;
 
             }
 
 
-            .hero-description {
-
-                font-size:
-                    1rem;
-
-            }
-
-
-            .project-section,
-            .process-section {
-
-                padding:
-                    70px 0;
-
-            }
-
-
-            .project-form-card {
-
-                padding:
-                    25px 20px;
-
-                border-radius:
-                    20px;
-
-            }
-
-
-            .service-options {
+            .pnd-service-grid {
 
                 grid-template-columns:
                     1fr;
@@ -1653,7 +2419,7 @@
             }
 
 
-            .project-actions {
+            .pnd-form-actions {
 
                 grid-template-columns:
                     1fr;
@@ -1661,72 +2427,162 @@
             }
 
 
-            .info-card {
+            .pnd-contact-grid {
 
-                padding:
-                    24px;
-
-            }
-
-
-            .shape-one {
-
-                width:
-                    110px;
-
-                height:
-                    110px;
-
-                right:
-                    -40px;
-
-                top:
-                    25%;
+                grid-template-columns:
+                    repeat(2, 1fr);
 
             }
 
 
-            .shape-two {
+            .pnd-contact-card {
 
-                width:
-                    70px;
-
-                height:
-                    70px;
-
-                right:
-                    10%;
+                min-height: 170px;
 
             }
 
         }
 
 
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
 
-            .pnd-brand {
+            .pnd-header-inner {
 
-                font-size:
-                    1.1rem;
+                padding:
+                    0 15px;
 
             }
 
 
-            .project-form-card {
+            .pnd-logo-img {
 
-                padding:
-                    20px 15px;
+                height: 42px;
+
+                max-width: 175px;
 
             }
 
 
-            .budget-option label {
+            .pnd-mobile-toggle {
+
+                width: 45px;
+
+                height: 45px;
+
+                border-radius: 13px;
+
+            }
+
+
+            .pnd-mobile-menu {
+
+                width: 94vw;
+
+            }
+
+
+            .pnd-project-hero {
+
+                min-height: 540px;
 
                 padding:
-                    9px 12px;
+                    135px 16px 65px;
 
-                font-size:
-                    .78rem;
+            }
+
+
+            .pnd-project-hero h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .pnd-project-hero p {
+
+                font-size: 14px;
+
+            }
+
+
+            .pnd-hero-buttons {
+
+                flex-direction: column;
+
+                width: 100%;
+
+            }
+
+
+            .pnd-hero-btn {
+
+                width: 100%;
+
+            }
+
+
+            .pnd-form-card {
+
+                border-radius: 20px;
+
+                padding:
+                    22px 17px;
+
+            }
+
+
+            .pnd-section-heading h2 {
+
+                font-size: 31px;
+
+            }
+
+
+            .pnd-contact-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 10px;
+
+            }
+
+
+            .pnd-contact-card {
+
+                min-height: 155px;
+
+                padding:
+                    18px 10px;
+
+                border-radius: 15px;
+
+            }
+
+
+            .pnd-contact-icon {
+
+                width: 45px;
+
+                height: 45px;
+
+                margin-bottom: 12px;
+
+                font-size: 18px;
+
+            }
+
+
+            .pnd-contact-card h3 {
+
+                font-size: 12px;
+
+            }
+
+
+            .pnd-contact-card p {
+
+                font-size: 9px;
 
             }
 
@@ -1740,1223 +2596,1437 @@
 <body>
 
 
-<!-- =====================================================
-     NAVBAR
-====================================================== -->
+<!-- =========================================================
+     TOP LED
+========================================================= -->
 
-<nav class="pnd-navbar">
-
-    <div class="container">
-
-        <div class="d-flex
-                    align-items-center
-                    justify-content-between">
+<div class="pnd-top-led"></div>
 
 
-            <!-- BRAND -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-            <a href="index.html"
-               class="pnd-brand">
+<header
+    class="pnd-header"
+    id="pndHeader"
+>
 
-                <span>
-
-                    <span class="brand-pixel">
-                        P
-                    </span>ixel
-
-                </span>
+    <div class="pnd-header-inner">
 
 
-                <span>
+        <!-- LOGO -->
 
-                    <span class="brand-nest">
-                        N
-                    </span>est
+        <a
+            href="index.html"
+            class="pnd-logo"
+        >
 
-                </span>
-
-
-                <span>
-
-                    <span class="brand-pixel">
-                        D
-                    </span>igital
-
-                </span>
-
-            </a>
-
-
-            <!-- DESKTOP NAV -->
-
-            <div class="pnd-nav">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="portfolio.html">
-                    Portfolio
-                </a>
-
-                <a href="team.html">
-                    Team
-                </a>
-
-                <a href="start-project.html"
-                   class="pnd-nav-cta">
-
-                    Start a Project
-
-                </a>
-
-            </div>
-
-
-            <!-- MOBILE BUTTON -->
-
-            <button
-                class="mobile-toggle d-lg-none"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#mobileMenu">
-
-                <i class="bi bi-list"></i>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-
-<!-- =====================================================
-     MOBILE MENU
-====================================================== -->
-
-<div
-    class="offcanvas offcanvas-end"
-    tabindex="-1"
-    id="mobileMenu">
-
-
-    <div class="offcanvas-header">
-
-
-        <a href="index.html"
-           class="pnd-brand">
-
-            <span>
-
-                <span class="brand-pixel">
-                    P
-                </span>ixel
-
-            </span>
-
-
-            <span>
-
-                <span class="brand-nest">
-                    N
-                </span>est
-
-            </span>
-
-
-            <span>
-
-                <span class="brand-pixel">
-                    D
-                </span>igital
-
-            </span>
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-logo-img"
+            >
 
         </a>
 
 
+        <!-- DESKTOP SEARCH -->
+
+        <div class="pnd-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                id="pndSearchInput"
+                placeholder="Search services..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="pnd-desktop-nav">
+
+
+            <a
+                href="index.html"
+                class="pnd-nav-link"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="about.html"
+                class="pnd-nav-link"
+            >
+                About
+            </a>
+
+
+            <!-- SERVICES -->
+
+            <div class="pnd-dropdown">
+
+                <button
+                    type="button"
+                    class="pnd-nav-link pnd-services-btn"
+                    aria-expanded="false"
+                >
+
+                    <span>
+                        Services
+                    </span>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </button>
+
+
+                <div class="pnd-dropdown-menu">
+
+
+                    <a href="website_development.html">
+                        <i class="bi bi-code-slash"></i>
+                        Website Development
+                    </a>
+
+
+                    <a href="web_applications.html">
+                        <i class="bi bi-window-stack"></i>
+                        Web Applications
+                    </a>
+
+
+                    <a href="logo-brand-design.html">
+                        <i class="bi bi-palette"></i>
+                        Logo & Brand Design
+                    </a>
+
+
+                    <a href="photography.html">
+                        <i class="bi bi-camera"></i>
+                        Photography
+                    </a>
+
+
+                    <a href="videography.html">
+                        <i class="bi bi-camera-video"></i>
+                        Videography
+                    </a>
+
+
+                 
+                    <a href="digital-content.html">
+                        <i class="bi bi-phone"></i>
+                        Digital Content
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="team.html"
+                class="pnd-nav-link"
+            >
+                Team
+            </a>
+
+
+            <a
+                href="Portfolio.html"
+                class="pnd-nav-link"
+            >
+                Portfolio
+            </a>
+
+
+            <a
+                href="contact.html"
+                class="pnd-nav-link"
+            >
+                Contact
+            </a>
+
+
+        </nav>
+
+
+        DESKTOP START PROJECT
+
+        <!-- <a
+            href="start-project.html"
+            class="pnd-start-project"
+        >
+
+            <span>
+                Start a Project
+            </span>
+
+            <i class="bi bi-arrow-up-right"></i>
+
+        </a> -->
+
+
+        <!-- MOBILE TOGGLE -->
+
         <button
             type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas">
+            class="pnd-mobile-toggle"
+            id="pndMobileToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="pndMobileMenu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
         </button>
 
 
     </div>
 
-
-    <div class="offcanvas-body">
-
-
-        <div class="d-flex
-                    flex-column
-                    gap-4">
+</header>
 
 
-            <a
-                href="index.html"
-                class="text-dark fw-bold">
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
 
-                Home
-
-            </a>
-
-
-            <a
-                href="services.html"
-                class="text-dark fw-bold">
-
-                Services
-
-            </a>
+<div
+    class="pnd-mobile-menu"
+    id="pndMobileMenu"
+>
 
 
-            <a
-                href="portfolio.html"
-                class="text-dark fw-bold">
-
-                Portfolio
-
-            </a>
+    <div class="pnd-mobile-menu-inner">
 
 
-            <a
-                href="team.html"
-                class="text-dark fw-bold">
+        <!-- MOBILE HEADER -->
 
-                Team
-
-            </a>
+        <div class="pnd-mobile-menu-header">
 
 
-            <a
-                href="start-project.html"
-                class="btn btn-dark rounded-pill">
+            <img
+                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                alt="Pixel Nest Digital Logo"
+                class="pnd-mobile-logo"
+            >
 
-                Start a Project
 
-            </a>
+            <button
+                type="button"
+                class="pnd-mobile-close"
+                id="pndMobileClose"
+                aria-label="Close navigation menu"
+            >
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
 
 
         </div>
+
+
+        <!-- MOBILE SEARCH -->
+
+        <div class="pnd-mobile-search">
+
+            <i class="bi bi-search"></i>
+
+            <input
+                type="text"
+                id="pndMobileSearch"
+                placeholder="Search..."
+            >
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <nav class="pnd-mobile-nav">
+
+
+            <a href="index.html">
+
+                <span>
+
+                    <i class="bi bi-house"></i>
+
+                    Home
+
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+            <a href="about.html">
+
+                <span>
+
+                    <i class="bi bi-person"></i>
+
+                    About
+
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+            <!-- MOBILE SERVICES -->
+
+            <div class="pnd-mobile-services">
+
+
+                <button
+                    type="button"
+                    id="pndMobileServicesBtn"
+                    aria-expanded="false"
+                >
+
+                    <span>
+
+                        <i class="bi bi-grid"></i>
+
+                        Services
+
+                    </span>
+
+                    <i
+                        class="bi bi-chevron-down"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="pnd-mobile-services-list"
+                    id="pndMobileServicesList"
+                >
+
+
+                    <a href="website_development.html">
+
+                        <i class="bi bi-code-slash"></i>
+
+                        Website Development
+
+                    </a>
+
+
+                    <a href="web_applications.html">
+
+                        <i class="bi bi-window-stack"></i>
+
+                        Web Applications
+
+                    </a>
+
+
+
+                    <a href="logo-brand-design.html">
+
+                        <i class="bi bi-palette"></i>
+
+                        Logo & Brand Design
+
+                    </a>
+
+
+                    <a href="photography.html">
+
+                        <i class="bi bi-camera"></i>
+
+                        Photography
+
+                    </a>
+
+
+                    <a href="videography.html">
+
+                        <i class="bi bi-camera-video"></i>
+
+                        Videography
+
+                    </a>
+
+
+
+
+                    <a href="digital-content.html">
+
+                        <i class="bi bi-phone"></i>
+
+                        Digital Content
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <a href="team.html">
+
+                <span>
+
+                    <i class="bi bi-people"></i>
+
+                    Team
+
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+            <a href="Portfolio.html">
+
+                <span>
+
+                    <i class="bi bi-grid-3x3-gap"></i>
+
+                    Portfolio
+
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+            <a href="contact.html">
+
+                <span>
+
+                    <i class="bi bi-envelope"></i>
+
+                    Contact
+
+                </span>
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+            <!-- MOBILE START PROJECT -->
+
+            <!-- <a
+                href="start-project.html"
+                class="pnd-mobile-start"
+            >
+
+                <span>
+
+                    <i class="bi bi-rocket-takeoff"></i>
+
+                    Start a Project
+                </span>
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a> -->
+
+
+        </nav>
+
+
+        <!-- MOBILE FOOTER -->
+
+        <div class="pnd-mobile-menu-footer">
+
+            <span>
+                Technology
+            </span>
+
+            <b>•</b>
+
+            <span>
+                Creativity
+            </span>
+
+            <b>•</b>
+
+            <span>
+                Digital Solutions
+            </span>
+
+        </div>
+
 
     </div>
 
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      HERO
-====================================================== -->
+========================================================= -->
 
-<section class="project-hero">
-
-
-    <div class="hero-grid"></div>
+<section class="pnd-project-hero">
 
 
-    <div class="shape shape-one"></div>
-
-    <div class="shape shape-two"></div>
+    <div class="pnd-hero-content">
 
 
-    <div class="container hero-content">
+        <div class="pnd-hero-badge">
 
+            <i class="bi bi-stars"></i>
 
-        <div class="eyebrow">
-
-            <span></span>
-
-            Let's build something
+            LET'S BUILD SOMETHING GREAT
 
         </div>
 
 
-        <h1 class="project-title">
+        <h1>
 
-            Let's start
-
-            <span class="red">
-                your
+            Turn Your
+            <span class="pnd-gradient-text">
+                Idea
             </span>
-
-            <span class="green">
-                project.
-            </span>
+            Into Reality.
 
         </h1>
 
 
-        <p class="hero-description">
+        <p>
 
-            Have an idea, business, brand or digital
-            product in mind? Tell us what you're
-            planning. We'll help transform the idea
-            into a practical, modern digital solution.
+            Tell us about your idea, business or project.
+            We'll help you transform it into a meaningful
+            digital experience with technology, creativity
+            and purpose.
 
         </p>
 
 
+        <div class="pnd-hero-buttons">
+
+
+            <a
+                href="#projectForm"
+                class="pnd-hero-btn pnd-hero-btn-primary"
+            >
+
+                Start Your Project
+
+                <i class="bi bi-arrow-down"></i>
+
+            </a>
+
+
+            <a
+                href="#contactUs"
+                class="pnd-hero-btn pnd-hero-btn-outline"
+            >
+
+                Contact Us
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+
+        </div>
+
+
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      PROJECT FORM
-====================================================== -->
+========================================================= -->
 
-<section class="project-section">
+<section
+    class="pnd-form-section"
+    id="projectForm"
+>
 
 
-    <div class="container">
+    <div class="pnd-section-heading">
 
 
-        <div class="row">
-
-
-            <!-- =========================
-                 FORM
-            ========================== -->
-
-            <div class="col-lg-7">
-
-
-                <div class="mb-4">
-
-
-                    <p class="text-uppercase
-                              fw-bold
-                              small
-                              text-success
-                              mb-2">
-
-                        Project Enquiry
-
-                    </p>
-
-
-                    <h2 class="section-heading">
-
-                        Tell us about
-                        your project.
-
-                    </h2>
-
-
-                    <p class="section-description">
-
-                        The more details you provide,
-                        the better we can understand
-                        what you need and prepare the
-                        right approach for your project.
-
-                    </p>
-
-
-                </div>
-
-
-
-                <div class="project-form-card">
-
-
-                    <form id="projectForm">
-
-
-                        <!-- NAME -->
-
-                        <div class="mb-4">
-
-
-                            <label
-                                class="form-label"
-                                for="name">
-
-                                Your Name *
-
-                            </label>
-
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="name"
-                                name="name"
-                                placeholder="Enter your name"
-                                required>
-
-
-                        </div>
-
-
-
-                        <!-- EMAIL / PHONE -->
-
-                        <div class="row g-3 mb-4">
-
-
-                            <div class="col-md-6">
-
-
-                                <label
-                                    class="form-label"
-                                    for="email">
-
-                                    Email *
-
-                                </label>
-
-
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    required>
-
-
-                            </div>
-
-
-
-                            <div class="col-md-6">
-
-
-                                <label
-                                    class="form-label"
-                                    for="phone">
-
-                                    Phone / WhatsApp
-
-                                </label>
-
-
-                                <input
-                                    type="tel"
-                                    class="form-control"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder="+91 XXXXX XXXXX">
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- BUSINESS -->
-
-                        <div class="mb-4">
-
-
-                            <label
-                                class="form-label"
-                                for="business">
-
-                                Business / Organisation
-
-                            </label>
-
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="business"
-                                name="business"
-                                placeholder="Your business or organisation">
-
-
-                        </div>
-
-
-
-                        <!-- SERVICES -->
-
-                        <div class="mb-4">
-
-
-                            <label class="form-label">
-
-                                What do you need?
-
-                            </label>
-
-
-                            <div class="service-options">
-
-
-                                <!-- WEBSITE -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="website"
-                                        value="Website Development">
-
-                                    <label for="website">
-
-                                        <i class="bi bi-globe2"></i>
-
-                                        Website Development
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- WEB APPLICATION -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="webapp"
-                                        value="Web Applications">
-
-                                    <label for="webapp">
-
-                                        <i class="bi bi-window-stack"></i>
-
-                                        Web Applications
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- ECOMMERCE -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="ecommerce"
-                                        value="E-Commerce">
-
-                                    <label for="ecommerce">
-
-                                        <i class="bi bi-cart3"></i>
-
-                                        E-Commerce
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- SOFTWARE -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="software"
-                                        value="Software & Database Projects">
-
-                                    <label for="software">
-
-                                        <i class="bi bi-database"></i>
-
-                                        Software & Database
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- HOSTING -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="hosting"
-                                        value="Hosting & Maintenance">
-
-                                    <label for="hosting">
-
-                                        <i class="bi bi-cloud"></i>
-
-                                        Hosting & Maintenance
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- BRANDING -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="branding"
-                                        value="Logo & Brand Design">
-
-                                    <label for="branding">
-
-                                        <i class="bi bi-palette"></i>
-
-                                        Logo & Brand Design
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- PHOTOGRAPHY -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="photography"
-                                        value="Photography">
-
-                                    <label for="photography">
-
-                                        <i class="bi bi-camera"></i>
-
-                                        Photography
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <!-- VIDEO -->
-
-                                <div class="service-option">
-
-                                    <input
-                                        type="checkbox"
-                                        id="video"
-                                        value="Videography & Video Editing">
-
-                                    <label for="video">
-
-                                        <i class="bi bi-camera-video"></i>
-
-                                        Videography & Editing
-
-                                    </label>
-
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- BUDGET -->
-
-                        <div class="mb-4">
-
-
-                            <label class="form-label">
-
-                                Estimated Budget
-
-                            </label>
-
-
-                            <div class="budget-options">
-
-
-                                <div class="budget-option">
-
-                                    <input
-                                        type="radio"
-                                        name="budget"
-                                        id="budget1"
-                                        value="Below ₹25,000">
-
-                                    <label for="budget1">
-
-                                        Below ₹25K
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <div class="budget-option">
-
-                                    <input
-                                        type="radio"
-                                        name="budget"
-                                        id="budget2"
-                                        value="₹25,000 - ₹50,000">
-
-                                    <label for="budget2">
-
-                                        ₹25K – ₹50K
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <div class="budget-option">
-
-                                    <input
-                                        type="radio"
-                                        name="budget"
-                                        id="budget3"
-                                        value="₹50,000 - ₹1,00,000">
-
-                                    <label for="budget3">
-
-                                        ₹50K – ₹1L
-
-                                    </label>
-
-                                </div>
-
-
-
-                                <div class="budget-option">
-
-                                    <input
-                                        type="radio"
-                                        name="budget"
-                                        id="budget4"
-                                        value="Above ₹1,00,000">
-
-                                    <label for="budget4">
-
-                                        ₹1L+
-
-                                    </label>
-
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- MESSAGE -->
-
-                        <div class="mb-4">
-
-
-                            <label
-                                class="form-label"
-                                for="message">
-
-                                Tell us about the project *
-
-                            </label>
-
-
-                            <textarea
-                                class="form-control"
-                                id="message"
-                                name="message"
-                                placeholder="Describe your idea, requirements, features, timeline or anything else you think we should know..."
-                                required></textarea>
-
-
-                        </div>
-
-
-
-                        <!-- =========================
-                             TWO BUTTONS
-                        ========================== -->
-
-                        <div class="project-actions">
-
-
-                            <!-- EMAIL -->
-
-                            <button
-                                type="button"
-                                class="project-action-btn email-btn"
-                                id="sendEmailBtn">
-
-
-                                <i class="bi bi-envelope-fill"></i>
-
-
-                                <span>
-
-                                    <strong>
-                                        Send via Email
-                                    </strong>
-
-                                    <small>
-                                        Send project enquiry directly to us
-                                    </small>
-
-                                </span>
-
-
-                            </button>
-
-
-
-                            <!-- WHATSAPP -->
-
-                            <button
-                                type="button"
-                                class="project-action-btn whatsapp-btn"
-                                id="sendWhatsAppBtn">
-
-
-                                <i class="bi bi-whatsapp"></i>
-
-
-                                <span>
-
-                                    <strong>
-                                        Send via WhatsApp
-                                    </strong>
-
-                                    <small>
-                                        Continue the enquiry on WhatsApp
-                                    </small>
-
-                                </span>
-
-
-                            </button>
-
-
-                        </div>
-
-
-
-                        <!-- STATUS -->
-
-                        <div
-                            id="formStatus"
-                            class="form-status">
-
-                        </div>
-
-
-                        <p class="text-center
-                                  text-muted
-                                  small
-                                  mt-3
-                                  mb-0">
-
-                            Choose your preferred way
-                            to contact Pixel Nest Digital.
-
-                        </p>
-
-
-                    </form>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 INFORMATION
-            ========================== -->
-
-            <div class="col-lg-4 offset-lg-1">
-
-
-                <div class="project-info">
-
-
-                    <!-- CARD 1 -->
-
-                    <div class="info-card">
-
-
-                        <div class="info-icon">
-
-                            <i class="bi bi-lightbulb"></i>
-
-                        </div>
-
-
-                        <h4>
-
-                            Have an idea?
-
-                        </h4>
-
-
-                        <p>
-
-                            It doesn't need to be fully
-                            planned. Share your idea and
-                            we'll help shape the digital
-                            direction.
-
-                        </p>
-
-
-                    </div>
-
-
-
-                    <!-- CARD 2 -->
-
-                    <div class="info-card">
-
-
-                        <div class="info-icon">
-
-                            <i class="bi bi-gear"></i>
-
-                        </div>
-
-
-                        <h4>
-
-                            Need a solution?
-
-                        </h4>
-
-
-                        <p>
-
-                            From websites and web
-                            applications to databases,
-                            hosting and digital products,
-                            we can discuss the right
-                            approach.
-
-                        </p>
-
-
-                    </div>
-
-
-
-                    <!-- CARD 3 -->
-
-                    <div class="info-card">
-
-
-                        <div class="info-icon">
-
-                            <i class="bi bi-chat-dots"></i>
-
-                        </div>
-
-
-                        <h4>
-
-                            Let's talk.
-
-                        </h4>
-
-
-                        <p>
-
-                            Send your requirements and
-                            we'll continue the conversation
-                            with the details that matter
-                            to your project.
-
-                        </p>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     PROCESS
-====================================================== -->
-
-<section class="process-section">
-
-
-    <div class="container">
-
-
-        <div class="row mb-5">
-
-
-            <div class="col-lg-8">
-
-
-                <p class="text-uppercase
-                          fw-bold
-                          small
-                          text-success
-                          mb-2">
-
-                    How it works
-
-                </p>
-
-
-                <h2 class="section-heading">
-
-                    From idea to launch.
-
-                </h2>
-
-
-                <p class="section-description">
-
-                    A simple process keeps your project
-                    clear, focused and moving forward.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="row g-4">
-
-
-            <!-- 01 -->
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="process-card">
-
-
-                    <div class="process-number">
-
-                        01
-
-                    </div>
-
-
-                    <h4>
-
-                        Discover
-
-                    </h4>
-
-
-                    <p>
-
-                        We understand your business,
-                        audience, requirements and
-                        project goals.
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- 02 -->
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="process-card">
-
-
-                    <div class="process-number">
-
-                        02
-
-                    </div>
-
-
-                    <h4>
-
-                        Plan
-
-                    </h4>
-
-
-                    <p>
-
-                        We define the structure,
-                        features, technology and
-                        creative direction.
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- 03 -->
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="process-card">
-
-
-                    <div class="process-number">
-
-                        03
-
-                    </div>
-
-
-                    <h4>
-
-                        Build
-
-                    </h4>
-
-
-                    <p>
-
-                        Design and development come
-                        together to create the actual
-                        digital solution.
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- 04 -->
-
-            <div class="col-md-6 col-lg-3">
-
-                <div class="process-card">
-
-
-                    <div class="process-number">
-
-                        04
-
-                    </div>
-
-
-                    <h4>
-
-                        Launch
-
-                    </h4>
-
-
-                    <p>
-
-                        We test, refine, deploy and
-                        help you move your project
-                        into the real world.
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     FINAL CTA
-====================================================== -->
-
-<section class="final-cta">
-
-
-    <div class="container">
+        <span class="pnd-section-label">
+            START A PROJECT
+        </span>
 
 
         <h2>
-
-            Your next digital idea
-
-            <span style="color:#e63946;">
-                starts here.
-            </span>
-
+            Tell us about your idea.
         </h2>
 
 
         <p>
 
-            Whether it's a new website,
-            web application, e-commerce platform,
-            software project, brand identity or
-            creative production — let's build it
-            together.
+            Share a few details about your project.
+            The more you tell us, the better we can
+            understand your requirements.
 
         </p>
 
 
+    </div>
+
+
+    <div class="pnd-form-card">
+
+
+        <div class="pnd-form-title">
+
+            Project Details
+
+        </div>
+
+
+        <div class="pnd-form-subtitle">
+
+            Fill in the information below and choose
+            how you would like to send your enquiry.
+
+        </div>
+
+
+        <form
+            id="projectFormElement"
+            novalidate
+        >
+
+
+            <!-- =================================================
+                 PERSONAL DETAILS
+            ================================================== -->
+
+            <div class="row">
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            class="pnd-input"
+                            id="clientName"
+                            placeholder="Your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Place <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            class="pnd-input"
+                            id="clientPlace"
+                            placeholder="City / Place"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Phone Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            class="pnd-input"
+                            id="clientPhone"
+                            placeholder="+91 XXXXX XXXXX"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Alternate Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            class="pnd-input"
+                            id="clientAlternatePhone"
+                            placeholder="Optional"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Email <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            class="pnd-input"
+                            id="clientEmail"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Business Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="pnd-input"
+                            id="businessName"
+                            placeholder="Business / Organisation"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT CATEGORY
+            ================================================== -->
+
+            <div class="pnd-field">
+
+
+                <label>
+                    Project Category <span>*</span>
+                </label>
+
+
+                <select
+                    class="pnd-select"
+                    id="projectCategory"
+                    required
+                >
+
+                    <option value="">
+                        Select project category
+                    </option>
+
+                    <option>
+                        Business / Corporate
+                    </option>
+
+                    <option>
+                        Personal / Portfolio
+                    </option>
+
+                    <option>
+                        E-Commerce
+                    </option>
+
+                    <option>
+                        Education
+                    </option>
+
+                    <option>
+                        Church / Organisation
+                    </option>
+
+                    <option>
+                        Startup
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SERVICES
+            ================================================== -->
+
+            <div class="pnd-field">
+
+
+                <label>
+                    Services Required <span>*</span>
+                </label>
+
+
+                <div class="pnd-service-grid">
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceWebsite"
+                            value="Website Development"
+                            name="services"
+                        >
+
+                        <label for="serviceWebsite">
+
+                            <i class="bi bi-code-slash"></i>
+
+                            Website Development
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceWebApp"
+                            value="Web Applications"
+                            name="services"
+                        >
+
+                        <label for="serviceWebApp">
+
+                            <i class="bi bi-window-stack"></i>
+
+                            Web Applications
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceEcommerce"
+                            value="E-Commerce"
+                            name="services"
+                        >
+
+                        <label for="serviceEcommerce">
+
+                            <i class="bi bi-cart3"></i>
+
+                            E-Commerce
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceSoftware"
+                            value="Software & Database Projects"
+                            name="services"
+                        >
+
+                        <label for="serviceSoftware">
+
+                            <i class="bi bi-database"></i>
+
+                            Software & Database
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceHosting"
+                            value="Hosting & Maintenance"
+                            name="services"
+                        >
+
+                        <label for="serviceHosting">
+
+                            <i class="bi bi-cloud-check"></i>
+
+                            Hosting & Maintenance
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceLogo"
+                            value="Logo & Brand Design"
+                            name="services"
+                        >
+
+                        <label for="serviceLogo">
+
+                            <i class="bi bi-palette"></i>
+
+                            Logo & Brand Design
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="servicePhotography"
+                            value="Photography"
+                            name="services"
+                        >
+
+                        <label for="servicePhotography">
+
+                            <i class="bi bi-camera"></i>
+
+                            Photography
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceVideography"
+                            value="Videography"
+                            name="services"
+                        >
+
+                        <label for="serviceVideography">
+
+                            <i class="bi bi-camera-video"></i>
+
+                            Videography
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceVideoEditing"
+                            value="Video Editing"
+                            name="services"
+                        >
+
+                        <label for="serviceVideoEditing">
+
+                            <i class="bi bi-film"></i>
+
+                            Video Editing
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="pnd-service-option">
+
+                        <input
+                            type="checkbox"
+                            id="serviceContent"
+                            value="Digital Content"
+                            name="services"
+                        >
+
+                        <label for="serviceContent">
+
+                            <i class="bi bi-phone"></i>
+
+                            Digital Content
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DESCRIPTION
+            ================================================== -->
+
+            <div class="pnd-field">
+
+
+                <label>
+                    Project Description <span>*</span>
+                </label>
+
+
+                <textarea
+                    class="pnd-textarea"
+                    id="projectDescription"
+                    placeholder="Tell us about your project, business, current situation or idea..."
+                    required
+                ></textarea>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 EXPECTATION
+            ================================================== -->
+
+            <div class="pnd-field">
+
+
+                <label>
+                    What are you expecting from us?
+                </label>
+
+
+                <textarea
+                    class="pnd-textarea"
+                    id="projectExpectation"
+                    placeholder="Example: premium website, modern branding, online ordering system, portfolio, etc."
+                ></textarea>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DURATION + BUDGET
+            ================================================== -->
+
+            <div class="row">
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Expected Duration
+                        </label>
+
+
+                        <select
+                            class="pnd-select"
+                            id="projectDuration"
+                        >
+
+                            <option value="">
+                                Select duration
+                            </option>
+
+                            <option>
+                                Urgent
+                            </option>
+
+                            <option>
+                                1 - 2 Weeks
+                            </option>
+
+                            <option>
+                                2 - 4 Weeks
+                            </option>
+
+                            <option>
+                                1 - 2 Months
+                            </option>
+
+                            <option>
+                                2 - 3 Months
+                            </option>
+
+                            <option>
+                                Flexible
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="pnd-field">
+
+                        <label>
+                            Expected Budget
+                        </label>
+
+
+                        <select
+                            class="pnd-select"
+                            id="projectBudget"
+                        >
+
+                            <option value="">
+                                Select expected budget
+                            </option>
+
+                            <option>
+                                Below ₹10,000
+                            </option>
+
+                            <option>
+                                ₹10,000 - ₹25,000
+                            </option>
+
+                            <option>
+                                ₹25,000 - ₹50,000
+                            </option>
+
+                            <option>
+                                ₹50,000 - ₹1,00,000
+                            </option>
+
+                            <option>
+                                ₹1,00,000+
+                            </option>
+
+                            <option>
+                                Let's Discuss
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 ADDITIONAL NOTES
+            ================================================== -->
+
+            <div class="pnd-field">
+
+
+                <label>
+                    Additional Information
+                </label>
+
+
+                <textarea
+                    class="pnd-textarea"
+                    id="additionalInformation"
+                    placeholder="Anything else you would like us to know?"
+                ></textarea>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTION BUTTONS
+            ================================================== -->
+
+            <div class="pnd-form-actions">
+
+
+                <button
+                    type="button"
+                    class="pnd-submit-btn pnd-whatsapp-btn"
+                    id="whatsappSubmit"
+                >
+
+                    <i class="bi bi-whatsapp"></i>
+
+                    Send via WhatsApp
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="pnd-submit-btn pnd-email-btn"
+                    id="emailSubmit"
+                >
+
+                    <i class="bi bi-envelope"></i>
+
+                    Send via Gmail
+
+                </button>
+
+
+            </div>
+
+
+            <div class="pnd-form-note">
+
+                Your project information will be prepared
+                and opened in your selected communication
+                platform.
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT US
+========================================================= -->
+
+<section
+    class="pnd-contact-section"
+    id="contactUs"
+>
+
+
+    <div class="pnd-section-heading">
+
+
+        <span class="pnd-section-label">
+            CONTACT US
+        </span>
+
+
+        <h2>
+            Let's start a conversation.
+        </h2>
+
+
+        <p>
+
+            Have a question before starting your project?
+            Reach out to Pixel Nest Digital through any
+            of the channels below.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="pnd-contact-grid">
+
+
+        <!-- PHONE -->
+
         <a
-            href="index.html"
-            class="back-home">
+            href="tel:+917736755820"
+            class="pnd-contact-card"
+        >
 
-            <i class="bi bi-arrow-left"></i>
+            <div class="pnd-contact-icon">
 
-            Back to Home
+                <i class="bi bi-telephone"></i>
+
+            </div>
+
+            <h3>
+                Phone
+            </h3>
+
+            <p>
+                +91 77367 55820
+            </p>
+
+        </a>
+
+
+        <!-- EMAIL -->
+
+        <a
+            href="mailto:your-email@gmail.com"
+            class="pnd-contact-card"
+        >
+
+            <div class="pnd-contact-icon">
+
+                <i class="bi bi-envelope"></i>
+
+            </div>
+
+            <h3>
+                Email
+            </h3>
+
+            <p>
+                your-email@gmail.com
+            </p>
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+
+        <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener"
+            class="pnd-contact-card"
+        >
+
+            <div class="pnd-contact-icon">
+
+                <i class="bi bi-linkedin"></i>
+
+            </div>
+
+            <h3>
+                LinkedIn
+            </h3>
+
+            <p>
+                Connect with us
+            </p>
+
+        </a>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener"
+            class="pnd-contact-card"
+        >
+
+            <div class="pnd-contact-icon">
+
+                <i class="bi bi-youtube"></i>
+
+            </div>
+
+            <h3>
+                YouTube
+            </h3>
+
+            <p>
+                Watch our work
+            </p>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener"
+            class="pnd-contact-card"
+        >
+
+            <div class="pnd-contact-icon">
+
+                <i class="bi bi-instagram"></i>
+
+            </div>
+
+            <h3>
+                Instagram
+            </h3>
+
+            <p>
+                Follow our work
+            </p>
 
         </a>
 
@@ -2967,25 +4037,28 @@
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-====================================================== -->
+========================================================= -->
 
-<footer>
+<footer class="pnd-footer">
 
 
-    <div class="container">
+    <div class="pnd-footer-copy">
 
-        ©
+        © 2026 Pixel Nest Digital.
+        All rights reserved.
 
-        <span id="year"></span>
+    </div>
 
-        <strong>
-            Pixel Nest Digital
-        </strong>
 
-        . All Rights Reserved.
+    <div class="pnd-footer-tagline">
+
+        Technology
+        •
+        Creativity
+        •
+        Digital Solutions
 
     </div>
 
@@ -2993,203 +4066,529 @@
 </footer>
 
 
-
-<!-- =====================================================
-     BOOTSTRAP JS
-====================================================== -->
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
-
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-/* =====================================================
-   PIXEL NEST DIGITAL
-   START PROJECT FORM
-====================================================== */
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const pndHeader =
+    document.getElementById("pndHeader");
 
 
-/* =====================================================
-   EMAILJS CONFIGURATION
-======================================================
+window.addEventListener(
+    "scroll",
+    function () {
 
-   REPLACE THESE VALUES:
+        if (window.scrollY > 20) {
 
-   YOUR_EMAILJS_PUBLIC_KEY
-   YOUR_SERVICE_ID
-   YOUR_TEMPLATE_ID
+            pndHeader.classList.add(
+                "scrolled"
+            );
 
-====================================================== */
+        } else {
 
+            pndHeader.classList.remove(
+                "scrolled"
+            );
 
-emailjs.init({
+        }
 
-    publicKey:
-        "YOUR_EMAILJS_PUBLIC_KEY"
-
-});
-
-
-
-/* =====================================================
-   WHATSAPP NUMBER
-======================================================
-
-   Replace with your actual number.
-
-   Example:
-
-   919207483873
-
-   Do NOT use + sign.
-   Do NOT use spaces.
-
-====================================================== */
+    }
+);
 
 
-const whatsappNumber =
-    "919999999999";
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileToggle =
+    document.getElementById(
+        "pndMobileToggle"
+    );
 
 
+const mobileMenu =
+    document.getElementById(
+        "pndMobileMenu"
+    );
 
-/* =====================================================
-   CURRENT YEAR
-====================================================== */
+
+const mobileClose =
+    document.getElementById(
+        "pndMobileClose"
+    );
+
+
+function openMobileMenu() {
+
+    mobileMenu.classList.add(
+        "active"
+    );
+
+    mobileToggle.classList.add(
+        "active"
+    );
+
+    mobileToggle.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
+}
+
+
+function closeMobileMenu() {
+
+    mobileMenu.classList.remove(
+        "active"
+    );
+
+    mobileToggle.classList.remove(
+        "active"
+    );
+
+    mobileToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
+}
+
+
+mobileToggle.addEventListener(
+    "click",
+    function () {
+
+        if (
+            mobileMenu.classList.contains(
+                "active"
+            )
+        ) {
+
+            closeMobileMenu();
+
+        } else {
+
+            openMobileMenu();
+
+        }
+
+    }
+);
+
+
+mobileClose.addEventListener(
+    "click",
+    closeMobileMenu
+);
+
+
+/* =========================================================
+   MOBILE SERVICES
+========================================================= */
+
+const mobileServicesBtn =
+    document.getElementById(
+        "pndMobileServicesBtn"
+    );
+
+
+const mobileServices =
+    document.querySelector(
+        ".pnd-mobile-services"
+    );
+
+
+mobileServicesBtn.addEventListener(
+    "click",
+    function () {
+
+        const active =
+            mobileServices.classList.toggle(
+                "active"
+            );
+
+
+        mobileServicesBtn.setAttribute(
+            "aria-expanded",
+            active
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MOBILE MENU ON NORMAL LINK
+========================================================= */
 
 document
-    .getElementById("year")
-    .textContent =
-    new Date().getFullYear();
+    .querySelectorAll(
+        ".pnd-mobile-nav > a:not(.pnd-mobile-start)"
+    )
+    .forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        }
+    );
 
 
+/* =========================================================
+   DESKTOP SERVICES DROPDOWN
+========================================================= */
 
-/* =====================================================
-   GET PROJECT DATA
-====================================================== */
-
-function getProjectData() {
-
-
-    const name =
-        document
-            .getElementById("name")
-            .value
-            .trim();
+const servicesDropdown =
+    document.querySelector(
+        ".pnd-dropdown"
+    );
 
 
-    const email =
-        document
-            .getElementById("email")
-            .value
-            .trim();
+const servicesButton =
+    document.querySelector(
+        ".pnd-services-btn"
+    );
 
 
-    const phone =
-        document
-            .getElementById("phone")
-            .value
-            .trim();
+servicesButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
 
 
-    const business =
-        document
-            .getElementById("business")
-            .value
-            .trim();
+        const active =
+            servicesDropdown.classList.toggle(
+                "active"
+            );
 
 
-    const message =
-        document
-            .getElementById("message")
-            .value
-            .trim();
+        servicesButton.setAttribute(
+            "aria-expanded",
+            active
+        );
+
+    }
+);
 
 
+document.addEventListener(
+    "click",
+    function (event) {
 
-    /* SERVICES */
+        if (
+            !servicesDropdown.contains(
+                event.target
+            )
+        ) {
 
-    const services = [];
+            servicesDropdown.classList.remove(
+                "active"
+            );
+
+
+            servicesButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeMobileMenu();
+
+
+            servicesDropdown.classList.remove(
+                "active"
+            );
+
+
+            servicesButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PROJECT FORM
+========================================================= */
+
+const projectForm =
+    document.getElementById(
+        "projectFormElement"
+    );
+
+
+/*
+    CHANGE THIS TO YOUR ACTUAL EMAIL
+*/
+
+const EMAIL_ADDRESS =
+    "your-email@gmail.com";
+
+
+/*
+    PIXEL NEST DIGITAL WHATSAPP
+*/
+
+const WHATSAPP_NUMBER =
+    "917736755820";
+
+
+/* =========================================================
+   GET SELECTED SERVICES
+========================================================= */
+
+function getSelectedServices() {
+
+    const selected =
+        [];
 
 
     document
         .querySelectorAll(
-            ".service-option input:checked"
+            'input[name="services"]:checked'
         )
-        .forEach(function(item) {
+        .forEach(
+            function (item) {
 
-            services.push(
-                item.value
-            );
+                selected.push(
+                    item.value
+                );
 
-        });
-
-
-
-    /* BUDGET */
-
-    const budget =
-        document.querySelector(
-            'input[name="budget"]:checked'
+            }
         );
 
 
-    const budgetText =
-        budget
-            ? budget.value
-            : "Not specified";
+    return selected;
+
+}
 
 
+/* =========================================================
+   GET FORM DATA
+========================================================= */
+
+function getProjectData() {
 
     return {
 
         name:
-            name,
+            document
+                .getElementById(
+                    "clientName"
+                )
+                .value
+                .trim(),
 
-        email:
-            email,
+        place:
+            document
+                .getElementById(
+                    "clientPlace"
+                )
+                .value
+                .trim(),
 
         phone:
-            phone || "Not provided",
+            document
+                .getElementById(
+                    "clientPhone"
+                )
+                .value
+                .trim(),
+
+        alternatePhone:
+            document
+                .getElementById(
+                    "clientAlternatePhone"
+                )
+                .value
+                .trim(),
+
+        email:
+            document
+                .getElementById(
+                    "clientEmail"
+                )
+                .value
+                .trim(),
 
         business:
-            business || "Not provided",
+            document
+                .getElementById(
+                    "businessName"
+                )
+                .value
+                .trim(),
+
+        category:
+            document
+                .getElementById(
+                    "projectCategory"
+                )
+                .value,
 
         services:
-            services.length
-                ? services.join(", ")
-                : "Not specified",
+            getSelectedServices(),
+
+        description:
+            document
+                .getElementById(
+                    "projectDescription"
+                )
+                .value
+                .trim(),
+
+        expectation:
+            document
+                .getElementById(
+                    "projectExpectation"
+                )
+                .value
+                .trim(),
+
+        duration:
+            document
+                .getElementById(
+                    "projectDuration"
+                )
+                .value,
 
         budget:
-            budgetText,
+            document
+                .getElementById(
+                    "projectBudget"
+                )
+                .value,
 
-        message:
-            message
+        additional:
+            document
+                .getElementById(
+                    "additionalInformation"
+                )
+                .value
+                .trim()
 
     };
 
 }
 
 
+/* =========================================================
+   VALIDATION
+========================================================= */
 
-/* =====================================================
-   FORM VALIDATION
-====================================================== */
+function validateProject(data) {
 
-function validateProjectForm() {
+    if (!data.name) {
 
-
-    const form =
-        document.getElementById(
-            "projectForm"
+        alert(
+            "Please enter your name."
         );
 
+        return false;
 
-    if (!form.checkValidity()) {
+    }
 
-        form.reportValidity();
+
+    if (!data.place) {
+
+        alert(
+            "Please enter your place."
+        );
+
+        return false;
+
+    }
+
+
+    if (!data.phone) {
+
+        alert(
+            "Please enter your phone number."
+        );
+
+        return false;
+
+    }
+
+
+    if (!data.email) {
+
+        alert(
+            "Please enter your email address."
+        );
+
+        return false;
+
+    }
+
+
+    if (!data.category) {
+
+        alert(
+            "Please select a project category."
+        );
+
+        return false;
+
+    }
+
+
+    if (data.services.length === 0) {
+
+        alert(
+            "Please select at least one service."
+        );
+
+        return false;
+
+    }
+
+
+    if (!data.description) {
+
+        alert(
+            "Please describe your project."
+        );
 
         return false;
 
@@ -3201,413 +4600,393 @@ function validateProjectForm() {
 }
 
 
+/* =========================================================
+   CREATE WHATSAPP MESSAGE
+========================================================= */
 
-/* =====================================================
-   STATUS MESSAGE
-====================================================== */
+function createMessage(data) {
 
-function showStatus(
-    message,
-    type
-) {
+    return `Hello Pixel Nest Digital,
+
+I would like to discuss a new project.
+
+PROJECT DETAILS
+------------------------------
+
+Name:
+${data.name}
+
+Place:
+${data.place}
+
+Phone:
+${data.phone}
+
+Alternate Phone:
+${data.alternatePhone || "Not provided"}
+
+Email:
+${data.email}
+
+Business Name:
+${data.business || "Not provided"}
+
+Project Category:
+${data.category}
+
+Services Required:
+${data.services.join(", ")}
+
+Project Description:
+${data.description}
+
+Expectation:
+${data.expectation || "Not provided"}
+
+Expected Duration:
+${data.duration || "Not specified"}
+
+Expected Budget:
+${data.budget || "Not specified"}
+
+Additional Information:
+${data.additional || "None"}
+
+------------------------------
+
+Sent from Pixel Nest Digital Start a Project page.`;
+
+}
 
 
-    const status =
-        document.getElementById(
-            "formStatus"
-        );
+/* =========================================================
+   WHATSAPP SUBMIT
+========================================================= */
+
+document
+    .getElementById(
+        "whatsappSubmit"
+    )
+    .addEventListener(
+        "click",
+        function () {
+
+            const data =
+                getProjectData();
 
 
-    status.style.display =
-        "block";
+            if (
+                !validateProject(data)
+            ) {
+
+                return;
+
+            }
 
 
-    status.textContent =
-        message;
+            const message =
+                createMessage(data);
 
 
-
-    if (type === "success") {
-
-
-        status.style.background =
-            "rgba(22,163,74,.08)";
-
-
-        status.style.color =
-            "#166534";
+            const whatsappURL =
+                "https://wa.me/" +
+                WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
 
 
-        status.style.border =
-            "1px solid rgba(22,163,74,.18)";
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
 
+        }
+    );
+
+
+/* =========================================================
+   GMAIL SUBMIT
+========================================================= */
+
+document
+    .getElementById(
+        "emailSubmit"
+    )
+    .addEventListener(
+        "click",
+        function () {
+
+            const data =
+                getProjectData();
+
+
+            if (
+                !validateProject(data)
+            ) {
+
+                return;
+
+            }
+
+
+            const message =
+                createMessage(data);
+
+
+            const subject =
+                "New Project Enquiry - " +
+                data.name +
+                " - Pixel Nest Digital";
+
+
+            const gmailURL =
+                "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+                encodeURIComponent(
+                    EMAIL_ADDRESS
+                ) +
+                "&su=" +
+                encodeURIComponent(
+                    subject
+                ) +
+                "&body=" +
+                encodeURIComponent(
+                    message
+                );
+
+
+            window.open(
+                gmailURL,
+                "_blank"
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const searchInput =
+    document.getElementById(
+        "pndSearchInput"
+    );
+
+
+const mobileSearch =
+    document.getElementById(
+        "pndMobileSearch"
+    );
+
+
+const servicePages = {
+
+    "website development":
+        "website_development.html",
+
+    "website":
+        "website_development.html",
+
+    "web applications":
+        "web_applications.html",
+
+    "web application":
+        "web_applications.html",
+
+    "e-commerce":
+        "e-commerce.html",
+
+    "ecommerce":
+        "e-commerce.html",
+
+    "software":
+        "software-database.html",
+
+    "database":
+        "software-database.html",
+
+    "hosting":
+        "hosting-maintenance.html",
+
+    "maintenance":
+        "hosting-maintenance.html",
+
+    "logo":
+        "logo-brand-design.html",
+
+    "brand":
+        "logo-brand-design.html",
+
+    "branding":
+        "logo-brand-design.html",
+
+    "photography":
+        "photography.html",
+
+    "videography":
+        "videography.html",
+
+    "video editing":
+        "video-editing.html",
+
+    "digital content":
+        "digital-content.html"
+
+};
+
+
+function performSearch(value) {
+
+    const search =
+        value
+            .toLowerCase()
+            .trim();
+
+
+    if (!search) {
+
+        return;
 
     }
 
-    else {
+
+    for (
+        const key in servicePages
+    ) {
+
+        if (
+            key.includes(search) ||
+            search.includes(key)
+        ) {
+
+            window.location.href =
+                servicePages[key];
+
+            return;
+
+        }
+
+    }
 
 
-        status.style.background =
-            "rgba(230,57,70,.08)";
+    if (
+        search.includes("about")
+    ) {
+
+        window.location.href =
+            "about.html";
+
+        return;
+
+    }
 
 
-        status.style.color =
-            "#b91c1c";
+    if (
+        search.includes("team")
+    ) {
+
+        window.location.href =
+            "team.html";
+
+        return;
+
+    }
 
 
-        status.style.border =
-            "1px solid rgba(230,57,70,.18)";
+    if (
+        search.includes("portfolio")
+    ) {
 
+        window.location.href =
+            "portfolio.html";
+
+        return;
+
+    }
+
+
+    if (
+        search.includes("contact")
+    ) {
+
+        window.location.href =
+            "contact.html";
+
+        return;
+
+    }
+
+
+    if (
+        search.includes("project")
+    ) {
+
+        window.location.href =
+            "start-project.html";
 
     }
 
 }
 
 
+if (searchInput) {
 
-/* =====================================================
-   EMAIL BUTTON
-====================================================== */
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
 
-document
-    .getElementById(
-        "sendEmailBtn"
-    )
-    .addEventListener(
-        "click",
-        function() {
+            if (
+                event.key === "Enter"
+            ) {
 
-
-            /* VALIDATE */
-
-            if (!validateProjectForm()) {
-
-                return;
+                performSearch(
+                    searchInput.value
+                );
 
             }
-
-
-
-            const data =
-                getProjectData();
-
-
-
-            const button =
-                this;
-
-
-
-            /* DISABLE */
-
-            button.disabled =
-                true;
-
-
-
-            button.innerHTML = `
-
-                <i class="bi bi-hourglass-split"></i>
-
-                <span>
-
-                    <strong>
-                        Sending...
-                    </strong>
-
-                    <small>
-                        Please wait
-                    </small>
-
-                </span>
-
-            `;
-
-
-
-            /* =========================================
-               EMAILJS SEND
-            ========================================= */
-
-
-            emailjs.send(
-
-                "YOUR_SERVICE_ID",
-
-                "YOUR_TEMPLATE_ID",
-
-                {
-
-
-                    /* NAME */
-
-                    name:
-                        data.name,
-
-
-                    /* EMAIL */
-
-                    email:
-                        data.email,
-
-
-                    /* PHONE */
-
-                    phone:
-                        data.phone,
-
-
-                    /* BUSINESS */
-
-                    business:
-                        data.business,
-
-
-                    /* SERVICES */
-
-                    services:
-                        data.services,
-
-
-                    /* BUDGET */
-
-                    budget:
-                        data.budget,
-
-
-                    /* MESSAGE */
-
-                    message:
-                        data.message
-
-
-                }
-
-            )
-
-
-            /* =========================================
-               SUCCESS
-            ========================================= */
-
-            .then(function(response) {
-
-
-                console.log(
-                    "EmailJS success:",
-                    response
-                );
-
-
-                showStatus(
-
-                    "Your project enquiry has been sent successfully by email.",
-
-                    "success"
-
-                );
-
-
-
-                button.disabled =
-                    false;
-
-
-
-                button.innerHTML = `
-
-                    <i class="bi bi-check-circle-fill"></i>
-
-                    <span>
-
-                        <strong>
-                            Email Sent
-                        </strong>
-
-                        <small>
-                            Thank you for contacting us
-                        </small>
-
-                    </span>
-
-                `;
-
-
-            })
-
-
-            /* =========================================
-               ERROR
-            ========================================= */
-
-            .catch(function(error) {
-
-
-                console.error(
-                    "EmailJS error:",
-                    error
-                );
-
-
-                showStatus(
-
-                    "Unable to send the email. Please check your EmailJS settings and try again.",
-
-                    "error"
-
-                );
-
-
-
-                button.disabled =
-                    false;
-
-
-
-                button.innerHTML = `
-
-                    <i class="bi bi-envelope-fill"></i>
-
-                    <span>
-
-                        <strong>
-                            Send via Email
-                        </strong>
-
-                        <small>
-                            Send project enquiry directly to us
-                        </small>
-
-                    </span>
-
-                `;
-
-
-            });
-
 
         }
     );
 
+}
 
 
-/* =====================================================
-   WHATSAPP BUTTON
-====================================================== */
+if (mobileSearch) {
 
-document
-    .getElementById(
-        "sendWhatsAppBtn"
-    )
-    .addEventListener(
-        "click",
-        function() {
+    mobileSearch.addEventListener(
+        "keydown",
+        function (event) {
 
+            if (
+                event.key === "Enter"
+            ) {
 
-            /* VALIDATE */
-
-            if (!validateProjectForm()) {
-
-                return;
+                performSearch(
+                    mobileSearch.value
+                );
 
             }
 
-
-
-            const data =
-                getProjectData();
-
-
-
-            /* =========================================
-               WHATSAPP MESSAGE
-            ========================================= */
-
-
-            const whatsappMessage =
-
-`Hello Pixel Nest Digital,
-
-I would like to start a project.
-
-━━━━━━━━━━━━━━━━━━
-
-NAME
-${data.name}
-
-EMAIL
-${data.email}
-
-PHONE / WHATSAPP
-${data.phone}
-
-BUSINESS / ORGANISATION
-${data.business}
-
-SERVICES REQUIRED
-${data.services}
-
-ESTIMATED BUDGET
-${data.budget}
-
-PROJECT DETAILS
-${data.message}
-
-━━━━━━━━━━━━━━━━━━
-
-I would like to discuss this project with you.`;
-
-
-
-            /* =========================================
-               WHATSAPP URL
-            ========================================= */
-
-
-            const whatsappURL =
-
-                "https://wa.me/" +
-
-                whatsappNumber +
-
-                "?text=" +
-
-                encodeURIComponent(
-                    whatsappMessage
-                );
-
-
-
-            /* OPEN WHATSAPP */
-
-            window.open(
-
-                whatsappURL,
-
-                "_blank"
-
-            );
-
-
-
-            /* STATUS */
-
-            showStatus(
-
-                "Opening WhatsApp with your project enquiry...",
-
-                "success"
-
-            );
-
-
         }
     );
+
+}
+
 
 </script>
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
 
 
 </body>
 
 </html>
-
