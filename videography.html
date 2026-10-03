@@ -897,6 +897,21 @@
         }
 
 
+
+        /* ============================================================
+           SERVICES DROPDOWN HOVER BRIDGE
+        ============================================================ */
+
+        .pnd-dropdown::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: transparent;
+        }
+
         /* ============================================================
            DESKTOP DROPDOWN PANEL
         ============================================================ */
@@ -906,11 +921,15 @@
             position: absolute;
 
             top:
-                calc(100% + 15px);
+                calc(100% + 6px);
 
             left: 50%;
 
-            width: 310px;
+            /* FIX: keep the desktop dropdown wide enough so text
+               never collapses into one-character vertical columns. */
+            width: 340px !important;
+            min-width: 340px !important;
+            max-width: min(340px, calc(100vw - 32px));
 
             padding: 10px;
 
@@ -1031,6 +1050,21 @@
 
 
 
+
+        .pnd-dropdown.open .pnd-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+        .pnd-dropdown.open .pnd-chevron {
+            transform: rotate(180deg);
+            color: #60a5fa;
+        }
+
         /* ============================================================
            DROPDOWN ITEMS
         ============================================================ */
@@ -1044,6 +1078,8 @@
             display: flex;
 
             align-items: center;
+
+            flex-wrap: nowrap !important;
 
             gap: 12px;
 
@@ -1115,11 +1151,21 @@
 
         .pnd-dropdown-item span {
 
-            flex: 1;
+            flex: 1 1 auto !important;
 
-            min-width: 0;
+            min-width: 0 !important;
+
+            display: block;
 
             color: inherit;
+
+            /* FIX: force normal horizontal text flow. */
+            writing-mode: horizontal-tb !important;
+            text-orientation: mixed !important;
+            white-space: nowrap !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+            letter-spacing: normal;
         }
 
 
@@ -4036,6 +4082,50 @@
 
     
 /* ============================================================
+   FINAL SERVICES DROPDOWN TEXT FIX
+   Prevents any inherited/global typography rule from collapsing
+   desktop service names into vertical one-letter columns.
+============================================================ */
+
+@media (min-width: 1051px) {
+
+    .pnd-dropdown {
+        position: relative !important;
+        width: auto !important;
+        min-width: max-content !important;
+    }
+
+    .pnd-dropdown-menu {
+        width: 340px !important;
+        min-width: 340px !important;
+        max-width: calc(100vw - 32px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .pnd-dropdown-item {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+
+    .pnd-dropdown-item span {
+        display: block !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        width: auto !important;
+        writing-mode: horizontal-tb !important;
+        text-orientation: mixed !important;
+        white-space: nowrap !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+    }
+}
+
+/* ============================================================
    FINAL RESPONSIVE PATCH — PHONE / TABLET / LAPTOP
    This block is intentionally last so it overrides earlier
    desktop rules without changing the page content.
@@ -5847,7 +5937,7 @@ p, a, span, strong, small {
                 <div class="service-image">
 
                     <img
-                        src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1000&q=85"
+                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1000&q=85"
                         alt="Social media video content"
                         loading="lazy"
                     >
@@ -6736,6 +6826,103 @@ p, a, span, strong, small {
         }
     );
 
+
+
+
+    /* =====================================================
+       DESKTOP SERVICES DROPDOWN
+
+       CLICK SERVICES:
+       OPEN / CLOSE
+
+       HOVER:
+       ALSO OPENS ON DESKTOP
+    ====================================================== */
+
+    const desktopServices =
+        document.querySelector(".pnd-dropdown");
+
+    const desktopServicesLink =
+        desktopServices
+            ? desktopServices.querySelector(".pnd-nav-link")
+            : null;
+
+    if (
+        desktopServices &&
+        desktopServicesLink
+    ) {
+
+        desktopServicesLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                const isOpen =
+                    desktopServices.classList.contains("open");
+
+                desktopServices.classList.toggle(
+                    "open",
+                    !isOpen
+                );
+
+            }
+        );
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !desktopServices.contains(event.target)
+                ) {
+
+                    desktopServices.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    desktopServices.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+        desktopServices
+            .querySelectorAll(".pnd-dropdown-item")
+            .forEach(
+                function (item) {
+
+                    item.addEventListener(
+                        "click",
+                        function () {
+
+                            desktopServices.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
 
 
     /* =====================================================

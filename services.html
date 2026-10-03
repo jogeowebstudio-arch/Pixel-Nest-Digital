@@ -1,76 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Services | Pixel Nest Digital</title>
+    <meta name="description" content="Explore Pixel Nest Digital services including website development, web applications, e-commerce, software, hosting, branding, photography, videography, video editing and digital content.">
 
-    <title>
-        Services | Pixel Nest Digital
-    </title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <meta name="description"
-          content="Explore Pixel Nest Digital services including website development, web applications, e-commerce, software projects, database solutions, hosting, branding, photography and videography.">
-
-    <meta name="theme-color"
-          content="#07111F">
-
-    <!-- Bootstrap 5.3.3 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
         :root {
-
-            --pnd-space: #07111F;
-            --pnd-space-2: #0B172A;
-            --pnd-space-3: #111C35;
-
-            --pnd-blue: #2563EB;
-            --pnd-blue-dark: #1D4ED8;
-
-            --pnd-cyan: #06B6D4;
-            --pnd-violet: #7C3AED;
-            --pnd-green: #22C55E;
-
-            --pnd-white: #F8FAFC;
-            --pnd-text: #E2E8F0;
-            --pnd-muted: #94A3B8;
-
-            --pnd-dark-text: #0F172A;
-            --pnd-dark-muted: #475569;
-
-            --pnd-border: rgba(148,163,184,.15);
-
-            --pnd-gold: #D4AF37;
-
-            --pnd-radius: 22px;
-
+            --pnd-bg: #07111f;
+            --pnd-bg-2: #0b172a;
+            --pnd-card: #0d1b30;
+            --pnd-card-2: #111f36;
+            --pnd-blue: #2563eb;
+            --pnd-cyan: #06b6d4;
+            --pnd-violet: #7c3aed;
+            --pnd-white: #f8fafc;
+            --pnd-text: #cbd5e1;
+            --pnd-muted: #8ea0b8;
+            --pnd-border: rgba(148, 163, 184, .14);
         }
-
-
-        /* =========================================================
-           GLOBAL
-        ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -81,3077 +42,1532 @@
         }
 
         body {
-
             margin: 0;
-
-            font-family: "DM Sans", sans-serif;
-
             background:
-                radial-gradient(
-                    circle at 15% 10%,
-                    rgba(37,99,235,.08),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(124,58,237,.07),
-                    transparent 25%
-                ),
-                var(--pnd-space);
-
-            color: var(--pnd-text);
-
+                radial-gradient(circle at 12% 8%, rgba(37, 99, 235, .16), transparent 28%),
+                radial-gradient(circle at 88% 25%, rgba(6, 182, 212, .10), transparent 25%),
+                var(--pnd-bg);
+            color: var(--pnd-white);
+            font-family: "DM Sans", sans-serif;
             overflow-x: hidden;
-
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
         }
 
         a {
             text-decoration: none;
         }
 
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-
         /* =========================================================
            TOP LED
         ========================================================= */
-
-        .pnd-led {
-
+        .pnd-top-led {
             position: fixed;
-
+            z-index: 2000;
             top: 0;
             left: 0;
-
             width: 100%;
-            height: 2px;
-
-            z-index: 9999;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan),
-                    var(--pnd-violet),
-                    var(--pnd-blue)
-                );
-
-            background-size: 300% 100%;
-
-            animation: pndLedMove 6s linear infinite;
-
-            box-shadow:
-                0 0 12px rgba(37,99,235,.7),
-                0 0 25px rgba(6,182,212,.3);
-
-        }
-
-        @keyframes pndLedMove {
-
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-
-        }
-
-
-        /* =========================================================
-           COMMON SECTION
-        ========================================================= */
-
-        .pnd-section {
-
-            padding: 100px 0;
-
-            position: relative;
-
-        }
-
-        .pnd-section-light {
-
-            background: #F8FAFC;
-
-            color: var(--pnd-dark-text);
-
-        }
-
-        .pnd-section-dark {
-
-            background: var(--pnd-space);
-
-        }
-
-
-        /* =========================================================
-           SECTION HEADING
-        ========================================================= */
-
-        .pnd-eyebrow {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 7px 13px;
-
-            border: 1px solid rgba(37,99,235,.25);
-
-            border-radius: 999px;
-
-            background:
-                rgba(37,99,235,.08);
-
-            color: #60A5FA;
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            letter-spacing: .08em;
-
-            text-transform: uppercase;
-
-        }
-
-        .pnd-eyebrow i {
-            font-size: 12px;
-        }
-
-        .pnd-title {
-
-            margin-top: 18px;
-
-            margin-bottom: 18px;
-
-            font-size: clamp(
-                34px,
-                5vw,
-                58px
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                #2563eb,
+                #06b6d4,
+                #7c3aed,
+                #2563eb
             );
+            background-size: 300% 100%;
+            animation: ledMove 7s linear infinite;
+        }
 
-            line-height: 1.05;
+        @keyframes ledMove {
+            from { background-position: 0% 50%; }
+            to { background-position: 300% 50%; }
+        }
 
+        /* =========================================================
+           HEADER
+        ========================================================= */
+        .pnd-header {
+            position: fixed;
+            z-index: 1500;
+            top: 3px;
+            left: 0;
+            width: 100%;
+            height: 96px;
+            background: linear-gradient(
+                180deg,
+                rgba(7, 17, 31, .97),
+                rgba(7, 17, 31, .90)
+            );
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .pnd-header-inner {
+            width: min(1440px, calc(100% - 40px));
+            height: 100%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .pnd-logo {
+            flex: 0 0 auto;
+            width: 205px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pnd-logo img {
+            width: auto;
+            height: 52px;
+            max-width: 205px;
+            object-fit: contain;
+            transition: transform .25s ease;
+        }
+
+        .pnd-logo:hover img {
+            transform: scale(1.04);
+        }
+
+        .pnd-search {
+            flex: 1 1 360px;
+            max-width: 410px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px 0 20px;
+            border: 1px solid var(--pnd-border);
+            border-radius: 17px;
+            background: rgba(255,255,255,.045);
+        }
+
+        .pnd-search input {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+        }
+
+        .pnd-search input::placeholder {
+            color: #71839d;
+        }
+
+        .pnd-search i {
+            color: #71839d;
+            font-size: 20px;
+        }
+
+        .pnd-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pnd-nav-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 15px;
+            color: #cbd5e1;
+            font-weight: 600;
+            font-size: 16px;
+            white-space: nowrap;
+            transition: color .25s ease;
+        }
+
+        .pnd-nav-link::after {
+            content: "";
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            bottom: 4px;
+            height: 2px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--pnd-blue), var(--pnd-cyan));
+            transform: scaleX(0);
+            transition: transform .25s ease;
+        }
+
+        .pnd-nav-link:hover,
+        .pnd-nav-link.active {
+            color: #fff;
+        }
+
+        .pnd-nav-link:hover::after,
+        .pnd-nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .pnd-start {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 54px;
+            padding: 0 22px;
+            border-radius: 16px;
+            color: #fff;
             font-weight: 800;
-
-            letter-spacing: -.04em;
-
+            background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-cyan));
+            box-shadow: 0 12px 35px rgba(37, 99, 235, .22);
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
-        .pnd-title span {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan),
-                    var(--pnd-violet)
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-
+        .pnd-start:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(6, 182, 212, .22);
         }
 
-        .pnd-description {
-
-            max-width: 700px;
-
-            color: var(--pnd-muted);
-
-            font-size: 17px;
-
-            line-height: 1.8;
-
+        .pnd-menu-btn {
+            display: none;
+            width: 46px;
+            height: 46px;
+            border: 1px solid var(--pnd-border);
+            border-radius: 14px;
+            background: rgba(255,255,255,.05);
+            color: #fff;
+            font-size: 22px;
         }
 
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+        .pnd-mobile-menu {
+            position: fixed;
+            z-index: 1700;
+            top: 0;
+            right: -105%;
+            width: min(390px, 91vw);
+            height: 100vh;
+            padding: 25px;
+            background: #07111f;
+            border-left: 1px solid rgba(255,255,255,.08);
+            box-shadow: -20px 0 70px rgba(0,0,0,.45);
+            transition: right .35s ease;
+        }
+
+        .pnd-mobile-menu.open {
+            right: 0;
+        }
+
+        .pnd-mobile-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .pnd-mobile-logo {
+            height: 43px;
+            max-width: 175px;
+            object-fit: contain;
+        }
+
+        .pnd-close {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--pnd-border);
+            border-radius: 13px;
+            background: rgba(255,255,255,.05);
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .pnd-mobile-search {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+            margin-bottom: 22px;
+            border: 1px solid var(--pnd-border);
+            border-radius: 14px;
+            background: rgba(255,255,255,.045);
+        }
+
+        .pnd-mobile-search input {
+            min-width: 0;
+            flex: 1;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+        }
+
+        .pnd-mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pnd-mobile-links a {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-height: 53px;
+            padding: 0 16px;
+            border-radius: 14px;
+            color: #cbd5e1;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .pnd-mobile-links a:hover,
+        .pnd-mobile-links a.active {
+            color: #fff;
+            background: rgba(37, 99, 235, .10);
+            border-color: rgba(37, 99, 235, .20);
+        }
+
+        .pnd-mobile-links i {
+            width: 22px;
+            color: #60a5fa;
+            font-size: 18px;
+        }
 
         /* =========================================================
            HERO
         ========================================================= */
-
-        .pnd-hero {
-
-            min-height: 100vh;
-
+        .services-hero {
+            position: relative;
+            min-height: 640px;
+            padding: 175px 20px 90px;
             display: flex;
-
             align-items: center;
-
-            position: relative;
-
             overflow: hidden;
-
-            padding:
-                100px 0 90px;
-
-            background:
-
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(37,99,235,.17),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 90% 25%,
-                    rgba(124,58,237,.15),
-                    transparent 30%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #07111F,
-                    #0B172A 55%,
-                    #07111F
-                );
-
         }
 
-        .pnd-hero::before {
-
+        .services-hero::before {
             content: "";
-
             position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            border-radius: 50%;
-
-            top: -250px;
-            right: -200px;
-
-            border: 1px solid rgba(37,99,235,.15);
-
-            box-shadow:
-                0 0 80px rgba(37,99,235,.08);
-
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+            pointer-events: none;
         }
 
-        .pnd-hero::after {
-
-            content: "";
-
+        .hero-orb {
             position: absolute;
-
-            width: 420px;
-            height: 420px;
-
+            width: 520px;
+            height: 520px;
+            right: -120px;
+            top: 110px;
             border-radius: 50%;
-
-            bottom: -220px;
-            left: -180px;
-
-            border: 1px solid rgba(124,58,237,.13);
-
+            background: radial-gradient(
+                circle,
+                rgba(37,99,235,.25),
+                rgba(6,182,212,.08) 42%,
+                transparent 70%
+            );
+            filter: blur(8px);
+            pointer-events: none;
         }
 
-        .pnd-hero-content {
-
+        .hero-container {
             position: relative;
-
             z-index: 2;
-
+            width: min(1180px, 100%);
+            margin: auto;
         }
 
-        .pnd-hero-title {
-
-            margin-top: 22px;
-
-            font-size: clamp(
-                45px,
-                7vw,
-                82px
-            );
-
-            line-height: .98;
-
-            font-weight: 800;
-
-            letter-spacing: -.055em;
-
-            max-width: 900px;
-
-        }
-
-        .pnd-hero-title span {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #60A5FA,
-                    #22D3EE,
-                    #A78BFA
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-
-        }
-
-        .pnd-hero-text {
-
-            max-width: 720px;
-
-            margin-top: 25px;
-
-            color: #A8B4C7;
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-        }
-
-        .pnd-hero-actions {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 14px;
-
-            margin-top: 35px;
-
-        }
-
-
-        /* =========================================================
-           BUTTONS
-        ========================================================= */
-
-        .pnd-btn-primary {
-
+        .hero-badge {
             display: inline-flex;
-
             align-items: center;
-
-            justify-content: center;
-
             gap: 10px;
-
-            padding: 14px 22px;
-
-            border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--pnd-blue),
-                    #3B82F6
-                );
-
-            color: white;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            border: 1px solid rgba(96,165,250,.35);
-
-            box-shadow:
-                0 12px 30px rgba(37,99,235,.22);
-
-            transition:
-                .3s ease;
-
-        }
-
-        .pnd-btn-primary:hover {
-
-            color: white;
-
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 18px 40px rgba(37,99,235,.35);
-
-        }
-
-        .pnd-btn-outline {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            padding: 14px 22px;
-
-            border-radius: 13px;
-
-            color: var(--pnd-text);
-
-            background:
-                rgba(255,255,255,.03);
-
-            border:
-                1px solid
-                rgba(148,163,184,.22);
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition:
-                .3s ease;
-
-        }
-
-        .pnd-btn-outline:hover {
-
-            color: white;
-
-            border-color:
-                rgba(6,182,212,.5);
-
-            background:
-                rgba(6,182,212,.07);
-
-            transform:
-                translateY(-3px);
-
-        }
-
-
-        /* =========================================================
-           SERVICE FILTER
-        ========================================================= */
-
-        .pnd-filter-wrap {
-
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-bottom: 55px;
-
-        }
-
-        .pnd-filter-btn {
-
-            border: 1px solid
-                rgba(148,163,184,.2);
-
-            background:
-                rgba(255,255,255,.03);
-
-            color: #94A3B8;
-
+            padding: 10px 16px;
+            border: 1px solid rgba(37,99,235,.28);
             border-radius: 999px;
-
-            padding: 10px 17px;
-
+            background: rgba(37,99,235,.08);
+            color: #8dbdfc;
             font-size: 13px;
-
-            font-weight: 700;
-
-            transition:
-                .25s ease;
-
-        }
-
-        .pnd-filter-btn:hover,
-        .pnd-filter-btn.active {
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(37,99,235,.9),
-                    rgba(124,58,237,.9)
-                );
-
-            border-color:
-                transparent;
-
-            box-shadow:
-                0 8px 25px rgba(37,99,235,.18);
-
-        }
-
-
-        /* =========================================================
-           SERVICE CARDS
-        ========================================================= */
-
-        .pnd-service-card {
-
-            height: 100%;
-
-            position: relative;
-
-            padding: 30px;
-
-            border-radius:
-                var(--pnd-radius);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.055),
-                    rgba(255,255,255,.018)
-                );
-
-            border:
-                1px solid
-                rgba(148,163,184,.15);
-
-            overflow: hidden;
-
-            transition:
-                transform .35s ease,
-                border-color .35s ease,
-                box-shadow .35s ease;
-
-        }
-
-        .pnd-service-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: -1px;
-
-            border-radius:
-                inherit;
-
-            padding: 1px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(37,99,235,.35),
-                    transparent 35%,
-                    rgba(6,182,212,.25),
-                    transparent 70%,
-                    rgba(124,58,237,.35)
-                );
-
-            -webkit-mask:
-                linear-gradient(#fff 0 0)
-                content-box,
-                linear-gradient(#fff 0 0);
-
-            -webkit-mask-composite: xor;
-
-            mask-composite: exclude;
-
-            opacity: 0;
-
-            transition:
-                .35s ease;
-
-        }
-
-        .pnd-service-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(37,99,235,.35);
-
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.25);
-
-        }
-
-        .pnd-service-card:hover::before {
-            opacity: 1;
-        }
-
-        .pnd-service-icon {
-
-            width: 58px;
-            height: 58px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 17px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(37,99,235,.18),
-                    rgba(6,182,212,.08)
-                );
-
-            border:
-                1px solid
-                rgba(37,99,235,.2);
-
-            color: #60A5FA;
-
-            font-size: 25px;
-
-            margin-bottom: 23px;
-
-        }
-
-        .pnd-service-card h3 {
-
-            font-size: 22px;
-
             font-weight: 800;
-
-            color: white;
-
-            margin-bottom: 12px;
-
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
         }
 
-        .pnd-service-card p {
-
-            color: #94A3B8;
-
-            line-height: 1.75;
-
-            font-size: 14px;
-
-            margin-bottom: 20px;
-
+        .hero-badge span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--pnd-cyan);
+            box-shadow: 0 0 15px rgba(6,182,212,.75);
         }
 
-        .pnd-service-link {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            color: #60A5FA;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
+        .hero-title {
+            max-width: 920px;
+            margin: 24px 0 22px;
+            font-size: clamp(46px, 7vw, 88px);
+            line-height: .98;
+            letter-spacing: -4px;
+            font-weight: 800;
         }
 
-        .pnd-service-link i {
-
-            transition:
-                transform .25s ease;
-
-        }
-
-        .pnd-service-card:hover
-        .pnd-service-link i {
-
-            transform:
-                translateX(4px);
-
-        }
-
-
-        /* =========================================================
-           FEATURED SECTION
-        ========================================================= */
-
-        .pnd-featured {
-
-            position: relative;
-
-            padding: 70px;
-
-            border-radius: 30px;
-
-            overflow: hidden;
-
-            background:
-
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(124,58,237,.22),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 10% 80%,
-                    rgba(6,182,212,.13),
-                    transparent 30%
-                ),
-
-                #0B172A;
-
-            border:
-                1px solid
-                rgba(148,163,184,.15);
-
-        }
-
-        .pnd-featured h2 {
-
-            font-size: clamp(
-                32px,
-                5vw,
-                52px
+        .hero-title .gradient {
+            background: linear-gradient(
+                90deg,
+                #60a5fa,
+                #22d3ee,
+                #a78bfa
             );
-
-            font-weight: 800;
-
-            letter-spacing: -.04em;
-
-            margin-bottom: 20px;
-
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .pnd-featured p {
-
-            color: #A8B4C7;
-
+        .hero-text {
+            max-width: 760px;
+            margin: 0;
+            color: #9fb0c6;
+            font-size: clamp(17px, 2vw, 20px);
             line-height: 1.8;
-
-            max-width: 650px;
-
         }
 
-        .pnd-featured-list {
-
-            margin-top: 28px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0,1fr));
-
-            gap: 14px;
-
-        }
-
-        .pnd-featured-item {
-
+        .hero-actions {
             display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 34px;
+        }
 
+        .hero-btn {
+            display: inline-flex;
             align-items: center;
-
-            gap: 12px;
-
-            color: #DCE5F2;
-
-            font-size: 14px;
-
+            justify-content: center;
+            gap: 10px;
+            min-height: 54px;
+            padding: 0 22px;
+            border-radius: 15px;
+            font-weight: 800;
         }
 
-        .pnd-featured-item i {
+        .hero-btn.primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-cyan));
+            box-shadow: 0 15px 35px rgba(37,99,235,.18);
+        }
 
-            color:
-                var(--pnd-green);
+        .hero-btn.secondary {
+            color: #d8e1ee;
+            border: 1px solid rgba(148,163,184,.20);
+            background: rgba(255,255,255,.035);
+        }
 
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+        .services-section {
+            position: relative;
+            padding: 105px 20px 120px;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .services-container {
+            width: min(1240px, 100%);
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 16px;
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: #64748b;
             font-size: 17px;
-
+            line-height: 1.75;
         }
 
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            border-radius: 25px;
+            background: #0b172a;
+            box-shadow: 0 20px 50px rgba(15,23,42,.13);
+            isolation: isolate;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 28px 65px rgba(15,23,42,.20);
+        }
+
+        .service-image {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .55s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.07);
+        }
+
+        .service-overlay {
+            position: absolute;
+            z-index: -2;
+            inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(4,10,20,.08) 10%,
+                    rgba(4,10,20,.28) 35%,
+                    rgba(4,10,20,.94) 100%
+                );
+        }
+
+        .service-glow {
+            position: absolute;
+            z-index: -1;
+            width: 170px;
+            height: 170px;
+            right: -55px;
+            top: -55px;
+            border-radius: 50%;
+            background: rgba(6,182,212,.18);
+            filter: blur(30px);
+        }
+
+        .service-content {
+            height: 100%;
+            min-height: 430px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #fff;
+        }
+
+        .service-icon {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            margin-bottom: auto;
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 16px;
+            background: rgba(7,17,31,.65);
+            backdrop-filter: blur(12px);
+            color: #67e8f9;
+            font-size: 23px;
+        }
+
+        .service-number {
+            margin-bottom: 8px;
+            color: #7dd3fc;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .service-content h3 {
+            margin: 0 0 10px;
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .service-content p {
+            max-width: 390px;
+            margin: 0;
+            color: #c5d0df;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-top: 18px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .service-link i {
+            transition: transform .2s ease;
+        }
+
+        .service-card:hover .service-link i {
+            transform: translateX(4px);
+        }
 
         /* =========================================================
            PROCESS
         ========================================================= */
-
-        .pnd-process-card {
-
-            position: relative;
-
-            padding: 30px;
-
-            height: 100%;
-
-            background:
-                white;
-
-            border-radius:
-                22px;
-
-            border:
-                1px solid
-                #E2E8F0;
-
-            box-shadow:
-                0 10px 35px
-                rgba(15,23,42,.05);
-
-            transition:
-                .3s ease;
-
+        .process-section {
+            padding: 110px 20px;
+            background: #07111f;
         }
 
-        .pnd-process-card:hover {
-
-            transform:
-                translateY(-7px);
-
-            box-shadow:
-                0 20px 45px
-                rgba(15,23,42,.1);
-
+        .process-container {
+            width: min(1180px, 100%);
+            margin: auto;
         }
 
-        .pnd-process-number {
-
-            width: 45px;
-            height: 45px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 14px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--pnd-blue),
-                    var(--pnd-violet)
-                );
-
-            color: white;
-
-            font-size: 14px;
-
-            font-weight: 800;
-
-            margin-bottom: 22px;
-
-        }
-
-        .pnd-process-card h3 {
-
-            color:
-                var(--pnd-dark-text);
-
-            font-size: 20px;
-
-            font-weight: 800;
-
-            margin-bottom: 12px;
-
-        }
-
-        .pnd-process-card p {
-
-            color:
-                var(--pnd-dark-muted);
-
-            line-height: 1.75;
-
-            font-size: 14px;
-
-            margin: 0;
-
-        }
-
-
-        /* =========================================================
-           WHY SECTION
-        ========================================================= */
-
-        .pnd-why-card {
-
-            padding: 30px;
-
-            height: 100%;
-
-            border-radius: 22px;
-
-            background:
-                rgba(255,255,255,.035);
-
-            border:
-                1px solid
-                rgba(148,163,184,.13);
-
-            transition:
-                .3s ease;
-
-        }
-
-        .pnd-why-card:hover {
-
-            transform:
-                translateY(-6px);
-
-            border-color:
-                rgba(37,99,235,.35);
-
-            background:
-                rgba(255,255,255,.05);
-
-        }
-
-        .pnd-why-icon {
-
-            width: 52px;
-            height: 52px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 15px;
-
-            background:
-                rgba(37,99,235,.1);
-
-            color:
-                #60A5FA;
-
-            font-size: 22px;
-
-            margin-bottom: 20px;
-
-        }
-
-        .pnd-why-card h3 {
-
-            color: white;
-
-            font-size: 19px;
-
-            font-weight: 800;
-
-            margin-bottom: 10px;
-
-        }
-
-        .pnd-why-card p {
-
-            color:
-                var(--pnd-muted);
-
-            line-height: 1.75;
-
-            font-size: 14px;
-
-            margin: 0;
-
-        }
-
-
-        /* =========================================================
-           CTA
-        ========================================================= */
-
-        .pnd-final-cta {
-
-            padding: 80px 0;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0B172A,
-                    #111C35
-                );
-
-        }
-
-        .pnd-cta-box {
-
-            position: relative;
-
-            overflow: hidden;
-
-            padding: 65px;
-
-            border-radius: 30px;
-
-            background:
-
-                radial-gradient(
-                    circle at 90% 20%,
-                    rgba(124,58,237,.2),
-                    transparent 30%
-                ),
-
-                radial-gradient(
-                    circle at 10% 90%,
-                    rgba(37,99,235,.16),
-                    transparent 30%
-                ),
-
-                rgba(255,255,255,.035);
-
-            border:
-                1px solid
-                rgba(148,163,184,.15);
-
+        .process-heading {
             text-align: center;
-
+            max-width: 700px;
+            margin: 0 auto 55px;
         }
 
-        .pnd-cta-box h2 {
-
-            color: white;
-
-            font-size: clamp(
-                32px,
-                5vw,
-                55px
-            );
-
+        .process-heading h2 {
+            margin: 0 0 15px;
+            font-size: clamp(34px, 5vw, 55px);
+            letter-spacing: -2px;
             font-weight: 800;
-
-            letter-spacing: -.04em;
-
         }
 
-        .pnd-cta-box p {
-
-            max-width: 650px;
-
-            margin:
-                20px auto 30px;
-
-            color:
-                var(--pnd-muted);
-
-            line-height: 1.8;
-
+        .process-heading p {
+            margin: 0;
+            color: #8ea0b8;
+            line-height: 1.75;
         }
 
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .process-card {
+            padding: 28px 22px;
+            min-height: 220px;
+            border: 1px solid rgba(148,163,184,.13);
+            border-radius: 22px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.045),
+                rgba(255,255,255,.018)
+            );
+        }
+
+        .process-number {
+            color: #60a5fa;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .process-card i {
+            display: block;
+            margin: 25px 0 18px;
+            color: #67e8f9;
+            font-size: 27px;
+        }
+
+        .process-card h3 {
+            margin: 0 0 9px;
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .process-card p {
+            margin: 0;
+            color: #8ea0b8;
+            line-height: 1.65;
+            font-size: 14px;
+        }
 
         /* =========================================================
            FOOTER
         ========================================================= */
-
         footer {
-
-            background:
-                #050B14;
-
-            border-top:
-                1px solid
-                rgba(148,163,184,.1);
-
+            padding: 30px 20px;
+            background: #050d18;
+            border-top: 1px solid rgba(255,255,255,.06);
+            text-align: center;
         }
 
-        .pnd-footer {
-
-            padding: 70px 0 30px;
-
-        }
-
-        .pnd-logo {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-        }
-
-        .pnd-brand-logo-wrap {
-
-            width: 130px;
-
-        }
-
-        .pnd-brand-logo-wrap img {
-
-            display: block;
-
-            width: 100%;
-
-            height: auto;
-
-        }
-
-        .pnd-footer-text {
-
-            margin-top: 20px;
-
-            max-width: 360px;
-
-            color:
-                #8290A4;
-
-            font-size: 14px;
-
-            line-height: 1.8;
-
-        }
-
-        .pnd-footer-title {
-
-            color: white;
-
-            font-size: 15px;
-
-            font-weight: 800;
-
-            margin-bottom: 18px;
-
-        }
-
-        .pnd-footer-links {
-
-            list-style: none;
-
-            padding: 0;
-
-            margin: 0;
-
-        }
-
-        .pnd-footer-links li {
-
-            margin-bottom: 10px;
-
-        }
-
-        .pnd-footer-links a {
-
-            color:
-                #8290A4;
-
-            font-size: 14px;
-
-            transition:
-                .25s ease;
-
-        }
-
-        .pnd-footer-links a:hover {
-
-            color:
-                #60A5FA;
-
-        }
-
-        .pnd-footer-bottom {
-
-            padding-top: 25px;
-
-            margin-top: 35px;
-
-            border-top:
-                1px solid
-                rgba(148,163,184,.08);
-
-            color:
-                #64748B;
-
+        footer p {
+            margin: 4px 0;
+            color: #71839d;
             font-size: 13px;
-
         }
 
-        .pnd-social {
-
-            display: flex;
-
-            gap: 9px;
-
+        footer .tagline {
+            color: #9aaac0;
+            font-weight: 600;
         }
-
-        .pnd-social a {
-
-            width: 38px;
-            height: 38px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 11px;
-
-            border:
-                1px solid
-                rgba(148,163,184,.15);
-
-            color:
-                #94A3B8;
-
-            transition:
-                .25s ease;
-
-        }
-
-        .pnd-social a:hover {
-
-            color: white;
-
-            border-color:
-                rgba(37,99,235,.5);
-
-            background:
-                rgba(37,99,235,.1);
-
-            transform:
-                translateY(-3px);
-
-        }
-
 
         /* =========================================================
-           REVEAL ANIMATION
+           REVEAL
         ========================================================= */
-
-        .pnd-reveal {
-
+        .reveal {
             opacity: 0;
-
-            transform:
-                translateY(25px);
-
-            transition:
-                opacity .7s ease,
-                transform .7s ease;
-
+            transform: translateY(25px);
+            transition: opacity .7s ease, transform .7s ease;
         }
 
-        .pnd-reveal.pnd-visible {
-
+        .reveal.show {
             opacity: 1;
-
-            transform:
-                translateY(0);
-
+            transform: translateY(0);
         }
-
 
         /* =========================================================
-           RESPONSIVE
+           RESPONSIVE — TABLET
         ========================================================= */
-
-        @media (max-width: 991px) {
-
-            .pnd-section {
-                padding: 80px 0;
+        @media (max-width: 1100px) {
+            .pnd-header-inner {
+                width: min(100% - 28px, 1440px);
+                gap: 18px;
             }
 
-            .pnd-featured {
-                padding: 45px 30px;
+            .pnd-logo {
+                width: 165px;
             }
 
-            .pnd-cta-box {
-                padding: 45px 25px;
+            .pnd-logo img {
+                max-width: 175px;
+                height: 47px;
             }
 
+            .pnd-search {
+                max-width: 300px;
+            }
+
+            .pnd-nav-link {
+                padding: 0 10px;
+                font-size: 14px;
+            }
+
+            .pnd-start {
+                padding: 0 16px;
+                min-height: 50px;
+                font-size: 14px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-
-        @media (max-width: 767px) {
-
-            .pnd-hero {
-
-                min-height: auto;
-
-                padding:
-                    120px 0 80px;
-
+        /* =========================================================
+           RESPONSIVE — MOBILE
+        ========================================================= */
+        @media (max-width: 820px) {
+            .pnd-header {
+                height: 82px;
             }
 
-            .pnd-hero-title {
-
-                font-size:
-                    clamp(42px, 13vw, 65px);
-
+            .pnd-header-inner {
+                width: calc(100% - 28px);
             }
 
-            .pnd-hero-text {
-                font-size: 16px;
+            .pnd-logo {
+                width: auto;
             }
 
-            .pnd-hero-actions {
+            .pnd-logo img {
+                height: 43px;
+                max-width: 175px;
+            }
 
+            .pnd-search,
+            .pnd-nav,
+            .pnd-start {
+                display: none;
+            }
+
+            .pnd-menu-btn {
                 display: grid;
-
-                grid-template-columns:
-                    1fr;
-
+                place-items: center;
+                margin-left: auto;
             }
 
-            .pnd-btn-primary,
-            .pnd-btn-outline {
+            .services-hero {
+                min-height: auto;
+                padding: 135px 18px 75px;
+            }
 
+            .hero-orb {
+                width: 330px;
+                height: 330px;
+                right: -150px;
+                top: 130px;
+            }
+
+            .hero-title {
+                letter-spacing: -2.5px;
+                margin-top: 20px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+                line-height: 1.75;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-btn {
                 width: 100%;
-
             }
 
-            .pnd-featured-list {
-
-                grid-template-columns:
-                    1fr;
-
+            .services-section {
+                padding: 75px 16px 85px;
             }
 
-            .pnd-filter-wrap {
-
-                justify-content:
-                    flex-start;
-
+            .section-heading {
+                margin-bottom: 38px;
             }
 
+            .section-heading h2 {
+                letter-spacing: -1.5px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 17px;
+            }
+
+            .service-card,
+            .service-content {
+                min-height: 405px;
+            }
+
+            .service-content {
+                padding: 24px;
+            }
+
+            .process-section {
+                padding: 80px 16px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .process-card {
+                min-height: auto;
+            }
+
+            .cta-section {
+                padding: 65px 16px;
+            }
+
+            .cta-box {
+                border-radius: 24px;
+            }
         }
-
 
         @media (max-width: 420px) {
-
-            .pnd-section {
-                padding: 65px 0;
+            .pnd-mobile-menu {
+                padding: 20px;
             }
 
-            .pnd-service-card,
-            .pnd-process-card,
-            .pnd-why-card {
-
-                padding: 24px;
-
+            .hero-badge {
+                font-size: 11px;
+                padding: 9px 12px;
             }
 
-            .pnd-featured {
-
-                padding: 35px 22px;
-
+            .hero-title {
+                font-size: 48px;
             }
 
-            .pnd-cta-box {
-
-                padding:
-                    40px 20px;
-
+            .service-card,
+            .service-content {
+                min-height: 380px;
             }
 
-            .pnd-brand-logo-wrap {
-
-                width: 100px;
-
+            .service-content h3 {
+                font-size: 23px;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <!-- TOP LED -->
+    <div class="pnd-top-led"></div>
 
     <!-- =========================================================
-         TOP LED
-    ========================================================= -->
+         HEADER
+    ========================================================== -->
+    <header class="pnd-header">
+        <div class="pnd-header-inner">
 
-    <div
-        class="pnd-led"
-        aria-hidden="true">
-    </div>
+            <a href="index.html" class="pnd-logo" aria-label="Pixel Nest Digital Home">
+                <img
+                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                    alt="Pixel Nest Digital Logo"
+                >
+            </a>
 
+            <div class="pnd-search">
+                <input
+                    type="search"
+                    id="desktopSearch"
+                    placeholder="Search Pixel Nest Digital..."
+                    aria-label="Search"
+                >
+                <i class="bi bi-search"></i>
+            </div>
 
+            <nav class="pnd-nav" aria-label="Main navigation">
+                <a href="index.html" class="pnd-nav-link">Home</a>
+                <a href="about.html" class="pnd-nav-link">About</a>
+                <a href="services.html" class="pnd-nav-link active">Services</a>
+                <a href="team.html" class="pnd-nav-link">Team</a>
+                <a href="portfolio.html" class="pnd-nav-link">Portfolio</a>
+                <a href="contact.html" class="pnd-nav-link">Contact</a>
+            </nav>
+
+            <a href="start-project.html" class="pnd-start">
+                Discuss Project
+                <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+            <button
+                type="button"
+                class="pnd-menu-btn"
+                id="pndMenuBtn"
+                aria-label="Open menu"
+                aria-controls="pndMobileMenu"
+                aria-expanded="false"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- =========================================================
+         MOBILE MENU
+    ========================================================== -->
+    <aside class="pnd-mobile-menu" id="pndMobileMenu">
+
+        <div class="pnd-mobile-head">
+            <a href="index.html">
+                <img
+                    class="pnd-mobile-logo"
+                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
+                    alt="Pixel Nest Digital"
+                >
+            </a>
+
+            <button type="button" class="pnd-close" id="pndCloseBtn" aria-label="Close menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="pnd-mobile-search">
+            <input
+                type="search"
+                id="mobileSearch"
+                placeholder="Search..."
+                aria-label="Mobile search"
+            >
+            <i class="bi bi-search"></i>
+        </div>
+
+        <nav class="pnd-mobile-links" aria-label="Mobile navigation">
+            <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="about.html">
+                <i class="bi bi-info-circle"></i>
+                <span>About</span>
+            </a>
+
+            <a href="services.html" class="active">
+                <i class="bi bi-grid"></i>
+                <span>Services</span>
+            </a>
+
+            <a href="team.html">
+                <i class="bi bi-people"></i>
+                <span>Team</span>
+            </a>
+
+            <a href="portfolio.html">
+                <i class="bi bi-briefcase"></i>
+                <span>Portfolio</span>
+            </a>
+
+            <a href="contact.html">
+                <i class="bi bi-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+    </aside>
 
     <!-- =========================================================
          HERO
-    ========================================================= -->
+    ========================================================== -->
+    <main>
 
-    <section
-        class="pnd-hero">
+        <section class="services-hero">
+            <div class="hero-orb"></div>
 
-        <div class="container">
+            <div class="hero-container">
 
-            <div
-                class="pnd-hero-content pnd-reveal">
+                <div class="hero-badge reveal">
+                    <span></span>
+                    Pixel Nest Digital / Services
+                </div>
 
-                <span class="pnd-eyebrow">
-
-                    <i class="bi bi-grid-3x3-gap-fill"></i>
-
-                    Our Services
-
-                </span>
-
-
-                <h1 class="pnd-hero-title">
-
-                    Digital solutions
-                    <span>built around your ideas.</span>
-
+                <h1 class="hero-title reveal">
+                    Digital solutions<br>
+                    <span class="gradient">built around your idea.</span>
                 </h1>
 
-
-                <p class="pnd-hero-text">
-
-                    From websites and web applications to software
-                    projects, branding and digital content, Pixel Nest
-                    Digital combines technology and creativity to build
-                    solutions that work for your business.
-
+                <p class="hero-text reveal">
+                    From modern websites and web applications to branding,
+                    photography, videography and digital content — we bring
+                    technology and creativity together to build a stronger
+                    digital presence for your business.
                 </p>
 
-
-                <div class="pnd-hero-actions">
-
-                    <a
-                        href="https://wa.me/917736755820"
-                        target="_blank"
-                        rel="noopener"
-                        class="pnd-btn-primary">
-
-                        Discuss Your Project
-
-                        <i class="bi bi-arrow-up-right"></i>
-
+                <div class="hero-actions reveal">
+                    <a href="start-project.html" class="hero-btn secondary">
+                        <i class="bi bi-whatsapp"></i>
+                        Start a Project
                     </a>
-
-
-                    <a
-                        href="#services"
-                        class="pnd-btn-outline">
-
-                        Explore Services
-
-                        <i class="bi bi-arrow-down"></i>
-
-                    </a>
-
                 </div>
 
             </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         SERVICES
-    ========================================================= -->
-
-    <section
-        id="services"
-        class="pnd-section pnd-section-dark">
-
-        <div class="container">
-
-            <div
-                class="text-center mb-5 pnd-reveal">
-
-                <span class="pnd-eyebrow">
-
-                    <i class="bi bi-layers"></i>
-
-                    What We Do
-
-                </span>
-
-
-                <h2 class="pnd-title">
-
-                    Services designed for
-                    <span>real-world needs.</span>
-
-                </h2>
-
-
-                <p
-                    class="pnd-description mx-auto">
-
-                    Choose the service you need or combine multiple
-                    solutions into one complete digital project.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- FILTER -->
-
-            <div
-                class="pnd-filter-wrap pnd-reveal">
-
-                <button
-                    type="button"
-                    class="pnd-filter-btn active"
-                    data-filter="all">
-
-                    All Services
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="pnd-filter-btn"
-                    data-filter="development">
-
-                    Development
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="pnd-filter-btn"
-                    data-filter="software">
-
-                    Software
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="pnd-filter-btn"
-                    data-filter="creative">
-
-                    Creative
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="pnd-filter-btn"
-                    data-filter="digital">
-
-                    Digital
-
-                </button>
-
-            </div>
-
-
-
-            <!-- SERVICE GRID -->
-
-            <div class="row g-4">
-
-
-                <!-- WEBSITE -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="development">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-window-stack"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Website Development
-                        </h3>
-
-
-                        <p>
-
-                            Modern, responsive and professional
-                            websites designed for businesses,
-                            organizations, brands and personal
-                            projects.
-
-                        </p>
-
-
-                        <a
-                            href="website_development.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- WEB APPLICATION -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="development">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-code-slash"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Web Applications
-                        </h3>
-
-
-                        <p>
-
-                            Custom web applications combining
-                            frontend interfaces, backend systems,
-                            databases and business logic.
-
-                        </p>
-
-
-                        <a
-                            href="web_applications.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- ECOMMERCE -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="development">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-cart3"></i>
-
-                        </div>
-
-
-                        <h3>
-                            E-Commerce Solutions
-                        </h3>
-
-
-                        <p>
-
-                            Online stores with product management,
-                            shopping experiences, order workflows
-                            and responsive interfaces.
-
-                        </p>
-
-
-                        <a
-                            href="ecommerce.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- SOFTWARE -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="software">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-cpu"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Software Projects
-                        </h3>
-
-
-                        <p>
-
-                            Custom software solutions for academic,
-                            business and practical project
-                            requirements.
-
-                        </p>
-
-
-                        <a
-                            href="software_projects.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- DATABASE -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="software">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-database"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Database Solutions
-                        </h3>
-
-
-                        <p>
-
-                            Database design, integration, data
-                            management and backend database
-                            solutions for applications.
-
-                        </p>
-
-
-                        <a
-                            href="database.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- HOSTING -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="digital">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-cloud-check"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Hosting & Maintenance
-                        </h3>
-
-
-                        <p>
-
-                            Website hosting, deployment,
-                            maintenance, updates and technical
-                            support for your digital projects.
-
-                        </p>
-
-
-                        <a
-                            href="hosting.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- LOGO -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="creative">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-palette"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Logo & Brand Design
-                        </h3>
-
-
-                        <p>
-
-                            Professional logo concepts and visual
-                            identity elements designed to give your
-                            brand a recognizable presence.
-
-                        </p>
-
-
-                        <a
-                            href="branding.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- PHOTOGRAPHY -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="creative">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-camera"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Photography
-                        </h3>
-
-
-                        <p>
-
-                            Product, business, event and creative
-                            photography for brands and digital
-                            content.
-
-                        </p>
-
-
-                        <a
-                            href="photography.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- VIDEOGRAPHY -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="creative">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-camera-reels"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Videography
-                        </h3>
-
-
-                        <p>
-
-                            Promotional videos, business content,
-                            product videos and creative visual
-                            storytelling.
-
-                        </p>
-
-
-                        <a
-                            href="videography.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- VIDEO EDITING -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="creative">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-film"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Video Editing
-                        </h3>
-
-
-                        <p>
-
-                            Clean and engaging video editing for
-                            social media, promotional content,
-                            reels and business presentations.
-
-                        </p>
-
-
-                        <a
-                            href="video_editing.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- DIGITAL CONTENT -->
-
-                <div
-                    class="col-lg-4 col-md-6 pnd-service-item"
-                    data-category="digital">
-
-                    <div
-                        class="pnd-service-card pnd-reveal">
-
-                        <div class="pnd-service-icon">
-
-                            <i class="bi bi-phone"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Digital Content
-                        </h3>
-
-
-                        <p>
-
-                            Digital creatives, social media content,
-                            promotional materials and visual assets
-                            for online platforms.
-
-                        </p>
-
-
-                        <a
-                            href="digital_content.html"
-                            class="pnd-service-link">
-
-                            Explore Service
-
-                            <i class="bi bi-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         FEATURED
-    ========================================================= -->
-
-    <section
-        class="pnd-section pnd-section-dark">
-
-        <div class="container">
-
-            <div
-                class="pnd-featured pnd-reveal">
-
-                <div class="row align-items-center">
-
-                    <div class="col-lg-8">
-
-                        <span class="pnd-eyebrow">
-
-                            <i class="bi bi-stars"></i>
-
-                            Complete Digital Solutions
-
-                        </span>
-
-
-                        <h2 class="mt-4">
-
-                            One idea.
-                            <span>Multiple possibilities.</span>
-
-                        </h2>
-
-
-                        <p>
-
-                            Your project may require more than one
-                            service. Pixel Nest Digital can combine
-                            development, software, branding and
-                            digital content into a connected solution.
-
-                        </p>
-
-
-                        <div
-                            class="pnd-featured-list">
-
-                            <div class="pnd-featured-item">
-
-                                <i class="bi bi-check-circle-fill"></i>
-
-                                Website + Web Application
-
-                            </div>
-
-
-                            <div class="pnd-featured-item">
-
-                                <i class="bi bi-check-circle-fill"></i>
-
-                                Software + Database
-
-                            </div>
-
-
-                            <div class="pnd-featured-item">
-
-                                <i class="bi bi-check-circle-fill"></i>
-
-                                Branding + Website
-
-                            </div>
-
-
-                            <div class="pnd-featured-item">
-
-                                <i class="bi bi-check-circle-fill"></i>
-
-                                Photography + Digital Content
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
-
-                        <a
-                            href="https://wa.me/917736755820"
-                            target="_blank"
-                            rel="noopener"
-                            class="pnd-btn-primary">
-
-                            Start a Conversation
-
-                            <i class="bi bi-arrow-up-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         PROCESS
-    ========================================================= -->
-
-    <section
-        class="pnd-section pnd-section-light">
-
-        <div class="container">
-
-            <div
-                class="text-center mb-5 pnd-reveal">
-
-                <span class="pnd-eyebrow">
-
-                    <i class="bi bi-diagram-3"></i>
-
-                    How We Work
-
-                </span>
-
-
-                <h2 class="pnd-title">
-
-                    Simple process.
-                    <span>Clear direction.</span>
-
-                </h2>
-
-
-                <p
-                    class="pnd-description mx-auto"
-                    style="color:#64748B;">
-
-                    Every project starts with understanding your
-                    requirement and ends with a solution designed
-                    around your goals.
-
-                </p>
-
-            </div>
-
-
-            <div class="row g-4">
-
-
-                <div class="col-lg-3 col-md-6">
-
-                    <div class="pnd-process-card pnd-reveal">
-
-                        <div class="pnd-process-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Discover
-                        </h3>
-
-                        <p>
-
-                            We understand your idea, requirements,
-                            target audience and project goals.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-
-                    <div class="pnd-process-card pnd-reveal">
-
-                        <div class="pnd-process-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Plan
-                        </h3>
-
-                        <p>
-
-                            We define the structure, technology,
-                            features and project direction.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-
-                    <div class="pnd-process-card pnd-reveal">
-
-                        <div class="pnd-process-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Build
-                        </h3>
-
-                        <p>
-
-                            The solution is developed with attention
-                            to usability, responsiveness and quality.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-
-                    <div class="pnd-process-card pnd-reveal">
-
-                        <div class="pnd-process-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Deliver
-                        </h3>
-
-                        <p>
-
-                            We test, refine and prepare the final
-                            project for launch or handover.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         WHY PIXEL NEST DIGITAL
-    ========================================================= -->
-
-    <section
-        class="pnd-section pnd-section-dark">
-
-        <div class="container">
-
-            <div
-                class="row align-items-end mb-5">
-
-                <div class="col-lg-8 pnd-reveal">
-
-                    <span class="pnd-eyebrow">
-
-                        <i class="bi bi-shield-check"></i>
-
-                        Why Pixel Nest Digital
-
-                    </span>
-
-
-                    <h2 class="pnd-title">
-
-                        Built with
-                        <span>purpose.</span>
-
-                    </h2>
-
-                </div>
-
-
-                <div class="col-lg-4 pnd-reveal">
-
-                    <p class="pnd-description mb-0">
-
-                        Technology should solve problems,
-                        simplify work and create better digital
-                        experiences.
-
+        </section>
+
+        <!-- =====================================================
+             ALL SERVICES
+        ====================================================== -->
+        <section class="services-section" id="all-services">
+
+            <div class="services-container">
+
+                <div class="section-heading reveal">
+                    <span class="section-kicker">WHAT WE DO</span>
+                    <h2>Everything you need to build your digital presence.</h2>
+                    <p>
+                        A complete collection of digital, creative and technology
+                        services designed to take your idea from concept to reality.
                     </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <!-- 01 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=85"
+                                alt="Website development"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <div class="service-number">01 / WEB</div>
+                            <h3>Website Development</h3>
+                            <p>
+                                Modern, responsive and visually engaging websites
+                                designed to present your brand professionally.
+                            </p>
+                            <a href="website_development.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 02 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85"
+                                alt="Web applications"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-window-stack"></i>
+                            </div>
+                            <div class="service-number">02 / SOFTWARE</div>
+                            <h3>Web Applications</h3>
+                            <p>
+                                Practical web-based applications built around
+                                workflows, business requirements and user needs.
+                            </p>
+                            <a href="web_applications.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 03 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
+                                alt="E-commerce"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-cart3"></i>
+                            </div>
+                            <div class="service-number">03 / COMMERCE</div>
+                            <h3>E-Commerce</h3>
+                            <p>
+                                Product-focused online stores with clean layouts,
+                                responsive experiences and conversion-ready pages.
+                            </p>
+                            
+                        </div>
+                    </article>
+
+                    <!-- 04 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85"
+                                alt="Software and database projects"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-database"></i>
+                            </div>
+                            <div class="service-number">04 / DATA</div>
+                            <h3>Software &amp; Database Projects</h3>
+                            <p>
+                                Structured software and database solutions for
+                                projects that require organized digital systems.
+                            </p>
+                          
+                        </div>
+                    </article>
+
+                    <!-- 05 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85"
+                                alt="Hosting and maintenance"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-cloud-check"></i>
+                            </div>
+                            <div class="service-number">05 / SUPPORT</div>
+                            <h3>Hosting &amp; Maintenance</h3>
+                            <p>
+                                Reliable website support, hosting assistance,
+                                updates and ongoing maintenance for your digital
+                                presence.
+                            </p>
+                           
+                        </div>
+                    </article>
+
+                    <!-- 06 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=85"
+                                alt="Logo and brand design"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <div class="service-number">06 / BRAND</div>
+                            <h3>Logo &amp; Brand Design</h3>
+                            <p>
+                                Memorable visual identities, logos, posters and
+                                creative brand assets designed for your business.
+                            </p>
+                            <a href="logo-brand-design.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 07 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=85"
+                                alt="Photography"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-camera"></i>
+                            </div>
+                            <div class="service-number">07 / VISUALS</div>
+                            <h3>Photography</h3>
+                            <p>
+                                Professional photography for products, brands,
+                                events, people and meaningful moments.
+                            </p>
+                            <a href="photography.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 08 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1200&q=85"
+                                alt="Videography"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-camera-reels"></i>
+                            </div>
+                            <div class="service-number">08 / MOTION</div>
+                            <h3>Videography</h3>
+                            <p>
+                                Cinematic visual storytelling for brands, events,
+                                campaigns, promotions and social platforms.
+                            </p>
+                            <a href="videography.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 09 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85"
+                                alt="Video editing"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-film"></i>
+                            </div>
+                            <div class="service-number">09 / EDITING</div>
+                            <h3>Video Editing</h3>
+                            <p>
+                                Polished edits, reels, promotional videos and
+                                social content crafted for clear visual impact.
+                            </p>
+                           
+                        </div>
+                    </article>
+
+                    <!-- 10 -->
+                    <article class="service-card reveal">
+                        <div class="service-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=85"
+                                alt="Digital content creation"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="service-overlay"></div>
+                        <div class="service-glow"></div>
+
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <div class="service-number">10 / CONTENT</div>
+                            <h3>Digital Content</h3>
+                            <p>
+                                Social media creatives, reels, promotional assets
+                                and digital content created for today's platforms.
+                            </p>
+                            <a href="digital-content.html" class="service-link">
+                                Explore Service <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             PROCESS
+        ====================================================== -->
+        <section class="process-section">
+
+            <div class="process-container">
+
+                <div class="process-heading reveal">
+                    <h2>From idea to digital reality.</h2>
+                    <p>
+                        We keep the process clear, collaborative and focused on
+                        creating something that works for your goals.
+                    </p>
+                </div>
+
+                <div class="process-grid">
+
+                    <div class="process-card reveal">
+                        <span class="process-number">01 / DISCOVER</span>
+                        <i class="bi bi-lightbulb"></i>
+                        <h3>Understand</h3>
+                        <p>
+                            We learn about your idea, audience, requirements and
+                            the result you want to achieve.
+                        </p>
+                    </div>
+
+                    <div class="process-card reveal">
+                        <span class="process-number">02 / PLAN</span>
+                        <i class="bi bi-diagram-3"></i>
+                        <h3>Plan</h3>
+                        <p>
+                            We organize the structure, visual direction and
+                            project requirements before development begins.
+                        </p>
+                    </div>
+
+                    <div class="process-card reveal">
+                        <span class="process-number">03 / CREATE</span>
+                        <i class="bi bi-stars"></i>
+                        <h3>Create</h3>
+                        <p>
+                            Technology and creativity come together to build
+                            the actual digital experience.
+                        </p>
+                    </div>
+
+                    <div class="process-card reveal">
+                        <span class="process-number">04 / DELIVER</span>
+                        <i class="bi bi-rocket-takeoff"></i>
+                        <h3>Launch</h3>
+                        <p>
+                            We refine the final result and help move your
+                            project from concept into the real world.
+                        </p>
+                    </div>
 
                 </div>
 
             </div>
+        </section>
 
+        
 
-            <div class="row g-4">
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-lightning-charge"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Modern Technology
-                        </h3>
-
-
-                        <p>
-
-                            We focus on modern technologies and
-                            development practices to create reliable
-                            digital solutions.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-phone"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Responsive Design
-                        </h3>
-
-
-                        <p>
-
-                            Every website and digital interface is
-                            designed to work smoothly across
-                            desktops, tablets and mobile devices.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-person-check"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Direct Communication
-                        </h3>
-
-
-                        <p>
-
-                            Your project can be discussed directly,
-                            making communication and requirements
-                            easier to manage.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-brush"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Technology + Creativity
-                        </h3>
-
-
-                        <p>
-
-                            Development and creative services can be
-                            combined to create a consistent digital
-                            identity.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-gear"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Flexible Solutions
-                        </h3>
-
-
-                        <p>
-
-                            Projects can be customized according to
-                            the actual requirements rather than
-                            forcing a fixed solution.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6">
-
-                    <div class="pnd-why-card pnd-reveal">
-
-                        <div class="pnd-why-icon">
-
-                            <i class="bi bi-headset"></i>
-
-                        </div>
-
-
-                        <h3>
-                            Continued Support
-                        </h3>
-
-
-                        <p>
-
-                            Hosting, maintenance and future updates
-                            can be handled after the project is
-                            delivered.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================================
-         FINAL CTA
-    ========================================================= -->
-
-    <section
-        class="pnd-final-cta">
-
-        <div class="container">
-
-            <div
-                class="pnd-cta-box pnd-reveal">
-
-                <span class="pnd-eyebrow">
-
-                    <i class="bi bi-chat-dots"></i>
-
-                    Have a Project in Mind?
-
-                </span>
-
-
-                <h2 class="mt-4">
-
-                    Let's build something
-                    <span>meaningful.</span>
-
-                </h2>
-
-
-                <p>
-
-                    Tell us what you have in mind. Whether it is a
-                    website, application, software project, brand
-                    identity or digital content, we can discuss the
-                    right approach for your project.
-
-                </p>
-
-
-                <a
-                    href="https://wa.me/917736755820"
-                    target="_blank"
-                    rel="noopener"
-                    class="pnd-btn-primary">
-
-                    Discuss Your Project
-
-                    <i class="bi bi-whatsapp"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
+    </main>
 
     <!-- =========================================================
          FOOTER
-    ========================================================= -->
-
+    ========================================================== -->
     <footer>
-
-        <div class="container">
-
-            <div class="pnd-footer">
-
-                <div class="row g-5">
-
-
-                    <!-- BRAND -->
-
-                    <div class="col-lg-5">
-
-                        <a
-                            href="index.html"
-                            class="pnd-logo">
-
-                            <div
-                                class="pnd-brand-logo-wrap">
-
-                                <img
-                                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                                    alt="Pixel Nest Digital">
-
-                            </div>
-
-                        </a>
-
-
-                        <p class="pnd-footer-text">
-
-                            Technology • Creativity • Digital
-                            Solutions.
-
-                            <br><br>
-
-                            Pixel Nest Digital creates modern
-                            websites, applications, software
-                            solutions, branding and digital content.
-
-                        </p>
-
-
-                        <div class="pnd-social">
-
-                            <a
-                                href="#"
-                                aria-label="Instagram">
-
-                                <i class="bi bi-instagram"></i>
-
-                            </a>
-
-
-                            <a
-                                href="#"
-                                aria-label="Facebook">
-
-                                <i class="bi bi-facebook"></i>
-
-                            </a>
-
-
-                            <a
-                                href="#"
-                                aria-label="LinkedIn">
-
-                                <i class="bi bi-linkedin"></i>
-
-                            </a>
-
-
-                            <a
-                                href="https://wa.me/917736755820"
-                                target="_blank"
-                                rel="noopener"
-                                aria-label="WhatsApp">
-
-                                <i class="bi bi-whatsapp"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- SERVICES -->
-
-                    <div class="col-6 col-lg-2">
-
-                        <div class="pnd-footer-title">
-                            Services
-                        </div>
-
-
-                        <ul class="pnd-footer-links">
-
-                            <li>
-                                <a href="website_development.html">
-                                    Websites
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="web_applications.html">
-                                    Web Applications
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="ecommerce.html">
-                                    E-Commerce
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="software_projects.html">
-                                    Software Projects
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="branding.html">
-                                    Branding
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-
-                    <!-- COMPANY -->
-
-                    <div class="col-6 col-lg-2">
-
-                        <div class="pnd-footer-title">
-                            Company
-                        </div>
-
-
-                        <ul class="pnd-footer-links">
-
-                            <li>
-                                <a href="index.html">
-                                    Home
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="about.html">
-                                    About
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="team.html">
-                                    Team
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="portfolio.html">
-                                    Portfolio
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">
-                                    Contact
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-
-                    <!-- CONTACT -->
-
-                    <div class="col-lg-3">
-
-                        <div class="pnd-footer-title">
-                            Let's Talk
-                        </div>
-
-
-                        <ul class="pnd-footer-links">
-
-                            <li>
-
-                                <a
-                                    href="https://wa.me/917736755820"
-                                    target="_blank"
-                                    rel="noopener">
-
-                                    <i
-                                        class="bi bi-whatsapp me-2">
-                                    </i>
-
-                                    WhatsApp
-
-                                </a>
-
-                            </li>
-
-
-                            <li>
-
-                                <a
-                                    href="mailto:pixelnestdigital@gmail.com">
-
-                                    <i
-                                        class="bi bi-envelope me-2">
-                                    </i>
-
-                                    Email Us
-
-                                </a>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div
-                    class="pnd-footer-bottom">
-
-                    <div
-                        class="row align-items-center g-3">
-
-                        <div class="col-md-6">
-
-                            ©
-                            <span id="pndYear"></span>
-                            Pixel Nest Digital.
-                            All rights reserved.
-
-                        </div>
-
-
-                        <div
-                            class="col-md-6 text-md-end">
-
-                            Technology • Creativity • Digital Solutions
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+        <p>© 2026 Pixel Nest Digital. All rights reserved.</p>
+        <p class="tagline">Technology • Creativity • Digital Solutions</p>
     </footer>
 
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
 
-        /* =========================================================
-           YEAR
-        ========================================================= */
+        const pndMenuBtn = document.getElementById("pndMenuBtn");
+        const pndCloseBtn = document.getElementById("pndCloseBtn");
+        const pndMobileMenu = document.getElementById("pndMobileMenu");
 
-        document.getElementById("pndYear").textContent =
-            new Date().getFullYear();
+        function openMobileMenu() {
+            pndMobileMenu.classList.add("open");
+            pndMenuBtn.setAttribute("aria-expanded", "true");
+            document.body.style.overflow = "hidden";
+        }
 
+        function closeMobileMenu() {
+            pndMobileMenu.classList.remove("open");
+            pndMenuBtn.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+        }
 
+        pndMenuBtn.addEventListener("click", openMobileMenu);
+        pndCloseBtn.addEventListener("click", closeMobileMenu);
 
-        /* =========================================================
+        document.querySelectorAll(".pnd-mobile-links a").forEach(link => {
+            link.addEventListener("click", closeMobileMenu);
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closeMobileMenu();
+            }
+        });
+
+        /* =====================================================
            REVEAL ANIMATION
-        ========================================================= */
+        ====================================================== */
 
-        const revealElements =
-            document.querySelectorAll(".pnd-reveal");
+        const revealElements = document.querySelectorAll(".reveal");
 
+        const revealObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
 
-        const revealObserver =
-            new IntersectionObserver(
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
 
-                function(entries, observer) {
+        /* =====================================================
+           SIMPLE SEARCH
+        ====================================================== */
 
-                    entries.forEach(function(entry) {
+        function performSearch(input) {
+            const value = input.value.trim().toLowerCase();
 
-                        if (entry.isIntersecting) {
+            if (!value) {
+                return;
+            }
 
-                            entry.target.classList.add(
-                                "pnd-visible"
-                            );
+            const cards = document.querySelectorAll(".service-card");
+            let found = false;
 
-                            observer.unobserve(
-                                entry.target
-                            );
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
 
-                        }
-
+                if (text.includes(value)) {
+                    card.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
                     });
 
-                },
+                    card.style.outline = "2px solid #06b6d4";
 
-                {
-                    threshold: 0.12
+                    setTimeout(() => {
+                        card.style.outline = "";
+                    }, 1800);
+
+                    found = true;
                 }
+            });
 
-            );
+            if (!found && value.includes("service")) {
+                document.getElementById("all-services").scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        }
 
-
-        revealElements.forEach(function(element) {
-
-            revealObserver.observe(element);
-
+        document.getElementById("desktopSearch").addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                performSearch(event.target);
+            }
         });
 
-
-
-        /* =========================================================
-           SERVICE FILTER
-        ========================================================= */
-
-        const filterButtons =
-            document.querySelectorAll(
-                ".pnd-filter-btn"
-            );
-
-        const serviceItems =
-            document.querySelectorAll(
-                ".pnd-service-item"
-            );
-
-
-        filterButtons.forEach(function(button) {
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    const filter =
-                        this.dataset.filter;
-
-
-                    filterButtons.forEach(
-                        function(btn) {
-
-                            btn.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-
-                    this.classList.add(
-                        "active"
-                    );
-
-
-                    serviceItems.forEach(
-                        function(item) {
-
-                            const category =
-                                item.dataset.category;
-
-
-                            if (
-                                filter === "all" ||
-                                category === filter
-                            ) {
-
-                                item.style.display =
-                                    "";
-
-                            } else {
-
-                                item.style.display =
-                                    "none";
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
+        document.getElementById("mobileSearch").addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                performSearch(event.target);
+            }
         });
-
     </script>
-
-
-    <!-- Bootstrap JS -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
 
 </body>
-
 </html>
