@@ -11,13 +11,13 @@
 
     <meta
         name="description"
-        content="Contact Pixel Nest Digital for website development, web applications, e-commerce, branding, photography, videography and digital solutions.">
+        content="Contact JO-GEO Web Studio for website development, web applications, e-commerce, branding, photography, videography and digital solutions.">
 
     <meta
         name="theme-color"
         content="#07111F">
 
-    <title>Contact | Pixel Nest Digital</title>
+    <title>Contact | JO-GEO Web Studio</title>
 
 
     <!-- =========================================================
@@ -59,26 +59,26 @@
 
         :root {
 
-            --pnd-space: #07111F;
-            --pnd-space-2: #0B172A;
-            --pnd-space-3: #111C35;
+            --jgws-space: #07111F;
+            --jgws-space-2: #0B172A;
+            --jgws-space-3: #111C35;
 
-            --pnd-blue: #2563EB;
-            --pnd-blue-dark: #1D4ED8;
+            --jgws-blue: #2563EB;
+            --jgws-blue-dark: #1D4ED8;
 
-            --pnd-cyan: #06B6D4;
-            --pnd-violet: #7C3AED;
+            --jgws-cyan: #06B6D4;
+            --jgws-violet: #7C3AED;
 
-            --pnd-green: #22C55E;
+            --jgws-green: #22C55E;
 
-            --pnd-white: #F8FAFC;
+            --jgws-white: #F8FAFC;
 
-            --pnd-text: #E2E8F0;
-            --pnd-muted: #94A3B8;
+            --jgws-text: #E2E8F0;
+            --jgws-muted: #94A3B8;
 
-            --pnd-border: rgba(148,163,184,.15);
+            --jgws-border: rgba(148,163,184,.15);
 
-            --pnd-header-height: 74px;
+            --jgws-header-height: 74px;
 
         }
 
@@ -119,9 +119,9 @@
                     transparent 28%
                 ),
 
-                var(--pnd-space);
+                var(--jgws-space);
 
-            color: var(--pnd-text);
+            color: var(--jgws-text);
 
             overflow-x: hidden;
 
@@ -183,7 +183,7 @@
            TOP LED
         ========================================================== */
 
-        .pnd-top-led {
+        .jgws-top-led {
 
             height: 2px;
 
@@ -194,17 +194,17 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    var(--pnd-blue),
-                    var(--pnd-cyan),
-                    var(--pnd-violet),
-                    var(--pnd-blue),
+                    var(--jgws-blue),
+                    var(--jgws-cyan),
+                    var(--jgws-violet),
+                    var(--jgws-blue),
                     transparent
                 );
 
             background-size: 250% 100%;
 
             animation:
-                pndLed 5s linear infinite;
+                jgwsLed 5s linear infinite;
 
             position: fixed;
 
@@ -220,7 +220,7 @@
         }
 
 
-        @keyframes pndLed {
+        @keyframes jgwsLed {
 
             0% {
                 background-position: 0 0;
@@ -237,7 +237,7 @@
            HEADER
         ========================================================== */
 
-        .pnd-header {
+        .jgws-header {
 
             position: sticky;
 
@@ -248,7 +248,7 @@
             width: 100%;
 
             min-height:
-                var(--pnd-header-height);
+                var(--jgws-header-height);
 
             background:
 
@@ -274,7 +274,7 @@
         }
 
 
-        .pnd-header.scrolled {
+        .jgws-header.scrolled {
 
             box-shadow:
                 0 12px 40px
@@ -283,7 +283,7 @@
         }
 
 
-        .pnd-header::before {
+        .jgws-header::before {
 
             content: "";
 
@@ -306,14 +306,14 @@
         }
 
 
-        .pnd-header-inner {
+        .jgws-header-inner {
 
             position: relative;
 
             z-index: 2;
 
             min-height:
-                var(--pnd-header-height);
+                var(--jgws-header-height);
 
             display: flex;
 
@@ -328,7 +328,7 @@
            LOGO
         ========================================================== */
 
-        .pnd-logo {
+        .jgws-logo {
 
             flex: 0 0 auto;
 
@@ -346,7 +346,7 @@
         }
 
 
-        .pnd-logo:hover {
+        .jgws-logo:hover {
 
             color: white;
 
@@ -356,7 +356,7 @@
         }
 
 
-        .pnd-logo-img {
+        .jgws-logo-img {
 
             display: block;
 
@@ -375,7 +375,7 @@
            DESKTOP SEARCH
         ========================================================== */
 
-        .pnd-search {
+        .jgws-search {
 
             flex:
                 1 1 300px;
@@ -409,7 +409,7 @@
         }
 
 
-        .pnd-search:focus-within {
+        .jgws-search:focus-within {
 
             border-color:
                 rgba(6,182,212,.45);
@@ -424,7 +424,7 @@
         }
 
 
-        .pnd-search-icon {
+        .jgws-search-icon {
 
             width: 40px;
 
@@ -443,7 +443,7 @@
         }
 
 
-        .pnd-search input {
+        .jgws-search input {
 
             flex: 1;
 
@@ -467,12 +467,12 @@
         }
 
 
-        .pnd-search input::placeholder {
+        .jgws-search input::placeholder {
             color: #64748b;
         }
 
 
-        .pnd-search button {
+        .jgws-search button {
 
             flex:
                 0 0 auto;
@@ -494,8 +494,8 @@
 
                 linear-gradient(
                     135deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan)
+                    var(--jgws-blue),
+                    var(--jgws-cyan)
                 );
 
             font-size: 12px;
@@ -511,7 +511,7 @@
         }
 
 
-        .pnd-search button:hover {
+        .jgws-search button:hover {
 
             transform:
                 translateY(-1px);
@@ -526,7 +526,7 @@
            DESKTOP NAV
         ========================================================== */
 
-        .pnd-nav {
+        .jgws-nav {
 
             flex:
                 0 0 auto;
@@ -542,7 +542,7 @@
         }
 
 
-        .pnd-nav-link {
+        .jgws-nav-link {
 
             position: relative;
 
@@ -577,8 +577,8 @@
         }
 
 
-        .pnd-nav-link:hover,
-        .pnd-nav-link.active {
+        .jgws-nav-link:hover,
+        .jgws-nav-link.active {
 
             color: white;
 
@@ -588,7 +588,7 @@
         }
 
 
-        .pnd-chevron {
+        .jgws-chevron {
 
             font-size: 10px;
 
@@ -598,15 +598,15 @@
         }
 
 
-        .pnd-dropdown {
+        .jgws-dropdown {
 
             position: relative;
 
         }
 
 
-        .pnd-dropdown:hover
-        .pnd-chevron {
+        .jgws-dropdown:hover
+        .jgws-chevron {
 
             transform:
                 rotate(180deg);
@@ -618,7 +618,7 @@
            DROPDOWN
         ========================================================== */
 
-        .pnd-dropdown-menu {
+        .jgws-dropdown-menu {
 
             position: absolute;
 
@@ -670,8 +670,8 @@
         }
 
 
-        .pnd-dropdown:hover
-        .pnd-dropdown-menu {
+        .jgws-dropdown:hover
+        .jgws-dropdown-menu {
 
             opacity: 1;
 
@@ -683,7 +683,7 @@
         }
 
 
-        .pnd-dropdown-item {
+        .jgws-dropdown-item {
 
             display: flex;
 
@@ -711,7 +711,7 @@
         }
 
 
-        .pnd-dropdown-item i {
+        .jgws-dropdown-item i {
 
             flex:
                 0 0 20px;
@@ -724,7 +724,7 @@
         }
 
 
-        .pnd-dropdown-item:hover {
+        .jgws-dropdown-item:hover {
 
             color: white;
 
@@ -741,7 +741,7 @@
            START BUTTON
         ========================================================== */
 
-        .pnd-start {
+        .jgws-start {
 
             display: inline-flex;
 
@@ -770,8 +770,8 @@
 
                 linear-gradient(
                     135deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan)
+                    var(--jgws-blue),
+                    var(--jgws-cyan)
                 );
 
             font-size: 12px;
@@ -792,7 +792,7 @@
         }
 
 
-        .pnd-start:hover {
+        .jgws-start:hover {
 
             color: white;
 
@@ -813,7 +813,7 @@
            MOBILE BUTTON
         ========================================================== */
 
-        .pnd-menu-btn {
+        .jgws-menu-btn {
 
             display: none;
 
@@ -852,7 +852,7 @@
            MOBILE OVERLAY
         ========================================================== */
 
-        .pnd-mobile-overlay {
+        .jgws-mobile-overlay {
 
             position: fixed;
 
@@ -874,7 +874,7 @@
         }
 
 
-        .pnd-mobile-overlay.active {
+        .jgws-mobile-overlay.active {
 
             opacity: 1;
 
@@ -887,7 +887,7 @@
            MOBILE SIDE MENU
         ========================================================== */
 
-        .pnd-mobile-menu {
+        .jgws-mobile-menu {
 
             position: fixed;
 
@@ -934,7 +934,7 @@
         }
 
 
-        .pnd-mobile-menu.active {
+        .jgws-mobile-menu.active {
 
             transform:
                 translateX(0);
@@ -942,7 +942,7 @@
         }
 
 
-        .pnd-mobile-top {
+        .jgws-mobile-top {
 
             display: flex;
 
@@ -957,16 +957,16 @@
         }
 
 
-        .pnd-mobile-top
-        .pnd-logo {
+        .jgws-mobile-top
+        .jgws-logo {
 
             width: auto;
 
         }
 
 
-        .pnd-mobile-top
-        .pnd-logo-img {
+        .jgws-mobile-top
+        .jgws-logo-img {
 
             width: 155px;
 
@@ -975,7 +975,7 @@
         }
 
 
-        .pnd-mobile-close {
+        .jgws-mobile-close {
 
             width: 42px;
 
@@ -1003,7 +1003,7 @@
         }
 
 
-        .pnd-mobile-search {
+        .jgws-mobile-search {
 
             height: 46px;
 
@@ -1025,7 +1025,7 @@
         }
 
 
-        .pnd-mobile-search > i {
+        .jgws-mobile-search > i {
 
             width: 42px;
 
@@ -1040,7 +1040,7 @@
         }
 
 
-        .pnd-mobile-search input {
+        .jgws-mobile-search input {
 
             flex: 1;
 
@@ -1060,7 +1060,7 @@
         }
 
 
-        .pnd-mobile-link {
+        .jgws-mobile-link {
 
             display: flex;
 
@@ -1089,8 +1089,8 @@
         }
 
 
-        .pnd-mobile-link:hover,
-        .pnd-mobile-link.active {
+        .jgws-mobile-link:hover,
+        .jgws-mobile-link.active {
 
             color: white;
 
@@ -1100,14 +1100,14 @@
         }
 
 
-        .pnd-mobile-services {
+        .jgws-mobile-services {
 
             margin-bottom: 3px;
 
         }
 
 
-        .pnd-mobile-services-title {
+        .jgws-mobile-services-title {
 
             width: 100%;
 
@@ -1140,7 +1140,7 @@
         }
 
 
-        .pnd-mobile-services-title
+        .jgws-mobile-services-title
         span {
 
             display: flex;
@@ -1152,7 +1152,7 @@
         }
 
 
-        .pnd-mobile-service-list {
+        .jgws-mobile-service-list {
 
             display: none;
 
@@ -1162,15 +1162,15 @@
         }
 
 
-        .pnd-mobile-services.open
-        .pnd-mobile-service-list {
+        .jgws-mobile-services.open
+        .jgws-mobile-service-list {
 
             display: block;
 
         }
 
 
-        .pnd-mobile-service-item {
+        .jgws-mobile-service-item {
 
             display: flex;
 
@@ -1189,14 +1189,14 @@
         }
 
 
-        .pnd-mobile-service-item:hover {
+        .jgws-mobile-service-item:hover {
 
             color: white;
 
         }
 
 
-        .pnd-mobile-start {
+        .jgws-mobile-start {
 
             display: flex;
 
@@ -1218,8 +1218,8 @@
 
                 linear-gradient(
                     135deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan)
+                    var(--jgws-blue),
+                    var(--jgws-cyan)
                 );
 
             font-size: 13px;
@@ -1233,7 +1233,7 @@
            HERO
         ========================================================== */
 
-        .pnd-hero {
+        .jgws-hero {
 
             position: relative;
 
@@ -1252,7 +1252,7 @@
         }
 
 
-        .pnd-hero::before {
+        .jgws-hero::before {
 
             content: "";
 
@@ -1279,7 +1279,7 @@
         }
 
 
-        .pnd-hero::after {
+        .jgws-hero::after {
 
             content: "";
 
@@ -1306,7 +1306,7 @@
         }
 
 
-        .pnd-hero-content {
+        .jgws-hero-content {
 
             position: relative;
 
@@ -1315,7 +1315,7 @@
         }
 
 
-        .pnd-eyebrow {
+        .jgws-eyebrow {
 
             display: inline-flex;
 
@@ -1338,7 +1338,7 @@
         }
 
 
-        .pnd-eyebrow::before {
+        .jgws-eyebrow::before {
 
             content: "";
 
@@ -1349,14 +1349,14 @@
             background:
                 linear-gradient(
                     90deg,
-                    var(--pnd-cyan),
-                    var(--pnd-blue)
+                    var(--jgws-cyan),
+                    var(--jgws-blue)
                 );
 
         }
 
 
-        .pnd-hero h1 {
+        .jgws-hero h1 {
 
             max-width: 760px;
 
@@ -1377,7 +1377,7 @@
         }
 
 
-        .pnd-gradient-text {
+        .jgws-gradient-text {
 
             background:
 
@@ -1399,7 +1399,7 @@
         }
 
 
-        .pnd-hero-copy {
+        .jgws-hero-copy {
 
             max-width: 650px;
 
@@ -1415,7 +1415,7 @@
         }
 
 
-        .pnd-hero-actions {
+        .jgws-hero-actions {
 
             display: flex;
 
@@ -1428,7 +1428,7 @@
         }
 
 
-        .pnd-btn {
+        .jgws-btn {
 
             min-height: 52px;
 
@@ -1460,7 +1460,7 @@
         }
 
 
-        .pnd-btn-primary {
+        .jgws-btn-primary {
 
             color: white;
 
@@ -1468,8 +1468,8 @@
 
                 linear-gradient(
                     135deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan)
+                    var(--jgws-blue),
+                    var(--jgws-cyan)
                 );
 
             box-shadow:
@@ -1479,7 +1479,7 @@
         }
 
 
-        .pnd-btn-primary:hover {
+        .jgws-btn-primary:hover {
 
             color: white;
 
@@ -1493,7 +1493,7 @@
         }
 
 
-        .pnd-btn-secondary {
+        .jgws-btn-secondary {
 
             color:
                 #e2e8f0;
@@ -1511,7 +1511,7 @@
         }
 
 
-        .pnd-btn-secondary:hover {
+        .jgws-btn-secondary:hover {
 
             color: white;
 
@@ -1531,7 +1531,7 @@
            HERO CONTACT VISUAL
         ========================================================== */
 
-        .pnd-contact-visual {
+        .jgws-contact-visual {
 
             position: relative;
 
@@ -1548,7 +1548,7 @@
         }
 
 
-        .pnd-contact-glow {
+        .jgws-contact-glow {
 
             position: absolute;
 
@@ -1600,7 +1600,7 @@
         }
 
 
-        .pnd-contact-orbit {
+        .jgws-contact-orbit {
 
             position: absolute;
 
@@ -1624,8 +1624,8 @@
         }
 
 
-        .pnd-contact-orbit::before,
-        .pnd-contact-orbit::after {
+        .jgws-contact-orbit::before,
+        .jgws-contact-orbit::after {
 
             content: "";
 
@@ -1638,7 +1638,7 @@
             border-radius: 50%;
 
             background:
-                var(--pnd-cyan);
+                var(--jgws-cyan);
 
             box-shadow:
                 0 0 20px
@@ -1647,7 +1647,7 @@
         }
 
 
-        .pnd-contact-orbit::before {
+        .jgws-contact-orbit::before {
 
             top: -5px;
 
@@ -1656,14 +1656,14 @@
         }
 
 
-        .pnd-contact-orbit::after {
+        .jgws-contact-orbit::after {
 
             right: 25px;
 
             bottom: 25px;
 
             background:
-                var(--pnd-violet);
+                var(--jgws-violet);
 
             box-shadow:
                 0 0 20px
@@ -1693,7 +1693,7 @@
         }
 
 
-        .pnd-contact-card {
+        .jgws-contact-card {
 
             position: relative;
 
@@ -1777,7 +1777,7 @@
         }
 
 
-        .pnd-contact-icon {
+        .jgws-contact-icon {
 
             position: relative;
 
@@ -1819,7 +1819,7 @@
         }
 
 
-        .pnd-contact-icon::before {
+        .jgws-contact-icon::before {
 
             content: "";
 
@@ -1863,7 +1863,7 @@
         }
 
 
-        .pnd-contact-icon i {
+        .jgws-contact-icon i {
 
             font-size: 58px;
 
@@ -1895,7 +1895,7 @@
         }
 
 
-        .pnd-contact-card h3 {
+        .jgws-contact-card h3 {
 
             color: white;
 
@@ -1908,7 +1908,7 @@
         }
 
 
-        .pnd-contact-card p {
+        .jgws-contact-card p {
 
             max-width: 230px;
 
@@ -1924,7 +1924,7 @@
         }
 
 
-        .pnd-floating-icon {
+        .jgws-floating-icon {
 
             position: absolute;
 
@@ -1963,7 +1963,7 @@
         }
 
 
-        .pnd-float-phone {
+        .jgws-float-phone {
 
             left: 3%;
 
@@ -1978,7 +1978,7 @@
         }
 
 
-        .pnd-float-mail {
+        .jgws-float-mail {
 
             right: 4%;
 
@@ -1993,7 +1993,7 @@
         }
 
 
-        .pnd-float-whatsapp {
+        .jgws-float-whatsapp {
 
             left: 12%;
 
@@ -2026,7 +2026,7 @@
            SECTION
         ========================================================== */
 
-        .pnd-section {
+        .jgws-section {
 
             position: relative;
 
@@ -2036,7 +2036,7 @@
         }
 
 
-        .pnd-section-header {
+        .jgws-section-header {
 
             max-width: 760px;
 
@@ -2048,7 +2048,7 @@
         }
 
 
-        .pnd-label {
+        .jgws-label {
 
             margin-bottom: 13px;
 
@@ -2065,7 +2065,7 @@
         }
 
 
-        .pnd-section-header h2 {
+        .jgws-section-header h2 {
 
             color: white;
 
@@ -2084,7 +2084,7 @@
         }
 
 
-        .pnd-section-header p {
+        .jgws-section-header p {
 
             color:
                 #94a3b8;
@@ -2100,7 +2100,7 @@
            CONTACT CARDS
         ========================================================== */
 
-        .pnd-contact-grid {
+        .jgws-contact-grid {
 
             display: grid;
 
@@ -2112,7 +2112,7 @@
         }
 
 
-        .pnd-info-card {
+        .jgws-info-card {
 
             position: relative;
 
@@ -2144,7 +2144,7 @@
         }
 
 
-        .pnd-info-card::before {
+        .jgws-info-card::before {
 
             content: "";
 
@@ -2163,9 +2163,9 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    var(--pnd-blue),
-                    var(--pnd-cyan),
-                    var(--pnd-violet),
+                    var(--jgws-blue),
+                    var(--jgws-cyan),
+                    var(--jgws-violet),
                     transparent
                 );
 
@@ -2175,14 +2175,14 @@
         }
 
 
-        .pnd-info-card:hover::before {
+        .jgws-info-card:hover::before {
 
             left: 100%;
 
         }
 
 
-        .pnd-info-card:hover {
+        .jgws-info-card:hover {
 
             transform:
                 translateY(-7px);
@@ -2197,7 +2197,7 @@
         }
 
 
-        .pnd-info-icon {
+        .jgws-info-icon {
 
             width: 48px;
 
@@ -2228,7 +2228,7 @@
         }
 
 
-        .pnd-info-card h3 {
+        .jgws-info-card h3 {
 
             color: white;
 
@@ -2241,7 +2241,7 @@
         }
 
 
-        .pnd-info-card p {
+        .jgws-info-card p {
 
             color:
                 #94a3b8;
@@ -2255,7 +2255,7 @@
         }
 
 
-        .pnd-info-card a {
+        .jgws-info-card a {
 
             color:
                 #67e8f9;
@@ -2271,7 +2271,7 @@
            FORM SECTION
         ========================================================== */
 
-        .pnd-form-wrap {
+        .jgws-form-wrap {
 
             display: grid;
 
@@ -2285,8 +2285,8 @@
         }
 
 
-        .pnd-form-intro,
-        .pnd-form-card {
+        .jgws-form-intro,
+        .jgws-form-card {
 
             border:
                 1px solid
@@ -2309,7 +2309,7 @@
         }
 
 
-        .pnd-form-intro {
+        .jgws-form-intro {
 
             position: relative;
 
@@ -2320,7 +2320,7 @@
         }
 
 
-        .pnd-form-intro::after {
+        .jgws-form-intro::after {
 
             content: "";
 
@@ -2345,7 +2345,7 @@
         }
 
 
-        .pnd-form-intro h3 {
+        .jgws-form-intro h3 {
 
             color: white;
 
@@ -2360,7 +2360,7 @@
         }
 
 
-        .pnd-form-intro > p {
+        .jgws-form-intro > p {
 
             color:
                 #94a3b8;
@@ -2374,7 +2374,7 @@
         }
 
 
-        .pnd-check {
+        .jgws-check {
 
             display: flex;
 
@@ -2394,7 +2394,7 @@
         }
 
 
-        .pnd-check i {
+        .jgws-check i {
 
             flex:
                 0 0 auto;
@@ -2407,14 +2407,14 @@
         }
 
 
-        .pnd-form-card {
+        .jgws-form-card {
 
             padding: 35px;
 
         }
 
 
-        .pnd-form-card h3 {
+        .jgws-form-card h3 {
 
             color: white;
 
@@ -2427,14 +2427,14 @@
         }
 
 
-        .pnd-form-group {
+        .jgws-form-group {
 
             margin-bottom: 17px;
 
         }
 
 
-        .pnd-form-group label {
+        .jgws-form-group label {
 
             display: block;
 
@@ -2450,7 +2450,7 @@
         }
 
 
-        .pnd-form-control {
+        .jgws-form-control {
 
             width: 100%;
 
@@ -2482,7 +2482,7 @@
         }
 
 
-        textarea.pnd-form-control {
+        textarea.jgws-form-control {
 
             min-height: 125px;
 
@@ -2491,7 +2491,7 @@
         }
 
 
-        .pnd-form-control::placeholder {
+        .jgws-form-control::placeholder {
 
             color:
                 #64748b;
@@ -2499,7 +2499,7 @@
         }
 
 
-        .pnd-form-control:focus {
+        .jgws-form-control:focus {
 
             border-color:
                 rgba(6,182,212,.48);
@@ -2514,7 +2514,7 @@
         }
 
 
-        .pnd-submit {
+        .jgws-submit {
 
             width: 100%;
 
@@ -2530,8 +2530,8 @@
 
                 linear-gradient(
                     135deg,
-                    var(--pnd-blue),
-                    var(--pnd-cyan)
+                    var(--jgws-blue),
+                    var(--jgws-cyan)
                 );
 
             font-size: 12px;
@@ -2551,7 +2551,7 @@
         }
 
 
-        .pnd-submit:hover {
+        .jgws-submit:hover {
 
             transform:
                 translateY(-2px);
@@ -2567,7 +2567,7 @@
            CTA
         ========================================================== */
 
-        .pnd-final-cta {
+        .jgws-final-cta {
 
             position: relative;
 
@@ -2607,7 +2607,7 @@
         }
 
 
-        .pnd-final-cta h2 {
+        .jgws-final-cta h2 {
 
             max-width: 800px;
 
@@ -2629,7 +2629,7 @@
         }
 
 
-        .pnd-final-cta p {
+        .jgws-final-cta p {
 
             max-width: 620px;
 
@@ -2650,7 +2650,7 @@
            FOOTER
         ========================================================== */
 
-        .pnd-footer {
+        .jgws-footer {
 
             padding:
                 70px 0 25px;
@@ -2665,7 +2665,7 @@
         }
 
 
-        .pnd-footer-grid {
+        .jgws-footer-grid {
 
             display: grid;
 
@@ -2679,7 +2679,7 @@
         }
 
 
-        .pnd-footer-logo img {
+        .jgws-footer-logo img {
 
             width: 190px;
 
@@ -2692,7 +2692,7 @@
         }
 
 
-        .pnd-footer-brand p {
+        .jgws-footer-brand p {
 
             max-width: 330px;
 
@@ -2706,7 +2706,7 @@
         }
 
 
-        .pnd-footer h4 {
+        .jgws-footer h4 {
 
             color: white;
 
@@ -2724,7 +2724,7 @@
         }
 
 
-        .pnd-footer a {
+        .jgws-footer a {
 
             display: block;
 
@@ -2744,7 +2744,7 @@
         }
 
 
-        .pnd-footer a:hover {
+        .jgws-footer a:hover {
 
             color:
                 #67e8f9;
@@ -2755,7 +2755,7 @@
         }
 
 
-        .pnd-footer-bottom {
+        .jgws-footer-bottom {
 
             padding-top: 22px;
 
@@ -2786,7 +2786,7 @@
            FLOATING WHATSAPP
         ========================================================== */
 
-        .pnd-whatsapp {
+        .jgws-whatsapp {
 
             position: fixed;
 
@@ -2826,7 +2826,7 @@
         }
 
 
-        .pnd-whatsapp:hover {
+        .jgws-whatsapp:hover {
 
             color: white;
 
@@ -2845,7 +2845,7 @@
            SCROLL REVEAL
         ========================================================== */
 
-        .pnd-reveal {
+        .jgws-reveal {
 
             opacity: 0;
 
@@ -2859,7 +2859,7 @@
         }
 
 
-        .pnd-reveal.show {
+        .jgws-reveal.show {
 
             opacity: 1;
 
@@ -2875,20 +2875,20 @@
 
         @media (max-width: 1100px) {
 
-            .pnd-search {
+            .jgws-search {
                 max-width: 300px;
             }
 
-            .pnd-nav-link {
+            .jgws-nav-link {
                 padding: 0 7px;
                 font-size: 12px;
             }
 
-            .pnd-start {
+            .jgws-start {
                 padding: 0 11px;
             }
 
-            .pnd-contact-grid {
+            .jgws-contact-grid {
                 grid-template-columns:
                     repeat(2,1fr);
             }
@@ -2902,51 +2902,51 @@
 
         @media (max-width: 820px) {
 
-            .pnd-header {
-                --pnd-header-height: 68px;
+            .jgws-header {
+                --jgws-header-height: 68px;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 min-height: 68px;
             }
 
-            .pnd-search,
-            .pnd-nav {
+            .jgws-search,
+            .jgws-nav {
                 display: none;
             }
 
-            .pnd-menu-btn {
+            .jgws-menu-btn {
                 display: flex;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 width: 170px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 width: 160px;
             }
 
-            .pnd-hero {
+            .jgws-hero {
                 min-height: auto;
                 padding:
                     80px 0 65px;
             }
 
-            .pnd-hero h1 {
+            .jgws-hero h1 {
                 font-size:
                     clamp(44px,9vw,65px);
             }
 
-            .pnd-contact-visual {
+            .jgws-contact-visual {
                 min-height: 460px;
             }
 
-            .pnd-form-wrap {
+            .jgws-form-wrap {
                 grid-template-columns: 1fr;
             }
 
-            .pnd-footer-grid {
+            .jgws-footer-grid {
                 grid-template-columns:
                     repeat(2,1fr);
             }
@@ -2960,15 +2960,15 @@
 
         @media (max-width: 600px) {
 
-            .pnd-header {
-                --pnd-header-height: 64px;
+            .jgws-header {
+                --jgws-header-height: 64px;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 min-height: 64px;
             }
 
-            .pnd-header
+            .jgws-header
             .container-fluid {
 
                 padding-left:
@@ -2979,26 +2979,26 @@
 
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 width: 155px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 width: 150px;
                 max-height: 48px;
             }
 
-            .pnd-menu-btn {
+            .jgws-menu-btn {
                 width: 42px;
                 height: 42px;
             }
 
-            .pnd-hero {
+            .jgws-hero {
                 padding:
                     65px 0 45px;
             }
 
-            .pnd-hero h1 {
+            .jgws-hero h1 {
                 font-size:
                     clamp(40px,12vw,56px);
 
@@ -3006,90 +3006,90 @@
                     -2.5px;
             }
 
-            .pnd-hero-copy {
+            .jgws-hero-copy {
                 font-size: 14px;
             }
 
-            .pnd-hero-actions {
+            .jgws-hero-actions {
                 flex-direction: column;
                 align-items: stretch;
             }
 
-            .pnd-btn {
+            .jgws-btn {
                 width: 100%;
             }
 
-            .pnd-contact-visual {
+            .jgws-contact-visual {
                 min-height: 420px;
                 margin-top: 20px;
             }
 
-            .pnd-contact-card {
+            .jgws-contact-card {
                 width: 270px;
                 height: 320px;
             }
 
-            .pnd-contact-orbit {
+            .jgws-contact-orbit {
                 width: 330px;
                 height: 330px;
             }
 
-            .pnd-contact-glow {
+            .jgws-contact-glow {
                 width: 270px;
                 height: 270px;
             }
 
-            .pnd-floating-icon {
+            .jgws-floating-icon {
                 width: 44px;
                 height: 44px;
                 font-size: 18px;
             }
 
-            .pnd-float-phone {
+            .jgws-float-phone {
                 left: 1%;
             }
 
-            .pnd-float-mail {
+            .jgws-float-mail {
                 right: 1%;
             }
 
-            .pnd-float-whatsapp {
+            .jgws-float-whatsapp {
                 left: 5%;
             }
 
-            .pnd-section {
+            .jgws-section {
                 padding:
                     70px 0;
             }
 
-            .pnd-section-header {
+            .jgws-section-header {
                 margin-bottom: 35px;
             }
 
-            .pnd-section-header h2 {
+            .jgws-section-header h2 {
                 font-size: 32px;
             }
 
-            .pnd-contact-grid {
+            .jgws-contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .pnd-form-intro,
-            .pnd-form-card {
+            .jgws-form-intro,
+            .jgws-form-card {
                 padding: 25px;
             }
 
-            .pnd-footer-grid {
+            .jgws-footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .pnd-footer-bottom {
+            .jgws-footer-bottom {
                 display: block;
                 line-height: 1.9;
             }
 
-            .pnd-whatsapp {
+            .jgws-whatsapp {
                 width: 52px;
                 height: 52px;
                 right: 17px;
@@ -3105,53 +3105,53 @@
 
         @media (max-width: 380px) {
 
-            .pnd-logo {
+            .jgws-logo {
                 width: 140px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 width: 138px;
             }
 
-            .pnd-hero h1 {
+            .jgws-hero h1 {
                 font-size: 38px;
             }
 
-            .pnd-contact-card {
+            .jgws-contact-card {
                 width: 245px;
                 height: 300px;
             }
 
-            .pnd-contact-icon {
+            .jgws-contact-icon {
                 width: 105px;
                 height: 105px;
             }
 
-            .pnd-contact-icon i {
+            .jgws-contact-icon i {
                 font-size: 48px;
             }
 
-            .pnd-contact-orbit {
+            .jgws-contact-orbit {
                 width: 290px;
                 height: 290px;
             }
 
-            .pnd-floating-icon {
+            .jgws-floating-icon {
                 width: 39px;
                 height: 39px;
                 font-size: 16px;
             }
 
-            .pnd-float-phone {
+            .jgws-float-phone {
                 left: -4px;
             }
 
-            .pnd-float-mail {
+            .jgws-float-mail {
                 right: -4px;
             }
 
-            .pnd-form-intro,
-            .pnd-form-card {
+            .jgws-form-intro,
+            .jgws-form-card {
                 padding: 20px;
             }
 
@@ -3178,7 +3178,7 @@
                 scroll-behavior: auto;
             }
 
-            .pnd-reveal {
+            .jgws-reveal {
                 opacity: 1;
                 transform: none;
             }
@@ -3197,7 +3197,7 @@
      TOP LED
 ============================================================== -->
 
-<div class="pnd-top-led"></div>
+<div class="jgws-top-led"></div>
 
 
 <!-- =============================================================
@@ -3205,34 +3205,34 @@
 ============================================================== -->
 
 <header
-    class="pnd-header"
-    id="pndHeader">
+    class="jgws-header"
+    id="jgwsHeader">
 
     <div class="container-fluid px-3 px-lg-4">
 
-        <div class="pnd-header-inner">
+        <div class="jgws-header-inner">
 
 
             <!-- LOGO -->
 
             <a
                 href="index.html"
-                class="pnd-logo"
-                aria-label="Pixel Nest Digital Home">
+                class="jgws-logo"
+                aria-label="JO-GEO Web Studio Home">
 
                 <img
-                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    alt="Pixel Nest Digital"
-                    class="pnd-logo-img">
+                    src="img/Glossy JG Web Studio Logo-2.png"
+                    alt="JO-GEO Web Studio"
+                    class="jgws-logo-img">
 
             </a>
 
 
             <!-- DESKTOP SEARCH -->
 
-            <div class="pnd-search">
+            <div class="jgws-search">
 
-                <div class="pnd-search-icon">
+                <div class="jgws-search-icon">
 
                     <i class="bi bi-search"></i>
 
@@ -3258,13 +3258,13 @@
             <!-- DESKTOP NAVIGATION -->
 
             <nav
-                class="pnd-nav"
+                class="jgws-nav"
                 aria-label="Main navigation">
 
 
                 <a
                     href="index.html"
-                    class="pnd-nav-link">
+                    class="jgws-nav-link">
 
                     Home
 
@@ -3273,29 +3273,29 @@
 
                 <!-- SERVICES -->
 
-                <div class="pnd-dropdown">
+                <div class="jgws-dropdown">
 
                     <a
                         href=""
-                        class="pnd-nav-link">
+                        class="jgws-nav-link">
 
                         Services
 
                         <i
-                            class="bi bi-chevron-down pnd-chevron">
+                            class="bi bi-chevron-down jgws-chevron">
                         </i>
 
                     </a>
 
 
-                    <div class="pnd-dropdown-menu">
+                    <div class="jgws-dropdown-menu">
 
-                         <a href="website_development.html" class="pnd-dropdown-item">
+                         <a href="website_development.html" class="jgws-dropdown-item">
                             <i class="bi bi-code-slash"></i>
                             <span>Website Development</span>
                         </a>
 
-                        <a href="web_applications.html" class="pnd-dropdown-item">
+                        <a href="web_applications.html" class="jgws-dropdown-item">
                             <i class="bi bi-window-stack"></i>
                             <span>Web Applications</span>
                         </a>
@@ -3303,22 +3303,22 @@
                         
                         
 
-                        <a href="digital-content.html" class="pnd-dropdown-item">
+                        <a href="digital-content.html" class="jgws-dropdown-item">
                             <i class="bi bi-cloud"></i>
                             <span>Social Media  &amp; Content Creation</span>
                         </a>
 
-                        <a href="logo-brand-design.html" class="pnd-dropdown-item">
+                        <a href="logo-brand-design.html" class="jgws-dropdown-item">
                             <i class="bi bi-palette"></i>
                             <span>Logo &amp; Brand Design</span>
                         </a>
 
-                        <a href="photography.html" class="pnd-dropdown-item">
+                        <a href="photography.html" class="jgws-dropdown-item">
                             <i class="bi bi-camera"></i>
                             <span>Photography</span>
                         </a>
 
-                        <a href="videography.html" class="pnd-dropdown-item">
+                        <a href="videography.html" class="jgws-dropdown-item">
                             <i class="bi bi-camera-video"></i>
                             <span>Videography</span>
                         </a>
@@ -3330,20 +3330,20 @@
 
                 <a
                     href="about.html"
-                    class="pnd-nav-link">
+                    class="jgws-nav-link">
 
                     About
 
                 </a>
 
                 <!-- PORTFOLIO -->
-                <a href="Portfolio.html" class="pnd-nav-link">
+                <a href="Portfolio.html" class="jgws-nav-link">
                     Portfolio
                 </a>
 
 
                 <!-- Team -->
-                <a href="team.html" class="pnd-nav-link">
+                <a href="team.html" class="jgws-nav-link">
                     Team
                 </a>
 
@@ -3354,7 +3354,7 @@
 
                 <a
     href="start-project.html"
-    class="pnd-start">
+    class="jgws-start">
 
     Start a Project
 
@@ -3369,14 +3369,14 @@
 
             <button
                 type="button"
-                class="pnd-menu-btn"
-                id="pndMenuBtn"
+                class="jgws-menu-btn"
+                id="jgwsMenuBtn"
                 aria-label="Open navigation menu"
                 aria-expanded="false">
 
                 <i
                     class="bi bi-list"
-                    id="pndMenuIcon">
+                    id="jgwsMenuIcon">
                 </i>
 
             </button>
@@ -3393,8 +3393,8 @@
 ============================================================== -->
 
 <div
-    class="pnd-mobile-overlay"
-    id="pndMobileOverlay">
+    class="jgws-mobile-overlay"
+    id="jgwsMobileOverlay">
 </div>
 
 
@@ -3403,29 +3403,29 @@
 ============================================================== -->
 
 <aside
-    class="pnd-mobile-menu"
-    id="pndMobileMenu"
+    class="jgws-mobile-menu"
+    id="jgwsMobileMenu"
     aria-hidden="true">
 
 
-    <div class="pnd-mobile-top">
+    <div class="jgws-mobile-top">
 
         <a
             href="index.html"
-            class="pnd-logo">
+            class="jgws-logo">
 
             <img
-                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                alt="Pixel Nest Digital"
-                class="pnd-logo-img">
+                src="img/Glossy JG Web Studio Logo-2.png"
+                alt="JO-GEO Web Studio"
+                class="jgws-logo-img">
 
         </a>
 
 
         <button
             type="button"
-            class="pnd-mobile-close"
-            id="pndMobileClose"
+            class="jgws-mobile-close"
+            id="jgwsMobileClose"
             aria-label="Close navigation menu">
 
             <i class="bi bi-x-lg"></i>
@@ -3437,7 +3437,7 @@
 
     <!-- MOBILE SEARCH -->
 
-    <div class="pnd-mobile-search">
+    <div class="jgws-mobile-search">
 
         <i class="bi bi-search"></i>
 
@@ -3454,7 +3454,7 @@
 
     <a
         href="index.html"
-        class="pnd-mobile-link">
+        class="jgws-mobile-link">
 
         <i class="bi bi-house"></i>
 
@@ -3468,7 +3468,7 @@
 
     <a
         href="about.html"
-        class="pnd-mobile-link">
+        class="jgws-mobile-link">
 
         <i class="bi bi-info-circle"></i>
 
@@ -3481,13 +3481,13 @@
     <!-- SERVICES -->
 
     <div
-        class="pnd-mobile-services"
-        id="pndMobileServices">
+        class="jgws-mobile-services"
+        id="jgwsMobileServices">
 
         <button
             type="button"
-            class="pnd-mobile-services-title"
-            id="pndMobileServicesBtn"
+            class="jgws-mobile-services-title"
+            id="jgwsMobileServicesBtn"
             aria-expanded="false">
 
             <span>
@@ -3503,11 +3503,11 @@
         </button>
 
 
-        <div class="pnd-mobile-service-list">
+        <div class="jgws-mobile-service-list">
 
             <a
                 href="website_development.html"
-                class="pnd-mobile-service-item">
+                class="jgws-mobile-service-item">
 
                 <i class="bi bi-code-slash"></i>
 
@@ -3518,7 +3518,7 @@
 
             <a
                 href="web_applications.html"
-                class="pnd-mobile-service-item">
+                class="jgws-mobile-service-item">
 
                 <i class="bi bi-window-stack"></i>
 
@@ -3540,7 +3540,7 @@
 
             <a
     href="digital-content.html"
-    class="pnd-mobile-service-item">
+    class="jgws-mobile-service-item">
 
     <i class="bi bi-share"></i>
 
@@ -3551,7 +3551,7 @@
 
             <a
                 href="photography.html"
-                class="pnd-mobile-service-item">
+                class="jgws-mobile-service-item">
 
                 <i class="bi bi-camera"></i>
 
@@ -3562,7 +3562,7 @@
 
             <a
                 href="videography.html"
-                class="pnd-mobile-service-item">
+                class="jgws-mobile-service-item">
 
                 <i class="bi bi-camera-reels"></i>
 
@@ -3576,7 +3576,7 @@
 
 <a
     href="team.html"
-    class="pnd-mobile-link">
+    class="jgws-mobile-link">
 
     <i class="bi bi-people"></i>
 
@@ -3587,7 +3587,7 @@
 </a>
 <a
     href="Portfolio.html"
-    class="pnd-mobile-link">
+    class="jgws-mobile-link">
 
     <i class="bi bi-briefcase"></i>
 
@@ -3606,7 +3606,7 @@
 
     <a
     href="start-project.html"
-    class="pnd-mobile-start">
+    class="jgws-mobile-start">
 
     <i class="bi bi-rocket-takeoff"></i>
 
@@ -3621,7 +3621,7 @@
      HERO
 ============================================================== -->
 
-<section class="pnd-hero">
+<section class="jgws-hero">
 
     <div class="container">
 
@@ -3632,9 +3632,9 @@
 
             <div class="col-lg-7">
 
-                <div class="pnd-hero-content">
+                <div class="jgws-hero-content">
 
-                    <div class="pnd-eyebrow">
+                    <div class="jgws-eyebrow">
 
                         LET'S CONNECT
 
@@ -3645,29 +3645,29 @@
 
                         Let's talk about
 
-                        <span class="pnd-gradient-text">
+                        <span class="jgws-gradient-text">
                             your project.
                         </span>
 
                     </h1>
 
 
-                    <p class="pnd-hero-copy">
+                    <p class="jgws-hero-copy">
 
                         Have an idea, business, brand or digital
                         project in mind? Tell us what you are
-                        planning and let's explore how Pixel Nest
+                        planning and let's explore how JO-GEO
                         Digital can turn the idea into a meaningful
                         digital experience.
 
                     </p>
 
 
-                    <div class="pnd-hero-actions">
+                    <div class="jgws-hero-actions">
 
                         <a
                             href="#contact-form"
-                            class="pnd-btn pnd-btn-primary">
+                            class="jgws-btn jgws-btn-primary">
 
                             Discuss Your Project
 
@@ -3680,7 +3680,7 @@
                             href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20project."
                             target="_blank"
                             rel="noopener"
-                            class="pnd-btn pnd-btn-secondary">
+                            class="jgws-btn jgws-btn-secondary">
 
                             <i class="bi bi-whatsapp"></i>
 
@@ -3699,32 +3699,32 @@
 
             <div class="col-lg-5">
 
-                <div class="pnd-contact-visual">
+                <div class="jgws-contact-visual">
 
 
-                    <div class="pnd-contact-glow"></div>
+                    <div class="jgws-contact-glow"></div>
 
 
-                    <div class="pnd-contact-orbit"></div>
+                    <div class="jgws-contact-orbit"></div>
 
 
                     <!-- FLOATING ICONS -->
 
-                    <div class="pnd-floating-icon pnd-float-phone">
+                    <div class="jgws-floating-icon jgws-float-phone">
 
                         <i class="bi bi-telephone"></i>
 
                     </div>
 
 
-                    <div class="pnd-floating-icon pnd-float-mail">
+                    <div class="jgws-floating-icon jgws-float-mail">
 
                         <i class="bi bi-envelope"></i>
 
                     </div>
 
 
-                    <div class="pnd-floating-icon pnd-float-whatsapp">
+                    <div class="jgws-floating-icon jgws-float-whatsapp">
 
                         <i class="bi bi-whatsapp"></i>
 
@@ -3733,9 +3733,9 @@
 
                     <!-- MAIN CONTACT CARD -->
 
-                    <div class="pnd-contact-card">
+                    <div class="jgws-contact-card">
 
-                        <div class="pnd-contact-icon">
+                        <div class="jgws-contact-icon">
 
                             <i class="bi bi-chat-dots"></i>
 
@@ -3772,14 +3772,14 @@
      CONTACT OPTIONS
 ============================================================== -->
 
-<section class="pnd-section pnd-reveal">
+<section class="jgws-section jgws-reveal">
 
     <div class="container">
 
-        <div class="pnd-section-header">
+        <div class="jgws-section-header">
 
-            <div class="pnd-label">
-                CONTACT PIXEL NEST
+            <div class="jgws-label">
+                CONTACT JO-GEO
             </div>
 
             <h2>
@@ -3789,7 +3789,7 @@
             <p>
 
                 Whether you prefer WhatsApp, email, phone or
-                a project enquiry, you can reach Pixel Nest
+                a project enquiry, you can reach JO-GEO
                 Digital through the option that works best for you.
 
             </p>
@@ -3797,14 +3797,14 @@
         </div>
 
 
-        <div class="pnd-contact-grid">
+        <div class="jgws-contact-grid">
 
 
             <!-- WHATSAPP -->
 
-            <div class="pnd-info-card">
+            <div class="jgws-info-card">
 
-                <div class="pnd-info-icon">
+                <div class="jgws-info-icon">
 
                     <i class="bi bi-whatsapp"></i>
 
@@ -3834,9 +3834,9 @@
 
             <!-- PHONE -->
 
-            <div class="pnd-info-card">
+            <div class="jgws-info-card">
 
-                <div class="pnd-info-icon">
+                <div class="jgws-info-icon">
 
                     <i class="bi bi-telephone"></i>
 
@@ -3864,9 +3864,9 @@
 
             <!-- EMAIL -->
 
-            <div class="pnd-info-card">
+            <div class="jgws-info-card">
 
-                <div class="pnd-info-icon">
+                <div class="jgws-info-icon">
 
                     <i class="bi bi-envelope"></i>
 
@@ -3894,9 +3894,9 @@
 
             <!-- LOCATION -->
 
-            <div class="pnd-info-card">
+            <div class="jgws-info-card">
 
-                <div class="pnd-info-icon">
+                <div class="jgws-info-icon">
 
                     <i class="bi bi-geo-alt"></i>
 
@@ -3907,7 +3907,7 @@
                 </h3>
 
                 <p>
-                    Pixel Nest Digital operates from Kerala,
+                    JO-GEO Web Studio operates from Kerala,
                     India and works with digital projects.
                 </p>
 
@@ -3932,19 +3932,19 @@
 ============================================================== -->
 
 <section
-    class="pnd-section pnd-reveal"
+    class="jgws-section jgws-reveal"
     id="contact-form">
 
     <div class="container">
 
-        <div class="pnd-form-wrap">
+        <div class="jgws-form-wrap">
 
 
             <!-- INTRO -->
 
-            <div class="pnd-form-intro">
+            <div class="jgws-form-intro">
 
-                <div class="pnd-label">
+                <div class="jgws-label">
                     PROJECT ENQUIRY
                 </div>
 
@@ -3965,7 +3965,7 @@
                 </p>
 
 
-                <div class="pnd-check">
+                <div class="jgws-check">
 
                     <i class="bi bi-check-circle-fill"></i>
 
@@ -3976,7 +3976,7 @@
                 </div>
 
 
-                <div class="pnd-check">
+                <div class="jgws-check">
 
                     <i class="bi bi-check-circle-fill"></i>
 
@@ -3987,7 +3987,7 @@
                 </div>
 
 
-                <div class="pnd-check">
+                <div class="jgws-check">
 
                     <i class="bi bi-check-circle-fill"></i>
 
@@ -3998,7 +3998,7 @@
                 </div>
 
 
-                <div class="pnd-check">
+                <div class="jgws-check">
 
                     <i class="bi bi-check-circle-fill"></i>
 
@@ -4009,7 +4009,7 @@
                 </div>
 
 
-                <div class="pnd-check">
+                <div class="jgws-check">
 
                     <i class="bi bi-check-circle-fill"></i>
 
@@ -4024,14 +4024,14 @@
 
             <!-- FORM -->
 
-            <div class="pnd-form-card">
+            <div class="jgws-form-card">
 
                 <h3>
                     Tell us about your project
                 </h3>
 
 
-                <form id="pndContactForm">
+                <form id="jgwsContactForm">
 
 
                     <div class="row g-3">
@@ -4039,16 +4039,16 @@
 
                         <div class="col-md-6">
 
-                            <div class="pnd-form-group">
+                            <div class="jgws-form-group">
 
-                                <label for="pndName">
+                                <label for="jgwsName">
                                     Your Name
                                 </label>
 
                                 <input
                                     type="text"
-                                    id="pndName"
-                                    class="pnd-form-control"
+                                    id="jgwsName"
+                                    class="jgws-form-control"
                                     placeholder="Enter your name"
                                     required>
 
@@ -4059,16 +4059,16 @@
 
                         <div class="col-md-6">
 
-                            <div class="pnd-form-group">
+                            <div class="jgws-form-group">
 
-                                <label for="pndPhone">
+                                <label for="jgwsPhone">
                                     Phone / WhatsApp
                                 </label>
 
                                 <input
                                     type="tel"
-                                    id="pndPhone"
-                                    class="pnd-form-control"
+                                    id="jgwsPhone"
+                                    class="jgws-form-control"
                                     placeholder="Your phone number"
                                     required>
 
@@ -4079,16 +4079,16 @@
 
                         <div class="col-12">
 
-                            <div class="pnd-form-group">
+                            <div class="jgws-form-group">
 
-                                <label for="pndEmail">
+                                <label for="jgwsEmail">
                                     Email
                                 </label>
 
                                 <input
                                     type="email"
-                                    id="pndEmail"
-                                    class="pnd-form-control"
+                                    id="jgwsEmail"
+                                    class="jgws-form-control"
                                     placeholder="you@example.com">
 
                             </div>
@@ -4097,13 +4097,13 @@
 
 
                        <div class="col-12">
-    <div class="pnd-form-group" style="background: #1e1b4b; padding: 20px; border-radius: 12px; border: 1px solid #312e81;">
-        <label for="pndService" style="color: #c7d2fe; font-weight: 600; margin-bottom: 10px; display: block; font-size: 1.05rem;">
+    <div class="jgws-form-group" style="background: #1e1b4b; padding: 20px; border-radius: 12px; border: 1px solid #312e81;">
+        <label for="jgwsService" style="color: #c7d2fe; font-weight: 600; margin-bottom: 10px; display: block; font-size: 1.05rem;">
             <i class="bi bi-stars" style="color: #818cf8; margin-right: 6px;"></i> What creative or digital goal are we tackling?
         </label>
         <select
-            id="pndService"
-            class="pnd-form-control"
+            id="jgwsService"
+            class="jgws-form-control"
             style="width: 100%; padding: 12px 16px; background: #0f172a; color: #f8fafc; border: 1px solid #475569; border-radius: 8px; font-size: 1rem; outline: none; transition: all 0.3s ease;">
             
             <option value="" style="color: #94a3b8;">
@@ -4156,15 +4156,15 @@
 
                         <div class="col-12">
 
-                            <div class="pnd-form-group">
+                            <div class="jgws-form-group">
 
-                                <label for="pndMessage">
+                                <label for="jgwsMessage">
                                     Project Details
                                 </label>
 
                                 <textarea
-                                    id="pndMessage"
-                                    class="pnd-form-control"
+                                    id="jgwsMessage"
+                                    class="jgws-form-control"
                                     placeholder="Tell us about your idea, business, requirements or project..."
                                     required>
                                 </textarea>
@@ -4178,7 +4178,7 @@
 
                             <button
                                 type="submit"
-                                class="pnd-submit">
+                                class="jgws-submit">
 
                                 <i class="bi bi-whatsapp"></i>
 
@@ -4205,13 +4205,13 @@
      FINAL CTA
 ============================================================== -->
 
-<section class="pnd-section pnd-reveal">
+<section class="jgws-section jgws-reveal">
 
     <div class="container">
 
-        <div class="pnd-final-cta">
+        <div class="jgws-final-cta">
 
-            <div class="pnd-label">
+            <div class="jgws-label">
                 READY WHEN YOU ARE
             </div>
 
@@ -4226,7 +4226,7 @@
 
                 From a simple website to a complete digital
                 platform, creative project or business brand,
-                start the conversation with Pixel Nest Digital.
+                start the conversation with JO-GEO Web Studio.
 
             </p>
 
@@ -4235,7 +4235,7 @@
                 href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20start%20a%20project."
                 target="_blank"
                 rel="noopener"
-                class="pnd-btn pnd-btn-primary">
+                class="jgws-btn jgws-btn-primary">
 
                 Start a Project
 
@@ -4254,24 +4254,24 @@
      FOOTER
 ============================================================== -->
 
-<footer class="pnd-footer">
+<footer class="jgws-footer">
 
     <div class="container">
 
-        <div class="pnd-footer-grid">
+        <div class="jgws-footer-grid">
 
 
             <!-- BRAND -->
 
-            <div class="pnd-footer-brand">
+            <div class="jgws-footer-brand">
 
                 <a
                     href="index.html"
-                    class="pnd-footer-logo">
+                    class="jgws-footer-logo">
 
                     <img
-                        src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                        alt="Pixel Nest Digital">
+                        src="img/Glossy JG Web Studio Logo-2.png"
+                        alt="JO-GEO Web Studio">
 
                 </a>
 
@@ -4374,14 +4374,14 @@
 
         <!-- FOOTER BOTTOM -->
 
-        <div class="pnd-footer-bottom">
+        <div class="jgws-footer-bottom">
 
             <span>
 
                 ©
-                <span id="pndYear"></span>
+                <span id="jgwsYear"></span>
 
-                Pixel Nest Digital.
+                JO-GEO Web Studio.
                 All rights reserved.
 
             </span>
@@ -4406,7 +4406,7 @@
 
 <a
     href="https://wa.me/917736755820?text=Hello%20Pixel%20Nest%20Digital%2C%20I%20would%20like%20to%20discuss%20a%20project."
-    class="pnd-whatsapp"
+    class="jgws-whatsapp"
     target="_blank"
     rel="noopener"
     aria-label="Chat on WhatsApp">
@@ -4427,7 +4427,7 @@
        YEAR
     ========================================================== */
 
-    document.getElementById("pndYear").textContent =
+    document.getElementById("jgwsYear").textContent =
         new Date().getFullYear();
 
 
@@ -4436,8 +4436,8 @@
        HEADER SCROLL EFFECT
     ========================================================== */
 
-    const pndHeader =
-        document.getElementById("pndHeader");
+    const jgwsHeader =
+        document.getElementById("jgwsHeader");
 
 
     window.addEventListener(
@@ -4448,7 +4448,7 @@
                 window.scrollY > 25
             ) {
 
-                pndHeader.classList.add(
+                jgwsHeader.classList.add(
                     "scrolled"
                 );
 
@@ -4456,7 +4456,7 @@
 
             else {
 
-                pndHeader.classList.remove(
+                jgwsHeader.classList.remove(
                     "scrolled"
                 );
 
@@ -4472,60 +4472,60 @@
        MOBILE MENU
     ========================================================== */
 
-    const pndMenuBtn =
+    const jgwsMenuBtn =
         document.getElementById(
-            "pndMenuBtn"
+            "jgwsMenuBtn"
         );
 
 
-    const pndMobileMenu =
+    const jgwsMobileMenu =
         document.getElementById(
-            "pndMobileMenu"
+            "jgwsMobileMenu"
         );
 
 
-    const pndMobileOverlay =
+    const jgwsMobileOverlay =
         document.getElementById(
-            "pndMobileOverlay"
+            "jgwsMobileOverlay"
         );
 
 
-    const pndMobileClose =
+    const jgwsMobileClose =
         document.getElementById(
-            "pndMobileClose"
+            "jgwsMobileClose"
         );
 
 
-    const pndMenuIcon =
+    const jgwsMenuIcon =
         document.getElementById(
-            "pndMenuIcon"
+            "jgwsMenuIcon"
         );
 
 
     function openMobileMenu() {
 
-        pndMobileMenu.classList.add(
+        jgwsMobileMenu.classList.add(
             "active"
         );
 
-        pndMobileOverlay.classList.add(
+        jgwsMobileOverlay.classList.add(
             "active"
         );
 
         document.body.style.overflow =
             "hidden";
 
-        pndMenuBtn.setAttribute(
+        jgwsMenuBtn.setAttribute(
             "aria-expanded",
             "true"
         );
 
-        pndMobileMenu.setAttribute(
+        jgwsMobileMenu.setAttribute(
             "aria-hidden",
             "false"
         );
 
-        pndMenuIcon.className =
+        jgwsMenuIcon.className =
             "bi bi-x-lg";
 
     }
@@ -4533,39 +4533,39 @@
 
     function closeMobileMenu() {
 
-        pndMobileMenu.classList.remove(
+        jgwsMobileMenu.classList.remove(
             "active"
         );
 
-        pndMobileOverlay.classList.remove(
+        jgwsMobileOverlay.classList.remove(
             "active"
         );
 
         document.body.style.overflow =
             "";
 
-        pndMenuBtn.setAttribute(
+        jgwsMenuBtn.setAttribute(
             "aria-expanded",
             "false"
         );
 
-        pndMobileMenu.setAttribute(
+        jgwsMobileMenu.setAttribute(
             "aria-hidden",
             "true"
         );
 
-        pndMenuIcon.className =
+        jgwsMenuIcon.className =
             "bi bi-list";
 
     }
 
 
-    pndMenuBtn.addEventListener(
+    jgwsMenuBtn.addEventListener(
         "click",
         function () {
 
             if (
-                pndMobileMenu.classList.contains(
+                jgwsMobileMenu.classList.contains(
                     "active"
                 )
             ) {
@@ -4584,20 +4584,20 @@
     );
 
 
-    pndMobileClose.addEventListener(
+    jgwsMobileClose.addEventListener(
         "click",
         closeMobileMenu
     );
 
 
-    pndMobileOverlay.addEventListener(
+    jgwsMobileOverlay.addEventListener(
         "click",
         closeMobileMenu
     );
 
 
     document.querySelectorAll(
-        ".pnd-mobile-link, .pnd-mobile-service-item, .pnd-mobile-start"
+        ".jgws-mobile-link, .jgws-mobile-service-item, .jgws-mobile-start"
     ).forEach(
         link => {
 
@@ -4617,13 +4617,13 @@
 
     const mobileServices =
         document.getElementById(
-            "pndMobileServices"
+            "jgwsMobileServices"
         );
 
 
     const mobileServicesBtn =
         document.getElementById(
-            "pndMobileServicesBtn"
+            "jgwsMobileServicesBtn"
         );
 
 
@@ -4829,7 +4829,7 @@
         if (
             query.includes("about") ||
             query.includes("company") ||
-            query.includes("pixel nest")
+            query.includes("jo-geo")
         ) {
 
             window.location.href =
@@ -4937,7 +4937,7 @@
 
     const contactForm =
         document.getElementById(
-            "pndContactForm"
+            "jgwsContactForm"
         );
 
 
@@ -4950,37 +4950,37 @@
 
             const name =
                 document.getElementById(
-                    "pndName"
+                    "jgwsName"
                 ).value.trim();
 
 
             const phone =
                 document.getElementById(
-                    "pndPhone"
+                    "jgwsPhone"
                 ).value.trim();
 
 
             const email =
                 document.getElementById(
-                    "pndEmail"
+                    "jgwsEmail"
                 ).value.trim();
 
 
             const service =
                 document.getElementById(
-                    "pndService"
+                    "jgwsService"
                 ).value.trim();
 
 
             const message =
                 document.getElementById(
-                    "pndMessage"
+                    "jgwsMessage"
                 ).value.trim();
 
 
             const whatsappMessage =
 
-                `Hello Pixel Nest Digital,
+                `Hello JO-GEO Web Studio,
 
 I would like to discuss a project.
 
@@ -5018,7 +5018,7 @@ Thank you.`;
 
     const revealItems =
         document.querySelectorAll(
-            ".pnd-reveal"
+            ".jgws-reveal"
         );
 
 

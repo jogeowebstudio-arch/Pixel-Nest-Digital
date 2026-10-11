@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Team | Pixel Nest Digital</title>
+    <title>Our Team | JO-GEO Web Studio</title>
     <meta
         name="description"
-        content="Meet the people behind Pixel Nest Digital — developers, designers, creators and digital thinkers building meaningful digital experiences."
+        content="Meet the people behind JO-GEO Web Studio — developers, designers, creators and digital thinkers building meaningful digital experiences."
     >
 
     <!-- Bootstrap 5.3.3 -->
@@ -33,23 +33,23 @@
            ROOT
         ========================================================= */
         :root {
-            --pnd-space: #07111f;
-            --pnd-space-2: #0b172a;
-            --pnd-space-3: #111c35;
+            --jgws-space: #07111f;
+            --jgws-space-2: #0b172a;
+            --jgws-space-3: #111c35;
 
-            --pnd-blue: #2563eb;
-            --pnd-blue-dark: #1d4ed8;
-            --pnd-cyan: #06b6d4;
-            --pnd-violet: #7c3aed;
+            --jgws-blue: #2563eb;
+            --jgws-blue-dark: #1d4ed8;
+            --jgws-cyan: #06b6d4;
+            --jgws-violet: #7c3aed;
 
-            --pnd-white: #f8fafc;
-            --pnd-text: #e2e8f0;
-            --pnd-muted: #94a3b8;
+            --jgws-white: #f8fafc;
+            --jgws-text: #e2e8f0;
+            --jgws-muted: #94a3b8;
 
-            --pnd-border: rgba(148, 163, 184, .16);
-            --pnd-glass: rgba(255, 255, 255, .055);
+            --jgws-border: rgba(148, 163, 184, .16);
+            --jgws-glass: rgba(255, 255, 255, .055);
 
-            --pnd-header-height: 74px;
+            --jgws-header-height: 74px;
         }
 
         * {
@@ -88,17 +88,17 @@
 
         #founder,
         #team {
-            scroll-margin-top: calc(var(--pnd-header-height) + 15px);
+            scroll-margin-top: calc(var(--jgws-header-height) + 15px);
         }
 
         /* =========================================================
            HEADER
         ========================================================= */
-        .pnd-header {
+        .jgws-header {
             position: sticky;
             top: 0;
             z-index: 9999;
-            min-height: var(--pnd-header-height);
+            min-height: var(--jgws-header-height);
 
             background:
                 linear-gradient(
@@ -113,19 +113,19 @@
             transition: .3s ease;
         }
 
-        .pnd-header.scrolled {
+        .jgws-header.scrolled {
             box-shadow: 0 10px 40px rgba(0,0,0,.32);
         }
 
-        .pnd-header::before,
-        .pnd-header::after {
+        .jgws-header::before,
+        .jgws-header::after {
             content: "";
             position: absolute;
             pointer-events: none;
             filter: blur(80px);
         }
 
-        .pnd-header::before {
+        .jgws-header::before {
             top: -100px;
             left: 15%;
             width: 300px;
@@ -133,7 +133,7 @@
             background: rgba(37,99,235,.18);
         }
 
-        .pnd-header::after {
+        .jgws-header::after {
             top: -80px;
             right: 10%;
             width: 240px;
@@ -141,8 +141,8 @@
             background: rgba(6,182,212,.13);
         }
 
-        .pnd-header-inner {
-            min-height: var(--pnd-header-height);
+        .jgws-header-inner {
+            min-height: var(--jgws-header-height);
             display: flex;
             align-items: center;
             gap: 18px;
@@ -153,7 +153,7 @@
         /* =========================================================
            LOGO
         ========================================================= */
-        .pnd-logo {
+        .jgws-logo {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -162,23 +162,23 @@
             flex-shrink: 0;
         }
 
-        .pnd-logo:hover {
+        .jgws-logo:hover {
             color: #fff;
         }
 
-        .pnd-logo-icon {
+        .jgws-logo-icon {
             width: 42px;
             height: 42px;
             display: grid;
             place-items: center;
             border-radius: 12px;
-            background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-cyan));
+            background: linear-gradient(135deg, var(--jgws-blue), var(--jgws-cyan));
             box-shadow: 0 8px 25px rgba(37,99,235,.35);
             position: relative;
             overflow: hidden;
         }
 
-        .pnd-logo-icon::after {
+        .jgws-logo-icon::after {
             content: "";
             position: absolute;
             width: 20px;
@@ -188,7 +188,7 @@
             transform: rotate(45deg);
         }
 
-        .pnd-logo-icon span {
+        .jgws-logo-icon span {
             position: relative;
             z-index: 2;
             font-size: 13px;
@@ -196,18 +196,18 @@
             letter-spacing: -1px;
         }
 
-        .pnd-logo-name {
+        .jgws-logo-name {
             line-height: 1;
         }
 
-        .pnd-logo-name strong {
+        .jgws-logo-name strong {
             display: block;
             font-size: 17px;
             font-weight: 800;
             letter-spacing: -.5px;
         }
 
-        .pnd-logo-name small {
+        .jgws-logo-name small {
             display: block;
             margin-top: 4px;
             color: #67e8f9;
@@ -219,7 +219,7 @@
         /* =========================================================
            SEARCH
         ========================================================= */
-        .pnd-search {
+        .jgws-search {
             flex: 1;
             height: 46px;
             display: flex;
@@ -231,12 +231,12 @@
             transition: .25s ease;
         }
 
-        .pnd-search:focus-within {
+        .jgws-search:focus-within {
             border-color: rgba(6,182,212,.65);
             box-shadow: 0 0 0 4px rgba(6,182,212,.08);
         }
 
-        .pnd-search-icon {
+        .jgws-search-icon {
             width: 48px;
             display: grid;
             place-items: center;
@@ -244,7 +244,7 @@
             font-size: 17px;
         }
 
-        .pnd-search input {
+        .jgws-search input {
             flex: 1;
             height: 100%;
             border: 0;
@@ -254,30 +254,30 @@
             font-size: 14px;
         }
 
-        .pnd-search input::placeholder {
+        .jgws-search input::placeholder {
             color: #94a3b8;
         }
 
-        .pnd-search button {
+        .jgws-search button {
             height: 100%;
             padding: 0 20px;
             border: 0;
             color: white;
             font-size: 13px;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-violet));
+            background: linear-gradient(135deg, var(--jgws-blue), var(--jgws-violet));
         }
 
         /* =========================================================
            NAV
         ========================================================= */
-        .pnd-nav {
+        .jgws-nav {
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
-        .pnd-nav-link {
+        .jgws-nav-link {
             position: relative;
             display: flex;
             align-items: center;
@@ -291,13 +291,13 @@
             white-space: nowrap;
         }
 
-        .pnd-nav-link:hover,
-        .pnd-nav-link.active {
+        .jgws-nav-link:hover,
+        .jgws-nav-link.active {
             color: white;
             background: rgba(255,255,255,.06);
         }
 
-        .pnd-nav-link.active::after {
+        .jgws-nav-link.active::after {
             content: "";
             position: absolute;
             left: 9px;
@@ -305,17 +305,17 @@
             bottom: 3px;
             height: 2px;
             border-radius: 99px;
-            background: linear-gradient(90deg, var(--pnd-blue), var(--pnd-cyan));
+            background: linear-gradient(90deg, var(--jgws-blue), var(--jgws-cyan));
         }
 
         /* =========================================================
            DROPDOWN
         ========================================================= */
-        .pnd-dropdown {
+        .jgws-dropdown {
             position: relative;
         }
 
-        .pnd-dropdown-menu {
+        .jgws-dropdown-menu {
             position: absolute;
             top: calc(100% + 13px);
             left: 0;
@@ -335,14 +335,14 @@
             transition: .25s ease;
         }
 
-        .pnd-dropdown:hover .pnd-dropdown-menu,
-        .pnd-dropdown:focus-within .pnd-dropdown-menu {
+        .jgws-dropdown:hover .jgws-dropdown-menu,
+        .jgws-dropdown:focus-within .jgws-dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .pnd-dropdown-item {
+        .jgws-dropdown-item {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -353,7 +353,7 @@
             transition: .2s ease;
         }
 
-        .pnd-dropdown-item i {
+        .jgws-dropdown-item i {
             width: 34px;
             height: 34px;
             display: grid;
@@ -363,8 +363,8 @@
             background: rgba(6,182,212,.08);
         }
 
-        .pnd-dropdown-item:hover,
-        .pnd-dropdown-item:focus {
+        .jgws-dropdown-item:hover,
+        .jgws-dropdown-item:focus {
             color: white;
             background: rgba(255,255,255,.06);
         }
@@ -372,14 +372,14 @@
         /* =========================================================
            HEADER BUTTONS
         ========================================================= */
-        .pnd-start {
+        .jgws-start {
             display: inline-flex;
             align-items: center;
             gap: 7px;
             padding: 11px 15px;
             color: white;
             border-radius: 10px;
-            background: linear-gradient(135deg, var(--pnd-blue), var(--pnd-violet));
+            background: linear-gradient(135deg, var(--jgws-blue), var(--jgws-violet));
             box-shadow: 0 8px 25px rgba(37,99,235,.25);
             font-size: 12px;
             font-weight: 800;
@@ -387,13 +387,13 @@
             transition: .25s ease;
         }
 
-        .pnd-start:hover {
+        .jgws-start:hover {
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(37,99,235,.38);
         }
 
-        .pnd-menu-btn {
+        .jgws-menu-btn {
             width: 44px;
             height: 44px;
             display: none;
@@ -406,7 +406,7 @@
             font-size: 21px;
         }
 
-        .pnd-menu-btn:hover {
+        .jgws-menu-btn:hover {
             background: rgba(255,255,255,.1);
         }
 
@@ -570,10 +570,10 @@
             border-radius: 50%;
             background: #22d3ee;
             box-shadow: 0 0 0 5px rgba(34,211,238,.08);
-            animation: pndPulse 1.8s infinite;
+            animation: jgwsPulse 1.8s infinite;
         }
 
-        @keyframes pndPulse {
+        @keyframes jgwsPulse {
             0%,100% {
                 box-shadow: 0 0 0 4px rgba(34,211,238,.08);
             }
@@ -623,8 +623,8 @@
             animation: fadeUp .8s .3s ease both;
         }
 
-        .btn-primary-pnd,
-        .btn-secondary-pnd {
+        .btn-primary-jgws,
+        .btn-secondary-jgws {
             display: inline-flex;
             align-items: center;
             gap: 9px;
@@ -635,25 +635,25 @@
             transition: .25s ease;
         }
 
-        .btn-primary-pnd {
+        .btn-primary-jgws {
             color: white;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
             box-shadow: 0 14px 35px rgba(37,99,235,.28);
         }
 
-        .btn-primary-pnd:hover {
+        .btn-primary-jgws:hover {
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 18px 42px rgba(37,99,235,.38);
         }
 
-        .btn-secondary-pnd {
+        .btn-secondary-jgws {
             color: #e2e8f0;
             background: rgba(255,255,255,.045);
             border: 1px solid rgba(255,255,255,.14);
         }
 
-        .btn-secondary-pnd:hover {
+        .btn-secondary-jgws:hover {
             color: white;
             background: rgba(255,255,255,.08);
             border-color: rgba(103,232,249,.3);
@@ -1524,7 +1524,7 @@
         /* =========================================================
            FOOTER
         ========================================================= */
-        .pnd-footer {
+        .jgws-footer {
             padding: 55px 0 25px;
             color: #94a3b8;
             background: #050b15;
@@ -1651,7 +1651,7 @@
         /* =========================================================
            MOBILE MENU
         ========================================================= */
-        .pnd-mobile-overlay {
+        .jgws-mobile-overlay {
             position: fixed;
             inset: 0;
             z-index: 10000;
@@ -1661,12 +1661,12 @@
             transition: .3s ease;
         }
 
-        .pnd-mobile-overlay.active {
+        .jgws-mobile-overlay.active {
             opacity: 1;
             visibility: visible;
         }
 
-        .pnd-mobile-menu {
+        .jgws-mobile-menu {
             position: fixed;
             top: 0;
             right: 0;
@@ -1687,18 +1687,18 @@
             transition: .35s ease;
         }
 
-        .pnd-mobile-menu.active {
+        .jgws-mobile-menu.active {
             transform: translateX(0);
         }
 
-        .pnd-mobile-top {
+        .jgws-mobile-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 30px;
         }
 
-        .pnd-mobile-close {
+        .jgws-mobile-close {
             width: 42px;
             height: 42px;
             border: 1px solid rgba(255,255,255,.1);
@@ -1708,11 +1708,11 @@
             font-size: 20px;
         }
 
-        .pnd-mobile-close:hover {
+        .jgws-mobile-close:hover {
             background: rgba(255,255,255,.1);
         }
 
-        .pnd-mobile-search {
+        .jgws-mobile-search {
             height: 45px;
             display: flex;
             align-items: center;
@@ -1723,12 +1723,12 @@
             overflow: hidden;
         }
 
-        .pnd-mobile-search i {
+        .jgws-mobile-search i {
             padding-left: 15px;
             color: #64748b;
         }
 
-        .pnd-mobile-search input {
+        .jgws-mobile-search input {
             width: 100%;
             height: 100%;
             padding: 0 12px;
@@ -1738,7 +1738,7 @@
             background: transparent;
         }
 
-        .pnd-mobile-link {
+        .jgws-mobile-link {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -1749,22 +1749,22 @@
             font-weight: 700;
         }
 
-        .pnd-mobile-link:hover,
-        .pnd-mobile-link:focus,
-        .pnd-mobile-link.active {
+        .jgws-mobile-link:hover,
+        .jgws-mobile-link:focus,
+        .jgws-mobile-link.active {
             color: white;
             background: rgba(255,255,255,.06);
         }
 
-        .pnd-mobile-link i {
+        .jgws-mobile-link i {
             color: #67e8f9;
         }
 
-        .pnd-mobile-services {
+        .jgws-mobile-services {
             margin: 5px 0;
         }
 
-        .pnd-mobile-services button {
+        .jgws-mobile-services button {
             width: 100%;
             display: flex;
             align-items: center;
@@ -1778,33 +1778,33 @@
             text-align: left;
         }
 
-        .pnd-mobile-services button:hover {
+        .jgws-mobile-services button:hover {
             color: white;
             background: rgba(255,255,255,.04);
         }
 
-        .pnd-mobile-service-list {
+        .jgws-mobile-service-list {
             display: none;
             padding: 0 10px 8px 38px;
         }
 
-        .pnd-mobile-service-list.active {
+        .jgws-mobile-service-list.active {
             display: block;
         }
 
-        .pnd-mobile-service-list a {
+        .jgws-mobile-service-list a {
             display: block;
             padding: 9px 0;
             color: #94a3b8;
             font-size: 12px;
         }
 
-        .pnd-mobile-service-list a:hover,
-        .pnd-mobile-service-list a:focus {
+        .jgws-mobile-service-list a:hover,
+        .jgws-mobile-service-list a:focus {
             color: #67e8f9;
         }
 
-        .pnd-mobile-actions {
+        .jgws-mobile-actions {
             display: grid;
             gap: 10px;
             margin-top: 25px;
@@ -1814,16 +1814,16 @@
            RESPONSIVE
         ========================================================= */
         @media (max-width: 1200px) {
-            .pnd-logo {
+            .jgws-logo {
                 min-width: 175px;
             }
 
-            .pnd-nav-link {
+            .jgws-nav-link {
                 padding-left: 7px;
                 padding-right: 7px;
             }
 
-            .pnd-start {
+            .jgws-start {
                 padding-left: 12px;
                 padding-right: 12px;
             }
@@ -1834,15 +1834,15 @@
         }
 
         @media (max-width: 1050px) {
-            .pnd-search {
+            .jgws-search {
                 display: none;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 justify-content: space-between;
             }
 
-            .pnd-nav {
+            .jgws-nav {
                 margin-left: auto;
             }
 
@@ -1856,12 +1856,12 @@
         }
 
         @media (max-width: 900px) {
-            .pnd-nav,
-            .pnd-start {
+            .jgws-nav,
+            .jgws-start {
                 display: none;
             }
 
-            .pnd-menu-btn {
+            .jgws-menu-btn {
                 display: flex;
                 margin-left: auto;
             }
@@ -1889,27 +1889,27 @@
 
         @media (max-width: 600px) {
             :root {
-                --pnd-header-height: 68px;
+                --jgws-header-height: 68px;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 min-height: 68px;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 min-width: 0;
             }
 
-            .pnd-logo-icon {
+            .jgws-logo-icon {
                 width: 39px;
                 height: 39px;
             }
 
-            .pnd-logo-name strong {
+            .jgws-logo-name strong {
                 font-size: 15px;
             }
 
-            .pnd-logo-name small {
+            .jgws-logo-name small {
                 font-size: 8px;
             }
 
@@ -1932,8 +1932,8 @@
                 flex-direction: column;
             }
 
-            .btn-primary-pnd,
-            .btn-secondary-pnd {
+            .btn-primary-jgws,
+            .btn-secondary-jgws {
                 width: 100%;
                 justify-content: center;
             }
@@ -2029,11 +2029,11 @@
         }
 
         @media (max-width: 380px) {
-            .pnd-logo-name strong {
+            .jgws-logo-name strong {
                 font-size: 14px;
             }
 
-            .pnd-logo-name small {
+            .jgws-logo-name small {
                 display: none;
             }
 
@@ -2066,10 +2066,10 @@
         }
 
         /* =========================================================
-           PIXEL NEST DIGITAL — IMAGE LOGO
+           JO-GEO WEB STUDIO — IMAGE LOGO
            Matches the current HTML structure
         ========================================================= */
-        .pnd-logo {
+        .jgws-logo {
             display: flex;
             align-items: center;
             flex-shrink: 0;
@@ -2080,11 +2080,11 @@
             transition: .25s ease;
         }
 
-        .pnd-logo:hover {
+        .jgws-logo:hover {
             color: #fff;
         }
 
-        .pnd-logo-img {
+        .jgws-logo-img {
             display: block;
             width: auto;
             height: 52px;
@@ -2094,79 +2094,79 @@
             transition: transform .25s ease, filter .25s ease;
         }
 
-        .pnd-logo:hover .pnd-logo-img {
+        .jgws-logo:hover .jgws-logo-img {
             transform: scale(1.035);
             filter: brightness(1.08);
         }
 
         @media (max-width: 1200px) {
-            .pnd-logo {
+            .jgws-logo {
                 min-width: 200px;
                 height: 55px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 49px;
                 max-width: 205px;
             }
         }
 
         @media (max-width: 1050px) {
-            .pnd-logo {
+            .jgws-logo {
                 min-width: 0;
                 height: 54px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 48px;
                 max-width: 200px;
             }
         }
 
         @media (max-width: 900px) {
-            .pnd-logo {
+            .jgws-logo {
                 min-width: 0;
                 height: 52px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 47px;
                 max-width: 195px;
             }
 
-            .pnd-mobile-top .pnd-logo {
+            .jgws-mobile-top .jgws-logo {
                 height: 50px;
             }
 
-            .pnd-mobile-top .pnd-logo-img {
+            .jgws-mobile-top .jgws-logo-img {
                 height: 46px;
                 max-width: 195px;
             }
         }
 
         @media (max-width: 600px) {
-            .pnd-logo {
+            .jgws-logo {
                 height: 50px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 45px;
                 max-width: 185px;
             }
 
-            .pnd-mobile-top .pnd-logo-img {
+            .jgws-mobile-top .jgws-logo-img {
                 height: 44px;
                 max-width: 185px;
             }
         }
 
         @media (max-width: 380px) {
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 42px;
                 max-width: 175px;
             }
 
-            .pnd-mobile-top .pnd-logo-img {
+            .jgws-mobile-top .jgws-logo-img {
                 height: 41px;
                 max-width: 175px;
             }
@@ -2193,34 +2193,34 @@
             width: 100%;
         }
 
-        .pnd-header .container-fluid {
+        .jgws-header .container-fluid {
             padding-left: clamp(14px, 3.5vw, 55px) !important;
             padding-right: clamp(14px, 3.5vw, 55px) !important;
         }
 
-        .pnd-header-inner {
+        .jgws-header-inner {
             width: 100%;
             min-width: 0;
         }
 
-        .pnd-logo {
+        .jgws-logo {
             min-width: 0;
             width: auto;
             max-width: min(220px, 34vw);
         }
 
-        .pnd-logo-img {
+        .jgws-logo-img {
             width: auto;
             height: 52px;
             max-width: 220px;
             object-fit: contain;
         }
 
-        .pnd-search {
+        .jgws-search {
             min-width: 150px;
         }
 
-        .pnd-nav {
+        .jgws-nav {
             flex-shrink: 0;
         }
 
@@ -2265,53 +2265,53 @@
 
         /* Large laptop / desktop */
         @media (min-width: 1201px) {
-            .pnd-header-inner {
+            .jgws-header-inner {
                 gap: 22px;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 max-width: 230px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 52px;
                 max-width: 220px;
             }
 
             .team-hero {
-                min-height: min(720px, calc(100vh - var(--pnd-header-height)));
+                min-height: min(720px, calc(100vh - var(--jgws-header-height)));
             }
         }
 
         /* Laptop / small desktop */
         @media (max-width: 1200px) and (min-width: 1001px) {
-            .pnd-header-inner {
+            .jgws-header-inner {
                 gap: 12px;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 max-width: 195px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 48px;
                 max-width: 195px;
             }
 
-            .pnd-search {
+            .jgws-search {
                 height: 44px;
             }
 
-            .pnd-nav {
+            .jgws-nav {
                 gap: 2px;
             }
 
-            .pnd-nav-link {
+            .jgws-nav-link {
                 padding: 9px 7px;
                 font-size: 12px;
             }
 
-            .pnd-start {
+            .jgws-start {
                 padding: 10px 11px;
                 font-size: 11px;
             }
@@ -2332,30 +2332,30 @@
         /* Tablet landscape / portrait */
         @media (max-width: 1000px) {
             :root {
-                --pnd-header-height: 70px;
+                --jgws-header-height: 70px;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 min-height: 70px;
             }
 
-            .pnd-search,
-            .pnd-nav,
-            .pnd-start {
+            .jgws-search,
+            .jgws-nav,
+            .jgws-start {
                 display: none;
             }
 
-            .pnd-menu-btn {
+            .jgws-menu-btn {
                 display: flex;
                 flex: 0 0 44px;
                 margin-left: auto;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 max-width: 205px;
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 48px;
                 max-width: 205px;
             }
@@ -2431,41 +2431,41 @@
         /* Tablet / large phones */
         @media (max-width: 767px) {
             :root {
-                --pnd-header-height: 68px;
+                --jgws-header-height: 68px;
             }
 
-            .pnd-header-inner {
+            .jgws-header-inner {
                 min-height: 68px;
             }
 
-            .pnd-header .container-fluid {
+            .jgws-header .container-fluid {
                 padding-left: 15px !important;
                 padding-right: 15px !important;
             }
 
-            .pnd-logo {
+            .jgws-logo {
                 max-width: calc(100vw - 85px);
             }
 
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 45px;
                 max-width: min(190px, calc(100vw - 85px));
             }
 
-            .pnd-mobile-menu {
+            .jgws-mobile-menu {
                 width: min(390px, 94vw);
                 padding: 20px;
             }
 
-            .pnd-mobile-top {
+            .jgws-mobile-top {
                 margin-bottom: 24px;
             }
 
-            .pnd-mobile-top .pnd-logo {
+            .jgws-mobile-top .jgws-logo {
                 max-width: calc(100% - 55px);
             }
 
-            .pnd-mobile-top .pnd-logo-img {
+            .jgws-mobile-top .jgws-logo-img {
                 height: 44px;
                 max-width: 190px;
             }
@@ -2507,8 +2507,8 @@
                 gap: 10px;
             }
 
-            .btn-primary-pnd,
-            .btn-secondary-pnd {
+            .btn-primary-jgws,
+            .btn-secondary-jgws {
                 width: 100%;
                 justify-content: center;
                 min-height: 48px;
@@ -2696,7 +2696,7 @@
                 margin-bottom: 25px;
             }
 
-            .pnd-footer {
+            .jgws-footer {
                 padding: 45px 0 22px;
             }
 
@@ -2721,23 +2721,23 @@
 
         /* Small mobile */
         @media (max-width: 480px) {
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 43px;
                 max-width: min(180px, calc(100vw - 82px));
             }
 
-            .pnd-menu-btn {
+            .jgws-menu-btn {
                 width: 42px;
                 height: 42px;
                 font-size: 20px;
             }
 
-            .pnd-mobile-menu {
+            .jgws-mobile-menu {
                 width: 94vw;
                 padding: 18px;
             }
 
-            .pnd-mobile-link {
+            .jgws-mobile-link {
                 padding: 13px 10px;
                 font-size: 13px;
             }
@@ -2817,7 +2817,7 @@
 
         /* Very small phones */
         @media (max-width: 360px) {
-            .pnd-logo-img {
+            .jgws-logo-img {
                 height: 40px;
                 max-width: calc(100vw - 78px);
             }
@@ -2868,8 +2868,8 @@
         /* Touch devices: remove hover movement that can feel jumpy */
         @media (hover: none) and (pointer: coarse) {
             .member-card:hover,
-            .btn-primary-pnd:hover,
-            .pnd-start:hover,
+            .btn-primary-jgws:hover,
+            .jgws-start:hover,
             .founder-social:hover {
                 transform: none;
             }
@@ -2883,31 +2883,31 @@
 <!-- =========================================================
      HEADER
 ========================================================= -->
-<header class="pnd-header" id="siteHeader">
+<header class="jgws-header" id="siteHeader">
 
     <div class="container-fluid px-3 px-lg-4">
 
-        <div class="pnd-header-inner">
+        <div class="jgws-header-inner">
 
       <a
                 href="index.html"
-                class="pnd-logo"
-                aria-label="Pixel Nest Digital Home">
+                class="jgws-logo"
+                aria-label="JO-GEO Web Studio Home">
 
                 <img
-                    src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                    alt="Pixel Nest Digital"
-                    class="pnd-logo-img">
+                    src="img/Glossy JG Web Studio Logo-2.png"
+                    alt="JO-GEO Web Studio"
+                    class="jgws-logo-img">
 
             </a>
 
 
             <form
-                class="pnd-search"
+                class="jgws-search"
                 id="desktopSearch"
                 role="search"
             >
-                <div class="pnd-search-icon">
+                <div class="jgws-search-icon">
                     <i class="bi bi-search"></i>
                 </div>
 
@@ -2925,54 +2925,54 @@
             </form>
 
             <nav
-                class="pnd-nav"
+                class="jgws-nav"
                 aria-label="Primary navigation"
             >
 
     <!-- HOME -->
-    <a href="index.html" class="pnd-nav-link active">
+    <a href="index.html" class="jgws-nav-link active">
         Home
     </a>
 
     <!-- SERVICES -->
-    <div class="pnd-dropdown">
+    <div class="jgws-dropdown">
         <a
             href="javascript:void(0)"
-            class="pnd-nav-link"
+            class="jgws-nav-link"
             aria-haspopup="true"
         >
             Services
             <i class="bi bi-chevron-down" style="font-size:9px;"></i>
         </a>
 
-        <div class="pnd-dropdown-menu">
+        <div class="jgws-dropdown-menu">
 
-            <a href="website_development.html" class="pnd-dropdown-item">
+            <a href="website_development.html" class="jgws-dropdown-item">
                 <i class="bi bi-code-slash"></i>
                 <span>Website Development</span>
             </a>
 
-            <a href="web_applications.html" class="pnd-dropdown-item">
+            <a href="web_applications.html" class="jgws-dropdown-item">
                 <i class="bi bi-window-stack"></i>
                 <span>Web Applications</span>
             </a>
 
-            <a href="digital-content.html" class="pnd-dropdown-item">
+            <a href="digital-content.html" class="jgws-dropdown-item">
                 <i class="bi bi-cloud"></i>
                 <span>Social Media &amp; Content Creation</span>
             </a>
 
-            <a href="logo-brand-design.html" class="pnd-dropdown-item">
+            <a href="logo-brand-design.html" class="jgws-dropdown-item">
                 <i class="bi bi-palette"></i>
                 <span>Logo &amp; Brand Design</span>
             </a>
 
-            <a href="photography.html" class="pnd-dropdown-item">
+            <a href="photography.html" class="jgws-dropdown-item">
                 <i class="bi bi-camera"></i>
                 <span>Photography</span>
             </a>
 
-            <a href="videography.html" class="pnd-dropdown-item">
+            <a href="videography.html" class="jgws-dropdown-item">
                 <i class="bi bi-camera-video"></i>
                 <span>Videography</span>
             </a>
@@ -2981,21 +2981,21 @@
     </div>
 
     <!-- ABOUT -->
-    <a href="about.html" class="pnd-nav-link">
+    <a href="about.html" class="jgws-nav-link">
         About
     </a>
 
    
 
     <!-- PORTFOLIO -->
-    <a href="portfolio.html" class="pnd-nav-link">
+    <a href="portfolio.html" class="jgws-nav-link">
         Portfolio
     </a>
 
     <!-- CONTACT -->
     <a
         href="contact.html"
-        class="pnd-nav-link"
+        class="jgws-nav-link"
     >
         Contact
     </a>
@@ -3004,14 +3004,14 @@
 
             <a
                 href="start-project.html"
-                class="pnd-start"
+                class="jgws-start"
             >
                 Start a Project
                 <i class="bi bi-arrow-up-right"></i>
             </a>
 
             <button
-                class="pnd-menu-btn"
+                class="jgws-menu-btn"
                 id="menuOpen"
                 type="button"
                 aria-label="Open menu"
@@ -3029,33 +3029,33 @@
      MOBILE MENU
 ========================================================= -->
 <div
-    class="pnd-mobile-overlay"
+    class="jgws-mobile-overlay"
     id="mobileOverlay"
     aria-hidden="true"
 ></div>
 
 <aside
-    class="pnd-mobile-menu"
+    class="jgws-mobile-menu"
     id="mobileMenu"
     aria-label="Mobile navigation"
     aria-hidden="true"
 >
 
-    <div class="pnd-mobile-top">
+    <div class="jgws-mobile-top">
 
           <a
             href="index.html"
-            class="pnd-logo">
+            class="jgws-logo">
 
             <img
-                src="img/01_PRIMARY_LOGO_TRANSPARENT.png"
-                alt="Pixel Nest Digital"
-                class="pnd-logo-img">
+                src="img/Glossy JG Web Studio Logo-2.png"
+                alt="JO-GEO Web Studio"
+                class="jgws-logo-img">
 
         </a>
 
         <button
-            class="pnd-mobile-close"
+            class="jgws-mobile-close"
             id="menuClose"
             type="button"
             aria-label="Close menu"
@@ -3066,7 +3066,7 @@
     </div>
 
     <form
-        class="pnd-mobile-search"
+        class="jgws-mobile-search"
         id="mobileSearch"
         role="search"
     >
@@ -3082,7 +3082,7 @@
 
     <a
     href="index.html"
-    class="pnd-mobile-link"
+    class="jgws-mobile-link"
     tabindex="-1"
 >
     <i class="bi bi-house"></i>
@@ -3091,14 +3091,14 @@
 
 <a
     href="about.html"
-    class="pnd-mobile-link"
+    class="jgws-mobile-link"
     tabindex="-1"
 >
     <i class="bi bi-info-circle"></i>
     About
 </a>
 
-<div class="pnd-mobile-services">
+<div class="jgws-mobile-services">
 
     <button
         type="button"
@@ -3118,35 +3118,35 @@
     </button>
 
     <div
-        class="pnd-mobile-service-list"
+        class="jgws-mobile-service-list"
         id="mobileServiceList"
     >
-        <a href="website_development.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="website_development.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-code-slash"></i>
             <span>Website Development</span>
         </a>
 
-        <a href="web_applications.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="web_applications.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-window-stack"></i>
             <span>Web Applications</span>
         </a>
 
-        <a href="digital-content.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="digital-content.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-cloud"></i>
             <span>Social Media &amp; Content Creation</span>
         </a>
 
-        <a href="logo-brand-design.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="logo-brand-design.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-palette"></i>
             <span>Logo &amp; Brand Design</span>
         </a>
 
-        <a href="photography.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="photography.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-camera"></i>
             <span>Photography</span>
         </a>
 
-        <a href="videography.html" tabindex="-1" class="pnd-mobile-service-item">
+        <a href="videography.html" tabindex="-1" class="jgws-mobile-service-item">
             <i class="bi bi-camera-video"></i>
             <span>Videography</span>
         </a>
@@ -3157,7 +3157,7 @@
 
 <a
     href="Portfolio.html"
-    class="pnd-mobile-link"
+    class="jgws-mobile-link"
     tabindex="-1"
 >
     <i class="bi bi-grid-3x3-gap"></i>
@@ -3166,19 +3166,19 @@
 
 <a
     href="contact.html"
-    class="pnd-mobile-link"
+    class="jgws-mobile-link"
     tabindex="-1"
 >
     <i class="bi bi-envelope"></i>
     Contact
 </a>
-    <div class="pnd-mobile-actions">
+    <div class="jgws-mobile-actions">
 
       
 
         <a
             href="start-project.html"
-            class="btn-primary-pnd justify-content-center"
+            class="btn-primary-jgws justify-content-center"
             tabindex="-1"
         >
             Start a Project
@@ -3219,21 +3219,21 @@
                 Meet the minds
                 <br>
                 <span class="gradient-text">
-                    behind Pixel Nest.
+                    behind JO-GEO.
                 </span>
             </h1>
 
             <p>
                 Behind every website, brand, project and digital experience
                 is a group of people who care about the details. Meet the
-                creators, developers and digital thinkers shaping Pixel Nest Digital.
+                creators, developers and digital thinkers shaping JO-GEO Web Studio.
             </p>
 
             <div class="hero-actions">
 
                 <a
                     href="#team"
-                    class="btn-primary-pnd"
+                    class="btn-primary-jgws"
                 >
                     Meet Our Team
                     <i class="bi bi-arrow-down"></i>
@@ -3241,7 +3241,7 @@
 
                 <a
                     href="#founder"
-                    class="btn-secondary-pnd"
+                    class="btn-secondary-jgws"
                 >
                     <i class="bi bi-person-badge"></i>
                     Meet the Founder
@@ -3285,7 +3285,7 @@
 
             <p>
                 A closer look at the person driving the vision, direction
-                and creative energy behind Pixel Nest Digital.
+                and creative energy behind JO-GEO Web Studio.
             </p>
 
         </div>
@@ -3303,7 +3303,7 @@
 
                     <img
                         src="images/founder.jpg"
-                        alt="Roshan George, Founder and CEO of Pixel Nest Digital"
+                        alt="Roshan George, Founder and CEO of JO-GEO Web Studio"
                         loading="eager"
                         decoding="async"
                     >
@@ -3348,11 +3348,11 @@
                 </h3>
 
                 <span class="founder-role">
-                    Founder &amp; CEO · Pixel Nest Digital
+                    Founder &amp; CEO · JO-GEO Web Studio
                 </span>
 
                 <p>
-                    Pixel Nest Digital is built around a simple belief:
+                    JO-GEO Web Studio is built around a simple belief:
                     technology should not only work — it should feel right,
                     look right and create real value.
                 </p>
@@ -3404,7 +3404,7 @@
                     <a
                         href="mailto:hello@pixelnestdigital.com"
                         class="founder-social"
-                        aria-label="Email Pixel Nest Digital"
+                        aria-label="Email JO-GEO Web Studio"
                     >
                         <i class="bi bi-envelope"></i>
                     </a>
@@ -3443,7 +3443,7 @@
             <p>
                 Every person brings a different skill, perspective and
                 creative energy. Together, those differences become the
-                Pixel Nest approach.
+                JO-GEO approach.
             </p>
 
         </div>
@@ -3563,7 +3563,7 @@
 
             <p>
                 Developers, designers, creators and digital thinkers —
-                each person contributes a different part of the Pixel Nest story.
+                each person contributes a different part of the JO-GEO story.
             </p>
 
         </div>
@@ -4107,7 +4107,7 @@
 <!-- =========================================================
      FOOTER
 ========================================================= -->
-<footer class="pnd-footer">
+<footer class="jgws-footer">
 
     <div class="container">
 
@@ -4120,11 +4120,11 @@
                     class="footer-brand"
                 >
                     <div class="footer-brand-icon">
-                        PND
+                        JGWS
                     </div>
 
                     <strong>
-                        Pixel Nest Digital
+                        JO-GEO Web Studio
                     </strong>
                 </a>
 
@@ -4143,7 +4143,7 @@
 
             <span>
                 © <span id="currentYear"></span>
-                Pixel Nest Digital.
+                JO-GEO Web Studio.
                 All rights reserved.
             </span>
 
@@ -4303,7 +4303,7 @@
     ========================================================= */
     document
         .querySelectorAll(
-            ".pnd-mobile-link, .pnd-mobile-service-list a, .pnd-mobile-actions a"
+            ".jgws-mobile-link, .jgws-mobile-service-list a, .jgws-mobile-actions a"
         )
         .forEach(link => {
 
